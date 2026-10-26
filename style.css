@@ -186,6 +186,10 @@ main {
   font-weight: 700;
 }
 
+.detail .service-time {
+  font-weight: 900;
+}
+
 
 /* ==================================
    LINKS
