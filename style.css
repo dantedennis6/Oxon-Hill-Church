@@ -102,7 +102,7 @@ main {
   margin: 0 0 6px;
 }
 
-/* Larger Come Worship With Us */
+/* Come Worship With Us */
 .intro h3 {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 700;
@@ -112,7 +112,7 @@ main {
   margin: 0 0 16px;
 }
 
-/* Larger invitation sentence */
+/* Invitation sentence */
 .intro p {
   font-size: clamp(1.05rem, 2.5vw, 1.4rem);
   margin: 0;
@@ -155,8 +155,28 @@ main {
   font-weight: 400;
 }
 
+/* Bold service times only */
 .detail .service-time {
   font-weight: 700;
+}
+
+
+/* ==================================
+   WEDNESDAY BIBLE STUDY
+================================== */
+
+.wednesday-study {
+  margin-top: 24px;
+}
+
+.wednesday-study p {
+  margin: 8px 0;
+}
+
+.wednesday-study .zoom-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 
@@ -241,3 +261,4 @@ footer p {
   }
 
 }
+
