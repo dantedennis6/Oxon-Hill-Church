@@ -12,9 +12,16 @@
   --navy: #153b72;
   --navy-dark: #0b2850;
   --glow-blue: #4cc9ff;
+
   --white: #ffffff;
   --black: #000000;
+
+  /* WEBSITE BACKGROUND */
   --warm-ivory: #f7f3eb;
+
+  /* NEW NAVIGATION TAB COLOR */
+  --soft-sand: #e9dfcf;
+
   --text: #253449;
   --border: #d8e1ec;
 }
@@ -58,6 +65,7 @@ a:focus-visible {
 .site-header {
   width: 100%;
   background: var(--warm-ivory);
+
   padding: 8px 15px 15px;
 }
 
@@ -73,12 +81,14 @@ a:focus-visible {
 .contact-row {
   display: flex;
   justify-content: flex-end;
+
   margin-bottom: 8px;
   padding-right: 5px;
 }
 
 .contact-button {
   display: inline-block;
+
   padding: 11px 25px;
 
   background: var(--navy);
@@ -120,7 +130,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   NAVIGATION TABS
+   NAVIGATION TABS - SOFT SAND
 ====================================== */
 
 .nav-link {
@@ -133,7 +143,9 @@ a:focus-visible {
   min-height: 56px;
   padding: 12px 20px;
 
-  background: var(--white);
+  /* NEW SOFT SAND BACKGROUND */
+  background: var(--soft-sand);
+
   color: var(--navy);
 
   border: 2px solid var(--navy);
@@ -345,6 +357,7 @@ a:focus-visible {
   flex-direction: column;
   justify-content: center;
 
+  /* WHITE CONTRAST AGAINST IVORY */
   background: var(--white);
 
   border: 5px solid var(--navy);
