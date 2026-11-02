@@ -84,59 +84,88 @@ a:focus-visible {
   font-weight: 700;
 
   transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .contact-button:hover {
   background: var(--navy-dark);
+
+  transform: translateY(-4px) scale(1.06);
+
   box-shadow:
-    0 0 12px rgba(76, 201, 255, 0.5);
+    0 8px 20px rgba(21, 59, 114, 0.3);
 }
 
 /* ======================================
-   NAVIGATION BAR
+   CENTERED NAVIGATION BAR
 ====================================== */
 
 .main-nav {
   display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 
-  gap: 6px;
-  padding-bottom: 15px;
+  gap: 12px;
+  padding: 12px 0 25px;
 }
 
+/* NAVIGATION TABS */
+
 .nav-link {
-  display: flex;
+  position: relative;
+
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 
   min-height: 56px;
-  padding: 12px 19px;
+  padding: 12px 20px;
 
   background: var(--white);
   color: var(--navy);
 
   border: 2px solid var(--navy);
-  border-radius: 5px;
+  border-radius: 7px;
 
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
 
+  cursor: pointer;
+
   transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
+
+/* ======================================
+   HOVER EFFECT - TABS POP OUT
+====================================== */
 
 .nav-link:hover {
-  background: #eaf4ff;
+  background: var(--navy);
+  color: var(--white);
+
+  border-color: var(--glow-blue);
+
+  transform: translateY(-7px) scale(1.08);
+
+  box-shadow:
+    0 10px 22px rgba(21, 59, 114, 0.28),
+    0 0 12px rgba(76, 201, 255, 0.55);
+
+  z-index: 2;
 }
 
-/* ACTIVE TAB - GLOWING OUTLINE */
+/* ======================================
+   ACTIVE TAB - GLOWING OUTLINE
+====================================== */
 
 .nav-link.active,
 .nav-link[aria-current="page"] {
@@ -149,6 +178,18 @@ a:focus-visible {
     0 0 7px var(--glow-blue),
     0 0 16px rgba(76, 201, 255, 0.8),
     0 0 28px rgba(76, 201, 255, 0.45);
+}
+
+/* ACTIVE TAB ALSO POPS OUT ON HOVER */
+
+.nav-link.active:hover,
+.nav-link[aria-current="page"]:hover {
+  transform: translateY(-7px) scale(1.08);
+
+  box-shadow:
+    0 12px 25px rgba(21, 59, 114, 0.35),
+    0 0 15px rgba(76, 201, 255, 0.95),
+    0 0 30px rgba(76, 201, 255, 0.65);
 }
 
 /* ======================================
@@ -362,7 +403,6 @@ a:focus-visible {
   .hero-banner {
     min-height: 330px;
     background-position: center center;
-    border-radius: 0;
   }
 
   .hero-overlay {
@@ -391,6 +431,24 @@ a:focus-visible {
   .invitation-content {
     min-height: 180px;
     padding: 25px;
+  }
+
+}
+
+/* ======================================
+   REDUCED MOTION ACCESSIBILITY
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nav-link,
+  .contact-button {
+    transition: none;
+  }
+
+  .nav-link:hover,
+  .contact-button:hover {
+    transform: none;
   }
 
 }
