@@ -19,7 +19,7 @@
   /* WEBSITE BACKGROUND */
   --warm-ivory: #f7f3eb;
 
-  /* NEW NAVIGATION TAB COLOR */
+  /* NAVIGATION TAB BACKGROUND */
   --soft-sand: #e9dfcf;
 
   --text: #253449;
@@ -143,9 +143,7 @@ a:focus-visible {
   min-height: 56px;
   padding: 12px 20px;
 
-  /* NEW SOFT SAND BACKGROUND */
   background: var(--soft-sand);
-
   color: var(--navy);
 
   border: 2px solid var(--navy);
@@ -287,22 +285,47 @@ a:focus-visible {
 
   text-shadow:
     0 3px 12px rgba(0, 0, 0, 0.75);
+
+  /* NEW: FADE-IN ANIMATION */
+  animation: heroFadeIn 1.5s ease-out both;
 }
 
-/* FIRST LINE - REGULAR WEIGHT */
+/* ======================================
+   FIRST LINE - REGULAR WEIGHT
+====================================== */
 
 .hero-welcome {
   display: block;
   font-weight: 400;
 }
 
-/* SECOND LINE - EXTRA BOLD */
+/* ======================================
+   SECOND LINE - EXTRA BOLD
+====================================== */
 
 .hero-church-name {
   display: block;
   font-weight: 800;
 
   -webkit-text-stroke: 0;
+}
+
+/* ======================================
+   NEW: HERO HEADING FADE-IN ANIMATION
+====================================== */
+
+@keyframes heroFadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
 /* ======================================
@@ -357,7 +380,6 @@ a:focus-visible {
   flex-direction: column;
   justify-content: center;
 
-  /* WHITE CONTRAST AGAINST IVORY */
   background: var(--white);
 
   border: 5px solid var(--navy);
@@ -488,6 +510,11 @@ a:focus-visible {
   .nav-link:hover,
   .contact-button:hover {
     transform: none;
+  }
+
+  /* DISABLE HERO ANIMATION */
+  .hero-banner h1 {
+    animation: none;
   }
 
 }
