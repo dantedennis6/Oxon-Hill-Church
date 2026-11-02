@@ -209,7 +209,6 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
 
-  /* BIBLE PHOTOGRAPH */
   background-image: url("./hero-bible.webp");
   background-size: cover;
   background-position: center center;
@@ -220,8 +219,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   TRANSPARENT NAVY OVERLAY
-   INCREASED FROM 60% TO 70%
+   NAVY OVERLAY - 70% OPACITY
 ====================================== */
 
 .hero-banner::before {
@@ -229,12 +227,6 @@ a:focus-visible {
 
   position: absolute;
   inset: 0;
-
-  /*
-    0.70 = 70% navy opacity.
-    The Bible image becomes more subdued,
-    while the white text remains unaffected.
-  */
 
   background: rgba(11, 31, 59, 0.70);
 
@@ -260,13 +252,15 @@ a:focus-visible {
   text-align: center;
 }
 
-/* HERO HEADING */
+/* ======================================
+   HERO HEADING - MONTSERRAT
+====================================== */
 
 .hero-banner h1 {
   margin: 0;
   color: var(--white);
 
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(2.1rem, 4.5vw, 3.6rem);
   line-height: 1.35;
 
@@ -274,20 +268,20 @@ a:focus-visible {
     0 3px 12px rgba(0, 0, 0, 0.75);
 }
 
-/* WELCOME TO OXON HILL - LIGHTER */
+/* FIRST LINE - REGULAR WEIGHT */
 
 .hero-welcome {
   display: block;
   font-weight: 400;
 }
 
-/* CHURCH OF CHRIST - EXTRA BOLD */
+/* SECOND LINE - EXTRA BOLD */
 
 .hero-church-name {
   display: block;
-  font-weight: 900;
+  font-weight: 800;
 
-  -webkit-text-stroke: 1px var(--white);
+  -webkit-text-stroke: 0;
 }
 
 /* ======================================
@@ -303,7 +297,6 @@ a:focus-visible {
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
 
-  /* NO GAP BETWEEN IMAGE AND TEXT */
   gap: 0;
 }
 
@@ -327,7 +320,6 @@ a:focus-visible {
 
   border: 14px solid var(--navy);
 
-  /* ROUNDED LEFT CORNERS ONLY */
   border-radius: 8px 0 0 8px;
 
   box-shadow: none;
@@ -347,11 +339,9 @@ a:focus-visible {
 
   background: var(--white);
 
-  /* CONNECT TO THE IMAGE BORDER */
   border: 14px solid var(--navy);
   border-left: 0;
 
-  /* ROUNDED RIGHT CORNERS ONLY */
   border-radius: 0 8px 8px 0;
 }
 
@@ -434,7 +424,7 @@ a:focus-visible {
     font-size: 2rem;
   }
 
-  /* STACK IMAGE AND TEXT WHILE CONNECTED */
+  /* CONNECTED MOBILE INVITATION */
 
   .invitation-section {
     grid-template-columns: 1fr;
