@@ -34,9 +34,7 @@ body {
   margin: 0;
   padding: 0;
 
-  /* WARM IVORY WEBSITE BACKGROUND */
   background: var(--warm-ivory);
-
   color: var(--text);
 
   font-family: "Lato", Arial, sans-serif;
@@ -58,10 +56,7 @@ a:focus-visible {
 
 .site-header {
   width: 100%;
-
-  /* MATCHES THE WEBSITE BACKGROUND */
   background: var(--warm-ivory);
-
   padding: 8px 15px 15px;
 }
 
@@ -224,6 +219,9 @@ a:focus-visible {
   background-position: center center;
   background-repeat: no-repeat;
 
+  /* NEW: 3px NAVY OUTLINE */
+  border: 3px solid var(--navy);
+
   border-radius: 0;
   overflow: hidden;
 }
@@ -328,9 +326,7 @@ a:focus-visible {
 
   object-fit: cover;
 
-  /* THIN NAVY BORDER */
   border: 5px solid var(--navy);
-
   border-radius: 8px 0 0 8px;
 
   box-shadow: none;
@@ -348,7 +344,6 @@ a:focus-visible {
   flex-direction: column;
   justify-content: center;
 
-  /* WHITE CONTRAST AGAINST WARM IVORY */
   background: var(--white);
 
   border: 5px solid var(--navy);
