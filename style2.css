@@ -585,8 +585,6 @@ a:focus-visible {
   text-align: center;
 }
 
-/* LOCATION HEADING */
-
 .location-heading {
   margin: 0 0 15px;
 
@@ -596,8 +594,6 @@ a:focus-visible {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 800;
 }
-
-/* CHURCH ADDRESS */
 
 .location-address {
   margin: 0 0 25px;
@@ -609,9 +605,7 @@ a:focus-visible {
   line-height: 1.7;
 }
 
-/* ======================================
-   GOOGLE MAP
-====================================== */
+/* GOOGLE MAP */
 
 .map-container {
   width: 100%;
@@ -636,9 +630,7 @@ a:focus-visible {
   border: 0;
 }
 
-/* ======================================
-   GET DIRECTIONS BUTTON
-====================================== */
+/* DIRECTIONS BUTTON */
 
 .directions-container {
   display: flex;
@@ -738,6 +730,170 @@ a:focus-visible {
 }
 
 /* ======================================
+   FOOTER
+====================================== */
+
+.site-footer {
+  width: 100%;
+
+  background: var(--navy);
+  color: var(--white);
+
+  padding: 55px 25px 20px;
+}
+
+.footer-container {
+  max-width: 1150px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 40px;
+}
+
+/* FOOTER LEFT */
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-church-name {
+  margin: 0 0 22px;
+
+  color: var(--white);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+.footer-church-name strong {
+  font-weight: 800;
+}
+
+/* CONTACT INFORMATION */
+
+.footer-contact p {
+  margin: 0 0 12px;
+
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.footer-contact-label {
+  display: inline-block;
+  min-width: 75px;
+
+  font-weight: 700;
+}
+
+.footer-contact a {
+  color: var(--white);
+
+  transition:
+    color 0.25s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--glow-blue);
+  text-decoration: underline;
+}
+
+/* ======================================
+   FOOTER RIGHT
+====================================== */
+
+.footer-right {
+  min-width: 200px;
+  text-align: right;
+}
+
+.footer-right h3 {
+  margin: 0 0 20px;
+
+  color: var(--white);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* FOOTER SOCIAL ICONS */
+
+.footer-social-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 60px;
+  height: 60px;
+
+  color: var(--white);
+
+  border-radius: 10px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.footer-social-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.footer-facebook {
+  background: #1877f2;
+}
+
+.footer-youtube {
+  background: #ff0033;
+}
+
+.footer-social-icon:hover {
+  transform: translateY(-6px) scale(1.08);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================
+   COPYRIGHT
+====================================== */
+
+.footer-bottom {
+  max-width: 1150px;
+
+  margin: 40px auto 0;
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.3);
+
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 0.9rem;
+}
+
+/* ======================================
    TABLET RESPONSIVENESS
 ====================================== */
 
@@ -777,6 +933,10 @@ a:focus-visible {
 
   .livestream-panel {
     padding: 25px 15px;
+  }
+
+  .footer-container {
+    gap: 25px;
   }
 
 }
@@ -927,6 +1087,40 @@ a:focus-visible {
     font-size: 1.2rem;
   }
 
+  /* FOOTER MOBILE */
+
+  .site-footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 35px;
+  }
+
+  .footer-church-name {
+    font-size: 1.5rem;
+  }
+
+  .footer-contact p {
+    overflow-wrap: anywhere;
+  }
+
+  .footer-right {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .footer-social-links {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    margin-top: 35px;
+  }
+
 }
 
 /* ======================================
@@ -940,7 +1134,9 @@ a:focus-visible {
   .day-card,
   .social-link,
   .directions-button,
-  .office-hours-box {
+  .office-hours-box,
+  .footer-social-icon,
+  .footer-contact a {
     transition: none;
   }
 
@@ -949,7 +1145,8 @@ a:focus-visible {
   .day-card:hover,
   .social-link:hover,
   .directions-button:hover,
-  .office-hours-box:hover {
+  .office-hours-box:hover,
+  .footer-social-icon:hover {
     transform: none;
   }
 
