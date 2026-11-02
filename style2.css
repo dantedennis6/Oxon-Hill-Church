@@ -353,7 +353,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   WORSHIP TIMES AND LIVESTREAM SECTION
+   WORSHIP TIMES AND LIVESTREAMS
 ====================================== */
 
 .schedule-section {
@@ -364,17 +364,13 @@ a:focus-visible {
 
 .schedule-layout {
   display: grid;
-
-  /* SCHEDULE LEFT / LIVESTREAM RIGHT */
   grid-template-columns: 1.3fr 1fr;
 
   align-items: start;
   gap: 35px;
 }
 
-/* ======================================
-   SECTION HEADINGS
-====================================== */
+/* SECTION HEADING */
 
 .section-heading {
   margin: 0 0 25px;
@@ -409,8 +405,6 @@ a:focus-visible {
     border-color 0.3s ease;
 }
 
-/* POP-OUT HOVER EFFECT */
-
 .day-card:hover {
   transform: translateY(-7px) scale(1.025);
 
@@ -420,8 +414,6 @@ a:focus-visible {
     0 12px 26px rgba(21, 59, 114, 0.24),
     0 0 14px rgba(76, 201, 255, 0.35);
 }
-
-/* DAY NAME */
 
 .day-card h3 {
   margin: 0;
@@ -436,8 +428,6 @@ a:focus-visible {
 
   text-align: center;
 }
-
-/* DAY DETAILS */
 
 .day-card-content {
   padding: 20px 22px;
@@ -456,7 +446,8 @@ a:focus-visible {
   color: var(--text);
   font-size: 1rem;
 
-  border-bottom: 1px solid rgba(21, 59, 114, 0.2);
+  border-bottom:
+    1px solid rgba(21, 59, 114, 0.2);
 }
 
 .day-card-content p:last-child {
@@ -479,8 +470,6 @@ a:focus-visible {
   font-size: 0.85rem;
   line-height: 1.5;
 }
-
-/* WEDNESDAY ZOOM NOTE */
 
 .day-card-content .schedule-note {
   display: block;
@@ -530,9 +519,7 @@ a:focus-visible {
   font-size: 1rem;
 }
 
-/* ======================================
-   SOCIAL MEDIA LINKS
-====================================== */
+/* SOCIAL LINKS */
 
 .social-links {
   display: flex;
@@ -571,25 +558,183 @@ a:focus-visible {
   height: 38px;
 }
 
-/* FACEBOOK */
-
 .facebook-link {
   background: #1877f2;
 }
 
-/* YOUTUBE */
-
 .youtube-link {
   background: #ff0033;
 }
-
-/* SOCIAL BUTTON HOVER */
 
 .social-link:hover {
   transform: translateY(-6px) scale(1.06);
 
   box-shadow:
     0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+/* ======================================
+   OUR LOCATION SECTION
+====================================== */
+
+.location-section {
+  max-width: 1150px;
+  margin: 0 auto 90px;
+  padding: 0 25px;
+
+  text-align: center;
+}
+
+/* LOCATION HEADING */
+
+.location-heading {
+  margin: 0 0 15px;
+
+  color: var(--navy);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+}
+
+/* CHURCH ADDRESS */
+
+.location-address {
+  margin: 0 0 25px;
+
+  color: var(--text);
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+/* ======================================
+   GOOGLE MAP
+====================================== */
+
+.map-container {
+  width: 100%;
+
+  border: 5px solid var(--navy);
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  background: var(--soft-sand);
+
+  box-shadow:
+    0 8px 25px rgba(21, 59, 114, 0.15);
+}
+
+.map-container iframe {
+  display: block;
+
+  width: 100%;
+  height: 420px;
+
+  border: 0;
+}
+
+/* ======================================
+   GET DIRECTIONS BUTTON
+====================================== */
+
+.directions-container {
+  display: flex;
+  justify-content: center;
+
+  margin: 25px 0 35px;
+}
+
+.directions-button {
+  display: inline-block;
+
+  padding: 14px 35px;
+
+  background: var(--navy);
+  color: var(--white);
+
+  border: 3px solid var(--navy);
+  border-radius: 8px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.directions-button:hover {
+  background: var(--navy-dark);
+
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow:
+    0 10px 22px rgba(21, 59, 114, 0.3);
+}
+
+/* ======================================
+   OFFICE HOURS
+====================================== */
+
+.office-hours-box {
+  max-width: 650px;
+  margin: 0 auto;
+
+  padding: 30px 25px;
+
+  background: var(--soft-sand);
+
+  border: 3px solid var(--navy);
+  border-radius: 10px;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.office-hours-box:hover {
+  transform: translateY(-6px) scale(1.02);
+
+  border-color: var(--glow-blue);
+
+  box-shadow:
+    0 12px 25px rgba(21, 59, 114, 0.2),
+    0 0 12px rgba(76, 201, 255, 0.3);
+}
+
+.office-hours-box h3 {
+  margin: 0 0 15px;
+
+  color: var(--navy);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.office-days {
+  margin: 0 0 8px;
+
+  color: var(--text);
+
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.office-time {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 /* ======================================
@@ -679,7 +824,7 @@ a:focus-visible {
     font-size: 2rem;
   }
 
-  /* MOBILE INVITATION SECTION */
+  /* INVITATION */
 
   .invitation-section {
     grid-template-columns: 1fr;
@@ -706,7 +851,7 @@ a:focus-visible {
     border-radius: 0 0 8px 8px;
   }
 
-  /* MOBILE SCHEDULE SECTION */
+  /* WORSHIP TIMES */
 
   .schedule-section {
     padding: 0 15px;
@@ -732,6 +877,8 @@ a:focus-visible {
     white-space: normal;
   }
 
+  /* LIVESTREAM */
+
   .livestream-panel {
     padding: 30px 20px;
   }
@@ -745,6 +892,41 @@ a:focus-visible {
     padding: 15px;
   }
 
+  /* LOCATION */
+
+  .location-section {
+    padding: 0 15px;
+    margin-bottom: 60px;
+  }
+
+  .location-heading {
+    font-size: 1.8rem;
+  }
+
+  .location-address {
+    font-size: 1rem;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  .office-hours-box {
+    padding: 25px 15px;
+  }
+
+  .office-hours-box h3 {
+    font-size: 1.5rem;
+  }
+
+  .office-days {
+    font-size: 1.1rem;
+  }
+
+  .office-time {
+    font-size: 1.2rem;
+  }
+
 }
 
 /* ======================================
@@ -756,14 +938,18 @@ a:focus-visible {
   .nav-link,
   .contact-button,
   .day-card,
-  .social-link {
+  .social-link,
+  .directions-button,
+  .office-hours-box {
     transition: none;
   }
 
   .nav-link:hover,
   .contact-button:hover,
   .day-card:hover,
-  .social-link:hover {
+  .social-link:hover,
+  .directions-button:hover,
+  .office-hours-box:hover {
     transform: none;
   }
 
