@@ -219,7 +219,10 @@ a:focus-visible {
   overflow: hidden;
 }
 
-/* SEMI-TRANSPARENT NAVY OVERLAY */
+/* ======================================
+   TRANSPARENT NAVY OVERLAY
+   INCREASED FROM 60% TO 70%
+====================================== */
 
 .hero-banner::before {
   content: "";
@@ -227,12 +230,20 @@ a:focus-visible {
   position: absolute;
   inset: 0;
 
-  background: rgba(11, 31, 59, 0.60);
+  /*
+    0.70 = 70% navy opacity.
+    The Bible image becomes more subdued,
+    while the white text remains unaffected.
+  */
+
+  background: rgba(11, 31, 59, 0.70);
 
   z-index: 1;
 }
 
-/* HERO TEXT CONTAINER */
+/* ======================================
+   HERO TEXT CONTAINER
+====================================== */
 
 .hero-overlay {
   position: relative;
