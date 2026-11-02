@@ -16,10 +16,7 @@
   --white: #ffffff;
   --black: #000000;
 
-  /* WEBSITE BACKGROUND */
   --warm-ivory: #f7f3eb;
-
-  /* NAVIGATION TAB BACKGROUND */
   --soft-sand: #e9dfcf;
 
   --text: #253449;
@@ -65,7 +62,6 @@ a:focus-visible {
 .site-header {
   width: 100%;
   background: var(--warm-ivory);
-
   padding: 8px 15px 15px;
 }
 
@@ -75,20 +71,18 @@ a:focus-visible {
 }
 
 /* ======================================
-   CONTACT US - TOP RIGHT CORNER
+   CONTACT US
 ====================================== */
 
 .contact-row {
   display: flex;
   justify-content: flex-end;
-
   margin-bottom: 8px;
   padding-right: 5px;
 }
 
 .contact-button {
   display: inline-block;
-
   padding: 11px 25px;
 
   background: var(--navy);
@@ -108,7 +102,6 @@ a:focus-visible {
 
 .contact-button:hover {
   background: var(--navy-dark);
-
   transform: translateY(-4px) scale(1.06);
 
   box-shadow:
@@ -116,7 +109,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   CENTERED NAVIGATION BAR
+   NAVIGATION
 ====================================== */
 
 .main-nav {
@@ -128,10 +121,6 @@ a:focus-visible {
   gap: 12px;
   padding: 12px 0 25px;
 }
-
-/* ======================================
-   NAVIGATION TABS - SOFT SAND
-====================================== */
 
 .nav-link {
   position: relative;
@@ -152,7 +141,6 @@ a:focus-visible {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
-
   cursor: pointer;
 
   transition:
@@ -163,14 +151,9 @@ a:focus-visible {
     border-color 0.25s ease;
 }
 
-/* ======================================
-   HOVER EFFECT - TABS POP OUT
-====================================== */
-
 .nav-link:hover {
   background: var(--navy);
   color: var(--white);
-
   border-color: var(--glow-blue);
 
   transform: translateY(-7px) scale(1.08);
@@ -182,9 +165,7 @@ a:focus-visible {
   z-index: 2;
 }
 
-/* ======================================
-   ACTIVE TAB - GLOWING OUTLINE
-====================================== */
+/* ACTIVE NAVIGATION TAB */
 
 .nav-link.active,
 .nav-link[aria-current="page"] {
@@ -199,8 +180,6 @@ a:focus-visible {
     0 0 28px rgba(76, 201, 255, 0.45);
 }
 
-/* ACTIVE TAB ALSO POPS OUT ON HOVER */
-
 .nav-link.active:hover,
 .nav-link[aria-current="page"]:hover {
   transform: translateY(-7px) scale(1.08);
@@ -212,7 +191,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   FULL-WIDTH BIBLE HERO BANNER
+   BIBLE HERO BANNER
 ====================================== */
 
 .hero-banner {
@@ -230,16 +209,13 @@ a:focus-visible {
   background-position: center center;
   background-repeat: no-repeat;
 
-  /* 3px SOLID BLACK BORDER */
   border: 3px solid var(--black);
-
   border-radius: 0;
+
   overflow: hidden;
 }
 
-/* ======================================
-   NAVY OVERLAY - 70% OPACITY
-====================================== */
+/* 70% NAVY OVERLAY */
 
 .hero-banner::before {
   content: "";
@@ -251,10 +227,6 @@ a:focus-visible {
 
   z-index: 1;
 }
-
-/* ======================================
-   HERO TEXT CONTAINER
-====================================== */
 
 .hero-overlay {
   position: relative;
@@ -271,9 +243,7 @@ a:focus-visible {
   text-align: center;
 }
 
-/* ======================================
-   HERO HEADING - MONTSERRAT
-====================================== */
+/* HERO HEADING */
 
 .hero-banner h1 {
   margin: 0;
@@ -286,36 +256,23 @@ a:focus-visible {
   text-shadow:
     0 3px 12px rgba(0, 0, 0, 0.75);
 
-  /* NEW: FADE-IN ANIMATION */
   animation: heroFadeIn 1.5s ease-out both;
 }
-
-/* ======================================
-   FIRST LINE - REGULAR WEIGHT
-====================================== */
 
 .hero-welcome {
   display: block;
   font-weight: 400;
 }
 
-/* ======================================
-   SECOND LINE - EXTRA BOLD
-====================================== */
-
 .hero-church-name {
   display: block;
   font-weight: 800;
-
   -webkit-text-stroke: 0;
 }
 
-/* ======================================
-   NEW: HERO HEADING FADE-IN ANIMATION
-====================================== */
+/* HERO FADE-IN ANIMATION */
 
 @keyframes heroFadeIn {
-
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -325,11 +282,10 @@ a:focus-visible {
     opacity: 1;
     transform: translateY(0);
   }
-
 }
 
 /* ======================================
-   CONNECTED INVITATION SECTION
+   INVITATION SECTION
 ====================================== */
 
 .invitation-section {
@@ -344,9 +300,7 @@ a:focus-visible {
   gap: 0;
 }
 
-/* ======================================
-   LEFT SIDE - CHURCH PHOTOGRAPH
-====================================== */
+/* CHURCH PHOTOGRAPH */
 
 .church-image-container {
   width: 100%;
@@ -368,9 +322,7 @@ a:focus-visible {
   box-shadow: none;
 }
 
-/* ======================================
-   RIGHT SIDE - INVITING STATEMENT
-====================================== */
+/* INVITING STATEMENT */
 
 .invitation-content {
   min-height: 280px;
@@ -401,6 +353,246 @@ a:focus-visible {
 }
 
 /* ======================================
+   WORSHIP TIMES AND LIVESTREAM SECTION
+====================================== */
+
+.schedule-section {
+  max-width: 1150px;
+  margin: 0 auto 80px;
+  padding: 0 25px;
+}
+
+.schedule-layout {
+  display: grid;
+
+  /* SCHEDULE LEFT / LIVESTREAM RIGHT */
+  grid-template-columns: 1.3fr 1fr;
+
+  align-items: start;
+  gap: 35px;
+}
+
+/* ======================================
+   SECTION HEADINGS
+====================================== */
+
+.section-heading {
+  margin: 0 0 25px;
+
+  color: var(--navy);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ======================================
+   DAY CARDS
+====================================== */
+
+.day-card {
+  margin-bottom: 20px;
+
+  background: var(--soft-sand);
+
+  border: 3px solid var(--navy);
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* POP-OUT HOVER EFFECT */
+
+.day-card:hover {
+  transform: translateY(-7px) scale(1.025);
+
+  border-color: var(--glow-blue);
+
+  box-shadow:
+    0 12px 26px rgba(21, 59, 114, 0.24),
+    0 0 14px rgba(76, 201, 255, 0.35);
+}
+
+/* DAY NAME */
+
+.day-card h3 {
+  margin: 0;
+  padding: 13px 20px;
+
+  background: var(--navy);
+  color: var(--white);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+/* DAY DETAILS */
+
+.day-card-content {
+  padding: 20px 22px;
+}
+
+.day-card-content p {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  gap: 15px;
+
+  margin: 0;
+  padding: 11px 0;
+
+  color: var(--text);
+  font-size: 1rem;
+
+  border-bottom: 1px solid rgba(21, 59, 114, 0.2);
+}
+
+.day-card-content p:last-child {
+  border-bottom: none;
+}
+
+.day-card-content strong {
+  flex-shrink: 0;
+
+  color: var(--navy);
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.day-card-content small {
+  display: block;
+  margin-top: 4px;
+
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* WEDNESDAY ZOOM NOTE */
+
+.day-card-content .schedule-note {
+  display: block;
+
+  font-size: 0.9rem;
+  font-style: italic;
+
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ======================================
+   WATCH OUR LIVES
+====================================== */
+
+.livestream-column {
+  padding-top: 0;
+}
+
+.livestream-panel {
+  padding: 35px 25px;
+
+  background: var(--white);
+
+  border: 3px solid var(--navy);
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+.livestream-panel h2 {
+  margin: 0 0 15px;
+
+  color: var(--navy);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+
+  line-height: 1.3;
+}
+
+.livestream-panel p {
+  margin: 0 0 25px;
+
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* ======================================
+   SOCIAL MEDIA LINKS
+====================================== */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.social-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 125px;
+  padding: 17px 20px;
+
+  color: var(--white);
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-link svg {
+  width: 38px;
+  height: 38px;
+}
+
+/* FACEBOOK */
+
+.facebook-link {
+  background: #1877f2;
+}
+
+/* YOUTUBE */
+
+.youtube-link {
+  background: #ff0033;
+}
+
+/* SOCIAL BUTTON HOVER */
+
+.social-link:hover {
+  transform: translateY(-6px) scale(1.06);
+
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+/* ======================================
    TABLET RESPONSIVENESS
 ====================================== */
 
@@ -424,6 +616,24 @@ a:focus-visible {
     padding: 20px;
   }
 
+  .schedule-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .day-card-content {
+    padding: 15px;
+  }
+
+  .day-card-content p {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .livestream-panel {
+    padding: 25px 15px;
+  }
+
 }
 
 /* ======================================
@@ -444,12 +654,14 @@ a:focus-visible {
   .main-nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
     gap: 8px;
   }
 
   .nav-link {
     min-height: 52px;
     padding: 10px 8px;
+
     font-size: 0.85rem;
   }
 
@@ -467,7 +679,7 @@ a:focus-visible {
     font-size: 2rem;
   }
 
-  /* CONNECTED MOBILE INVITATION */
+  /* MOBILE INVITATION SECTION */
 
   .invitation-section {
     grid-template-columns: 1fr;
@@ -494,6 +706,45 @@ a:focus-visible {
     border-radius: 0 0 8px 8px;
   }
 
+  /* MOBILE SCHEDULE SECTION */
+
+  .schedule-section {
+    padding: 0 15px;
+    margin-bottom: 50px;
+  }
+
+  .schedule-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+
+  .day-card-content p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .day-card-content strong {
+    white-space: normal;
+  }
+
+  .livestream-panel {
+    padding: 30px 20px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-link {
+    min-width: 115px;
+    padding: 15px;
+  }
+
 }
 
 /* ======================================
@@ -503,16 +754,19 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
 
   .nav-link,
-  .contact-button {
+  .contact-button,
+  .day-card,
+  .social-link {
     transition: none;
   }
 
   .nav-link:hover,
-  .contact-button:hover {
+  .contact-button:hover,
+  .day-card:hover,
+  .social-link:hover {
     transform: none;
   }
 
-  /* DISABLE HERO ANIMATION */
   .hero-banner h1 {
     animation: none;
   }
