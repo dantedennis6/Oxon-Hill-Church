@@ -318,7 +318,8 @@ a:focus-visible {
 
   object-fit: cover;
 
-  border: 14px solid var(--navy);
+  /* REDUCED BORDER: 14px TO 5px */
+  border: 5px solid var(--navy);
 
   border-radius: 8px 0 0 8px;
 
@@ -339,7 +340,8 @@ a:focus-visible {
 
   background: var(--white);
 
-  border: 14px solid var(--navy);
+  /* REDUCED BORDER: 14px TO 5px */
+  border: 5px solid var(--navy);
   border-left: 0;
 
   border-radius: 0 8px 8px 0;
@@ -445,7 +447,8 @@ a:focus-visible {
     min-height: 180px;
     padding: 25px;
 
-    border: 14px solid var(--navy);
+    /* 5px BORDER ON MOBILE */
+    border: 5px solid var(--navy);
     border-top: 0;
 
     border-radius: 0 0 8px 8px;
