@@ -25,7 +25,7 @@
     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet">
 
-  <!-- DEVELOPMENT WEBSITE STYLESHEET -->
+  <!-- DEVELOPMENT STYLESHEET -->
   <link rel="stylesheet" href="./style2.css">
 
 </head>
@@ -40,7 +40,7 @@
 
     <div class="header-container">
 
-      <!-- CONTACT US - TOP RIGHT -->
+      <!-- CONTACT US -->
       <div class="contact-row">
 
         <a href="./contact.html"
@@ -50,7 +50,7 @@
 
       </div>
 
-      <!-- CENTERED NAVIGATION -->
+      <!-- MAIN NAVIGATION -->
       <nav class="main-nav"
            aria-label="Main navigation">
 
@@ -92,13 +92,13 @@
   </header>
 
   <!-- ==================================
-       MAIN HOMEPAGE
+       MAIN CONTENT
   ================================== -->
 
   <main>
 
     <!-- ==================================
-         BIBLE HERO BANNER
+         HERO BANNER
     ================================== -->
 
     <section class="hero-banner"
@@ -129,7 +129,7 @@
     <section class="invitation-section"
              aria-label="Welcome and invitation">
 
-      <!-- LEFT: CHURCH PHOTOGRAPH -->
+      <!-- CHURCH PHOTOGRAPH -->
       <div class="church-image-container">
 
         <img
@@ -139,12 +139,12 @@
 
       </div>
 
-      <!-- RIGHT: INVITING STATEMENT -->
+      <!-- INVITING STATEMENT -->
       <div class="invitation-content">
 
         <h2>Inviting Statement</h2>
 
-        <!-- Inviting statement text will be added later. -->
+        <!-- Inviting statement will be added later. -->
 
       </div>
 
@@ -159,7 +159,7 @@
 
       <div class="schedule-layout">
 
-        <!-- LEFT COLUMN: WORSHIP SCHEDULE -->
+        <!-- LEFT: WORSHIP SCHEDULE -->
         <div class="schedule-column">
 
           <h2 class="section-heading">
@@ -179,7 +179,9 @@
               </p>
 
               <p>
-                <span>New Converts/First Principles Class</span>
+                <span>
+                  New Converts/First Principles Class
+                </span>
                 <strong>9:30 AM</strong>
               </p>
 
@@ -224,7 +226,8 @@
                 <span>
                   Bible Study
                   <small>
-                    (2nd and 4th Saturday at the building)
+                    (2nd and 4th Saturday
+                    at the building)
                   </small>
                 </span>
 
@@ -237,7 +240,7 @@
 
         </div>
 
-        <!-- RIGHT COLUMN: WATCH OUR LIVES -->
+        <!-- RIGHT: LIVESTREAM LINKS -->
         <aside class="livestream-column"
                aria-labelledby="livestream-heading">
 
@@ -254,19 +257,15 @@
 
             <div class="social-links">
 
-              <!--
-                REPLACE # WITH THE CHURCH'S
-                ACTUAL FACEBOOK URL
-              -->
+              <!-- FACEBOOK: REPLACE # WITH URL -->
               <a href="#"
                  class="social-link facebook-link"
                  aria-label="Facebook"
                  title="Watch on Facebook">
 
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  focusable="false">
+                <svg viewBox="0 0 24 24"
+                     aria-hidden="true"
+                     focusable="false">
 
                   <path
                     fill="currentColor"
@@ -279,19 +278,15 @@
 
               </a>
 
-              <!--
-                REPLACE # WITH THE CHURCH'S
-                ACTUAL YOUTUBE URL
-              -->
+              <!-- YOUTUBE: REPLACE # WITH URL -->
               <a href="#"
                  class="social-link youtube-link"
                  aria-label="YouTube"
                  title="Watch on YouTube">
 
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  focusable="false">
+                <svg viewBox="0 0 24 24"
+                     aria-hidden="true"
+                     focusable="false">
 
                   <path
                     fill="currentColor"
@@ -309,6 +304,71 @@
           </div>
 
         </aside>
+
+      </div>
+
+    </section>
+
+    <!-- ==================================
+         OUR LOCATION SECTION
+    ================================== -->
+
+    <section class="location-section"
+             aria-labelledby="location-heading">
+
+      <h2 id="location-heading"
+          class="location-heading">
+        Our Location
+      </h2>
+
+      <p class="location-address">
+        4201 Brinkley Road<br>
+        Temple Hills, MD 20748
+      </p>
+
+      <!-- INTERACTIVE GOOGLE MAP -->
+      <div class="map-container">
+
+        <iframe
+          title="Google Map showing Oxon Hill Church of Christ at 4201 Brinkley Road, Temple Hills, Maryland"
+          src="https://www.google.com/maps?q=4201+Brinkley+Road,+Temple+Hills,+MD+20748&output=embed"
+          width="100%"
+          height="420"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <!-- DIRECTIONS BUTTON -->
+      <div class="directions-container">
+
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=4201+Brinkley+Road,+Temple+Hills,+MD+20748"
+          class="directions-button"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Get Directions
+
+        </a>
+
+      </div>
+
+      <!-- OFFICE HOURS -->
+      <div class="office-hours-box">
+
+        <h3>Office Hours</h3>
+
+        <p class="office-days">
+          Monday – Thursday
+        </p>
+
+        <p class="office-time">
+          9:00 AM – 2:00 PM
+        </p>
 
       </div>
 
