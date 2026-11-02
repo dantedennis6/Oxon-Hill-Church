@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
         content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="Welcome to Oxon Hill Church of Christ. Join us for worship, Bible study, and fellowship.">
+        content="Welcome to Oxon Hill Church of Christ.">
 
   <title>Oxon Hill Church of Christ | Home</title>
 
@@ -21,11 +22,10 @@
         crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
-  <!-- External CSS -->
+  <!-- Official website stylesheet -->
   <link rel="stylesheet" href="./style2.css">
 
 </head>
@@ -33,16 +33,28 @@
 <body>
 
   <!-- ==================================
-       NAVIGATION BAR
+       HEADER
   ================================== -->
 
   <header class="site-header">
 
-    <nav class="navbar" aria-label="Main navigation">
+    <div class="header-container">
 
-      <div class="nav-links">
+      <!-- CONTACT US - UPPER RIGHT -->
+      <div class="contact-row">
 
-        <a href="./index.html"
+        <a href="./contact.html"
+           class="contact-button">
+          Contact Us
+        </a>
+
+      </div>
+
+      <!-- MAIN NAVIGATION -->
+      <nav class="main-nav"
+           aria-label="Main navigation">
+
+        <a href="./Index2.html"
            class="nav-link active"
            aria-current="page">
           Home
@@ -73,49 +85,39 @@
           Giving
         </a>
 
-      </div>
+      </nav>
 
-      <!-- CONTACT BUTTON -->
-      <div class="nav-contact">
-
-        <a href="./contact.html"
-           class="contact-button">
-          Contact Us
-        </a>
-
-      </div>
-
-    </nav>
+    </div>
 
   </header>
 
-
   <!-- ==================================
-       MAIN CONTENT
+       MAIN HOMEPAGE
   ================================== -->
 
-  <main>
+  <main class="page-container">
 
-    <!-- ==================================
-         HERO BANNER
-    ================================== -->
-
+    <!-- HERO BANNER -->
     <section class="hero-banner"
-             aria-labelledby="hero-title">
+             aria-labelledby="hero-heading">
 
-      <div class="hero-content">
+      <div class="hero-overlay">
 
-        <h1 id="hero-title">
-          Welcome to Oxon Hill
-          <span class="hero-emphasis">
-            Church of Christ
+        <h1 id="hero-heading">
+
+          <span class="hero-welcome">
+            Welcome to Oxon Hill
           </span>
+
+          <strong class="hero-church-name">
+            Church of Christ
+          </strong>
+
         </h1>
 
       </div>
 
     </section>
-
 
     <!-- ==================================
          INVITING STATEMENT SECTION
@@ -124,26 +126,24 @@
     <section class="invitation-section"
              aria-label="Welcome and invitation">
 
-      <!-- CHURCH PHOTOGRAPH -->
-      <div class="invitation-image">
+      <!-- LEFT: CHURCH PHOTOGRAPH -->
+      <div class="church-image-container">
 
         <img
           src="./church.png"
-          alt="Oxon Hill Church of Christ church building"
-          class="church-photo"
-        >
+          alt="Oxon Hill Church of Christ building"
+          class="church-image">
 
       </div>
 
-
-      <!-- INVITING STATEMENT PLACEHOLDER -->
+      <!-- RIGHT: INVITING STATEMENT -->
       <div class="invitation-content">
 
-        <h2>Come Worship With Us</h2>
+        <h2>Inviting Statement</h2>
 
         <!--
-          Inviting statement will be
-          added here later.
+          Actual inviting statement wording
+          will be added later.
         -->
 
       </div>
@@ -151,19 +151,6 @@
     </section>
 
   </main>
-
-
-  <!-- ==================================
-       FOOTER
-  ================================== -->
-
-  <footer class="site-footer">
-
-    <p>
-      Oxon Hill Church of Christ
-    </p>
-
-  </footer>
 
 </body>
 </html>
