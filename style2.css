@@ -193,7 +193,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   HERO BANNER
+   HERO BANNER - PROFESSIONAL HOVER
 ====================================== */
 
 .hero-banner {
@@ -215,7 +215,25 @@ a:focus-visible {
   border-radius: 0;
 
   overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
+
+/* SUBTLE POP-OUT ON HOVER */
+
+.hero-banner:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 28px rgba(21, 59, 114, 0.20);
+
+  border-color: var(--orange);
+}
+
+/* DARK NAVY IMAGE OVERLAY */
 
 .hero-banner::before {
   content: "";
@@ -1187,6 +1205,7 @@ a:focus-visible {
 
   .nav-link,
   .contact-button,
+  .hero-banner,
   .day-card,
   .social-link,
   .directions-button,
@@ -1198,6 +1217,7 @@ a:focus-visible {
 
   .nav-link:hover,
   .contact-button:hover,
+  .hero-banner:hover,
   .day-card:hover,
   .social-link:hover,
   .directions-button:hover,
