@@ -1,30 +1,33 @@
 
 /* ======================================
    OXON HILL CHURCH OF CHRIST
-   POWDER BLUE, NAVY & SOFT PEACH
+   POWDER BLUE / NAVY / SOFT APRICOT
 ====================================== */
+
+/* COLOR PALETTE */
 
 :root {
   --navy: #153b72;
   --navy-dark: #0b2850;
-  --glow-blue: #f6d4b5;
+
+  --powder-blue: #eaf3fc;
+  --blue-white: #f8fbff;
+  --soft-apricot: #f4c9a8;
 
   --white: #ffffff;
   --black: #000000;
 
-  --warm-ivory: #eaf3fc;
-  --soft-sand: #f6d4b5;
-
   --text: #253449;
   --border: #d8e1ec;
 
-  /* NEW SCHEDULE PANEL COLORS */
   --schedule-bg: #f8fbff;
   --schedule-border: #b9cbdd;
   --schedule-divider: #d8e1ec;
 }
 
-/* GLOBAL */
+/* ======================================
+   GLOBAL
+====================================== */
 
 * {
   box-sizing: border-box;
@@ -37,8 +40,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--warm-ivory);
+
+  background: var(--powder-blue);
   color: var(--text);
+
   font-family: "Lato", Arial, sans-serif;
   line-height: 1.6;
 }
@@ -48,15 +53,17 @@ a {
 }
 
 a:focus-visible {
-  outline: 3px solid var(--glow-blue);
+  outline: 3px solid var(--soft-apricot);
   outline-offset: 4px;
 }
 
-/* HEADER */
+/* ======================================
+   HEADER
+====================================== */
 
 .site-header {
   width: 100%;
-  background: var(--warm-ivory);
+  background: var(--powder-blue);
   padding: 8px 15px 15px;
 }
 
@@ -72,48 +79,65 @@ a:focus-visible {
   padding-right: 5px;
 }
 
+/* CONTACT US BUTTON */
+
 .contact-button {
   display: inline-block;
   padding: 11px 25px;
+
   background: var(--navy);
   color: var(--white);
+
   border: 3px solid var(--navy);
   border-radius: 8px;
+
   font-size: 1rem;
   font-weight: 700;
 
   transition:
     background 0.25s ease,
+    border-color 0.25s ease,
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .contact-button:hover {
   background: var(--navy-dark);
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 8px 20px rgba(21, 59, 114, 0.3);
+  border-color: var(--soft-apricot);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 6px 14px rgba(21, 59, 114, 0.18);
 }
 
-/* NAVIGATION */
+/* ======================================
+   NAVIGATION
+====================================== */
 
 .main-nav {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
   gap: 12px;
   padding: 12px 0 25px;
 }
 
+/* BLUE-WHITE NAVIGATION TABS */
+
 .nav-link {
   position: relative;
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   min-height: 56px;
   padding: 12px 20px;
 
-  background: var(--soft-sand);
+  background: var(--blue-white);
   color: var(--navy);
 
   border: 2px solid var(--navy);
@@ -122,56 +146,63 @@ a:focus-visible {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
+
   cursor: pointer;
 
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     color 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+/* REFINED HOVER */
 
 .nav-link:hover {
   background: var(--navy);
   color: var(--white);
-  border-color: var(--glow-blue);
 
-  transform: translateY(-7px) scale(1.08);
+  border-color: var(--soft-apricot);
+
+  transform: translateY(-4px) scale(1.03);
 
   box-shadow:
-    0 10px 22px rgba(21, 59, 114, 0.28),
-    0 0 12px rgba(246, 212, 181, 0.55);
+    0 7px 16px rgba(21, 59, 114, 0.17);
 
   z-index: 2;
 }
+
+/* ACTIVE HOME TAB */
 
 .nav-link.active,
 .nav-link[aria-current="page"] {
   background: var(--navy);
   color: var(--white);
-  border: 3px solid var(--glow-blue);
+
+  border: 2px solid var(--soft-apricot);
 
   box-shadow:
-    0 0 7px var(--glow-blue),
-    0 0 16px rgba(246, 212, 181, 0.8),
-    0 0 28px rgba(246, 212, 181, 0.45);
+    0 4px 12px rgba(21, 59, 114, 0.16),
+    0 0 6px rgba(244, 201, 168, 0.35);
 }
 
 .nav-link.active:hover,
 .nav-link[aria-current="page"]:hover {
-  transform: translateY(-7px) scale(1.08);
+  transform: translateY(-4px) scale(1.03);
 
   box-shadow:
-    0 12px 25px rgba(21, 59, 114, 0.35),
-    0 0 15px rgba(246, 212, 181, 0.95),
-    0 0 30px rgba(246, 212, 181, 0.65);
+    0 7px 16px rgba(21, 59, 114, 0.22),
+    0 0 9px rgba(244, 201, 168, 0.4);
 }
 
-/* HERO */
+/* ======================================
+   HERO BANNER
+====================================== */
 
 .hero-banner {
   position: relative;
+
   width: 100%;
   min-height: 440px;
 
@@ -186,20 +217,27 @@ a:focus-visible {
 
   border: 3px solid var(--black);
   border-radius: 0;
+
   overflow: hidden;
 }
 
+/* NAVY OVERLAY */
+
 .hero-banner::before {
   content: "";
+
   position: absolute;
   inset: 0;
+
   background: rgba(11, 31, 59, 0.70);
+
   z-index: 1;
 }
 
 .hero-overlay {
   position: relative;
   z-index: 2;
+
   width: 100%;
   min-height: 440px;
   padding: 65px 30px;
@@ -207,6 +245,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
 }
 
@@ -218,7 +257,9 @@ a:focus-visible {
   font-size: clamp(2.1rem, 4.5vw, 3.6rem);
   line-height: 1.35;
 
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.75);
+
   animation: heroFadeIn 1.5s ease-out both;
 }
 
@@ -245,7 +286,9 @@ a:focus-visible {
   }
 }
 
-/* INVITATION */
+/* ======================================
+   INVITATION SECTION
+====================================== */
 
 .invitation-section {
   max-width: 1150px;
@@ -255,6 +298,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
+
   gap: 0;
 }
 
@@ -265,15 +309,19 @@ a:focus-visible {
 
 .church-image {
   display: block;
+
   width: 100%;
   height: 100%;
   min-height: 280px;
+
   object-fit: cover;
 
   border: 5px solid var(--navy);
   border-radius: 8px 0 0 8px;
   box-shadow: none;
 }
+
+/* SOFT WARM ACCENT IN INVITATION PANEL */
 
 .invitation-content {
   min-height: 280px;
@@ -283,11 +331,14 @@ a:focus-visible {
   flex-direction: column;
   justify-content: center;
 
-  background: var(--white);
+  background: var(--blue-white);
 
   border: 5px solid var(--navy);
   border-left: 0;
   border-radius: 0 8px 8px 0;
+
+  box-shadow:
+    inset -6px 0 0 rgba(244, 201, 168, 0.7);
 }
 
 .invitation-content h2 {
@@ -297,6 +348,7 @@ a:focus-visible {
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.7rem, 3vw, 2.5rem);
   font-weight: 700;
+
   text-align: center;
 }
 
@@ -313,6 +365,7 @@ a:focus-visible {
 .schedule-layout {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
+
   align-items: start;
   gap: 35px;
 }
@@ -330,7 +383,7 @@ a:focus-visible {
 }
 
 /* ======================================
-   NEW SCHEDULE PANEL DESIGN
+   WORSHIP SCHEDULE PANELS
 ====================================== */
 
 .day-card {
@@ -359,7 +412,7 @@ a:focus-visible {
     0 8px 22px rgba(21, 59, 114, 0.12);
 }
 
-/* DAY HEADING - NO NAVY HEADER BAR */
+/* DAY HEADINGS */
 
 .day-card h3 {
   position: relative;
@@ -380,7 +433,7 @@ a:focus-visible {
   line-height: 1.5;
 }
 
-/* SOFT PEACH ACCENT */
+/* APRICOT ACCENT BAR */
 
 .day-card h3::before {
   content: "";
@@ -392,11 +445,11 @@ a:focus-visible {
   width: 4px;
   height: 26px;
 
-  background: var(--soft-sand);
+  background: var(--soft-apricot);
   border-radius: 4px;
 }
 
-/* SCHEDULE CONTENT */
+/* WORSHIP TIMES */
 
 .day-card-content {
   padding: 16px 0 0;
@@ -428,8 +481,10 @@ a:focus-visible {
 
 .day-card-content strong {
   flex-shrink: 0;
+
   color: var(--navy);
   font-weight: 700;
+
   white-space: nowrap;
 }
 
@@ -451,7 +506,9 @@ a:focus-visible {
   line-height: 1.5;
 }
 
-/* LIVESTREAM - UNCHANGED */
+/* ======================================
+   WATCH OUR LIVES
+====================================== */
 
 .livestream-column {
   padding-top: 0;
@@ -480,6 +537,7 @@ a:focus-visible {
 
 .livestream-panel p {
   margin: 0 0 25px;
+
   color: var(--text);
   font-size: 1rem;
 }
@@ -488,6 +546,7 @@ a:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex-wrap: wrap;
   gap: 18px;
 }
@@ -499,6 +558,7 @@ a:focus-visible {
   justify-content: center;
 
   gap: 8px;
+
   min-width: 125px;
   padding: 17px 20px;
 
@@ -527,16 +587,21 @@ a:focus-visible {
 }
 
 .social-link:hover {
-  transform: translateY(-6px) scale(1.06);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
-/* LOCATION */
+/* ======================================
+   OUR LOCATION
+====================================== */
 
 .location-section {
   max-width: 1150px;
   margin: 0 auto 90px;
   padding: 0 25px;
+
   text-align: center;
 }
 
@@ -551,12 +616,15 @@ a:focus-visible {
 
 .location-address {
   margin: 0 0 25px;
+
   color: var(--text);
 
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.7;
 }
+
+/* GOOGLE MAP */
 
 .map-container {
   width: 100%;
@@ -565,7 +633,8 @@ a:focus-visible {
   border-radius: 10px;
 
   overflow: hidden;
-  background: var(--soft-sand);
+
+  background: var(--blue-white);
 
   box-shadow:
     0 8px 25px rgba(21, 59, 114, 0.15);
@@ -578,9 +647,12 @@ a:focus-visible {
   border: 0;
 }
 
+/* DIRECTIONS */
+
 .directions-container {
   display: flex;
   justify-content: center;
+
   margin: 25px 0 35px;
 }
 
@@ -600,25 +672,32 @@ a:focus-visible {
   transition:
     transform 0.25s ease,
     background 0.25s ease,
+    border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .directions-button:hover {
   background: var(--navy-dark);
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 22px rgba(21, 59, 114, 0.3);
+  border-color: var(--soft-apricot);
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 18px rgba(21, 59, 114, 0.2);
 }
 
-/* OFFICE HOURS */
+/* ======================================
+   OFFICE HOURS - APRICOT ACCENT
+====================================== */
 
 .office-hours-box {
   max-width: 650px;
   margin: 0 auto;
   padding: 30px 25px;
 
-  background: var(--soft-sand);
+  background: var(--soft-apricot);
 
-  border: 3px solid var(--navy);
+  border: 2px solid var(--navy);
   border-radius: 10px;
 
   text-align: center;
@@ -630,17 +709,15 @@ a:focus-visible {
 }
 
 .office-hours-box:hover {
-  transform: translateY(-6px) scale(1.02);
-
-  border-color: var(--glow-blue);
+  transform: translateY(-4px);
 
   box-shadow:
-    0 12px 25px rgba(21, 59, 114, 0.2),
-    0 0 12px rgba(246, 212, 181, 0.3);
+    0 8px 20px rgba(21, 59, 114, 0.16);
 }
 
 .office-hours-box h3 {
   margin: 0 0 15px;
+
   color: var(--navy);
 
   font-family: "Montserrat", Arial, sans-serif;
@@ -650,6 +727,7 @@ a:focus-visible {
 
 .office-days {
   margin: 0 0 8px;
+
   color: var(--text);
 
   font-size: 1.2rem;
@@ -658,18 +736,23 @@ a:focus-visible {
 
 .office-time {
   margin: 0;
+
   color: var(--navy);
 
   font-size: 1.3rem;
   font-weight: 700;
 }
 
-/* FOOTER */
+/* ======================================
+   FOOTER
+====================================== */
 
 .site-footer {
   width: 100%;
+
   background: var(--navy);
   color: var(--white);
+
   padding: 55px 25px 20px;
 }
 
@@ -684,17 +767,21 @@ a:focus-visible {
   gap: 40px;
 }
 
+/* FOOTER LEFT */
+
 .footer-left {
   flex: 1;
 }
 
 .footer-church-name {
   margin: 0 0 22px;
+
   color: var(--white);
 
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 2.1rem);
   font-weight: 400;
+
   line-height: 1.4;
 }
 
@@ -704,6 +791,7 @@ a:focus-visible {
 
 .footer-contact p {
   margin: 0 0 12px;
+
   color: var(--white);
   font-size: 1rem;
 }
@@ -711,18 +799,23 @@ a:focus-visible {
 .footer-contact-label {
   display: inline-block;
   min-width: 75px;
+
   font-weight: 700;
 }
 
 .footer-contact a {
   color: var(--white);
-  transition: color 0.25s ease;
+
+  transition:
+    color 0.25s ease;
 }
 
 .footer-contact a:hover {
-  color: var(--glow-blue);
+  color: var(--soft-apricot);
   text-decoration: underline;
 }
+
+/* FOOTER RIGHT */
 
 .footer-right {
   min-width: 200px;
@@ -731,6 +824,7 @@ a:focus-visible {
 
 .footer-right h3 {
   margin: 0 0 20px;
+
   color: var(--white);
 
   font-family: "Montserrat", Arial, sans-serif;
@@ -738,10 +832,13 @@ a:focus-visible {
   font-weight: 700;
 }
 
+/* SOCIAL ICONS */
+
 .footer-social-links {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
   gap: 15px;
 }
 
@@ -775,9 +872,13 @@ a:focus-visible {
 }
 
 .footer-social-icon:hover {
-  transform: translateY(-6px) scale(1.08);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.22);
 }
+
+/* COPYRIGHT */
 
 .footer-bottom {
   max-width: 1150px;
@@ -792,11 +893,15 @@ a:focus-visible {
 
 .footer-bottom p {
   margin: 0;
+
   color: rgba(255, 255, 255, 0.85);
+
   font-size: 0.9rem;
 }
 
-/* TABLET */
+/* ======================================
+   TABLET
+====================================== */
 
 @media (max-width: 900px) {
 
@@ -839,9 +944,12 @@ a:focus-visible {
   .footer-container {
     gap: 25px;
   }
+
 }
 
-/* MOBILE */
+/* ======================================
+   MOBILE
+====================================== */
 
 @media (max-width: 600px) {
 
@@ -857,6 +965,7 @@ a:focus-visible {
   .main-nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
     gap: 8px;
   }
 
@@ -865,6 +974,8 @@ a:focus-visible {
     padding: 10px 8px;
     font-size: 0.85rem;
   }
+
+  /* HERO */
 
   .hero-banner {
     min-height: 330px;
@@ -880,9 +991,12 @@ a:focus-visible {
     font-size: 2rem;
   }
 
+  /* INVITATION */
+
   .invitation-section {
     grid-template-columns: 1fr;
     gap: 0;
+
     margin-top: 30px;
     padding: 0 15px;
   }
@@ -890,6 +1004,7 @@ a:focus-visible {
   .church-image {
     height: 260px;
     min-height: 0;
+
     border-radius: 8px 8px 0 0;
   }
 
@@ -899,8 +1014,14 @@ a:focus-visible {
 
     border: 5px solid var(--navy);
     border-top: 0;
-    border-radius: 0 0 8px 8px;
+
+    border-radius: 0 0 8px 8px 0;
+
+    box-shadow:
+      inset 0 -6px 0 rgba(244, 201, 168, 0.7);
   }
+
+  /* SCHEDULE */
 
   .schedule-section {
     padding: 0 15px;
@@ -915,8 +1036,6 @@ a:focus-visible {
   .section-heading {
     font-size: 1.6rem;
   }
-
-  /* NEW SCHEDULE PANELS ON MOBILE */
 
   .day-card {
     padding: 20px 18px;
@@ -936,6 +1055,8 @@ a:focus-visible {
     white-space: normal;
   }
 
+  /* LIVESTREAM */
+
   .livestream-panel {
     padding: 30px 20px;
   }
@@ -948,6 +1069,8 @@ a:focus-visible {
     min-width: 115px;
     padding: 15px;
   }
+
+  /* LOCATION */
 
   .location-section {
     padding: 0 15px;
@@ -966,6 +1089,8 @@ a:focus-visible {
     height: 300px;
   }
 
+  /* OFFICE HOURS */
+
   .office-hours-box {
     padding: 25px 15px;
   }
@@ -981,6 +1106,8 @@ a:focus-visible {
   .office-time {
     font-size: 1.2rem;
   }
+
+  /* FOOTER */
 
   .site-footer {
     padding: 40px 20px 20px;
@@ -1012,9 +1139,12 @@ a:focus-visible {
   .footer-bottom {
     margin-top: 35px;
   }
+
 }
 
-/* ACCESSIBILITY */
+/* ======================================
+   ACCESSIBILITY
+====================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1042,4 +1172,5 @@ a:focus-visible {
   .hero-banner h1 {
     animation: none;
   }
+
 }
