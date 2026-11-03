@@ -25,9 +25,7 @@
   --schedule-divider: #d8e1ec;
 }
 
-/* ======================================
-   GLOBAL
-====================================== */
+/* GLOBAL */
 
 * {
   box-sizing: border-box;
@@ -57,9 +55,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
-/* ======================================
-   HEADER
-====================================== */
+/* HEADER */
 
 .site-header {
   width: 100%;
@@ -79,7 +75,7 @@ a:focus-visible {
   padding-right: 5px;
 }
 
-/* CONTACT US BUTTON */
+/* CONTACT BUTTON */
 
 .contact-button {
   display: inline-block;
@@ -111,9 +107,7 @@ a:focus-visible {
     0 6px 14px rgba(21, 59, 114, 0.18);
 }
 
-/* ======================================
-   NAVIGATION
-====================================== */
+/* NAVIGATION */
 
 .main-nav {
   display: flex;
@@ -124,8 +118,6 @@ a:focus-visible {
   gap: 12px;
   padding: 12px 0 25px;
 }
-
-/* BLUE-WHITE NAVIGATION TABS */
 
 .nav-link {
   position: relative;
@@ -156,8 +148,6 @@ a:focus-visible {
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
-
-/* REFINED HOVER */
 
 .nav-link:hover {
   background: var(--navy);
@@ -196,9 +186,7 @@ a:focus-visible {
     0 0 9px rgba(244, 201, 168, 0.4);
 }
 
-/* ======================================
-   HERO BANNER
-====================================== */
+/* HERO BANNER */
 
 .hero-banner {
   position: relative;
@@ -221,8 +209,6 @@ a:focus-visible {
   overflow: hidden;
 }
 
-/* NAVY OVERLAY */
-
 .hero-banner::before {
   content: "";
 
@@ -230,7 +216,6 @@ a:focus-visible {
   inset: 0;
 
   background: rgba(11, 31, 59, 0.70);
-
   z-index: 1;
 }
 
@@ -321,7 +306,7 @@ a:focus-visible {
   box-shadow: none;
 }
 
-/* SOFT WARM ACCENT IN INVITATION PANEL */
+/* INVITATION PANEL */
 
 .invitation-content {
   min-height: 280px;
@@ -341,20 +326,53 @@ a:focus-visible {
     inset -6px 0 0 rgba(244, 201, 168, 0.7);
 }
 
+/* UPDATED INVITATION HEADING */
+
 .invitation-content h2 {
   margin: 0;
+
   color: var(--navy);
 
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   font-weight: 700;
 
   text-align: center;
+  line-height: 1.3;
 }
 
-/* ======================================
-   WORSHIP TIMES AND LIVESTREAM
-====================================== */
+/* APRICOT DIVIDER */
+
+.invitation-content h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+  height: 3px;
+
+  margin: 18px auto;
+
+  background: var(--soft-apricot);
+  border-radius: 3px;
+}
+
+/* NEW INVITATION PARAGRAPH */
+
+.invitation-content p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* WORSHIP TIMES AND LIVESTREAM */
 
 .schedule-section {
   max-width: 1150px;
@@ -382,9 +400,7 @@ a:focus-visible {
   line-height: 1.3;
 }
 
-/* ======================================
-   WORSHIP SCHEDULE PANELS
-====================================== */
+/* WORSHIP SCHEDULE PANELS */
 
 .day-card {
   margin-bottom: 20px;
@@ -411,8 +427,6 @@ a:focus-visible {
   box-shadow:
     0 8px 22px rgba(21, 59, 114, 0.12);
 }
-
-/* DAY HEADINGS */
 
 .day-card h3 {
   position: relative;
@@ -448,8 +462,6 @@ a:focus-visible {
   background: var(--soft-apricot);
   border-radius: 4px;
 }
-
-/* WORSHIP TIMES */
 
 .day-card-content {
   padding: 16px 0 0;
@@ -506,9 +518,7 @@ a:focus-visible {
   line-height: 1.5;
 }
 
-/* ======================================
-   WATCH OUR LIVES
-====================================== */
+/* WATCH OUR LIVES */
 
 .livestream-column {
   padding-top: 0;
@@ -593,9 +603,7 @@ a:focus-visible {
     0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
-/* ======================================
-   OUR LOCATION
-====================================== */
+/* OUR LOCATION */
 
 .location-section {
   max-width: 1150px;
@@ -624,8 +632,6 @@ a:focus-visible {
   line-height: 1.7;
 }
 
-/* GOOGLE MAP */
-
 .map-container {
   width: 100%;
 
@@ -633,7 +639,6 @@ a:focus-visible {
   border-radius: 10px;
 
   overflow: hidden;
-
   background: var(--blue-white);
 
   box-shadow:
@@ -646,8 +651,6 @@ a:focus-visible {
   height: 420px;
   border: 0;
 }
-
-/* DIRECTIONS */
 
 .directions-container {
   display: flex;
@@ -686,9 +689,7 @@ a:focus-visible {
     0 8px 18px rgba(21, 59, 114, 0.2);
 }
 
-/* ======================================
-   OFFICE HOURS - APRICOT ACCENT
-====================================== */
+/* OFFICE HOURS */
 
 .office-hours-box {
   max-width: 650px;
@@ -727,7 +728,6 @@ a:focus-visible {
 
 .office-days {
   margin: 0 0 8px;
-
   color: var(--text);
 
   font-size: 1.2rem;
@@ -736,16 +736,13 @@ a:focus-visible {
 
 .office-time {
   margin: 0;
-
   color: var(--navy);
 
   font-size: 1.3rem;
   font-weight: 700;
 }
 
-/* ======================================
-   FOOTER
-====================================== */
+/* FOOTER */
 
 .site-footer {
   width: 100%;
@@ -767,15 +764,12 @@ a:focus-visible {
   gap: 40px;
 }
 
-/* FOOTER LEFT */
-
 .footer-left {
   flex: 1;
 }
 
 .footer-church-name {
   margin: 0 0 22px;
-
   color: var(--white);
 
   font-family: "Montserrat", Arial, sans-serif;
@@ -791,7 +785,6 @@ a:focus-visible {
 
 .footer-contact p {
   margin: 0 0 12px;
-
   color: var(--white);
   font-size: 1rem;
 }
@@ -799,23 +792,18 @@ a:focus-visible {
 .footer-contact-label {
   display: inline-block;
   min-width: 75px;
-
   font-weight: 700;
 }
 
 .footer-contact a {
   color: var(--white);
-
-  transition:
-    color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .footer-contact a:hover {
   color: var(--soft-apricot);
   text-decoration: underline;
 }
-
-/* FOOTER RIGHT */
 
 .footer-right {
   min-width: 200px;
@@ -824,7 +812,6 @@ a:focus-visible {
 
 .footer-right h3 {
   margin: 0 0 20px;
-
   color: var(--white);
 
   font-family: "Montserrat", Arial, sans-serif;
@@ -832,13 +819,10 @@ a:focus-visible {
   font-weight: 700;
 }
 
-/* SOCIAL ICONS */
-
 .footer-social-links {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
   gap: 15px;
 }
 
@@ -878,8 +862,6 @@ a:focus-visible {
     0 7px 16px rgba(0, 0, 0, 0.22);
 }
 
-/* COPYRIGHT */
-
 .footer-bottom {
   max-width: 1150px;
   margin: 40px auto 0;
@@ -893,15 +875,11 @@ a:focus-visible {
 
 .footer-bottom p {
   margin: 0;
-
   color: rgba(255, 255, 255, 0.85);
-
   font-size: 0.9rem;
 }
 
-/* ======================================
-   TABLET
-====================================== */
+/* TABLET */
 
 @media (max-width: 900px) {
 
@@ -944,12 +922,9 @@ a:focus-visible {
   .footer-container {
     gap: 25px;
   }
-
 }
 
-/* ======================================
-   MOBILE
-====================================== */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -965,7 +940,6 @@ a:focus-visible {
   .main-nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
     gap: 8px;
   }
 
@@ -974,8 +948,6 @@ a:focus-visible {
     padding: 10px 8px;
     font-size: 0.85rem;
   }
-
-  /* HERO */
 
   .hero-banner {
     min-height: 330px;
@@ -991,12 +963,9 @@ a:focus-visible {
     font-size: 2rem;
   }
 
-  /* INVITATION */
-
   .invitation-section {
     grid-template-columns: 1fr;
     gap: 0;
-
     margin-top: 30px;
     padding: 0 15px;
   }
@@ -1004,7 +973,6 @@ a:focus-visible {
   .church-image {
     height: 260px;
     min-height: 0;
-
     border-radius: 8px 8px 0 0;
   }
 
@@ -1014,14 +982,19 @@ a:focus-visible {
 
     border: 5px solid var(--navy);
     border-top: 0;
-
-    border-radius: 0 0 8px 8px 0;
+    border-radius: 0 0 8px 8px;
 
     box-shadow:
       inset 0 -6px 0 rgba(244, 201, 168, 0.7);
   }
 
-  /* SCHEDULE */
+  .invitation-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .invitation-content p {
+    font-size: 0.95rem;
+  }
 
   .schedule-section {
     padding: 0 15px;
@@ -1055,8 +1028,6 @@ a:focus-visible {
     white-space: normal;
   }
 
-  /* LIVESTREAM */
-
   .livestream-panel {
     padding: 30px 20px;
   }
@@ -1069,8 +1040,6 @@ a:focus-visible {
     min-width: 115px;
     padding: 15px;
   }
-
-  /* LOCATION */
 
   .location-section {
     padding: 0 15px;
@@ -1089,8 +1058,6 @@ a:focus-visible {
     height: 300px;
   }
 
-  /* OFFICE HOURS */
-
   .office-hours-box {
     padding: 25px 15px;
   }
@@ -1106,8 +1073,6 @@ a:focus-visible {
   .office-time {
     font-size: 1.2rem;
   }
-
-  /* FOOTER */
 
   .site-footer {
     padding: 40px 20px 20px;
@@ -1139,12 +1104,9 @@ a:focus-visible {
   .footer-bottom {
     margin-top: 35px;
   }
-
 }
 
-/* ======================================
-   ACCESSIBILITY
-====================================== */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1172,5 +1134,4 @@ a:focus-visible {
   .hero-banner h1 {
     animation: none;
   }
-
 }
