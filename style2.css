@@ -208,7 +208,10 @@ a:focus-visible {
 
   background-image: url("./hero-bible.jpeg");
   background-size: cover;
-  background-position: center center;
+
+  /* SHOW MORE OF THE BIBLE */
+  background-position: left bottom;
+
   background-repeat: no-repeat;
 
   border: 3px solid var(--black);
@@ -233,7 +236,7 @@ a:focus-visible {
   border-color: var(--orange);
 }
 
-/* DARK NAVY IMAGE OVERLAY */
+/* LIGHTER NAVY IMAGE OVERLAY */
 
 .hero-banner::before {
   content: "";
@@ -241,7 +244,7 @@ a:focus-visible {
   position: absolute;
   inset: 0;
 
-  background: rgba(11, 31, 59, 0.70);
+  background: rgba(11, 31, 59, 0.55);
   z-index: 1;
 }
 
@@ -1030,7 +1033,7 @@ a:focus-visible {
 
   .hero-banner {
     min-height: 330px;
-    background-position: center center;
+    background-position: left bottom;
   }
 
   .hero-overlay {
