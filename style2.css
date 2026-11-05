@@ -1,7 +1,7 @@
 
 /* ======================================
    OXON HILL CHURCH OF CHRIST
-   FONTS: MONTSERRAT + LATO
+   MONTSERRAT + LATO
 ====================================== */
 
 :root {
@@ -155,10 +155,7 @@ a:focus-visible {
     0 0 12px rgba(243, 107, 28, 0.55);
 }
 
-/* ======================================
-   HERO BANNER
-   BIBLE LETTERING AT BOTTOM LEFT
-====================================== */
+/* HERO BANNER */
 
 .hero-banner {
   position: relative;
@@ -172,8 +169,8 @@ a:focus-visible {
   background-image: url("./hero-bible.jpeg");
   background-size: cover;
 
-  /* ALIGN IMAGE TO BOTTOM LEFT */
-  background-position: left bottom;
+  /* MOVE THE BIBLE IMAGE DOWN 35 PIXELS */
+  background-position: left calc(100% + 35px);
 
   background-repeat: no-repeat;
 
@@ -189,10 +186,7 @@ a:focus-visible {
 
 .hero-banner:hover {
   transform: translateY(-4px);
-
-  box-shadow:
-    0 12px 28px rgba(21, 59, 114, 0.20);
-
+  box-shadow: 0 12px 28px rgba(21, 59, 114, 0.20);
   border-color: var(--orange);
 }
 
@@ -218,7 +212,6 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
 }
 
@@ -228,10 +221,7 @@ a:focus-visible {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(2.1rem, 4.5vw, 3.6rem);
   line-height: 1.35;
-
-  text-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.75);
-
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
   animation: heroFadeIn 1.5s ease-out both;
 }
 
@@ -300,8 +290,7 @@ a:focus-visible {
   border-left: 0;
   border-radius: 0 8px 8px 0;
 
-  box-shadow:
-    inset -6px 0 0 rgba(243, 107, 28, 0.85);
+  box-shadow: inset -6px 0 0 rgba(243, 107, 28, 0.85);
 }
 
 .invitation-content h2 {
@@ -836,11 +825,11 @@ a:focus-visible {
     font-size: 0.85rem;
   }
 
-  /* HERO - BOTTOM LEFT */
+  /* HERO - SAME DOWNWARD ADJUSTMENT */
 
   .hero-banner {
     min-height: 330px;
-    background-position: left bottom;
+    background-position: left calc(100% + 35px);
   }
 
   .hero-overlay {
@@ -851,8 +840,6 @@ a:focus-visible {
   .hero-banner h1 {
     font-size: 2rem;
   }
-
-  /* INVITATION */
 
   .invitation-section {
     grid-template-columns: 1fr;
@@ -886,8 +873,6 @@ a:focus-visible {
     font-size: 0.95rem;
   }
 
-  /* SCHEDULE */
-
   .schedule-section {
     padding: 0 15px;
     margin-bottom: 50px;
@@ -920,8 +905,6 @@ a:focus-visible {
     white-space: normal;
   }
 
-  /* LIVESTREAM */
-
   .livestream-panel {
     padding: 30px 20px;
   }
@@ -934,8 +917,6 @@ a:focus-visible {
     min-width: 115px;
     padding: 15px;
   }
-
-  /* LOCATION */
 
   .location-section {
     padding: 0 15px;
@@ -954,8 +935,6 @@ a:focus-visible {
     height: 300px;
   }
 
-  /* OFFICE HOURS */
-
   .office-hours-box {
     padding: 25px 15px;
   }
@@ -971,8 +950,6 @@ a:focus-visible {
   .office-time {
     font-size: 1.2rem;
   }
-
-  /* FOOTER */
 
   .site-footer {
     padding: 40px 20px 20px;
