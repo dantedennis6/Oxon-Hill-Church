@@ -1190,4 +1190,31 @@ button:focus-visible {
   .hero-banner h1 {
     animation: none;
   }
+   
+/* ======================================
+   PHONE LANDSCAPE FIX
+   PRESERVES DESKTOP AND PORTRAIT DESIGN
+====================================== */
+
+@media screen and (orientation: landscape)
+       and (max-height: 500px)
+       and (max-width: 950px) {
+
+    /* Fix hero background positioning */
+    .hero-banner {
+        min-height: 320px;
+        background-position: center center;
+    }
+
+    .hero-overlay {
+        min-height: 320px;
+        padding: 35px 25px;
+    }
+
+    .hero-banner h1 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+}
+
 }
