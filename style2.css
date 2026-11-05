@@ -169,8 +169,8 @@ a:focus-visible {
   background-image: url("./hero-bible.jpeg");
   background-size: cover;
 
-  /* MOVE THE BIBLE IMAGE DOWN 35 PIXELS */
-  background-position: left calc(100% + 35px);
+  /* MOVE THE BIBLE IMAGE DOWN 90 PIXELS */
+  background-position: left calc(100% + 90px);
 
   background-repeat: no-repeat;
 
@@ -825,11 +825,11 @@ a:focus-visible {
     font-size: 0.85rem;
   }
 
-  /* HERO - SAME DOWNWARD ADJUSTMENT */
+  /* HERO - 90PX DOWNWARD ADJUSTMENT */
 
   .hero-banner {
     min-height: 330px;
-    background-position: left calc(100% + 35px);
+    background-position: left calc(100% + 90px);
   }
 
   .hero-overlay {
