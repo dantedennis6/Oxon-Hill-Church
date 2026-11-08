@@ -51,99 +51,155 @@ summary:focus-visible {
   padding-right: 25px;
 }
 
-/* HEADER */
+/* ======================================
+   HEADER - MATCHES EVENTS AND BELIEFS
+====================================== */
 
 .site-header {
   width: 100%;
   background: var(--white);
-  padding: 8px 15px 15px;
+  padding: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+  position: relative;
+  z-index: 100;
 }
 
 .header-container {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.contact-row {
+  width: min(1320px, 96%);
+  max-width: 1320px;
+  min-height: 94px;
+  margin: auto;
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 8px;
-  padding-right: 5px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
 }
 
-.contact-button {
-  display: inline-block;
-  padding: 11px 25px;
-  background: var(--navy);
-  color: var(--white);
-  border: 3px solid var(--navy);
-  border-radius: 8px;
-  font-size: 1rem;
+/* CHURCH LOGO */
+
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: var(--navy);
+}
+
+.logo-name {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.logo-subtitle {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
   font-weight: 700;
-
-  transition:
-    background .25s,
-    border-color .25s,
-    transform .25s,
-    box-shadow .25s;
-}
-
-.contact-button:hover {
-  background: var(--navy-dark);
-  border-color: var(--orange);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(21,59,114,.18);
+  letter-spacing: 2.2px;
+  margin-top: 5px;
 }
 
 /* NAVIGATION */
 
 .main-nav {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 12px 0 25px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
-.nav-link {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 56px;
-  padding: 12px 20px;
-  background: var(--white);
-  color: var(--navy);
-  border: 2px solid var(--navy);
-  border-radius: 7px;
-  font-size: 1rem;
+.main-nav .nav-link {
+  display: inline-block;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--navy-dark);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
   text-align: center;
+  cursor: pointer;
 
   transition:
-    transform .25s,
-    background .25s,
-    color .25s,
-    border-color .25s,
-    box-shadow .25s;
+    color .25s ease,
+    transform .25s ease;
 }
 
-.nav-link:hover {
-  background: var(--navy);
-  color: var(--white);
-  border-color: var(--orange);
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 7px 16px rgba(21,59,114,.17);
+.main-nav .nav-link:hover {
+  background: transparent;
+  color: var(--orange);
+  border: none;
+  box-shadow: none;
+  transform: translateY(-2px);
 }
 
-.nav-link.active,
-.nav-link[aria-current="page"] {
-  background: var(--navy);
+.main-nav .nav-link.active,
+.main-nav .nav-link[aria-current="page"] {
+  background: transparent;
+  color: var(--orange);
+  border: none;
+  box-shadow: none;
+}
+
+.main-nav .nav-link.active:hover,
+.main-nav .nav-link[aria-current="page"]:hover {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+/* CONTACT BUTTON */
+
+.contact-button {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 13px 22px;
+  background: var(--orange);
   color: var(--white);
-  border: 2px solid var(--orange);
-  box-shadow:
-    0 4px 12px rgba(21,59,114,.16),
-    0 0 8px rgba(243,107,28,.45);
+  border: none;
+  border-radius: 7px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.contact-button:hover {
+  background: var(--orange-dark);
+  border: none;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(243, 107, 28, .22);
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--navy);
+  margin: 5px 0;
+  border-radius: 3px;
 }
 
 /* HERO */
@@ -676,14 +732,9 @@ summary:focus-visible {
   font-size: .9rem;
 }
 
-/* TABLET */
+/* TABLET - PAGE CONTENT */
 
 @media (max-width: 900px) {
-
-  .nav-link {
-    padding: 11px 14px;
-    font-size: .9rem;
-  }
 
   .schedule-grid {
     grid-template-columns: 1fr 1fr;
@@ -694,30 +745,9 @@ summary:focus-visible {
   }
 }
 
-/* MOBILE */
+/* MOBILE - PAGE CONTENT */
 
 @media (max-width: 600px) {
-
-  .site-header {
-    padding: 8px 12px 15px;
-  }
-
-  .contact-row {
-    margin-bottom: 10px;
-    padding-right: 0;
-  }
-
-  .main-nav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .nav-link {
-    min-height: 52px;
-    padding: 10px 8px;
-    font-size: .85rem;
-  }
 
   .content-width {
     padding-left: 15px;
@@ -806,6 +836,84 @@ summary:focus-visible {
 
   .footer-bottom {
     margin-top: 35px;
+  }
+}
+
+/* ======================================
+   TABLET HEADER - MATCHES EVENTS
+====================================== */
+
+@media (max-width: 1100px) {
+
+  .site-header .header-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+
+  .site-header .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+/* ======================================
+   MOBILE HEADER - MATCHES EVENTS
+====================================== */
+
+@media (max-width: 700px) {
+
+  .site-header .header-container {
+    width: 92%;
+    min-height: 75px;
+    gap: 10px;
+  }
+
+  .site-header .logo-name {
+    font-size: 21px;
+  }
+
+  .site-header .logo-subtitle {
+    font-size: 8px;
+    letter-spacing: 1.8px;
+  }
+
+  .site-header .menu-toggle {
+    display: block;
+    margin-left: auto;
+    order: 1;
+  }
+
+  .site-header .main-nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .site-header .main-nav.open {
+    display: flex;
+  }
+
+  .site-header .main-nav .nav-link {
+    display: block;
+    padding: 13px 10px;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .site-header .contact-button {
+    order: 2;
+    padding: 10px 13px;
+    font-size: 11px;
   }
 }
 
