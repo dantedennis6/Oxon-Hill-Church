@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="View upcoming events and activities at the Oxon Hill Church of Christ in Temple Hills, Maryland.">
+
+  <title>Events & Activities | Oxon Hill Church of Christ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./events.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+      <a href="./Index2.html" class="site-logo">
+        <span class="logo-name">Oxon Hill</span>
+        <span class="logo-subtitle">CHURCH OF CHRIST</span>
+      </a>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="primary-navigation"
+           aria-label="Main navigation">
+        <a href="./Index2.html">Home</a>
+        <a href="./beliefs.html">What We Believe</a>
+        <a href="./worship.html">Worship</a>
+        <a href="./videos.html">Videos</a>
+        <a href="./events.html" class="active"
+           aria-current="page">Events/Activities</a>
+        <a href="./giving.html">Giving</a>
+      </nav>
+
+      <a href="./ContactPage.html" class="contact-button">
+        Contact Us
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="hero-container">
+
+        <p class="eyebrow">FELLOWSHIP & COMMUNITY</p>
+
+        <h1>Events & Activities</h1>
+
+        <div class="hero-accent"></div>
+
+        <p class="hero-description">
+          Stay connected with the Oxon Hill Church of Christ.
+          Explore upcoming Bible studies, gospel meetings,
+          congregational gatherings, and other activities.
+          We look forward to seeing you!
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- CALENDAR INTRODUCTION -->
+    <section class="calendar-section">
+      <div class="content-container">
+
+        <div class="section-heading">
+          <p class="eyebrow">STAY CONNECTED</p>
+          <h2>Church Events Calendar</h2>
+
+          <p>
+            Browse our calendar to discover upcoming events
+            and activities. Select an event to view additional
+            details, and use the calendar arrows to explore
+            other months.
+          </p>
+        </div>
+
+
+        <!-- CALENDAR PANEL -->
+        <div class="calendar-panel">
+
+          <div class="calendar-panel-header">
+            <div>
+              <p class="panel-eyebrow">UPCOMING ACTIVITIES</p>
+              <h3>Our Congregational Calendar</h3>
+            </div>
+
+            <span class="calendar-status">
+              <span class="status-dot"></span>
+              Updated through Google Calendar
+            </span>
+          </div>
+
+          <div class="calendar-frame-wrapper">
+
+            <!--
+              GOOGLE CALENDAR INTEGRATION
+
+              Account:
+              oxonhillsocial@gmail.com
+
+              Replace the CALENDAR_ID value in the script
+              at the bottom of this file with the actual
+              Google Calendar ID.
+
+              Do not use the general church contact email
+              as the calendar ID unless Google explicitly
+              identifies it as the calendar ID.
+            -->
+
+            <iframe
+              id="church-calendar"
+              title="Oxon Hill Church of Christ Events Calendar"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+
+            <div id="calendar-placeholder"
+                 class="calendar-placeholder">
+              <div class="placeholder-icon" aria-hidden="true">
+                &#128197;
+              </div>
+
+              <h4>Our Events Calendar Is Coming Soon</h4>
+
+              <p>
+                We are preparing our congregational calendar.
+                Please check back soon for upcoming events
+                and activities.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="calendar-panel-footer">
+            <p>
+              Calendar events and times are displayed in
+              Eastern Time.
+            </p>
+
+            <p>
+              Select any scheduled event for more information.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- REGULAR GATHERINGS -->
+    <section class="gatherings-section">
+      <div class="content-container">
+
+        <div class="section-heading">
+          <p class="eyebrow">WORSHIP & STUDY</p>
+          <h2>Our Regular Gatherings</h2>
+
+          <p>
+            In addition to special events and activities,
+            we invite you to join us for our regularly
+            scheduled worship services and Bible studies.
+          </p>
+        </div>
+
+        <div class="gatherings-grid">
+
+          <article class="gathering-card">
+            <div class="gathering-day">SUNDAY</div>
+            <h3>Bible Study</h3>
+            <p class="gathering-time">9:30 AM</p>
+            <p>
+              Join us as we study God's Word together,
+              including classes for new converts and
+              foundational Bible instruction.
+            </p>
+          </article>
+
+          <article class="gathering-card">
+            <div class="gathering-day">SUNDAY</div>
+            <h3>Morning Worship</h3>
+            <p class="gathering-time">10:30 AM</p>
+            <p>
+              Assemble with us for worship as we sing,
+              pray, study the Scriptures, partake of
+              the Lord's Supper, and give.
+            </p>
+          </article>
+
+          <article class="gathering-card">
+            <div class="gathering-day">WEDNESDAY</div>
+            <h3>Bible Study</h3>
+            <p class="gathering-time">7:00 PM</p>
+            <p>
+              Continue growing in your knowledge of
+              the Scriptures through our Wednesday
+              evening Bible study via Zoom.
+            </p>
+          </article>
+
+          <article class="gathering-card">
+            <div class="gathering-day">SATURDAY</div>
+            <h3>Bible Study</h3>
+            <p class="gathering-time">10:00 AM</p>
+            <p>
+              Bible study is ordinarily held on the
+              second and fourth Saturdays of the month.
+              There is no fourth-Saturday study in
+              November or December.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SCRIPTURE -->
+    <section class="scripture-section">
+      <div class="content-container">
+
+        <div class="scripture-box">
+          <p class="eyebrow">GROWING TOGETHER IN CHRIST</p>
+
+          <blockquote>
+            "And let us consider one another to provoke
+            unto love and to good works: Not forsaking
+            the assembling of ourselves together,
+            as the manner of some is; but exhorting
+            one another: and so much the more,
+            as ye see the day approaching."
+          </blockquote>
+
+          <p class="scripture-reference">
+            Hebrews 10:24–25 (KJV)
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- INVITATION -->
+    <section class="invitation-section">
+      <div class="content-container">
+
+        <div class="invitation-content">
+          <p class="eyebrow">YOU ARE WELCOME HERE</p>
+
+          <h2>We Would Love to See You!</h2>
+
+          <p>
+            Whether you are visiting for the first time
+            or looking for opportunities to study the
+            Bible and grow in faith, we warmly invite
+            you to join us.
+          </p>
+
+          <div class="invitation-actions">
+            <a href="./ContactPage.html" class="primary-button">
+              Contact Us
+            </a>
+
+            <a href="./worship.html" class="secondary-button">
+              Learn About Our Worship
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-container">
+
+      <div class="footer-column footer-about">
+        <h3>Oxon Hill Church of Christ</h3>
+
+        <p>
+          A congregation committed to worshiping God,
+          studying His Word, and sharing the gospel
+          of Jesus Christ.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+
+        <a href="./Index2.html">Home</a>
+        <a href="./beliefs.html">What We Believe</a>
+        <a href="./worship.html">Worship</a>
+        <a href="./videos.html">Videos</a>
+        <a href="./events.html">Events/Activities</a>
+        <a href="./giving.html">Giving</a>
+        <a href="./ContactPage.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Visit Us</h3>
+
+        <p>
+          4201 Brinkley Road<br>
+          Temple Hills, MD 20748
+        </p>
+
+        <p>
+          <a href="tel:+13018945412">
+            (301) 894-5412
+          </a>
+        </p>
+
+        <p>
+          <a href="mailto:1oxonhillcoc@gmail.com">
+            1oxonhillcoc@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Connect With Us</h3>
+
+        <a href="https://www.facebook.com/p/Oxon-Hill-Church-of-Christ-100064627841522/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Facebook
+        </a>
+
+        <a href="https://www.youtube.com/channel/UCO5NVNcjxsgcHHzc_xCSlww"
+           target="_blank"
+           rel="noopener noreferrer">
+          YouTube
+        </a>
+
+        <a href="./ContactPage.html">
+          Send Us a Message
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; <span id="current-year"></span>
+        Oxon Hill Church of Christ.
+        All rights reserved.
+      </p>
+    </div>
+
+  </footer>
+
+
+  <script>
+    // MOBILE NAVIGATION
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // AUTOMATIC FOOTER YEAR
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+
+    // GOOGLE CALENDAR CONFIGURATION
+    // Account used to manage calendar:
+    // oxonhillsocial@gmail.com
+    //
+    // Replace the placeholder below with the real
+    // calendar ID from Google Calendar settings.
+
+    const CALENDAR_ID = "PASTE_GOOGLE_CALENDAR_ID_HERE";
+
+    const calendarFrame =
+      document.getElementById("church-calendar");
+
+    const calendarPlaceholder =
+      document.getElementById("calendar-placeholder");
+
+    if (
+      CALENDAR_ID &&
+      CALENDAR_ID !== "PASTE_GOOGLE_CALENDAR_ID_HERE"
+    ) {
+      const params = new URLSearchParams({
+        src: CALENDAR_ID,
+        ctz: "America/New_York",
+        mode: "MONTH",
+        showTitle: "0",
+        showNav: "1",
+        showDate: "1",
+        showPrint: "0",
+        showTabs: "0",
+        showCalendars: "0",
+        showTz: "0",
+        wkst: "1",
+        bgcolor: "#ffffff",
+        color: "#153b72"
+      });
+
+      calendarFrame.src =
+        "https://calendar.google.com/calendar/embed?" +
+        params.toString();
+
+      calendarFrame.style.display = "block";
+      calendarPlaceholder.style.display = "none";
+    }
+
+  </script>
+
+</body>
+</html>
