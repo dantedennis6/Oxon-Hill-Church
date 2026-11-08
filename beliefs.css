@@ -81,10 +81,10 @@ summary:focus-visible {
   font-size: 1rem;
   font-weight: 700;
   transition:
-    background .25s,
-    border-color .25s,
-    transform .25s,
-    box-shadow .25s;
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .contact-button:hover {
@@ -119,11 +119,11 @@ summary:focus-visible {
   font-weight: 700;
   text-align: center;
   transition:
-    transform .25s,
-    background .25s,
-    color .25s,
-    border-color .25s,
-    box-shadow .25s;
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
 }
 
 .nav-link:hover {
@@ -178,12 +178,30 @@ summary:focus-visible {
   color: #ffb88c;
 }
 
+/* SAME FONT AND FADE-IN AS INDEX2.HTML */
+
 .page-hero h1 {
   margin: 0 0 15px;
+  color: var(--white);
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(2.25rem, 5vw, 3.8rem);
-  line-height: 1.2;
+  font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+  line-height: 1.35;
   font-weight: 800;
+  text-shadow: 0 3px 12px rgba(0,0,0,.75);
+
+  animation: heroFadeIn 1.5s ease-out both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-hero p:last-child {
@@ -192,13 +210,43 @@ summary:focus-visible {
   color: #f1f5fb;
 }
 
-/* BELIEFS INTRODUCTION */
+/* ======================================
+   OUR FOUNDATION SECTION
+   NEW ORANGE BORDER AND HOVER EFFECT
+====================================== */
 
 .beliefs-intro {
   position: relative;
+  max-width: 1000px;
   margin-top: 64px;
   margin-bottom: 72px;
-  max-width: 1000px;
+
+  padding: 35px 40px;
+
+  background: var(--white);
+
+  /* Thin orange outline */
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+
+  box-shadow: 0 3px 12px rgba(21,59,114,.06);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+/* Foundation lifts when hovered */
+
+.beliefs-intro:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 14px 30px rgba(21,59,114,.16),
+    0 0 10px rgba(243,107,28,.14);
+
+  border-color: var(--orange-dark);
 }
 
 .intro-accent {
@@ -226,6 +274,10 @@ summary:focus-visible {
 .beliefs-intro p {
   font-size: 1.08rem;
   margin: 0 0 19px;
+}
+
+.beliefs-intro p:last-child {
+  margin-bottom: 0;
 }
 
 .references {
@@ -262,30 +314,63 @@ summary:focus-visible {
   color: #596b80;
 }
 
-/* EXPANDABLE CARDS */
+/* ======================================
+   EXPANDABLE SALVATION CARDS
+   NEW HOVER POP-OUT EFFECT
+====================================== */
 
 .steps-list {
   max-width: 900px;
   margin: auto;
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .step-card {
+  position: relative;
+
   background: var(--white);
   border: 2px solid #cad7e5;
   border-radius: 10px;
   overflow: hidden;
+
+  box-shadow: 0 2px 8px rgba(21,59,114,.04);
+
   transition:
-    border-color .2s,
-    box-shadow .2s,
-    transform .2s;
+    border-color .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
 }
 
-.step-card:hover,
+/* Each card lifts on mouse hover */
+
+.step-card:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  border-color: var(--orange);
+
+  box-shadow:
+    0 14px 28px rgba(21,59,114,.16),
+    0 0 8px rgba(243,107,28,.12);
+
+  z-index: 2;
+}
+
+/* Open cards retain the orange outline */
+
 .step-card[open] {
   border-color: var(--orange);
-  box-shadow: 0 7px 20px rgba(21,59,114,.09);
+  box-shadow: 0 8px 22px rgba(21,59,114,.12);
+}
+
+/* Open cards still lift when hovered */
+
+.step-card[open]:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  box-shadow:
+    0 14px 28px rgba(21,59,114,.18),
+    0 0 8px rgba(243,107,28,.12);
 }
 
 .step-card summary {
@@ -350,7 +435,7 @@ summary:focus-visible {
 
 .step-toggle::after {
   transform: translate(-50%, -50%) rotate(90deg);
-  transition: transform .2s;
+  transition: transform .2s ease;
 }
 
 .step-card[open] .step-toggle::after {
@@ -431,10 +516,11 @@ summary:focus-visible {
   border-radius: 8px;
   padding: 12px 32px;
   font-weight: 700;
+
   transition:
-    transform .2s,
-    border-color .2s,
-    background .2s;
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
 }
 
 .closing-button:hover {
@@ -492,7 +578,7 @@ summary:focus-visible {
 
 .footer-contact a {
   color: var(--white);
-  transition: color .25s;
+  transition: color .25s ease;
 }
 
 .footer-contact a:hover {
@@ -528,9 +614,10 @@ summary:focus-visible {
   height: 60px;
   color: var(--white);
   border-radius: 10px;
+
   transition:
-    transform .25s,
-    box-shadow .25s;
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .footer-social-icon svg {
@@ -608,14 +695,17 @@ summary:focus-visible {
     padding: 52px 18px 58px;
   }
 
-  .beliefs-intro {
-    margin-top: 40px;
-    margin-bottom: 45px;
-  }
-
   .content-width {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  /* Foundation keeps its orange border on mobile */
+
+  .beliefs-intro {
+    margin-top: 40px;
+    margin-bottom: 45px;
+    padding: 25px 20px;
   }
 
   .beliefs-intro p {
@@ -690,8 +780,13 @@ summary:focus-visible {
     scroll-behavior: auto;
   }
 
+  .page-hero h1 {
+    animation: none;
+  }
+
   .nav-link,
   .contact-button,
+  .beliefs-intro,
   .step-card,
   .step-toggle::after,
   .closing-button,
@@ -702,6 +797,9 @@ summary:focus-visible {
 
   .nav-link:hover,
   .contact-button:hover,
+  .beliefs-intro:hover,
+  .step-card:hover,
+  .step-card[open]:hover,
   .closing-button:hover,
   .footer-social-icon:hover {
     transform: none;
