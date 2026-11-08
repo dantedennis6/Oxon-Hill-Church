@@ -80,6 +80,7 @@ summary:focus-visible {
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 700;
+
   transition:
     background .25s ease,
     border-color .25s ease,
@@ -118,6 +119,7 @@ summary:focus-visible {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
+
   transition:
     transform .25s ease,
     background .25s ease,
@@ -139,12 +141,15 @@ summary:focus-visible {
   background: var(--navy);
   color: var(--white);
   border: 2px solid var(--orange);
+
   box-shadow:
     0 4px 12px rgba(21,59,114,.16),
     0 0 8px rgba(243,107,28,.45);
 }
 
-/* PAGE HERO */
+/* ======================================
+   PAGE HERO
+====================================== */
 
 .page-hero {
   background: linear-gradient(
@@ -152,6 +157,7 @@ summary:focus-visible {
     var(--navy-dark),
     var(--navy)
   );
+
   color: var(--white);
   border-top: 3px solid var(--orange);
   border-bottom: 3px solid var(--orange);
@@ -164,6 +170,8 @@ summary:focus-visible {
   padding: 72px 25px 76px;
 }
 
+/* SMALL SECTION HEADINGS */
+
 .eyebrow {
   margin: 0 0 10px;
   color: var(--orange);
@@ -174,11 +182,16 @@ summary:focus-visible {
   text-transform: uppercase;
 }
 
+/* CORRECTED:
+   OUR FAITH AND PRACTICE
+   NOW USES STANDARD ORANGE #f36b1c
+*/
+
 .page-hero .eyebrow {
-  color: #ffb88c;
+  color: var(--orange);
 }
 
-/* SAME FONT AND FADE-IN AS INDEX2.HTML */
+/* WHAT WE BELIEVE FADE-IN */
 
 .page-hero h1 {
   margin: 0 0 15px;
@@ -187,12 +200,14 @@ summary:focus-visible {
   font-size: clamp(2.1rem, 4.5vw, 3.6rem);
   line-height: 1.35;
   font-weight: 800;
+
   text-shadow: 0 3px 12px rgba(0,0,0,.75);
 
   animation: heroFadeIn 1.5s ease-out both;
 }
 
 @keyframes heroFadeIn {
+
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -212,11 +227,11 @@ summary:focus-visible {
 
 /* ======================================
    OUR FOUNDATION SECTION
-   NEW ORANGE BORDER AND HOVER EFFECT
 ====================================== */
 
 .beliefs-intro {
   position: relative;
+
   max-width: 1000px;
   margin-top: 64px;
   margin-bottom: 72px;
@@ -225,7 +240,7 @@ summary:focus-visible {
 
   background: var(--white);
 
-  /* Thin orange outline */
+  /* THIN ORANGE OUTLINE */
   border: 2px solid var(--orange);
   border-radius: 10px;
 
@@ -237,7 +252,7 @@ summary:focus-visible {
     border-color .3s ease;
 }
 
-/* Foundation lifts when hovered */
+/* FOUNDATION POP-OUT EFFECT */
 
 .beliefs-intro:hover {
   transform: translateY(-6px);
@@ -285,7 +300,9 @@ summary:focus-visible {
   font-weight: 700;
 }
 
-/* SALVATION SECTION */
+/* ======================================
+   SALVATION SECTION
+====================================== */
 
 .salvation-section {
   padding: 66px 0 76px;
@@ -316,7 +333,6 @@ summary:focus-visible {
 
 /* ======================================
    EXPANDABLE SALVATION CARDS
-   NEW HOVER POP-OUT EFFECT
 ====================================== */
 
 .steps-list {
@@ -342,7 +358,7 @@ summary:focus-visible {
     transform .3s ease;
 }
 
-/* Each card lifts on mouse hover */
+/* POP-OUT EFFECT WHEN HOVERING */
 
 .step-card:hover {
   transform: translateY(-6px) scale(1.01);
@@ -356,14 +372,14 @@ summary:focus-visible {
   z-index: 2;
 }
 
-/* Open cards retain the orange outline */
+/* OPEN CARD STYLING */
 
 .step-card[open] {
   border-color: var(--orange);
-  box-shadow: 0 8px 22px rgba(21,59,114,.12);
-}
 
-/* Open cards still lift when hovered */
+  box-shadow:
+    0 8px 22px rgba(21,59,114,.12);
+}
 
 .step-card[open]:hover {
   transform: translateY(-6px) scale(1.01);
@@ -410,7 +426,9 @@ summary:focus-visible {
   line-height: 1.4;
 }
 
-/* PLUS / MINUS ICON */
+/* ======================================
+   PLUS / MINUS ICON
+====================================== */
 
 .step-toggle {
   position: relative;
@@ -442,7 +460,9 @@ summary:focus-visible {
   transform: translate(-50%, -50%) rotate(0);
 }
 
-/* EXPANDED CONTENT */
+/* ======================================
+   EXPANDED CARD CONTENT
+====================================== */
 
 .step-content {
   padding: 0 25px 25px 89px;
@@ -490,7 +510,9 @@ summary:focus-visible {
   text-align: center;
 }
 
-/* CLOSING SECTION */
+/* ======================================
+   CLOSING SECTION
+====================================== */
 
 .closing-section {
   text-align: center;
@@ -529,7 +551,9 @@ summary:focus-visible {
   transform: translateY(-3px);
 }
 
-/* FOOTER */
+/* ======================================
+   FOOTER
+====================================== */
 
 .site-footer {
   width: 100%;
@@ -652,7 +676,9 @@ summary:focus-visible {
   font-size: .9rem;
 }
 
-/* TABLET */
+/* ======================================
+   TABLET
+====================================== */
 
 @media (max-width: 900px) {
 
@@ -666,7 +692,9 @@ summary:focus-visible {
   }
 }
 
-/* MOBILE */
+/* ======================================
+   MOBILE
+====================================== */
 
 @media (max-width: 600px) {
 
@@ -699,8 +727,6 @@ summary:focus-visible {
     padding-left: 15px;
     padding-right: 15px;
   }
-
-  /* Foundation keeps its orange border on mobile */
 
   .beliefs-intro {
     margin-top: 40px;
@@ -772,7 +798,9 @@ summary:focus-visible {
   }
 }
 
-/* REDUCED MOTION */
+/* ======================================
+   REDUCED MOTION
+====================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
