@@ -1172,3 +1172,29 @@ button:focus-visible {
     animation: none;
   }
 }
+
+/* ======================================
+   FIX HOMEPAGE LOGO VERTICAL SPACING
+====================================== */
+
+.site-header .site-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.site-header .logo-name {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+
+.site-header .logo-subtitle {
+  display: block;
+  margin: 5px 0 0;
+  padding: 0;
+  line-height: 17px;
+}
+
