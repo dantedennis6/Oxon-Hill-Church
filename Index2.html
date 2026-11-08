@@ -13,7 +13,7 @@
 
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
@@ -26,74 +26,47 @@
 
   <!-- HEADER -->
   <header class="site-header">
+
     <div class="header-container">
 
-      <!-- MOBILE HEADER -->
-      <div class="mobile-header-bar">
+      <div class="contact-row">
+        <a href="./contact.html" class="contact-button">
+          Contact Us
+        </a>
+      </div>
 
-        <a class="mobile-brand" href="./Index2.html">
-          Oxon Hill <strong>Church of Christ</strong>
+      <nav class="main-nav" aria-label="Main navigation">
+
+        <a href="./Index2.html"
+           class="nav-link active"
+           aria-current="page">
+          Home
         </a>
 
-        <button
-          class="mobile-menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-site-navigation"
-          aria-label="Open navigation menu">
+        <a href="./beliefs.html" class="nav-link">
+          What We Believe
+        </a>
 
-          <span></span>
-          <span></span>
-          <span></span>
+        <a href="./worship.html" class="nav-link">
+          Worship
+        </a>
 
-        </button>
+        <a href="./videos.html" class="nav-link">
+          Videos
+        </a>
 
-      </div>
+        <a href="./events.html" class="nav-link">
+          Events/Activities
+        </a>
 
-      <!-- DESKTOP NAVIGATION / MOBILE DROPDOWN -->
-      <div class="header-navigation"
-           id="mobile-site-navigation">
+        <a href="./giving.html" class="nav-link">
+          Giving
+        </a>
 
-        <div class="contact-row">
+      </nav>
 
-          <a href="./contact.html" class="contact-button">
-            Contact Us
-          </a>
-
-        </div>
-
-        <nav class="main-nav" aria-label="Main navigation">
-
-          <a href="./Index2.html"
-             class="nav-link active"
-             aria-current="page">
-            Home
-          </a>
-
-          <a href="./beliefs.html" class="nav-link">
-            What We Believe
-          </a>
-
-          <a href="./worship.html" class="nav-link">
-            Worship
-          </a>
-
-          <a href="./videos.html" class="nav-link">
-            Videos
-          </a>
-
-          <a href="./events.html" class="nav-link">
-            Events/Activities
-          </a>
-
-          <a href="./giving.html" class="nav-link">
-            Giving
-          </a>
-
-        </nav>
-
-      </div>
     </div>
+
   </header>
 
   <main>
@@ -117,16 +90,17 @@
         </h1>
 
       </div>
+
     </section>
 
-    <!-- INVITATION SECTION -->
+    <!-- INVITATION -->
     <section class="invitation-section"
              aria-label="Welcome and invitation">
 
       <div class="church-image-container">
 
         <img
-          src="./CHURCH.jpeg"
+          src="./Church1.JPG"
           alt="Oxon Hill Church of Christ building"
           class="church-image">
 
@@ -144,7 +118,7 @@
 
     </section>
 
-    <!-- WORSHIP TIMES AND LIVESTREAM -->
+    <!-- WORSHIP SCHEDULE -->
     <section class="schedule-section"
              aria-label="Worship times and online services">
 
@@ -181,6 +155,7 @@
               </p>
 
             </div>
+
           </article>
 
           <!-- WEDNESDAY -->
@@ -200,6 +175,7 @@
               </p>
 
             </div>
+
           </article>
 
           <!-- SATURDAY -->
@@ -219,8 +195,8 @@
                   </small>
 
                   <small class="schedule-exception">
-                    (There is no Bible Study on the 4th Saturday
-                    in November and December.)
+                    (There is no Bible Study on the
+                    4th Saturday in November and December.)
                   </small>
 
                 </span>
@@ -230,18 +206,22 @@
               </p>
 
             </div>
+
           </article>
 
         </div>
 
-        <!-- LIVESTREAM -->
+        <!-- VIDEOS AND LIVESTREAMS -->
         <aside class="livestream-column"
                aria-labelledby="livestream-heading">
 
           <div class="livestream-panel">
 
             <h2 id="livestream-heading">
-              Watch Our Lives
+              <span>Watch Our</span>
+              <span>Videos</span>
+              <span>and</span>
+              <span>Livestreams</span>
             </h2>
 
             <p>
@@ -250,21 +230,16 @@
 
             <div class="social-links">
 
-              <!-- FACEBOOK -->
-              <a
-                href="https://www.facebook.com/share/1FAkDnCUud/?mibextid=wwXlfr"
-                class="social-link facebook-link"
-                aria-label="Facebook"
-                title="Watch on Facebook"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a href="#"
+                 class="social-link facebook-link"
+                 aria-label="Facebook"
+                 title="Watch on Facebook">
 
                 <svg viewBox="0 0 24 24"
                      aria-hidden="true"
                      focusable="false">
 
-                  <path
-                    fill="currentColor"
+                  <path fill="currentColor"
                     d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.47H15.2c-1.25 0-1.64.77-1.64 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z">
                   </path>
 
@@ -274,31 +249,17 @@
 
               </a>
 
-              <!-- YOUTUBE -->
-              <a
-                href="https://youtube.com/@oxonhill-r8r?si=-ZYEoFLeiN0T8Adw"
-                class="social-link youtube-link"
-                aria-label="YouTube"
-                title="Watch on YouTube"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a href="#"
+                 class="social-link youtube-link"
+                 aria-label="YouTube"
+                 title="Watch on YouTube">
 
                 <svg viewBox="0 0 24 24"
                      aria-hidden="true"
                      focusable="false">
 
-                  <rect
-                    x="1"
-                    y="4"
-                    width="22"
-                    height="16"
-                    rx="5"
-                    fill="white">
-                  </rect>
-
-                  <path
-                    d="M10 8L16 12L10 16Z"
-                    fill="#ff0033">
+                  <path fill="currentColor"
+                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z">
                   </path>
 
                 </svg>
@@ -308,13 +269,16 @@
               </a>
 
             </div>
+
           </div>
+
         </aside>
 
       </div>
+
     </section>
 
-    <!-- LOCATION SECTION -->
+    <!-- LOCATION -->
     <section class="location-section"
              aria-labelledby="location-heading">
 
@@ -331,7 +295,7 @@
 
         <iframe
           title="Google Map showing Oxon Hill Church of Christ at 4201 Brinkley Road, Temple Hills, Maryland"
-          src="https://www.google.com/maps?q=4201+Brinkley+Road,+Temple+Hills,+MD+20748&amp;output=embed"
+          src="https://www.google.com/maps?q=4201+Brinkley+Road,+Temple+Hills,+MD+20748&output=embed"
           width="100%"
           height="420"
           style="border:0;"
@@ -345,7 +309,7 @@
       <div class="directions-container">
 
         <a
-          href="https://www.google.com/maps/dir/?api=1&amp;destination=4201+Brinkley+Road,+Temple+Hills,+MD+20748"
+          href="https://www.google.com/maps/dir/?api=1&destination=4201+Brinkley+Road,+Temple+Hills,+MD+20748"
           class="directions-button"
           target="_blank"
           rel="noopener noreferrer">
@@ -388,36 +352,28 @@
         <div class="footer-contact">
 
           <p>
-            <span class="footer-contact-label">
-              Phone:
-            </span>
-
+            <span class="footer-contact-label">Phone:</span>
             <a href="tel:3018945412">
               (301) 894-5412
             </a>
           </p>
 
           <p>
-            <span class="footer-contact-label">
-              Email:
-            </span>
-
+            <span class="footer-contact-label">Email:</span>
             <a href="mailto:1oxonhillcoc@gmail.com">
               1oxonhillcoc@gmail.com
             </a>
           </p>
 
           <p>
-            <span class="footer-contact-label">
-              Website:
-            </span>
-
+            <span class="footer-contact-label">Website:</span>
             <a href="https://oxonhillcoc.org">
               oxonhillcoc.org
             </a>
           </p>
 
         </div>
+
       </div>
 
       <div class="footer-right">
@@ -426,21 +382,16 @@
 
         <div class="footer-social-links">
 
-          <!-- FOOTER FACEBOOK -->
-          <a
-            href="https://www.facebook.com/share/1FAkDnCUud/?mibextid=wwXlfr"
-            class="footer-social-icon footer-facebook"
-            aria-label="Follow us on Facebook"
-            title="Facebook"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a href="#"
+             class="footer-social-icon footer-facebook"
+             aria-label="Follow us on Facebook"
+             title="Facebook">
 
             <svg viewBox="0 0 24 24"
                  aria-hidden="true"
                  focusable="false">
 
-              <path
-                fill="currentColor"
+              <path fill="currentColor"
                 d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.47H15.2c-1.25 0-1.64.77-1.64 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z">
               </path>
 
@@ -448,31 +399,17 @@
 
           </a>
 
-          <!-- FOOTER YOUTUBE -->
-          <a
-            href="https://youtube.com/@oxonhill-r8r?si=-ZYEoFLeiN0T8Adw"
-            class="footer-social-icon footer-youtube"
-            aria-label="Follow us on YouTube"
-            title="YouTube"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a href="#"
+             class="footer-social-icon footer-youtube"
+             aria-label="Follow us on YouTube"
+             title="YouTube">
 
             <svg viewBox="0 0 24 24"
                  aria-hidden="true"
                  focusable="false">
 
-              <rect
-                x="1"
-                y="4"
-                width="22"
-                height="16"
-                rx="5"
-                fill="white">
-              </rect>
-
-              <path
-                d="M10 8L16 12L10 16Z"
-                fill="#ff0033">
+              <path fill="currentColor"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2a31 31 0 0 0-.5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8 3 3 0 0 0-2.1-2.1ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z">
               </path>
 
             </svg>
@@ -480,81 +417,19 @@
           </a>
 
         </div>
+
       </div>
 
     </div>
 
     <div class="footer-bottom">
-
       <p>
         &copy; 2026 Oxon Hill Church of Christ.
         All rights reserved.
       </p>
-
     </div>
 
   </footer>
-
-  <!-- MOBILE MENU FUNCTIONALITY -->
-  <script>
-    (function () {
-
-      const toggle = document.querySelector(
-        '.mobile-menu-toggle'
-      );
-
-      const navigation = document.getElementById(
-        'mobile-site-navigation'
-      );
-
-      if (!toggle || !navigation) return;
-
-      toggle.addEventListener('click', function () {
-
-        const expanded =
-          toggle.getAttribute('aria-expanded') === 'true';
-
-        toggle.setAttribute(
-          'aria-expanded',
-          String(!expanded)
-        );
-
-        toggle.setAttribute(
-          'aria-label',
-          expanded
-            ? 'Open navigation menu'
-            : 'Close navigation menu'
-        );
-
-        navigation.classList.toggle(
-          'is-open',
-          !expanded
-        );
-
-      });
-
-      window.addEventListener('resize', function () {
-
-        if (window.innerWidth > 600) {
-
-          toggle.setAttribute(
-            'aria-expanded',
-            'false'
-          );
-
-          toggle.setAttribute(
-            'aria-label',
-            'Open navigation menu'
-          );
-
-          navigation.classList.remove('is-open');
-
-        }
-
-      });
-
-    }());
-  </script>
 
 </body>
 </html>
