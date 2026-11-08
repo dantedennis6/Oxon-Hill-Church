@@ -1,6 +1,54 @@
 
 /* ======================================
-   HEADER - EVENTS PAGE DESIGN
+   OXON HILL CHURCH OF CHRIST
+   FONTS: MONTSERRAT + LATO
+====================================== */
+
+:root {
+  --navy: #153b72;
+  --navy-dark: #0b2850;
+  --white: #ffffff;
+  --black: #000000;
+  --orange: #f36b1c;
+  --orange-dark: #b7470b;
+  --orange-light: #fff5ee;
+  --text: #253449;
+  --border: #d8e1ec;
+  --schedule-bg: #ffffff;
+  --schedule-border: #b9cbdd;
+  --schedule-divider: #d8e1ec;
+}
+
+/* GLOBAL */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--text);
+  font-family: "Lato", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* ======================================
+   HEADER - MATCHES EVENTS PAGE
 ====================================== */
 
 .site-header {
@@ -28,8 +76,8 @@
 .site-logo {
   display: flex;
   flex-direction: column;
-  color: var(--navy);
   flex-shrink: 0;
+  color: var(--navy);
   text-decoration: none;
 }
 
@@ -57,15 +105,16 @@
   flex-wrap: nowrap;
   gap: 20px;
   padding: 0;
+  margin: 0;
 }
 
-.main-nav a {
+.main-nav .nav-link {
   position: static;
   display: inline-block;
   min-height: 0;
   padding: 0;
   background: transparent;
-  color: #0b2850;
+  color: var(--navy-dark);
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -81,7 +130,7 @@
     transform 0.25s ease;
 }
 
-.main-nav a:hover {
+.main-nav .nav-link:hover {
   background: transparent;
   color: var(--orange);
   border: none;
@@ -89,17 +138,16 @@
   transform: translateY(-2px);
 }
 
-.main-nav a.active,
-.main-nav a[aria-current="page"] {
+.main-nav .nav-link.active,
+.main-nav .nav-link[aria-current="page"] {
   background: transparent;
   color: var(--orange);
   border: none;
   box-shadow: none;
 }
 
-.main-nav a.active:hover,
-.main-nav a[aria-current="page"]:hover {
-  color: var(--orange);
+.main-nav .nav-link.active:hover,
+.main-nav .nav-link[aria-current="page"]:hover {
   transform: translateY(-2px);
   box-shadow: none;
 }
@@ -108,9 +156,10 @@
 
 .contact-button {
   display: inline-block;
+  flex-shrink: 0;
+  padding: 13px 22px;
   background: var(--orange);
   color: var(--white);
-  padding: 13px 22px;
   border: none;
   border-radius: 7px;
   font-family: "Montserrat", sans-serif;
@@ -151,17 +200,856 @@
   border-radius: 3px;
 }
 
-/* TABLET HEADER */
+/* ======================================
+   HERO BANNER - ORIGINAL DESIGN
+====================================== */
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("./hero-bible.jpeg");
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  border: 3px solid var(--black);
+  border-radius: 0;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.hero-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(21, 59, 114, 0.20);
+  border-color: var(--orange);
+}
+
+/* NAVY OVERLAY */
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 31, 59, 0.55);
+  z-index: 1;
+}
+
+/* HERO TEXT */
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 440px;
+  padding: 65px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.hero-banner h1 {
+  margin: 0;
+  color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+  line-height: 1.35;
+
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.75);
+
+  animation: heroFadeIn 1.5s ease-out both;
+}
+
+.hero-welcome {
+  display: block;
+  font-weight: 400;
+}
+
+.hero-church-name {
+  display: block;
+  font-weight: 800;
+  -webkit-text-stroke: 0;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================================
+   INVITATION SECTION - ORIGINAL DESIGN
+====================================== */
+
+.invitation-section {
+  max-width: 1150px;
+  margin: 40px auto 70px;
+  padding: 0 25px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 0;
+}
+
+.church-image-container {
+  width: 100%;
+  min-width: 0;
+}
+
+.church-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  border: 5px solid var(--navy);
+  border-radius: 8px 0 0 8px;
+  box-shadow: none;
+}
+
+.invitation-content {
+  min-height: 280px;
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: var(--white);
+  border: 5px solid var(--navy);
+  border-left: 0;
+  border-radius: 0 8px 8px 0;
+
+  box-shadow:
+    inset -6px 0 0 rgba(243, 107, 28, 0.85);
+}
+
+.invitation-content h2 {
+  margin: 0;
+  color: var(--navy);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.invitation-content h2::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 3px;
+  margin: 18px auto;
+  background: var(--orange);
+  border-radius: 3px;
+}
+
+.invitation-content p {
+  margin: 0;
+  color: var(--text);
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ======================================
+   WORSHIP TIMES - ORIGINAL DESIGN
+====================================== */
+
+.schedule-section {
+  max-width: 1150px;
+  margin: 0 auto 80px;
+  padding: 0 25px;
+}
+
+.schedule-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: start;
+  gap: 35px;
+}
+
+.section-heading {
+  margin: 0 0 25px;
+  color: var(--navy);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* DAY CARDS */
+
+.day-card {
+  margin-bottom: 20px;
+  padding: 22px 24px;
+  background: var(--schedule-bg);
+  border: 1px solid var(--schedule-border);
+  border-radius: 10px;
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.day-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+  box-shadow: 0 8px 22px rgba(21, 59, 114, 0.12);
+}
+
+.day-card h3 {
+  position: relative;
+  margin: 0 0 16px;
+  padding: 0 0 0 18px;
+  background: transparent;
+  color: var(--navy);
+  border: none;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.day-card h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 4px;
+  height: 26px;
+  background: var(--orange);
+  border-radius: 4px;
+}
+
+.day-card-content {
+  padding: 16px 0 0;
+  border-top: 1px solid var(--schedule-divider);
+}
+
+.day-card-content p {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+  margin: 0;
+  padding: 11px 0;
+  color: var(--text);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--schedule-divider);
+}
+
+.day-card-content p:last-child {
+  border-bottom: none;
+}
+
+.day-card-content strong {
+  flex-shrink: 0;
+  color: var(--navy);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.day-card-content small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.day-card-content .schedule-exception {
+  color: var(--orange-dark);
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* ORANGE ZOOM INFORMATION */
+
+.day-card-content .schedule-note {
+  display: block;
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ======================================
+   VIDEOS AND LIVESTREAMS
+====================================== */
+
+.livestream-column {
+  padding-top: 0;
+}
+
+.livestream-panel {
+  padding: 35px 25px;
+  background: var(--white);
+  border: 3px solid var(--navy);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.livestream-panel h2 {
+  margin: 0 0 15px;
+  color: var(--navy);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.livestream-panel h2 span {
+  display: block;
+}
+
+.livestream-panel p {
+  margin: 0 0 25px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.social-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 125px;
+  padding: 17px 20px;
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-link svg {
+  width: 38px;
+  height: 38px;
+}
+
+.facebook-link {
+  background: #1877f2;
+}
+
+.youtube-link {
+  background: #ff0033;
+}
+
+.social-link:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ======================================
+   LOCATION - ORIGINAL DESIGN
+====================================== */
+
+.location-section {
+  max-width: 1150px;
+  margin: 0 auto 90px;
+  padding: 0 25px;
+  text-align: center;
+}
+
+.location-heading {
+  margin: 0 0 15px;
+  color: var(--navy);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+}
+
+.location-address {
+  margin: 0 0 25px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.map-container {
+  width: 100%;
+  border: 5px solid var(--navy);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 8px 25px rgba(21, 59, 114, 0.15);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
+}
+
+.directions-container {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 35px;
+}
+
+.directions-button {
+  display: inline-block;
+  padding: 14px 35px;
+  background: var(--navy);
+  color: var(--white);
+  border: 3px solid var(--navy);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.directions-button:hover {
+  background: var(--navy-dark);
+  border-color: var(--orange);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(21, 59, 114, 0.2);
+}
+
+/* ======================================
+   OFFICE HOURS - ORIGINAL DESIGN
+====================================== */
+
+.office-hours-box {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 30px 25px;
+  background: var(--orange-light);
+  border: 3px solid var(--orange);
+  border-radius: 10px;
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.office-hours-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(243, 107, 28, 0.2);
+}
+
+.office-hours-box h3 {
+  margin: 0 0 15px;
+  color: var(--navy);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.office-days {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.office-time {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ======================================
+   FOOTER - ORIGINAL DESIGN
+====================================== */
+
+.site-footer {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  padding: 55px 25px 20px;
+}
+
+.footer-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-church-name {
+  margin: 0 0 22px;
+  color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.footer-church-name strong {
+  font-weight: 800;
+}
+
+.footer-contact p {
+  margin: 0 0 12px;
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.footer-contact-label {
+  display: inline-block;
+  min-width: 75px;
+  font-weight: 700;
+}
+
+.footer-contact a {
+  color: var(--white);
+  transition: color 0.25s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.footer-right {
+  min-width: 200px;
+  text-align: right;
+}
+
+.footer-right h3 {
+  margin: 0 0 20px;
+  color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-social-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  color: var(--white);
+  border-radius: 10px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.footer-social-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.footer-facebook {
+  background: #1877f2;
+}
+
+.footer-youtube {
+  background: #ff0033;
+}
+
+.footer-social-icon:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.22);
+}
+
+.footer-bottom {
+  max-width: 1150px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+
+/* ======================================
+   TABLET - ORIGINAL CONTENT LAYOUT
+====================================== */
+
+@media (max-width: 900px) {
+
+  .church-image {
+    min-height: 250px;
+  }
+
+  .invitation-content {
+    min-height: 250px;
+    padding: 20px;
+  }
+
+  .schedule-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .day-card-content {
+    padding: 16px 0 0;
+  }
+
+  .day-card-content p {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .livestream-panel {
+    padding: 25px 15px;
+  }
+
+  .footer-container {
+    gap: 25px;
+  }
+}
+
+/* ======================================
+   MOBILE - ORIGINAL CONTENT LAYOUT
+====================================== */
+
+@media (max-width: 600px) {
+
+  /* HERO */
+
+  .hero-banner {
+    min-height: 330px;
+    background-position: left bottom;
+  }
+
+  .hero-overlay {
+    min-height: 330px;
+    padding: 45px 20px;
+  }
+
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+
+  /* INVITATION */
+
+  .invitation-section {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+
+  .church-image {
+    height: 260px;
+    min-height: 0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .invitation-content {
+    min-height: 180px;
+    padding: 25px;
+    border: 5px solid var(--navy);
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+
+    box-shadow:
+      inset 0 -6px 0 rgba(243, 107, 28, 0.85);
+  }
+
+  .invitation-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .invitation-content p {
+    font-size: 0.95rem;
+  }
+
+  /* SCHEDULE */
+
+  .schedule-section {
+    padding: 0 15px;
+    margin-bottom: 50px;
+  }
+
+  .schedule-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+
+  .day-card {
+    padding: 20px 18px;
+  }
+
+  .day-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .day-card-content p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .day-card-content strong {
+    white-space: normal;
+  }
+
+  /* LIVESTREAM */
+
+  .livestream-panel {
+    padding: 30px 20px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-link {
+    min-width: 115px;
+    padding: 15px;
+  }
+
+  /* LOCATION */
+
+  .location-section {
+    padding: 0 15px;
+    margin-bottom: 60px;
+  }
+
+  .location-heading {
+    font-size: 1.8rem;
+  }
+
+  .location-address {
+    font-size: 1rem;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  /* OFFICE HOURS */
+
+  .office-hours-box {
+    padding: 25px 15px;
+  }
+
+  .office-hours-box h3 {
+    font-size: 1.5rem;
+  }
+
+  .office-days {
+    font-size: 1.1rem;
+  }
+
+  .office-time {
+    font-size: 1.2rem;
+  }
+
+  /* FOOTER */
+
+  .site-footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  .footer-church-name {
+    font-size: 1.5rem;
+  }
+
+  .footer-contact p {
+    overflow-wrap: anywhere;
+  }
+
+  .footer-right {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .footer-social-links {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    margin-top: 35px;
+  }
+}
+
+/* ======================================
+   TABLET HEADER - EVENTS PAGE STYLE
+====================================== */
 
 @media (max-width: 1100px) {
 
-  .header-container {
+  .site-header .header-container {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 18px 0;
   }
 
-  .main-nav {
+  .site-header .main-nav {
     order: 3;
     width: 100%;
     justify-content: center;
@@ -170,59 +1058,93 @@
   }
 }
 
-/* MOBILE HEADER */
+/* ======================================
+   MOBILE HEADER - EVENTS PAGE STYLE
+====================================== */
 
 @media (max-width: 700px) {
 
-  .site-header {
-    padding: 0;
-  }
-
-  .header-container {
+  .site-header .header-container {
     width: 92%;
     min-height: 75px;
     gap: 10px;
   }
 
-  .logo-name {
+  .site-header .logo-name {
     font-size: 21px;
   }
 
-  .logo-subtitle {
+  .site-header .logo-subtitle {
     font-size: 8px;
     letter-spacing: 1.8px;
   }
 
-  .menu-toggle {
+  .site-header .menu-toggle {
     display: block;
     margin-left: auto;
     order: 1;
   }
 
-  .main-nav {
+  .site-header .main-nav {
     display: none;
     order: 3;
     width: 100%;
     flex-direction: column;
     align-items: stretch;
+    flex-wrap: nowrap;
     gap: 0;
     padding: 12px 0;
     border-top: 1px solid var(--border);
   }
 
-  .main-nav.open {
+  .site-header .main-nav.open {
     display: flex;
   }
 
-  .main-nav a {
+  .site-header .main-nav .nav-link {
+    display: block;
     padding: 13px 10px;
     font-size: 13px;
     text-align: left;
   }
 
-  .contact-button {
+  .site-header .contact-button {
     order: 2;
     padding: 10px 13px;
     font-size: 11px;
+  }
+}
+
+/* ======================================
+   ACCESSIBILITY
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nav-link,
+  .contact-button,
+  .hero-banner,
+  .day-card,
+  .social-link,
+  .directions-button,
+  .office-hours-box,
+  .footer-social-icon,
+  .footer-contact a {
+    transition: none;
+  }
+
+  .nav-link:hover,
+  .contact-button:hover,
+  .hero-banner:hover,
+  .day-card:hover,
+  .social-link:hover,
+  .directions-button:hover,
+  .office-hours-box:hover,
+  .footer-social-icon:hover {
+    transform: none;
+  }
+
+  .hero-banner h1 {
+    animation: none;
   }
 }
