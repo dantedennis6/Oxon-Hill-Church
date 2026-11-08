@@ -35,15 +35,15 @@
 
     <div class="header-container">
 
-      <div class="contact-row">
-        <a href="./ContactPage.html"
-           class="contact-button"
-           aria-current="page">
-          Contact Us
-        </a>
-      </div>
+      <a href="./Index2.html"
+         class="site-logo"
+         aria-label="Oxon Hill Church of Christ Home">
+        <span class="logo-name">Oxon Hill</span>
+        <span class="logo-subtitle">CHURCH OF CHRIST</span>
+      </a>
 
       <nav class="main-nav"
+           id="main-navigation"
            aria-label="Main navigation">
 
         <a href="./Index2.html" class="nav-link">
@@ -71,6 +71,22 @@
         </a>
 
       </nav>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-label="Toggle navigation"
+              aria-controls="main-navigation"
+              aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="./ContactPage.html"
+         class="contact-button"
+         aria-current="page">
+        Contact Us
+      </a>
 
     </div>
 
@@ -437,6 +453,23 @@
 
   </footer>
 
+  <!-- MOBILE NAVIGATION -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+
 </body>
 </html>
-
