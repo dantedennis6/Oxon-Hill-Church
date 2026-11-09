@@ -631,7 +631,7 @@
     });
   </script>
 
-  <!-- OVAL SPOTLIGHT AND CARD ANIMATIONS -->
+  <!-- OVAL SPOTLIGHT AND SYNCHRONIZED CARD ANIMATIONS -->
   <script>
     const salvationSection =
       document.querySelector(".salvation-section");
@@ -640,36 +640,28 @@
       document.querySelector(".salvation-spotlight-overlay");
 
     const salvationCards =
-      document.querySelectorAll(".step-card");
+      Array.from(document.querySelectorAll(".step-card"));
 
     const reducedMotion =
       window.matchMedia("(prefers-reduced-motion: reduce)");
 
     /*
-      SPOTLIGHT:
-      Activate when the center of the viewport
-      enters the salvation section.
+      OVAL SPOTLIGHT
+
+      Activates when the center of the viewport
+      is inside the salvation section.
     */
 
     function updateSalvationSpotlight() {
-      const rect =
-        salvationSection.getBoundingClientRect();
+      const rect = salvationSection.getBoundingClientRect();
+      const middle = window.innerHeight / 2;
 
-      const viewportMiddle = window.innerHeight / 2;
+      const active =
+        rect.top <= middle &&
+        rect.bottom >= middle;
 
-      const isActive =
-        rect.top <= viewportMiddle &&
-        rect.bottom >= viewportMiddle;
-
-      spotlightOverlay.classList.toggle(
-        "active",
-        isActive
-      );
-
-      salvationSection.classList.toggle(
-        "spotlight-active",
-        isActive
-      );
+      spotlightOverlay.classList.toggle("active", active);
+      salvationSection.classList.toggle("spotlight-active", active);
     }
 
     window.addEventListener(
@@ -678,62 +670,150 @@
       { passive: true }
     );
 
-    window.addEventListener(
-      "resize",
-      updateSalvationSpotlight
-    );
+    window.addEventListener("resize", updateSalvationSpotlight);
 
     updateSalvationSpotlight();
 
     /*
-      WIGGLE:
-      Each card starts wiggling when it becomes
-      visible within the salvation section.
+      SYNCHRONIZED WIGGLE
 
-      Once clicked, only that card stops wiggling.
-      Other untouched cards continue.
+      Every unread card uses the same animation
+      start time and progress.
+
+      When a card is clicked, its animation stops
+      and it will not restart during this page visit.
     */
 
-    const cardObserver = new IntersectionObserver(
+    const wiggleAnimations = new Map();
+
+    let sharedWiggleStart = null;
+    let wiggleSectionVisible = false;
+
+    const wiggleKeyframes = [
+      { transform: "rotate(0deg)", offset: 0 },
+      { transform: "rotate(-0.7deg)", offset: 0.04 },
+      { transform: "rotate(0.7deg)", offset: 0.08 },
+      { transform: "rotate(-0.45deg)", offset: 0.12 },
+      { transform: "rotate(0.45deg)", offset: 0.16 },
+      { transform: "rotate(0deg)", offset: 0.20 },
+      { transform: "rotate(0deg)", offset: 1 }
+    ];
+
+    const wiggleDuration = 3500;
+
+    function startSynchronizedWiggle() {
+      if (reducedMotion.matches) {
+        return;
+      }
+
+      /*
+        The section receives one shared timeline.
+        All unread cards begin together.
+      */
+
+      if (sharedWiggleStart === null) {
+        sharedWiggleStart = document.timeline.currentTime || 0;
+      }
+
+      salvationCards.forEach(function (card) {
+        if (card.classList.contains("card-visited")) {
+          return;
+        }
+
+        if (wiggleAnimations.has(card)) {
+          wiggleAnimations.get(card).play();
+          return;
+        }
+
+        const animation = card.animate(
+          wiggleKeyframes,
+          {
+            duration: wiggleDuration,
+            iterations: Infinity,
+            easing: "ease-in-out"
+          }
+        );
+
+        /*
+          Synchronize every card to the
+          same point in the animation cycle.
+        */
+
+        const elapsed =
+          (document.timeline.currentTime || 0) -
+          sharedWiggleStart;
+
+        animation.currentTime =
+          ((elapsed % wiggleDuration) + wiggleDuration) %
+          wiggleDuration;
+
+        wiggleAnimations.set(card, animation);
+      });
+    }
+
+    function pauseSynchronizedWiggle() {
+      wiggleAnimations.forEach(function (animation) {
+        animation.pause();
+      });
+    }
+
+    function stopCardWiggle(card) {
+      card.classList.add("card-visited");
+
+      const animation = wiggleAnimations.get(card);
+
+      if (animation) {
+        animation.cancel();
+        wiggleAnimations.delete(card);
+      }
+
+      card.style.transform = "";
+    }
+
+    const wiggleObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          const card = entry.target;
+          wiggleSectionVisible = entry.isIntersecting;
 
-          if (card.classList.contains("card-visited")) {
-            return;
+          if (wiggleSectionVisible) {
+            startSynchronizedWiggle();
+          } else {
+            pauseSynchronizedWiggle();
           }
-
-          card.classList.toggle(
-            "card-wiggle",
-            entry.isIntersecting
-          );
         });
       },
       {
-        threshold: 0.15
+        threshold: 0.1
       }
     );
 
-    salvationCards.forEach(function (card, index) {
-      card.style.setProperty(
-        "--wiggle-delay",
-        (index * 0.22) + "s"
-      );
+    wiggleObserver.observe(salvationSection);
 
-      cardObserver.observe(card);
+    /*
+      Handle changes to reduced-motion settings.
+    */
+
+    reducedMotion.addEventListener("change", function () {
+      if (reducedMotion.matches) {
+        wiggleAnimations.forEach(function (animation) {
+          animation.cancel();
+        });
+
+        wiggleAnimations.clear();
+        sharedWiggleStart = null;
+      } else if (wiggleSectionVisible) {
+        startSynchronizedWiggle();
+      }
     });
 
     /*
-      SCROLL UNRAVEL:
-      Smoothly animate the height of each details
-      element when opening and closing.
+      SCROLL UNRAVEL ANIMATION
 
-      The original HTML details behavior is
-      preserved for accessibility.
+      Cards expand and collapse smoothly
+      over 750 milliseconds.
     */
 
     salvationCards.forEach(function (card) {
-
       const summary = card.querySelector("summary");
 
       let currentAnimation = null;
@@ -750,10 +830,8 @@
       }
 
       function animateCard(open) {
-
-        if (currentAnimation) {
-          currentAnimation.cancel();
-          currentAnimation = null;
+        if (isAnimating) {
+          return;
         }
 
         isAnimating = true;
@@ -761,17 +839,10 @@
         const startHeight =
           card.getBoundingClientRect().height;
 
-        /*
-          Open temporarily so the browser can
-          measure the full expanded height.
-        */
-
         card.open = true;
-
         card.style.height = "auto";
 
         const fullHeight = card.scrollHeight;
-
         const summaryHeight =
           summary.getBoundingClientRect().height;
 
@@ -785,11 +856,6 @@
           finishAnimation(open);
           return;
         }
-
-        /*
-          750 milliseconds gives a slower,
-          scroll-like unfolding motion.
-        */
 
         currentAnimation = card.animate(
           [
@@ -820,24 +886,15 @@
         };
       }
 
-      summary.addEventListener("click", function (event) {
+      /*
+        Clicking a card marks it as visited.
+        Only that card stops wiggling.
+      */
 
+      summary.addEventListener("click", function (event) {
         event.preventDefault();
 
-        /*
-          Stop the wiggle permanently for this
-          card during the current page visit.
-        */
-
-        card.classList.remove("card-wiggle");
-        card.classList.add("card-visited");
-
-        cardObserver.unobserve(card);
-
-        /*
-          Ignore repeated clicks while the
-          unfolding animation is running.
-        */
+        stopCardWiggle(card);
 
         if (isAnimating) {
           return;
@@ -845,7 +902,6 @@
 
         animateCard(!card.open);
       });
-
     });
   </script>
 
