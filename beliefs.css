@@ -897,10 +897,8 @@ button:focus-visible {
 }
 
 /* ======================================
-   OVAL SALVATION SPOTLIGHT EFFECT
+   OVAL SALVATION SPOTLIGHT
 ====================================== */
-
-/* Fixed overlay creates soft oval lighting */
 
 .salvation-spotlight-overlay {
   position: fixed;
@@ -924,18 +922,142 @@ button:focus-visible {
     visibility 0.7s ease;
 }
 
-/* Spotlight activates */
-
 .salvation-spotlight-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* Allow oval shading across the section */
-
 .salvation-section.spotlight-active {
   z-index: auto;
   box-shadow: 0 0 45px rgba(243, 107, 28, 0.15);
+}
+
+/* ======================================
+   NEW: GENTLE SALVATION CARD WIGGLE
+====================================== */
+
+/*
+  Each untouched card gently rotates
+  left and right, with small pauses.
+
+  The animation is intentionally subtle.
+*/
+
+@keyframes salvationWiggle {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  4% {
+    transform: rotate(-0.7deg);
+  }
+
+  8% {
+    transform: rotate(0.7deg);
+  }
+
+  12% {
+    transform: rotate(-0.45deg);
+  }
+
+  16% {
+    transform: rotate(0.45deg);
+  }
+
+  20% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/*
+  Only cards that have entered the
+  viewport and have not been clicked
+  receive the wiggle animation.
+*/
+
+.step-card.card-wiggle:not(.card-visited) {
+  animation:
+    salvationWiggle 3.5s ease-in-out
+    var(--wiggle-delay, 0s) infinite;
+}
+
+/*
+  A clicked card no longer wiggles,
+  whether it is open or closed.
+*/
+
+.step-card.card-visited {
+  animation: none !important;
+}
+
+/*
+  Pause the wiggle while hovering
+  so the hover lift remains smooth.
+*/
+
+.step-card.card-wiggle:hover {
+  animation-play-state: paused;
+}
+
+/*
+  Maintain a slight visual emphasis
+  when the visitor interacts.
+*/
+
+.step-card.card-visited[open] {
+  border-color: var(--orange);
+  box-shadow:
+    0 8px 22px rgba(21,59,114,.12);
+}
+
+/* ======================================
+   NEW: SCROLL UNRAVEL EFFECT
+====================================== */
+
+/*
+  JavaScript animates the card height.
+  This styling supports the smooth reveal.
+*/
+
+.step-card {
+  will-change: height;
+}
+
+/*
+  Give the content a subtle appearance
+  animation as the card opens.
+*/
+
+@keyframes scriptureUnravel {
+
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-card[open] .step-content {
+  animation:
+    scriptureUnravel 0.65s ease-out both;
+}
+
+/*
+  Keep the original plus/minus icon
+  smoothly synchronized.
+*/
+
+.step-toggle::after {
+  transition: transform 0.45s ease;
 }
 
 /* ======================================
@@ -950,6 +1072,11 @@ button:focus-visible {
 
   .page-hero h1 {
     animation: none;
+  }
+
+  .step-card.card-wiggle,
+  .step-card[open] .step-content {
+    animation: none !important;
   }
 
   .nav-link,
