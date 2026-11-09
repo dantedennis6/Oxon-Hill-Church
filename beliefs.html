@@ -608,12 +608,19 @@
 
   <!-- MOBILE NAVIGATION -->
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const mainNav = document.querySelector(".main-nav");
+    const menuToggle =
+      document.querySelector(".menu-toggle");
+
+    const mainNav =
+      document.querySelector(".main-nav");
 
     menuToggle.addEventListener("click", function () {
       const isOpen = mainNav.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
     });
 
     mainNav.querySelectorAll("a").forEach(function (link) {
@@ -624,7 +631,7 @@
     });
   </script>
 
-  <!-- SCROLL-TRIGGERED OVAL SPOTLIGHT -->
+  <!-- OVAL SPOTLIGHT AND CARD ANIMATIONS -->
   <script>
     const salvationSection =
       document.querySelector(".salvation-section");
@@ -632,8 +639,19 @@
     const spotlightOverlay =
       document.querySelector(".salvation-spotlight-overlay");
 
-    function updateSalvationSpotlight() {
+    const salvationCards =
+      document.querySelectorAll(".step-card");
 
+    const reducedMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    /*
+      SPOTLIGHT:
+      Activate when the center of the viewport
+      enters the salvation section.
+    */
+
+    function updateSalvationSpotlight() {
       const rect =
         salvationSection.getBoundingClientRect();
 
@@ -666,6 +684,169 @@
     );
 
     updateSalvationSpotlight();
+
+    /*
+      WIGGLE:
+      Each card starts wiggling when it becomes
+      visible within the salvation section.
+
+      Once clicked, only that card stops wiggling.
+      Other untouched cards continue.
+    */
+
+    const cardObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          const card = entry.target;
+
+          if (card.classList.contains("card-visited")) {
+            return;
+          }
+
+          card.classList.toggle(
+            "card-wiggle",
+            entry.isIntersecting
+          );
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    salvationCards.forEach(function (card, index) {
+      card.style.setProperty(
+        "--wiggle-delay",
+        (index * 0.22) + "s"
+      );
+
+      cardObserver.observe(card);
+    });
+
+    /*
+      SCROLL UNRAVEL:
+      Smoothly animate the height of each details
+      element when opening and closing.
+
+      The original HTML details behavior is
+      preserved for accessibility.
+    */
+
+    salvationCards.forEach(function (card) {
+
+      const summary = card.querySelector("summary");
+
+      let currentAnimation = null;
+      let isAnimating = false;
+
+      function finishAnimation(open) {
+        card.open = open;
+
+        card.style.height = "";
+        card.style.overflow = "";
+
+        isAnimating = false;
+        currentAnimation = null;
+      }
+
+      function animateCard(open) {
+
+        if (currentAnimation) {
+          currentAnimation.cancel();
+          currentAnimation = null;
+        }
+
+        isAnimating = true;
+
+        const startHeight =
+          card.getBoundingClientRect().height;
+
+        /*
+          Open temporarily so the browser can
+          measure the full expanded height.
+        */
+
+        card.open = true;
+
+        card.style.height = "auto";
+
+        const fullHeight = card.scrollHeight;
+
+        const summaryHeight =
+          summary.getBoundingClientRect().height;
+
+        const endHeight =
+          open ? fullHeight : summaryHeight;
+
+        card.style.height = startHeight + "px";
+        card.style.overflow = "hidden";
+
+        if (reducedMotion.matches) {
+          finishAnimation(open);
+          return;
+        }
+
+        /*
+          750 milliseconds gives a slower,
+          scroll-like unfolding motion.
+        */
+
+        currentAnimation = card.animate(
+          [
+            { height: startHeight + "px" },
+            { height: endHeight + "px" }
+          ],
+          {
+            duration: 750,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+          }
+        );
+
+        const animation = currentAnimation;
+
+        animation.onfinish = function () {
+          if (currentAnimation === animation) {
+            finishAnimation(open);
+          }
+        };
+
+        animation.oncancel = function () {
+          if (currentAnimation === animation) {
+            currentAnimation = null;
+            isAnimating = false;
+            card.style.height = "";
+            card.style.overflow = "";
+          }
+        };
+      }
+
+      summary.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        /*
+          Stop the wiggle permanently for this
+          card during the current page visit.
+        */
+
+        card.classList.remove("card-wiggle");
+        card.classList.add("card-visited");
+
+        cardObserver.unobserve(card);
+
+        /*
+          Ignore repeated clicks while the
+          unfolding animation is running.
+        */
+
+        if (isAnimating) {
+          return;
+        }
+
+        animateCard(!card.open);
+      });
+
+    });
   </script>
 
 </body>
