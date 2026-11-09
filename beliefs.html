@@ -25,7 +25,11 @@
 
 <body>
 
-  <!-- HEADER - MATCHES EVENTS PAGE -->
+  <!-- SALVATION SPOTLIGHT OVERLAY -->
+  <div class="salvation-spotlight-overlay"
+       aria-hidden="true"></div>
+
+  <!-- HEADER -->
   <header class="site-header">
 
     <div class="header-container">
@@ -580,7 +584,7 @@
                  focusable="false">
 
               <path fill="currentColor"
-                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z">
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z">
               </path>
 
             </svg>
@@ -618,6 +622,50 @@
         menuToggle.setAttribute("aria-expanded", "false");
       });
     });
+  </script>
+
+  <!-- SCROLL-TRIGGERED SALVATION SPOTLIGHT -->
+  <script>
+    const salvationSection =
+      document.querySelector(".salvation-section");
+
+    const spotlightOverlay =
+      document.querySelector(".salvation-spotlight-overlay");
+
+    function updateSalvationSpotlight() {
+
+      const rect =
+        salvationSection.getBoundingClientRect();
+
+      const viewportMiddle = window.innerHeight / 2;
+
+      const isActive =
+        rect.top <= viewportMiddle &&
+        rect.bottom >= viewportMiddle;
+
+      spotlightOverlay.classList.toggle(
+        "active",
+        isActive
+      );
+
+      salvationSection.classList.toggle(
+        "spotlight-active",
+        isActive
+      );
+    }
+
+    window.addEventListener(
+      "scroll",
+      updateSalvationSpotlight,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      "resize",
+      updateSalvationSpotlight
+    );
+
+    updateSalvationSpotlight();
   </script>
 
 </body>
