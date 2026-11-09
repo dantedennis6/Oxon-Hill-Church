@@ -354,10 +354,8 @@ button:focus-visible {
   background: var(--soft);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-
   position: relative;
   z-index: auto;
-
   transition: box-shadow 0.6s ease;
 }
 
@@ -899,37 +897,45 @@ button:focus-visible {
 }
 
 /* ======================================
-   SALVATION SPOTLIGHT EFFECT
+   OVAL SALVATION SPOTLIGHT EFFECT
 ====================================== */
 
-/* Darkens the surrounding page */
+/* Fixed overlay creates soft oval lighting */
 
 .salvation-spotlight-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(5, 15, 35, 0.68);
+
+  background: radial-gradient(
+    ellipse 65% 58% at center,
+    rgba(5, 15, 35, 0) 0%,
+    rgba(5, 15, 35, 0.05) 30%,
+    rgba(5, 15, 35, 0.35) 60%,
+    rgba(5, 15, 35, 0.78) 100%
+  );
+
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   z-index: 150;
 
   transition:
-    opacity 0.6s ease,
-    visibility 0.6s ease;
+    opacity 0.7s ease,
+    visibility 0.7s ease;
 }
 
-/* Overlay becomes visible */
+/* Spotlight activates */
 
 .salvation-spotlight-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* Salvation section stays above overlay */
+/* Allow oval shading across the section */
 
 .salvation-section.spotlight-active {
-  z-index: 151;
-  box-shadow: 0 0 45px rgba(243, 107, 28, 0.25);
+  z-index: auto;
+  box-shadow: 0 0 45px rgba(243, 107, 28, 0.15);
 }
 
 /* ======================================
