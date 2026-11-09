@@ -39,10 +39,7 @@ a {
 }
 
 a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+button:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 3px;
 }
@@ -77,10 +74,15 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  justify-content: center;
+  gap: 0;
   color: var(--navy);
 }
 
 .logo-name {
+  display: block;
+  margin: 0;
+  padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 25px;
   font-weight: 800;
@@ -88,11 +90,14 @@ textarea:focus-visible {
 }
 
 .logo-subtitle {
+  display: block;
+  margin: 5px 0 0;
+  padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2.2px;
-  margin-top: 5px;
+  line-height: 17px;
 }
 
 /* NAVIGATION */
@@ -221,7 +226,9 @@ textarea:focus-visible {
   font-size: 1.15rem;
 }
 
-/* MAIN CONTACT SECTION */
+/* ======================================
+   CENTERED CONTACT SECTION
+====================================== */
 
 .contact-section {
   max-width: 1150px;
@@ -230,153 +237,17 @@ textarea:focus-visible {
 }
 
 .contact-layout {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 35px;
-  align-items: start;
-}
-
-/* CONTACT FORM */
-
-.form-container {
-  background: var(--white);
-  border: 2px solid var(--navy);
-  border-radius: 10px;
-  padding: 35px;
-  box-shadow: 0 8px 25px rgba(21,59,114,.08);
-}
-
-.form-container h2 {
-  margin: 0 0 15px;
-  color: var(--navy);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
-  text-align: center;
-}
-
-.form-container h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 15px auto 0;
-  background: var(--orange);
-  border-radius: 3px;
-}
-
-.form-introduction {
-  margin: 0 0 30px;
-  text-align: center;
-  line-height: 1.7;
-}
-
-.form-group {
-  margin-bottom: 22px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--navy);
-  font-weight: 700;
-}
-
-.required {
-  color: var(--orange-dark);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  display: block;
-  width: 100%;
-  padding: 13px 15px;
-  border: 1px solid #aebfd2;
-  border-radius: 7px;
-  background: var(--white);
-  color: var(--text);
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 1rem;
-
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(243,107,28,.12);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #68788a;
-}
-
-.required-note {
-  margin: 0 0 10px;
-  font-size: .9rem;
-}
-
-.privacy-note {
-  margin: 0 0 22px;
-  font-size: .9rem;
-  color: #526175;
-  line-height: 1.6;
-}
-
-/* SUBMIT BUTTON */
-
-.submit-button {
-  display: block;
-  width: 100%;
-  padding: 15px 25px;
-  background: var(--navy);
-  color: var(--white);
-  border: 3px solid var(--navy);
-  border-radius: 8px;
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  cursor: pointer;
-
-  transition:
-    background .25s ease,
-    border-color .25s ease,
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-.submit-button:hover:not(:disabled) {
-  background: var(--navy-dark);
-  border-color: var(--orange);
-  transform: translateY(-3px);
-  box-shadow: 0 7px 16px rgba(21,59,114,.2);
-}
-
-.submit-button:disabled {
-  opacity: .55;
-  cursor: not-allowed;
-}
-
-.setup-notice {
-  margin: 15px 0 0;
-  color: #526175;
-  font-size: .9rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* CONTACT INFORMATION */
 
 .contact-information {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
   padding: 35px 28px;
   background: var(--light-bg);
   border: 2px solid var(--navy);
@@ -426,6 +297,8 @@ textarea:focus-visible {
   color: var(--orange-dark);
   text-decoration: underline;
 }
+
+/* DIRECTIONS BUTTON */
 
 .directions-button {
   display: block;
@@ -571,100 +444,8 @@ textarea:focus-visible {
   font-size: .9rem;
 }
 
-/* TABLET - PAGE CONTENT */
-
-@media (max-width: 900px) {
-
-  .contact-layout {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 22px;
-  }
-
-  .form-container {
-    padding: 25px;
-  }
-
-  .contact-information {
-    padding: 25px 20px;
-  }
-
-  .footer-container {
-    gap: 25px;
-  }
-}
-
-/* MOBILE - PAGE CONTENT */
-
-@media (max-width: 600px) {
-
-  .contact-hero {
-    padding: 50px 15px;
-  }
-
-  .contact-hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .contact-hero p {
-    font-size: 1rem;
-  }
-
-  .contact-section {
-    margin: 35px auto 60px;
-    padding: 0 15px;
-  }
-
-  .contact-layout {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .form-container {
-    padding: 25px 20px;
-  }
-
-  .form-container h2 {
-    font-size: 1.5rem;
-  }
-
-  .contact-information {
-    padding: 25px 20px;
-  }
-
-  .site-footer {
-    padding: 40px 20px 20px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 35px;
-  }
-
-  .footer-church-name {
-    font-size: 1.5rem;
-  }
-
-  .footer-contact p {
-    overflow-wrap: anywhere;
-  }
-
-  .footer-right {
-    min-width: 0;
-    text-align: left;
-  }
-
-  .footer-social-links {
-    justify-content: flex-start;
-  }
-
-  .footer-bottom {
-    margin-top: 35px;
-  }
-}
-
 /* ======================================
-   TABLET HEADER - STANDARDIZED DESIGN
+   TABLET HEADER
 ====================================== */
 
 @media (max-width: 1100px) {
@@ -685,7 +466,7 @@ textarea:focus-visible {
 }
 
 /* ======================================
-   MOBILE HEADER - STANDARDIZED DESIGN
+   MOBILE HEADER
 ====================================== */
 
 @media (max-width: 700px) {
@@ -741,6 +522,66 @@ textarea:focus-visible {
   }
 }
 
+/* ======================================
+   MOBILE PAGE CONTENT
+====================================== */
+
+@media (max-width: 600px) {
+
+  .contact-hero {
+    padding: 50px 15px;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact-hero p {
+    font-size: 1rem;
+  }
+
+  .contact-section {
+    margin: 35px auto 60px;
+    padding: 0 15px;
+  }
+
+  .contact-information {
+    width: 100%;
+    padding: 25px 20px;
+  }
+
+  .site-footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  .footer-church-name {
+    font-size: 1.5rem;
+  }
+
+  .footer-contact p {
+    overflow-wrap: anywhere;
+  }
+
+  .footer-right {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .footer-social-links {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    margin-top: 35px;
+  }
+}
+
 /* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
@@ -751,7 +592,6 @@ textarea:focus-visible {
 
   .nav-link,
   .contact-button,
-  .submit-button,
   .directions-button,
   .footer-social-icon {
     transition: none;
@@ -759,36 +599,8 @@ textarea:focus-visible {
 
   .nav-link:hover,
   .contact-button:hover,
-  .submit-button:hover,
   .directions-button:hover,
   .footer-social-icon:hover {
     transform: none;
   }
 }
-
-/* ======================================
-   FIX CONTACT PAGE LOGO SPACING
-   MATCHES HOMEPAGE
-====================================== */
-
-.site-header .site-logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-}
-
-.site-header .logo-name {
-  display: block;
-  margin: 0;
-  padding: 0;
-  line-height: 1.1;
-}
-
-.site-header .logo-subtitle {
-  display: block;
-  margin: 5px 0 0;
-  padding: 0;
-  line-height: 17px;
-}
-
