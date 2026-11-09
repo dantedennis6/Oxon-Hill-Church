@@ -53,7 +53,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   HEADER - MATCHES EVENTS PAGE
+   HEADER
 ====================================== */
 
 .site-header {
@@ -204,7 +204,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   PAGE HERO - ORIGINAL DESIGN
+   PAGE HERO
 ====================================== */
 
 .page-hero {
@@ -226,9 +226,7 @@ button:focus-visible {
   padding: 72px 25px 76px;
 }
 
-/* ======================================
-   SMALL SECTION HEADINGS - ENLARGED
-====================================== */
+/* ENLARGED SECTION LABELS */
 
 .eyebrow {
   margin: 0 0 12px;
@@ -356,6 +354,11 @@ button:focus-visible {
   background: var(--soft);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+
+  position: relative;
+  z-index: auto;
+
+  transition: box-shadow 0.6s ease;
 }
 
 .section-intro {
@@ -597,7 +600,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   FOOTER - ORIGINAL DESIGN
+   FOOTER
 ====================================== */
 
 .site-footer {
@@ -722,7 +725,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   TABLET - ORIGINAL CONTENT
+   TABLET
 ====================================== */
 
 @media (max-width: 900px) {
@@ -733,7 +736,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   MOBILE - ORIGINAL CONTENT
+   MOBILE
 ====================================== */
 
 @media (max-width: 600px) {
@@ -818,7 +821,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   TABLET HEADER - EVENTS PAGE STYLE
+   TABLET HEADER
 ====================================== */
 
 @media (max-width: 1100px) {
@@ -839,7 +842,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   MOBILE HEADER - EVENTS PAGE STYLE
+   MOBILE HEADER
 ====================================== */
 
 @media (max-width: 700px) {
@@ -896,6 +899,40 @@ button:focus-visible {
 }
 
 /* ======================================
+   SALVATION SPOTLIGHT EFFECT
+====================================== */
+
+/* Darkens the surrounding page */
+
+.salvation-spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 15, 35, 0.68);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 150;
+
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+/* Overlay becomes visible */
+
+.salvation-spotlight-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Salvation section stays above overlay */
+
+.salvation-section.spotlight-active {
+  z-index: 151;
+  box-shadow: 0 0 45px rgba(243, 107, 28, 0.25);
+}
+
+/* ======================================
    REDUCED MOTION
 ====================================== */
 
@@ -916,7 +953,9 @@ button:focus-visible {
   .step-toggle::after,
   .closing-button,
   .footer-social-icon,
-  .footer-contact a {
+  .footer-contact a,
+  .salvation-spotlight-overlay,
+  .salvation-section {
     transition: none;
   }
 
@@ -928,59 +967,5 @@ button:focus-visible {
   .closing-button:hover,
   .footer-social-icon:hover {
     transform: none;
-  }
-}
-
-/* ======================================
-   SALVATION SECTION SPOTLIGHT EFFECT
-====================================== */
-
-/* Dark overlay for the surrounding page */
-
-.salvation-spotlight-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 15, 35, 0.68);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: 150;
-
-  transition:
-    opacity 0.6s ease,
-    visibility 0.6s ease;
-}
-
-/* Activate the dimming effect */
-
-.salvation-spotlight-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Keep the salvation section above the overlay */
-
-.salvation-section {
-  position: relative;
-  z-index: auto;
-}
-
-.salvation-section.spotlight-active {
-  z-index: 151;
-  box-shadow: 0 0 45px rgba(243, 107, 28, 0.25);
-}
-
-/* Smooth visual transition */
-
-.salvation-section {
-  transition: box-shadow 0.6s ease;
-}
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-  .salvation-spotlight-overlay,
-  .salvation-section {
-    transition: none;
   }
 }
