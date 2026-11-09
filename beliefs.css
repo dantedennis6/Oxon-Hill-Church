@@ -930,3 +930,57 @@ button:focus-visible {
     transform: none;
   }
 }
+
+/* ======================================
+   SALVATION SECTION SPOTLIGHT EFFECT
+====================================== */
+
+/* Dark overlay for the surrounding page */
+
+.salvation-spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 15, 35, 0.68);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 150;
+
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+/* Activate the dimming effect */
+
+.salvation-spotlight-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Keep the salvation section above the overlay */
+
+.salvation-section {
+  position: relative;
+  z-index: auto;
+}
+
+.salvation-section.spotlight-active {
+  z-index: 151;
+  box-shadow: 0 0 45px rgba(243, 107, 28, 0.25);
+}
+
+/* Smooth visual transition */
+
+.salvation-section {
+  transition: box-shadow 0.6s ease;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .salvation-spotlight-overlay,
+  .salvation-section {
+    transition: none;
+  }
+}
