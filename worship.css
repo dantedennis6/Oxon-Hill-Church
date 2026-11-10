@@ -38,7 +38,8 @@ a {
 }
 
 a:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+button:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;
 }
@@ -52,7 +53,7 @@ summary:focus-visible {
 }
 
 /* ======================================
-   HEADER - MATCHES EVENTS AND BELIEFS
+   HEADER
 ====================================== */
 
 .site-header {
@@ -74,8 +75,6 @@ summary:focus-visible {
   justify-content: space-between;
   gap: 22px;
 }
-
-/* CHURCH LOGO */
 
 .site-logo {
   display: flex;
@@ -133,25 +132,13 @@ summary:focus-visible {
 }
 
 .main-nav .nav-link:hover {
-  background: transparent;
   color: var(--orange);
-  border: none;
-  box-shadow: none;
   transform: translateY(-2px);
 }
 
 .main-nav .nav-link.active,
 .main-nav .nav-link[aria-current="page"] {
-  background: transparent;
   color: var(--orange);
-  border: none;
-  box-shadow: none;
-}
-
-.main-nav .nav-link.active:hover,
-.main-nav .nav-link[aria-current="page"]:hover {
-  transform: translateY(-2px);
-  box-shadow: none;
 }
 
 /* CONTACT BUTTON */
@@ -178,12 +165,11 @@ summary:focus-visible {
 
 .contact-button:hover {
   background: var(--orange-dark);
-  border: none;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(243, 107, 28, .22);
 }
 
-/* MOBILE MENU BUTTON */
+/* MOBILE MENU */
 
 .menu-toggle {
   display: none;
@@ -202,7 +188,9 @@ summary:focus-visible {
   border-radius: 3px;
 }
 
-/* HERO */
+/* ======================================
+   HERO BANNER
+====================================== */
 
 .page-hero {
   background: linear-gradient(
@@ -210,6 +198,7 @@ summary:focus-visible {
     var(--navy-dark),
     var(--navy)
   );
+
   color: var(--white);
   text-align: center;
   border-top: 3px solid var(--orange);
@@ -218,26 +207,45 @@ summary:focus-visible {
 }
 
 .eyebrow {
-  margin: 0 0 10px;
-  color: var(--orange-dark);
+  margin: 0 0 12px;
+  color: var(--orange);
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: .83rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: .14em;
+  letter-spacing: .12em;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 
 .page-hero .eyebrow {
-  color: #ffb88c;
+  color: var(--orange);
 }
+
+/* HERO TITLE: TWO LINES */
 
 .page-hero h1 {
   margin: 0 auto 20px;
-  max-width: 900px;
+  max-width: 1000px;
+  color: var(--white);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(2.1rem, 4.5vw, 3.5rem);
-  line-height: 1.22;
+  line-height: 1.35;
   font-weight: 800;
+  text-shadow: 0 3px 12px rgba(0,0,0,.75);
+
+  animation: heroFadeIn 1.5s ease-out both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-hero p:last-child {
@@ -247,11 +255,15 @@ summary:focus-visible {
   color: #f1f5fb;
 }
 
-/* MAIN SECTIONS */
+/* ======================================
+   WORSHIP SECTION
+====================================== */
 
 .worship-section {
   padding-top: 66px;
   padding-bottom: 76px;
+  position: relative;
+  transition: box-shadow .6s ease;
 }
 
 .section-intro {
@@ -275,13 +287,16 @@ summary:focus-visible {
   font-size: 1.02rem;
 }
 
-/* EXPANDABLE WORSHIP CARDS */
+/* ======================================
+   EXPANDABLE WORSHIP CARDS
+   MATCHES BELIEFS PAGE
+====================================== */
 
 .card-list {
-  max-width: 940px;
+  max-width: 900px;
   margin: 0 auto;
   display: grid;
-  gap: 15px;
+  gap: 18px;
 }
 
 .worship-card,
@@ -292,23 +307,50 @@ summary:focus-visible {
   overflow: hidden;
 
   transition:
-    border-color .2s,
-    box-shadow .2s;
+    border-color .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
 }
 
-.worship-card:hover,
-.worship-card[open],
-.faq-card:hover,
-.faq-card[open] {
-  border-color: var(--orange);
-  box-shadow: 0 7px 20px rgba(21,59,114,.09);
+.worship-card {
+  position: relative;
+  box-shadow: 0 2px 8px rgba(21,59,114,.04);
+  will-change: height;
 }
+
+/* ORANGE HOVER EFFECT */
+
+.worship-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--orange);
+
+  box-shadow:
+    0 14px 28px rgba(21,59,114,.16),
+    0 0 8px rgba(243,107,28,.12);
+
+  z-index: 2;
+}
+
+.worship-card[open] {
+  border-color: var(--orange);
+  box-shadow: 0 8px 22px rgba(21,59,114,.12);
+}
+
+.worship-card[open]:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  box-shadow:
+    0 14px 28px rgba(21,59,114,.18),
+    0 0 8px rgba(243,107,28,.12);
+}
+
+/* CARD HEADER */
 
 .worship-card summary {
   display: flex;
   align-items: center;
-  gap: 17px;
-  padding: 21px 24px;
+  gap: 18px;
+  padding: 20px 23px;
   cursor: pointer;
   list-style: none;
 }
@@ -317,6 +359,8 @@ summary:focus-visible {
 .faq-card summary::-webkit-details-marker {
   display: none;
 }
+
+/* NUMBER BOX */
 
 .card-number {
   display: flex;
@@ -329,11 +373,15 @@ summary:focus-visible {
   background: var(--navy);
   color: var(--white);
   font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
+/* CARD TEXT */
+
 .card-label {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -343,6 +391,8 @@ summary:focus-visible {
   color: var(--navy);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .card-label > span {
@@ -350,7 +400,58 @@ summary:focus-visible {
   line-height: 1.55;
 }
 
-/* EXPAND / COLLAPSE ICON */
+/* ======================================
+   READ / UNREAD INDICATORS
+   NO PILL SHAPE OR BACKGROUND
+====================================== */
+
+.reading-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+
+  transition: color .25s ease;
+}
+
+.status-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* UNREAD: RED */
+
+.reading-status.unread {
+  color: #a62020;
+}
+
+.reading-status.unread .status-dot {
+  background: #c62828;
+}
+
+/* READ: GREEN */
+
+.reading-status.read {
+  color: #176b36;
+}
+
+.reading-status.read .status-dot {
+  background: #21834a;
+}
+
+/* ======================================
+   PLUS / MINUS TOGGLE
+====================================== */
 
 .toggle {
   position: relative;
@@ -375,7 +476,7 @@ summary:focus-visible {
 
 .toggle::after {
   transform: translate(-50%, -50%) rotate(90deg);
-  transition: transform .2s;
+  transition: transform .45s ease;
 }
 
 .worship-card[open] .toggle::after,
@@ -383,7 +484,9 @@ summary:focus-visible {
   transform: translate(-50%, -50%) rotate(0);
 }
 
-/* EXPANDED CONTENT */
+/* ======================================
+   EXPANDED WORSHIP CONTENT
+====================================== */
 
 .card-content {
   padding: 18px 26px 26px 89px;
@@ -412,17 +515,75 @@ summary:focus-visible {
 
 .card-content blockquote p {
   margin: 0;
+  line-height: 1.75;
 }
 
 .translation-note {
-  max-width: 940px;
+  max-width: 900px;
   margin: 20px auto 0;
   text-align: center;
   color: #58687c;
   font-size: .88rem;
 }
 
-/* WORSHIP SCHEDULE */
+/* ======================================
+   SCRIPTURE UNRAVEL ANIMATION
+====================================== */
+
+@keyframes scriptureUnravel {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.worship-card[open] .card-content {
+  animation: scriptureUnravel .65s ease-out both;
+}
+
+/* ======================================
+   OVAL SPOTLIGHT EFFECT
+====================================== */
+
+.worship-spotlight-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse 65% 58% at center,
+    rgba(5, 15, 35, 0) 0%,
+    rgba(5, 15, 35, .05) 30%,
+    rgba(5, 15, 35, .35) 60%,
+    rgba(5, 15, 35, .78) 100%
+  );
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 150;
+
+  transition:
+    opacity .7s ease,
+    visibility .7s ease;
+}
+
+.worship-spotlight-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.worship-section.spotlight-active {
+  box-shadow: 0 0 45px rgba(243,107,28,.15);
+}
+
+/* ======================================
+   WORSHIP SCHEDULE
+====================================== */
 
 .schedule-section {
   background: var(--soft);
@@ -509,7 +670,9 @@ summary:focus-visible {
   font-style: italic;
 }
 
-/* FREQUENTLY ASKED QUESTIONS */
+/* ======================================
+   FREQUENTLY ASKED QUESTIONS
+====================================== */
 
 .faq-section {
   padding-top: 70px;
@@ -521,6 +684,12 @@ summary:focus-visible {
   margin: 0 auto;
   display: grid;
   gap: 12px;
+}
+
+.faq-card:hover,
+.faq-card[open] {
+  border-color: var(--orange);
+  box-shadow: 0 7px 20px rgba(21,59,114,.09);
 }
 
 .faq-card summary {
@@ -548,7 +717,9 @@ summary:focus-visible {
   font-style: italic;
 }
 
-/* CLOSING INVITATION */
+/* ======================================
+   CLOSING INVITATION
+====================================== */
 
 .invitation-section {
   background: #fff5ee;
@@ -609,7 +780,9 @@ summary:focus-visible {
   border-color: var(--orange);
 }
 
-/* FOOTER */
+/* ======================================
+   FOOTER
+====================================== */
 
 .site-footer {
   width: 100%;
@@ -732,10 +905,11 @@ summary:focus-visible {
   font-size: .9rem;
 }
 
-/* TABLET - PAGE CONTENT */
+/* ======================================
+   TABLET PAGE CONTENT
+====================================== */
 
 @media (max-width: 900px) {
-
   .schedule-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -745,7 +919,9 @@ summary:focus-visible {
   }
 }
 
-/* MOBILE - PAGE CONTENT */
+/* ======================================
+   MOBILE PAGE CONTENT
+====================================== */
 
 @media (max-width: 600px) {
 
@@ -759,7 +935,7 @@ summary:focus-visible {
   }
 
   .page-hero h1 {
-    font-size: 2.05rem;
+    font-size: clamp(1.6rem, 6vw, 2.05rem);
   }
 
   .worship-section,
@@ -769,8 +945,8 @@ summary:focus-visible {
   }
 
   .worship-card summary {
-    padding: 16px 14px;
-    gap: 12px;
+    padding: 16px 12px;
+    gap: 10px;
   }
 
   .card-number {
@@ -785,6 +961,23 @@ summary:focus-visible {
 
   .card-label > span {
     font-size: .91rem;
+  }
+
+  /* SMALL READING STATUS */
+
+  .reading-status {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .toggle {
+    width: 26px;
+    height: 26px;
   }
 
   .card-content {
@@ -840,7 +1033,7 @@ summary:focus-visible {
 }
 
 /* ======================================
-   TABLET HEADER - MATCHES EVENTS
+   TABLET HEADER
 ====================================== */
 
 @media (max-width: 1100px) {
@@ -861,7 +1054,7 @@ summary:focus-visible {
 }
 
 /* ======================================
-   MOBILE HEADER - MATCHES EVENTS
+   MOBILE HEADER
 ====================================== */
 
 @media (max-width: 700px) {
@@ -917,7 +1110,9 @@ summary:focus-visible {
   }
 }
 
-/* REDUCED MOTION */
+/* ======================================
+   REDUCED MOTION ACCESSIBILITY
+====================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -925,11 +1120,22 @@ summary:focus-visible {
     scroll-behavior: auto;
   }
 
+  .page-hero h1 {
+    animation: none;
+  }
+
+  .worship-card[open] .card-content {
+    animation: none !important;
+  }
+
   .nav-link,
   .contact-button,
   .worship-card,
   .faq-card,
   .toggle::after,
+  .reading-status,
+  .worship-spotlight-overlay,
+  .worship-section,
   .day-card,
   .primary-button,
   .secondary-button,
@@ -940,6 +1146,8 @@ summary:focus-visible {
 
   .nav-link:hover,
   .contact-button:hover,
+  .worship-card:hover,
+  .worship-card[open]:hover,
   .day-card:hover,
   .primary-button:hover,
   .secondary-button:hover,
