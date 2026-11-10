@@ -187,9 +187,16 @@
 
             <summary>
               <span class="step-number">01</span>
+
               <span class="step-heading">
                 Hear the Word of God
               </span>
+
+              <span class="reading-status unread">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">Unread</span>
+              </span>
+
               <span class="step-toggle" aria-hidden="true"></span>
             </summary>
 
@@ -225,9 +232,16 @@
 
             <summary>
               <span class="step-number">02</span>
+
               <span class="step-heading">
                 Believe That Jesus Is the Christ
               </span>
+
+              <span class="reading-status unread">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">Unread</span>
+              </span>
+
               <span class="step-toggle" aria-hidden="true"></span>
             </summary>
 
@@ -275,9 +289,16 @@
 
             <summary>
               <span class="step-number">03</span>
+
               <span class="step-heading">
                 Repent of Our Sins
               </span>
+
+              <span class="reading-status unread">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">Unread</span>
+              </span>
+
               <span class="step-toggle" aria-hidden="true"></span>
             </summary>
 
@@ -323,9 +344,16 @@
 
             <summary>
               <span class="step-number">04</span>
+
               <span class="step-heading">
                 Confess That Jesus Christ Is the Son of God
               </span>
+
+              <span class="reading-status unread">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">Unread</span>
+              </span>
+
               <span class="step-toggle" aria-hidden="true"></span>
             </summary>
 
@@ -373,9 +401,16 @@
 
             <summary>
               <span class="step-number">05</span>
+
               <span class="step-heading">
                 Be Baptized for the Remission of Sins
               </span>
+
+              <span class="reading-status unread">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">Unread</span>
+              </span>
+
               <span class="step-toggle" aria-hidden="true"></span>
             </summary>
 
@@ -437,9 +472,16 @@
 
             <summary>
               <span class="step-number">06</span>
+
               <span class="step-heading">
                 Remain Faithful Unto Death
               </span>
+
+              <span class="reading-status unread">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">Unread</span>
+              </span>
+
               <span class="step-toggle" aria-hidden="true"></span>
             </summary>
 
@@ -584,7 +626,7 @@
                  focusable="false">
 
               <path fill="currentColor"
-                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z">
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z">
               </path>
 
             </svg>
@@ -631,7 +673,7 @@
     });
   </script>
 
-  <!-- OVAL SPOTLIGHT AND SYNCHRONIZED CARD ANIMATIONS -->
+  <!-- SPOTLIGHT AND SALVATION CARD READING STATUS -->
   <script>
     const salvationSection =
       document.querySelector(".salvation-section");
@@ -675,142 +717,39 @@
     updateSalvationSpotlight();
 
     /*
-      SYNCHRONIZED WIGGLE
+      READING STATUS
 
-      Every unread card uses the same animation
-      start time and progress.
+      Each card starts as Unread.
 
-      When a card is clicked, its animation stops
-      and it will not restart during this page visit.
+      Opening a card changes its status to Read.
+
+      Closing the card does not change the status.
+
+      Refreshing the page resets all six cards.
     */
 
-    const wiggleAnimations = new Map();
+    function markCardAsRead(card) {
+      const status = card.querySelector(".reading-status");
+      const statusText = card.querySelector(".status-text");
 
-    let sharedWiggleStart = null;
-    let wiggleSectionVisible = false;
-
-    const wiggleKeyframes = [
-      { transform: "rotate(0deg)", offset: 0 },
-      { transform: "rotate(-0.7deg)", offset: 0.04 },
-      { transform: "rotate(0.7deg)", offset: 0.08 },
-      { transform: "rotate(-0.45deg)", offset: 0.12 },
-      { transform: "rotate(0.45deg)", offset: 0.16 },
-      { transform: "rotate(0deg)", offset: 0.20 },
-      { transform: "rotate(0deg)", offset: 1 }
-    ];
-
-    const wiggleDuration = 3500;
-
-    function startSynchronizedWiggle() {
-      if (reducedMotion.matches) {
+      if (!status || !statusText) {
         return;
       }
 
-      /*
-        The section receives one shared timeline.
-        All unread cards begin together.
-      */
+      status.classList.remove("unread");
+      status.classList.add("read");
 
-      if (sharedWiggleStart === null) {
-        sharedWiggleStart = document.timeline.currentTime || 0;
-      }
-
-      salvationCards.forEach(function (card) {
-        if (card.classList.contains("card-visited")) {
-          return;
-        }
-
-        if (wiggleAnimations.has(card)) {
-          wiggleAnimations.get(card).play();
-          return;
-        }
-
-        const animation = card.animate(
-          wiggleKeyframes,
-          {
-            duration: wiggleDuration,
-            iterations: Infinity,
-            easing: "ease-in-out"
-          }
-        );
-
-        /*
-          Synchronize every card to the
-          same point in the animation cycle.
-        */
-
-        const elapsed =
-          (document.timeline.currentTime || 0) -
-          sharedWiggleStart;
-
-        animation.currentTime =
-          ((elapsed % wiggleDuration) + wiggleDuration) %
-          wiggleDuration;
-
-        wiggleAnimations.set(card, animation);
-      });
+      statusText.textContent = "Read";
     }
-
-    function pauseSynchronizedWiggle() {
-      wiggleAnimations.forEach(function (animation) {
-        animation.pause();
-      });
-    }
-
-    function stopCardWiggle(card) {
-      card.classList.add("card-visited");
-
-      const animation = wiggleAnimations.get(card);
-
-      if (animation) {
-        animation.cancel();
-        wiggleAnimations.delete(card);
-      }
-
-      card.style.transform = "";
-    }
-
-    const wiggleObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          wiggleSectionVisible = entry.isIntersecting;
-
-          if (wiggleSectionVisible) {
-            startSynchronizedWiggle();
-          } else {
-            pauseSynchronizedWiggle();
-          }
-        });
-      },
-      {
-        threshold: 0.1
-      }
-    );
-
-    wiggleObserver.observe(salvationSection);
 
     /*
-      Handle changes to reduced-motion settings.
-    */
+      SMOOTH EXPANSION AND COLLAPSE
 
-    reducedMotion.addEventListener("change", function () {
-      if (reducedMotion.matches) {
-        wiggleAnimations.forEach(function (animation) {
-          animation.cancel();
-        });
+      Cards unfold over 750 milliseconds.
 
-        wiggleAnimations.clear();
-        sharedWiggleStart = null;
-      } else if (wiggleSectionVisible) {
-        startSynchronizedWiggle();
-      }
-    });
+      Reduced-motion preferences are respected.
 
-    /*
-      SCROLL UNRAVEL ANIMATION
-
-      Cards expand and collapse smoothly
-      over 750 milliseconds.
+      No wiggle animation is used.
     */
 
     salvationCards.forEach(function (card) {
@@ -818,6 +757,16 @@
 
       let currentAnimation = null;
       let isAnimating = false;
+
+      // Reset status on each page load.
+      card.open = false;
+
+      const status = card.querySelector(".reading-status");
+      const statusText = card.querySelector(".status-text");
+
+      status.classList.remove("read");
+      status.classList.add("unread");
+      statusText.textContent = "Unread";
 
       function finishAnimation(open) {
         card.open = open;
@@ -843,6 +792,7 @@
         card.style.height = "auto";
 
         const fullHeight = card.scrollHeight;
+
         const summaryHeight =
           summary.getBoundingClientRect().height;
 
@@ -887,20 +837,27 @@
       }
 
       /*
-        Clicking a card marks it as visited.
-        Only that card stops wiggling.
+        Clicking or keyboard-activating a card
+        changes its status to Read when opened.
+
+        Once marked Read, it stays Read until
+        the page is refreshed.
       */
 
       summary.addEventListener("click", function (event) {
         event.preventDefault();
 
-        stopCardWiggle(card);
-
         if (isAnimating) {
           return;
         }
 
-        animateCard(!card.open);
+        const opening = !card.open;
+
+        if (opening) {
+          markCardAsRead(card);
+        }
+
+        animateCard(opening);
       });
     });
   </script>
