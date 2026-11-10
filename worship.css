@@ -658,14 +658,18 @@ button:focus-visible {
   line-height: 1.45;
 }
 
+/* UPDATED: MATCHES MAIN ORANGE */
+
 .schedule-line .schedule-exception {
-  color: var(--orange-dark);
+  color: var(--orange);
   font-style: italic;
 }
 
+/* UPDATED: MATCHES MAIN ORANGE */
+
 .schedule-note {
   margin: 15px 0 0;
-  color: var(--orange-dark);
+  color: var(--orange);
   font-size: .9rem;
   font-style: italic;
 }
@@ -962,8 +966,6 @@ button:focus-visible {
   .card-label > span {
     font-size: .91rem;
   }
-
-  /* SMALL READING STATUS */
 
   .reading-status {
     gap: 4px;
