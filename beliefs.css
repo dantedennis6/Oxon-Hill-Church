@@ -578,23 +578,27 @@ button:focus-visible {
 
 .closing-button {
   display: inline-block;
-  background: var(--navy);
+  background: var(--orange);
   color: var(--white);
-  border: 3px solid var(--navy);
-  border-radius: 8px;
-  padding: 12px 32px;
+  border: none;
+  border-radius: 7px;
+  padding: 13px 22px;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
   font-weight: 700;
+  text-align: center;
 
   transition:
-    transform .2s ease,
-    border-color .2s ease,
-    background .2s ease;
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .closing-button:hover {
-  background: var(--navy-dark);
-  border-color: var(--orange);
+  background: var(--orange-dark);
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
 /* ======================================
