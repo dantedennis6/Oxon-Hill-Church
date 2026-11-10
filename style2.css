@@ -503,7 +503,7 @@ button:focus-visible {
 }
 
 .day-card-content .schedule-exception {
-  color: var(--orange-dark);
+  color: var(--orange);
   font-style: italic;
   margin-top: 5px;
 }
