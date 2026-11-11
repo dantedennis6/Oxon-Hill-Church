@@ -305,9 +305,6 @@ button:focus-visible {
   letter-spacing: .07em;
 }
 
-/* Orange dot identifies the broadcasts section,
-   not whether a stream is currently live. */
-
 .broadcast-dot {
   width: 10px;
   height: 10px;
@@ -321,7 +318,75 @@ button:focus-visible {
   font-weight: 700;
 }
 
-/* VIDEO BOX */
+/* ======================================
+   VIDEO SPOTLIGHT EFFECT
+====================================== */
+
+/*
+  Darkens the edges of the viewport while
+  keeping a clear oval over the video.
+
+  The oval follows the video position as
+  the visitor scrolls or resizes the page.
+*/
+
+.video-spotlight-overlay {
+  position: fixed;
+  inset: 0;
+
+  --spotlight-x: 50vw;
+  --spotlight-y: 50vh;
+  --spotlight-width: 500px;
+  --spotlight-height: 300px;
+
+  background: radial-gradient(
+    ellipse var(--spotlight-width)
+            var(--spotlight-height)
+            at var(--spotlight-x)
+               var(--spotlight-y),
+
+    rgba(5,15,35,0) 0%,
+    rgba(5,15,35,0) 30%,
+    rgba(5,15,35,.10) 48%,
+    rgba(5,15,35,.38) 68%,
+    rgba(5,15,35,.80) 100%
+  );
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  z-index: 150;
+
+  transition:
+    opacity .7s ease,
+    visibility .7s ease;
+}
+
+.video-spotlight-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-spotlight-target {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+
+  transition:
+    filter .5s ease,
+    box-shadow .5s ease;
+}
+
+.video-spotlight-target.spotlight-active {
+  filter: drop-shadow(
+    0 0 20px rgba(243,107,28,.28)
+  );
+}
+
+/* ======================================
+   MAIN VIDEO BOX
+====================================== */
 
 .video-container {
   width: 100%;
@@ -631,6 +696,10 @@ button:focus-visible {
   font-style: italic;
 }
 
+.zoom-contact-button {
+  margin-top: 15px;
+}
+
 .schedule-disclaimer {
   margin: 22px auto 0;
   color: var(--orange);
@@ -787,8 +856,6 @@ button:focus-visible {
   transform: translateY(-3px);
   border-color: var(--orange);
 }
-
-/* SAME CONTACT BUTTON AS HEADER */
 
 .bottom-contact-button {
   display: inline-block;
@@ -1175,6 +1242,8 @@ button:focus-visible {
     animation: none;
   }
 
+  .video-spotlight-overlay,
+  .video-spotlight-target,
   .nav-link,
   .contact-button,
   .video-container,
