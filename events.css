@@ -1,7 +1,7 @@
 
 /* =========================================
    OXON HILL CHURCH OF CHRIST
-   EVENTS & ACTIVITIES PAGE
+   EVENTS AND ACTIVITIES PAGE
 ========================================= */
 
 :root {
@@ -194,7 +194,11 @@ h1, h2, h3, h4 {
 }
 
 .page-hero .eyebrow {
-  color: #ff914d;
+  color: var(--orange);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.5;
 }
 
 .page-hero h1 {
