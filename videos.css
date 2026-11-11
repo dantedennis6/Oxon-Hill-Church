@@ -702,7 +702,7 @@ button:focus-visible {
 
 .schedule-disclaimer {
   margin: 22px auto 0;
-  color: var(--orange);
+  color: var(--navy);
   text-align: center;
   font-size: .9rem;
   font-style: italic;
@@ -814,6 +814,11 @@ button:focus-visible {
 
 .invitation-inner {
   text-align: center;
+}
+
+.invitation-inner h2 {
+  font-size: clamp(1.25rem, 2.6vw, 2.3rem);
+  white-space: nowrap;
 }
 
 .invitation-inner > p {
@@ -1194,6 +1199,10 @@ button:focus-visible {
 
   .invitation-section {
     padding: 50px 0 58px;
+  }
+
+  .invitation-inner h2 {
+    white-space: normal;
   }
 
   .site-footer {
