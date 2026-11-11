@@ -1097,3 +1097,13 @@ button:focus-visible {
     transform: none;
   }
 }
+
+/* ======================================
+   JUSTIFY OUR FOUNDATION SECTION
+====================================== */
+
+.beliefs-intro p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
