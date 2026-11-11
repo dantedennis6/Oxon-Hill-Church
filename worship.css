@@ -518,11 +518,13 @@ button:focus-visible {
   line-height: 1.75;
 }
 
+/* UPDATED: KJV TRANSLATION NOTE IN MAIN ORANGE */
+
 .translation-note {
   max-width: 900px;
   margin: 20px auto 0;
   text-align: center;
-  color: #58687c;
+  color: var(--orange);
   font-size: .88rem;
 }
 
@@ -658,14 +660,14 @@ button:focus-visible {
   line-height: 1.45;
 }
 
-/* UPDATED: MATCHES MAIN ORANGE */
+/* MAIN ORANGE: SATURDAY EXCEPTION */
 
 .schedule-line .schedule-exception {
   color: var(--orange);
   font-style: italic;
 }
 
-/* UPDATED: MATCHES MAIN ORANGE */
+/* MAIN ORANGE: WEDNESDAY ZOOM NOTE */
 
 .schedule-note {
   margin: 15px 0 0;
@@ -754,12 +756,15 @@ button:focus-visible {
   margin-top: 25px;
 }
 
-.primary-button,
-.secondary-button {
+/* GET DIRECTIONS BUTTON - UNCHANGED */
+
+.primary-button {
   display: inline-block;
   padding: 12px 30px;
   border: 3px solid var(--navy);
   border-radius: 8px;
+  background: var(--navy);
+  color: var(--white);
   font-weight: 700;
 
   transition:
@@ -768,20 +773,38 @@ button:focus-visible {
     background .25s;
 }
 
-.primary-button {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.secondary-button {
-  background: var(--white);
-  color: var(--navy);
-}
-
-.primary-button:hover,
-.secondary-button:hover {
+.primary-button:hover {
   transform: translateY(-3px);
   border-color: var(--orange);
+}
+
+/* UPDATED: BOTTOM CONTACT US BUTTON
+   MATCHES TOP RIGHT CONTACT BUTTON */
+
+.secondary-button {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 13px 22px;
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  border-radius: 7px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.secondary-button:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
 /* ======================================
