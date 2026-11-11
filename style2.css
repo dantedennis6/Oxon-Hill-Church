@@ -1229,3 +1229,11 @@ button:focus-visible {
   }
 }
 
+/* JUSTIFY INVITATION STATEMENT */
+
+.invitation-content p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
