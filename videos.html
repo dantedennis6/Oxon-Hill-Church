@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Join Oxon Hill Church of Christ for live worship and Bible study online.">
+
+  <title>Videos & Live Worship | Oxon Hill Church of Christ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./videos.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+
+      <a href="./Index2.html"
+         class="site-logo"
+         aria-label="Oxon Hill Church of Christ Home">
+        <span class="logo-name">Oxon Hill</span>
+        <span class="logo-subtitle">CHURCH OF CHRIST</span>
+      </a>
+
+      <nav class="main-nav"
+           id="main-navigation"
+           aria-label="Main navigation">
+
+        <a href="./Index2.html" class="nav-link">
+          Home
+        </a>
+
+        <a href="./beliefs.html" class="nav-link">
+          What We Believe
+        </a>
+
+        <a href="./worship.html" class="nav-link">
+          Worship
+        </a>
+
+        <a href="./videos.html"
+           class="nav-link active"
+           aria-current="page">
+          Videos
+        </a>
+
+        <a href="./events.html" class="nav-link">
+          Events/Activities
+        </a>
+
+        <a href="./giving.html" class="nav-link">
+          Giving
+        </a>
+      </nav>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-label="Toggle navigation"
+              aria-controls="main-navigation"
+              aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="./ContactPage.html"
+         class="contact-button">
+        Contact Us
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="content-width">
+
+        <p class="eyebrow">Worship With Us Online</p>
+
+        <h1>
+          Videos &amp; Live Worship
+        </h1>
+
+        <p>
+          Join us live for our Bible studies and worship
+          as we come together to study God's Word,
+          encourage one another, and worship
+          Him in spirit and in truth.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- LIVE VIDEO SECTION -->
+    <section class="live-section content-width"
+             aria-labelledby="live-title">
+
+      <div class="section-intro">
+        <p class="eyebrow">Join Us Online</p>
+
+        <h2 id="live-title">
+          Join Us Live for Bible Study &amp; Worship
+        </h2>
+
+        <p>
+          Worship and study with us wherever you are.
+          Select the video below to visit our current
+          live broadcast on YouTube.
+        </p>
+      </div>
+
+      <!-- STREAM STATUS -->
+      <div class="broadcast-heading">
+
+        <span class="broadcast-indicator">
+          <span class="broadcast-dot"></span>
+          LIVE BROADCASTS
+        </span>
+
+        <span class="broadcast-timezone">
+          All times Eastern
+        </span>
+
+      </div>
+
+      <!-- MAIN VIDEO BOX -->
+      <div class="video-container">
+
+        <!--
+          LIVE VIDEO CONFIGURATION
+
+          The permanent YouTube channel link works
+          for finding the current live broadcast.
+
+          For an embedded player, replace the
+          VIDEO_ID value in the JavaScript near
+          the bottom of this file with the actual
+          video ID for the congregation's stream.
+
+          When VIDEO_ID is empty, the page displays
+          a polished Watch Live preview instead.
+
+          This avoids showing a broken YouTube iframe.
+        -->
+
+        <div class="video-placeholder" id="video-placeholder">
+
+          <div class="video-placeholder-content">
+
+            <div class="video-play-icon"
+                 aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                      d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+
+            <h3>
+              Worship With Us Live
+            </h3>
+
+            <p>
+              Join our live worship services and
+              Bible studies on YouTube.
+            </p>
+
+            <a href="https://www.youtube.com/@oxonhill-r8r/live"
+               class="watch-live-button"
+               target="_blank"
+               rel="noopener noreferrer">
+
+              <span class="live-dot"></span>
+              Watch Live on YouTube
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- EMBEDDED PLAYER -->
+        <iframe
+          id="live-video-frame"
+          class="live-video-frame"
+          title="Oxon Hill Church of Christ Live Worship"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <p class="stream-message">
+        If the video is not playing, please visit
+        our YouTube channel to watch the current
+        broadcast or view previous services.
+      </p>
+
+      <!-- SOCIAL MEDIA ICONS UNDER VIDEO -->
+      <div class="video-social-section">
+
+        <p>
+          Connect With Us
+        </p>
+
+        <div class="video-social-links">
+
+          <!-- YOUTUBE -->
+          <a href="https://www.youtube.com/@oxonhill-r8r"
+             class="video-social-icon youtube-icon"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit our YouTube channel">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+            </svg>
+
+          </a>
+
+          <!-- FACEBOOK -->
+          <a href="https://www.facebook.com/p/Oxon-Hill-Church-of-Christ-100064627841522/"
+             class="video-social-icon facebook-icon"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit our Facebook page">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.47H15.2c-1.25 0-1.64.77-1.64 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- LIVE WORSHIP SCHEDULE -->
+    <section class="schedule-section"
+             aria-labelledby="schedule-title">
+
+      <div class="content-width">
+
+        <div class="section-intro">
+
+          <p class="eyebrow">Our Weekly Gatherings</p>
+
+          <h2 id="schedule-title">
+            Join Us for Worship &amp; Bible Study
+          </h2>
+
+          <p>
+            We invite you to join us at the following
+            times for Bible study and worship.
+          </p>
+
+        </div>
+
+        <div class="schedule-grid">
+
+          <!-- SUNDAY -->
+          <article class="schedule-card">
+
+            <div class="schedule-card-header">
+              <span class="schedule-day">Sunday</span>
+            </div>
+
+            <div class="schedule-card-body">
+
+              <div class="schedule-item">
+                <span>Bible Study</span>
+                <strong>9:30 AM</strong>
+              </div>
+
+              <div class="schedule-item">
+                <span>Worship</span>
+                <strong>10:30 AM</strong>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- WEDNESDAY -->
+          <article class="schedule-card">
+
+            <div class="schedule-card-header">
+              <span class="schedule-day">Wednesday</span>
+            </div>
+
+            <div class="schedule-card-body">
+
+              <div class="schedule-item">
+                <span>Bible Study</span>
+                <strong>7:00 PM</strong>
+              </div>
+
+              <p class="schedule-note">
+                Please contact the church office
+                for Zoom information.
+              </p>
+
+            </div>
+          </article>
+
+        </div>
+
+        <p class="schedule-disclaimer">
+          All times are Eastern Time.
+          Online broadcast availability may vary.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PREVIOUS BROADCASTS -->
+    <section class="previous-section content-width"
+             aria-labelledby="previous-title">
+
+      <div class="section-intro">
+
+        <p class="eyebrow">Continue Studying</p>
+
+        <h2 id="previous-title">
+          Previous Worship Services &amp; Bible Studies
+        </h2>
+
+        <p>
+          Missed a service or Bible study?
+          Visit our YouTube channel to watch
+          previous broadcasts and continue
+          growing in the knowledge of God's Word.
+        </p>
+
+      </div>
+
+      <div class="previous-card">
+
+        <div class="previous-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor"
+                  d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+
+        <h3>
+          Watch Our Previous Videos
+        </h3>
+
+        <p>
+          Browse past worship services, sermons,
+          and Bible studies on our YouTube channel.
+        </p>
+
+        <a href="https://www.youtube.com/@oxonhill-r8r/videos"
+           class="previous-button"
+           target="_blank"
+           rel="noopener noreferrer">
+          View Previous Videos
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- INVITATION -->
+    <section class="invitation-section">
+
+      <div class="content-width invitation-inner">
+
+        <h2>
+          We Would Love to Worship With You
+        </h2>
+
+        <p>
+          Whether you join us online or visit
+          us in person, we invite you to worship
+          God and study His Word with us.
+        </p>
+
+        <p class="invitation-address">
+          4201 Brinkley Road,
+          Temple Hills, Maryland 20748
+        </p>
+
+        <div class="invitation-actions">
+
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=4201+Brinkley+Road,+Temple+Hills,+MD+20748"
+             class="directions-button"
+             target="_blank"
+             rel="noopener noreferrer">
+            Get Directions
+          </a>
+
+          <a href="./ContactPage.html"
+             class="contact-button bottom-contact-button">
+            Contact Us
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-container">
+
+      <div class="footer-left">
+
+        <h2 class="footer-church-name">
+          Oxon Hill <strong>Church of Christ</strong>
+        </h2>
+
+        <div class="footer-contact">
+
+          <p>
+            <span class="footer-contact-label">Phone:</span>
+            <a href="tel:3018945412">
+              (301) 894-5412
+            </a>
+          </p>
+
+          <p>
+            <span class="footer-contact-label">Email:</span>
+            <a href="mailto:1oxonhillcoc@gmail.com">
+              1oxonhillcoc@gmail.com
+            </a>
+          </p>
+
+          <p>
+            <span class="footer-contact-label">Website:</span>
+            <a href="https://oxonhillcoc.org">
+              oxonhillcoc.org
+            </a>
+          </p>
+
+        </div>
+      </div>
+
+      <div class="footer-right">
+
+        <h3>Follow us:</h3>
+
+        <div class="footer-social-links">
+
+          <a href="https://www.facebook.com/p/Oxon-Hill-Church-of-Christ-100064627841522/"
+             class="footer-social-icon footer-facebook"
+             aria-label="Facebook"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.47H15.2c-1.25 0-1.64.77-1.64 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/>
+            </svg>
+
+          </a>
+
+          <a href="https://www.youtube.com/@oxonhill-r8r"
+             class="footer-social-icon footer-youtube"
+             aria-label="YouTube"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 Oxon Hill Church of Christ.
+        All rights reserved.
+      </p>
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // MOBILE NAVIGATION
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // ====================================
+    // YOUTUBE LIVE VIDEO CONFIGURATION
+    // ====================================
+
+    /*
+      To embed a specific live broadcast:
+
+      1. Open the live video on YouTube.
+      2. Copy its URL.
+      3. Find the video ID.
+
+      Example:
+      https://www.youtube.com/watch?v=abcdefghijk
+
+      The video ID is:
+      abcdefghijk
+
+      4. Paste it between the quotation marks below.
+
+      Leave empty to display the Watch Live
+      preview and permanent YouTube link.
+
+      IMPORTANT:
+      Each new YouTube broadcast normally has
+      its own video ID. This simple embed does
+      not automatically discover new streams.
+    */
+
+    const VIDEO_ID = "";
+
+    const videoFrame =
+      document.getElementById("live-video-frame");
+
+    const videoPlaceholder =
+      document.getElementById("video-placeholder");
+
+    if (VIDEO_ID.trim() !== "") {
+
+      videoFrame.src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(VIDEO_ID.trim()) +
+        "?rel=0&playsinline=1";
+
+      videoFrame.style.display = "block";
+      videoPlaceholder.style.display = "none";
+
+    } else {
+
+      videoFrame.style.display = "none";
+      videoPlaceholder.style.display = "flex";
+
+    }
+
+  </script>
+
+</body>
+</html>
