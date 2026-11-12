@@ -764,9 +764,12 @@ h1, h2, h3, h4 {
     font-size: 11px;
   }
 
-  .page-hero {
-    padding: 70px 18px 78px;
-  }
+
+.page-hero {
+  min-height: 480px;
+  padding: 80px 18px;
+}
+
 
   .hero-description {
     font-size: 15px;
