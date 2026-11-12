@@ -190,13 +190,13 @@ h1, h2, h3, h4 {
 .hero-slide {
   position: absolute;
   inset: 0;
-  background-size: auto 100%;
-  background-position: center center;
+  background-size: cover;
+  background-position: center 35%;
   background-repeat: no-repeat;
-  background-color: var(--dark-navy);
   opacity: 0;
   animation: heroSlideshow 18s infinite;
 }
+
 
 .hero-slide-1 {
   background-image:
