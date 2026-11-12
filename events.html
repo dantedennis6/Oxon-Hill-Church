@@ -434,5 +434,318 @@
 
   </script>
 
+  
+/* =========================================
+   CUSTOM EVENTS CALENDAR
+========================================= */
+
+const calendarDays = document.getElementById("calendar-days");
+const calendarMonthTitle = document.getElementById(
+  "calendar-month-title"
+);
+
+const previousMonthButton = document.getElementById(
+  "previous-month"
+);
+
+const nextMonthButton = document.getElementById(
+  "next-month"
+);
+
+const currentMonthButton = document.getElementById(
+  "current-month-button"
+);
+
+const weekdayNames = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+// Use Eastern Time for determining the current month.
+function getEasternToday() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric"
+  }).formatToParts(new Date());
+
+  const getPart = (type) =>
+    Number(parts.find((part) => part.type === type).value);
+
+  return {
+    year: getPart("year"),
+    month: getPart("month") - 1,
+    day: getPart("day")
+  };
+}
+
+const initialToday = getEasternToday();
+
+let displayedYear = initialToday.year;
+let displayedMonth = initialToday.month;
+
+/* =========================================
+   SPECIAL EVENTS
+   These are one-time events, not recurring.
+========================================= */
+
+const specialEvents = {
+  "2026-11-07": [
+    {
+      title: "Pilates Class",
+      time: ""
+    }
+  ]
+};
+
+/* =========================================
+   RECURRING ACTIVITIES
+========================================= */
+
+function getRecurringEvents(year, month, day) {
+
+  const date = new Date(year, month, day);
+  const weekday = date.getDay();
+
+  const events = [];
+
+  // SUNDAY
+  if (weekday === 0) {
+    events.push({
+      title: "Bible Study",
+      time: "9:30 AM"
+    });
+
+    events.push({
+      title: "Morning Worship",
+      time: "10:30 AM"
+    });
+  }
+
+  // WEDNESDAY
+  if (weekday === 3) {
+    events.push({
+      title: "Bible Study (Zoom)",
+      time: "7:00 PM"
+    });
+  }
+
+  // SATURDAY
+  if (weekday === 6) {
+
+    const saturdayNumber = Math.ceil(day / 7);
+
+    const isSecondOrFourthSaturday =
+      saturdayNumber === 2 || saturdayNumber === 4;
+
+    // No fourth-Saturday study in November or December.
+    const fourthSaturdayException =
+      saturdayNumber === 4 &&
+      (month === 10 || month === 11);
+
+    if (
+      isSecondOrFourthSaturday &&
+      !fourthSaturdayException
+    ) {
+      events.push({
+        title: "Saturday Bible Study",
+        time: "10:00 AM"
+      });
+    }
+  }
+
+  return events;
+}
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDateKey(year, month, day) {
+
+  const formattedMonth = String(month + 1).padStart(2, "0");
+  const formattedDay = String(day).padStart(2, "0");
+
+  return `${year}-${formattedMonth}-${formattedDay}`;
+}
+
+/* =========================================
+   RENDER CALENDAR
+========================================= */
+
+function renderCalendar() {
+
+  calendarDays.innerHTML = "";
+
+  const monthDate = new Date(
+    displayedYear,
+    displayedMonth,
+    1
+  );
+
+  const monthName = monthDate.toLocaleString("en-US", {
+    month: "long",
+    year: "numeric"
+  });
+
+  calendarMonthTitle.textContent = monthName;
+
+  const numberOfDays = new Date(
+    displayedYear,
+    displayedMonth + 1,
+    0
+  ).getDate();
+
+  const today = getEasternToday();
+
+  for (let day = 1; day <= numberOfDays; day++) {
+
+    const currentDate = new Date(
+      displayedYear,
+      displayedMonth,
+      day
+    );
+
+    const weekday = weekdayNames[currentDate.getDay()];
+
+    const dateKey = formatDateKey(
+      displayedYear,
+      displayedMonth,
+      day
+    );
+
+    const recurring = getRecurringEvents(
+      displayedYear,
+      displayedMonth,
+      day
+    );
+
+    const special = specialEvents[dateKey] || [];
+
+    const allEvents = [...recurring, ...special];
+
+    const dayRow = document.createElement("div");
+    dayRow.className = "calendar-day";
+
+    const isToday =
+      displayedYear === today.year &&
+      displayedMonth === today.month &&
+      day === today.day;
+
+    if (isToday) {
+      dayRow.classList.add("is-today");
+    }
+
+    const dateColumn = document.createElement("div");
+    dateColumn.className = "calendar-date";
+
+    const dateNumber = document.createElement("span");
+    dateNumber.className = "calendar-date-number";
+    dateNumber.textContent = day;
+
+    const weekdayLabel = document.createElement("span");
+    weekdayLabel.className = "calendar-weekday";
+    weekdayLabel.textContent = weekday;
+
+    dateColumn.appendChild(dateNumber);
+    dateColumn.appendChild(weekdayLabel);
+
+    if (isToday) {
+      const todayLabel = document.createElement("span");
+      todayLabel.className = "calendar-today-label";
+      todayLabel.textContent = "Today";
+      dateColumn.appendChild(todayLabel);
+    }
+
+    const eventsColumn = document.createElement("div");
+    eventsColumn.className = "calendar-events";
+
+    if (allEvents.length === 0) {
+
+      const emptyLabel = document.createElement("span");
+      emptyLabel.className = "calendar-no-event";
+      emptyLabel.textContent = "—";
+
+      eventsColumn.appendChild(emptyLabel);
+
+    } else {
+
+      allEvents.forEach((event) => {
+
+        const eventElement = document.createElement("div");
+        eventElement.className = "calendar-event";
+
+        const title = document.createElement("span");
+        title.textContent = event.title;
+
+        eventElement.appendChild(title);
+
+        if (event.time) {
+          const time = document.createElement("span");
+          time.className = "calendar-event-time";
+          time.textContent = event.time;
+
+          eventElement.appendChild(time);
+        }
+
+        eventsColumn.appendChild(eventElement);
+
+      });
+    }
+
+    dayRow.appendChild(dateColumn);
+    dayRow.appendChild(eventsColumn);
+
+    calendarDays.appendChild(dayRow);
+  }
+}
+
+/* =========================================
+   MONTH NAVIGATION
+========================================= */
+
+previousMonthButton.addEventListener("click", () => {
+
+  displayedMonth--;
+
+  if (displayedMonth < 0) {
+    displayedMonth = 11;
+    displayedYear--;
+  }
+
+  renderCalendar();
+});
+
+nextMonthButton.addEventListener("click", () => {
+
+  displayedMonth++;
+
+  if (displayedMonth > 11) {
+    displayedMonth = 0;
+    displayedYear++;
+  }
+
+  renderCalendar();
+});
+
+currentMonthButton.addEventListener("click", () => {
+
+  const today = getEasternToday();
+
+  displayedYear = today.year;
+  displayedMonth = today.month;
+
+  renderCalendar();
+});
+
+// INITIALIZE
+renderCalendar();
+
 </body>
 </html>
