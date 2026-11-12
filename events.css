@@ -1,7 +1,7 @@
 
 /* =========================================
-   EVENTS AND ACTIVITIES
    OXON HILL CHURCH OF CHRIST
+   EVENTS AND ACTIVITIES PAGE
 ========================================= */
 
 :root {
@@ -18,7 +18,9 @@
   --shadow: 0 12px 35px rgba(11, 40, 80, 0.09);
 }
 
-/* GENERAL */
+/* =========================================
+   GENERAL
+========================================= */
 
 * {
   margin: 0;
@@ -166,7 +168,7 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   HERO AND PHOTO SLIDESHOW
+   HERO
 ========================================= */
 
 .page-hero {
@@ -182,6 +184,8 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
 }
+
+/* PHOTO SLIDESHOW */
 
 .hero-slideshow {
   position: absolute;
@@ -338,7 +342,7 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   CUSTOM MONTHLY CALENDAR
+   CUSTOM CALENDAR
 ========================================= */
 
 .calendar-section {
@@ -353,6 +357,8 @@ h1, h2, h3, h4 {
   overflow: hidden;
   box-shadow: var(--shadow);
 }
+
+/* CALENDAR HEADER */
 
 .custom-calendar-header {
   background: var(--navy);
@@ -384,6 +390,8 @@ h1, h2, h3, h4 {
   color: var(--white);
 }
 
+/* MONTH NAVIGATION */
+
 .calendar-nav-button {
   display: flex;
   align-items: center;
@@ -406,26 +414,29 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
+/* =========================================
+   SCROLLABLE CALENDAR
+   SEVEN DAYS VISIBLE
+========================================= */
 
 .calendar-days {
   display: flex;
   flex-direction: column;
 
-  /* Display seven calendar rows at a time */
+  /* Seven rows at 75px each */
   height: 525px;
+
   overflow-y: auto;
   overflow-x: hidden;
 
-  /* Smooth scrolling */
   scroll-behavior: smooth;
   overscroll-behavior: contain;
 
-  /* Scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: var(--orange) var(--off-white);
 }
 
-/* Chrome, Edge, and Safari */
+/* CHROME, EDGE, SAFARI */
 
 .calendar-days::-webkit-scrollbar {
   width: 9px;
@@ -444,15 +455,23 @@ h1, h2, h3, h4 {
   background: var(--dark-orange);
 }
 
+/* =========================================
+   INDIVIDUAL CALENDAR DAYS
+========================================= */
 
 .calendar-day {
   display: grid;
   grid-template-columns: 185px minmax(0, 1fr);
   align-items: center;
+
   min-height: 75px;
+
+  /* Prevent rows from shrinking */
+  flex-shrink: 0;
+
   border-bottom: 1px solid var(--border);
+
   transition: background 0.2s ease;
-   flex-shrink: 0;
 }
 
 .calendar-day:nth-child(even) {
@@ -462,6 +481,8 @@ h1, h2, h3, h4 {
 .calendar-day:hover {
   background: var(--light-blue);
 }
+
+/* DATE COLUMN */
 
 .calendar-date {
   padding: 18px 22px;
@@ -486,6 +507,8 @@ h1, h2, h3, h4 {
   font-weight: 700;
   color: var(--text);
 }
+
+/* EVENT COLUMN */
 
 .calendar-events {
   padding: 16px 25px;
@@ -518,6 +541,8 @@ h1, h2, h3, h4 {
   font-size: 14px;
 }
 
+/* TODAY HIGHLIGHT */
+
 .calendar-day.is-today {
   background: #fff6ef;
 }
@@ -535,6 +560,8 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* CALENDAR FOOTER */
 
 .custom-calendar-footer {
   display: flex;
@@ -907,9 +934,16 @@ h1, h2, h3, h4 {
     font-size: 18px;
   }
 
+  /* SEVEN MOBILE CALENDAR ROWS */
+
+  .calendar-days {
+    height: 560px;
+  }
+
   .calendar-day {
     grid-template-columns: 105px minmax(0, 1fr);
-    min-height: 70px;
+    min-height: 80px;
+    flex-shrink: 0;
   }
 
   .calendar-date {
