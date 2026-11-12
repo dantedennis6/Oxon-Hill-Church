@@ -1,3 +1,4 @@
+
 /* =========================================
    OXON HILL CHURCH OF CHRIST
    EVENTS AND ACTIVITIES PAGE
@@ -221,7 +222,6 @@ h1, h2, h3, h4 {
   max-width: 720px;
   margin: auto;
   color: #e4ecf6;
-  animation: fadeInUp 1.1s ease both;
 }
 
 @keyframes fadeInUp {
