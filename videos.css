@@ -184,13 +184,6 @@ button:focus-visible {
   border-radius: 3px;
 }
 
-
-
-/* ======================================
-   HERO BANNER
-====================================== */
-
-
 /* ======================================
    HERO BANNER
 ====================================== */
@@ -204,9 +197,15 @@ button:focus-visible {
     url("./videos1.jpeg");
 
   background-size: 100% 100%, 100% auto;
-  background-position: center;
+  background-position: center, center 60%;
   background-repeat: no-repeat;
   background-color: var(--navy-dark);
+
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   color: var(--white);
   text-align: center;
@@ -216,9 +215,6 @@ button:focus-visible {
 
   padding: 72px 0 76px;
 }
-
-
-
 
 .eyebrow {
   margin: 0 0 12px;
@@ -337,14 +333,6 @@ button:focus-visible {
 /* ======================================
    VIDEO SPOTLIGHT EFFECT
 ====================================== */
-
-/*
-  Darkens the edges of the viewport while
-  keeping a clear oval over the video.
-
-  The oval follows the video position as
-  the visitor scrolls or resizes the page.
-*/
 
 .video-spotlight-overlay {
   position: fixed;
@@ -857,7 +845,6 @@ button:focus-visible {
   margin-top: 25px;
 }
 
-
 .directions-button {
   display: inline-block;
   padding: 13px 22px;
@@ -884,7 +871,6 @@ button:focus-visible {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(21,59,114,.22);
 }
-
 
 .bottom-contact-button {
   display: inline-block;
@@ -1120,6 +1106,7 @@ button:focus-visible {
   }
 
   .page-hero {
+    min-height: 380px;
     padding: 52px 0 58px;
   }
 
