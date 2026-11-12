@@ -168,17 +168,92 @@ h1, h2, h3, h4 {
 ========================================= */
 
 .page-hero {
-  background: linear-gradient(
-    135deg,
-    var(--dark-navy),
-    var(--navy)
-  );
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--dark-navy);
   color: var(--white);
   text-align: center;
   padding: 92px 20px 100px;
 }
 
+/* AUTOMATIC HERO PHOTO SLIDESHOW */
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: heroSlideshow 18s infinite;
+}
+
+.hero-slide-1 {
+  background-image:
+    linear-gradient(
+      rgba(11, 40, 80, 0.72),
+      rgba(11, 40, 80, 0.82)
+    ),
+    url("./Event1.jpeg");
+
+  animation-delay: 0s;
+}
+
+.hero-slide-2 {
+  background-image:
+    linear-gradient(
+      rgba(11, 40, 80, 0.72),
+      rgba(11, 40, 80, 0.82)
+    ),
+    url("./Event2.jpeg");
+
+  animation-delay: 6s;
+}
+
+.hero-slide-3 {
+  background-image:
+    linear-gradient(
+      rgba(11, 40, 80, 0.72),
+      rgba(11, 40, 80, 0.82)
+    ),
+    url("./Event3.jpeg");
+
+  animation-delay: 12s;
+}
+
+@keyframes heroSlideshow {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  33.33% {
+    opacity: 1;
+  }
+
+  38.33% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .hero-container {
+  position: relative;
+  z-index: 1;
   max-width: 850px;
   margin: auto;
 }
@@ -580,7 +655,6 @@ h1, h2, h3, h4 {
   line-height: 1.8;
 }
 
-
 .footer-about p {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 17px;
@@ -589,7 +663,6 @@ h1, h2, h3, h4 {
   line-height: 1.8;
   letter-spacing: 0.1px;
 }
-
 
 .footer-column a {
   transition: color 0.2s ease;
@@ -771,5 +844,14 @@ h1, h2, h3, h4 {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .hero-slide {
+    animation: none !important;
+    opacity: 0;
+  }
+
+  .hero-slide-1 {
+    opacity: 1;
   }
 }
