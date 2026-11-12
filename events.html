@@ -92,94 +92,72 @@
 
 
     <!-- CALENDAR INTRODUCTION -->
-    <section class="calendar-section">
-      <div class="content-container">
 
-        <div class="section-heading">
-          <p class="eyebrow">STAY CONNECTED</p>
-          <h2>Church Events Calendar</h2>
+<!-- CUSTOM EVENTS CALENDAR -->
+<section class="calendar-section">
+  <div class="content-container">
 
-          <p>
-            Browse our calendar to discover upcoming events
-            and activities. Select an event to view additional
-            details, and use the calendar arrows to explore
-            other months.
-          </p>
+    <div class="section-heading">
+      <p class="eyebrow">STAY CONNECTED</p>
+      <h2>Church Events Calendar</h2>
+      <p>
+        Explore our monthly schedule of worship services,
+        Bible studies, and congregational activities.
+      </p>
+    </div>
+
+    <div class="custom-calendar">
+
+      <div class="custom-calendar-header">
+        <button
+          type="button"
+          class="calendar-nav-button"
+          id="previous-month"
+          aria-label="Previous month"
+        >
+          &#10094;
+        </button>
+
+        <div class="calendar-month-heading">
+          <p>MONTHLY SCHEDULE</p>
+          <h3 id="calendar-month-title"></h3>
         </div>
 
-
-        <!-- CALENDAR PANEL -->
-        <div class="calendar-panel">
-
-          <div class="calendar-panel-header">
-            <div>
-              <p class="panel-eyebrow">UPCOMING ACTIVITIES</p>
-              <h3>Our Congregational Calendar</h3>
-            </div>
-
-            <span class="calendar-status">
-              <span class="status-dot"></span>
-              Updated through Google Calendar
-            </span>
-          </div>
-
-          <div class="calendar-frame-wrapper">
-
-            <!--
-              GOOGLE CALENDAR INTEGRATION
-
-              Account:
-              oxonhillsocial@gmail.com
-
-              Replace the CALENDAR_ID value in the script
-              at the bottom of this file with the actual
-              Google Calendar ID.
-
-              Do not use the general church contact email
-              as the calendar ID unless Google explicitly
-              identifies it as the calendar ID.
-            -->
-
-            <iframe
-              id="church-calendar"
-              title="Oxon Hill Church of Christ Events Calendar"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
-
-            <div id="calendar-placeholder"
-                 class="calendar-placeholder">
-              <div class="placeholder-icon" aria-hidden="true">
-                &#128197;
-              </div>
-
-              <h4>Our Events Calendar Is Coming Soon</h4>
-
-              <p>
-                We are preparing our congregational calendar.
-                Please check back soon for upcoming events
-                and activities.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="calendar-panel-footer">
-            <p>
-              Calendar events and times are displayed in
-              Eastern Time.
-            </p>
-
-            <p>
-              Select any scheduled event for more information.
-            </p>
-          </div>
-
-        </div>
-
+        <button
+          type="button"
+          class="calendar-nav-button"
+          id="next-month"
+          aria-label="Next month"
+        >
+          &#10095;
+        </button>
       </div>
-    </section>
+
+      <div
+        id="calendar-days"
+        class="calendar-days"
+        aria-live="polite"
+      ></div>
+
+      <div class="custom-calendar-footer">
+        <p>
+          All scheduled times are Eastern Time.
+        </p>
+
+        <button
+          type="button"
+          id="current-month-button"
+          class="calendar-today-button"
+        >
+          Return to Current Month
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 
     <!-- REGULAR GATHERINGS -->
