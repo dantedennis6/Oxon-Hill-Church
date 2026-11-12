@@ -1,19 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description"
-        content="View upcoming events and activities at the Oxon Hill Church of Christ in Temple Hills, Maryland.">
+  <meta name="description" content="Explore worship services, Bible studies, and congregational events at Oxon Hill Church of Christ.">
 
   <title>Events and Activities | Oxon Hill Church of Christ</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./events.css">
 </head>
@@ -24,55 +22,49 @@
   <header class="site-header">
     <div class="header-container">
 
-      <a href="./Index2.html" class="site-logo">
+      <a class="site-logo" href="./Index2.html" aria-label="Oxon Hill Church of Christ home">
         <span class="logo-name">Oxon Hill</span>
         <span class="logo-subtitle">CHURCH OF CHRIST</span>
       </a>
 
-      <button class="menu-toggle"
-              type="button"
-              aria-label="Toggle navigation"
-              aria-expanded="false"
-              aria-controls="primary-navigation">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="main-navigation"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="main-nav" id="primary-navigation"
-           aria-label="Main navigation">
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
         <a href="./Index2.html">Home</a>
         <a href="./beliefs.html">What We Believe</a>
         <a href="./worship.html">Worship</a>
         <a href="./videos.html">Videos</a>
-        <a href="./events.html" class="active"
-           aria-current="page">Events/Activities</a>
+        <a href="./events.html" class="active" aria-current="page">Events/Activities</a>
         <a href="./giving.html">Giving</a>
       </nav>
 
-      <a href="./ContactPage.html" class="contact-button">
-        Contact Us
-      </a>
+      <a href="./ContactPage.html" class="contact-button">Contact Us</a>
 
     </div>
   </header>
 
-
   <main>
 
     <!-- HERO -->
+    <section class="page-hero">
 
-<section class="page-hero">
+      <div class="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide hero-slide-1"></div>
+        <div class="hero-slide hero-slide-2"></div>
+        <div class="hero-slide hero-slide-3"></div>
+      </div>
 
-  <!-- AUTOMATIC HERO PHOTO SLIDESHOW -->
-  <div class="hero-slideshow" aria-hidden="true">
-    <div class="hero-slide hero-slide-1"></div>
-    <div class="hero-slide hero-slide-2"></div>
-    <div class="hero-slide hero-slide-3"></div>
-  </div>
-
-  <div class="hero-container">
-
+      <div class="hero-container">
 
         <p class="eyebrow">FELLOWSHIP AND COMMUNITY</p>
 
@@ -90,201 +82,215 @@
       </div>
     </section>
 
+    <!-- CUSTOM EVENTS CALENDAR -->
+    <section class="calendar-section">
 
-    <!-- CALENDAR INTRODUCTION -->
-
-<!-- CUSTOM EVENTS CALENDAR -->
-<section class="calendar-section">
-  <div class="content-container">
-
-    <div class="section-heading">
-      <p class="eyebrow">STAY CONNECTED</p>
-      <h2>Church Events Calendar</h2>
-      <p>
-        Explore our monthly schedule of worship services,
-        Bible studies, and congregational activities.
-      </p>
-    </div>
-
-    <div class="custom-calendar">
-
-      <div class="custom-calendar-header">
-        <button
-          type="button"
-          class="calendar-nav-button"
-          id="previous-month"
-          aria-label="Previous month"
-        >
-          &#10094;
-        </button>
-
-        <div class="calendar-month-heading">
-          <p>MONTHLY SCHEDULE</p>
-          <h3 id="calendar-month-title"></h3>
-        </div>
-
-        <button
-          type="button"
-          class="calendar-nav-button"
-          id="next-month"
-          aria-label="Next month"
-        >
-          &#10095;
-        </button>
-      </div>
-
-      <div
-        id="calendar-days"
-        class="calendar-days"
-        aria-live="polite"
-      ></div>
-
-      <div class="custom-calendar-footer">
-        <p>
-          All scheduled times are Eastern Time.
-        </p>
-
-        <button
-          type="button"
-          id="current-month-button"
-          class="calendar-today-button"
-        >
-          Return to Current Month
-        </button>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-
-    <!-- REGULAR GATHERINGS -->
-    <section class="gatherings-section">
       <div class="content-container">
 
         <div class="section-heading">
-          <p class="eyebrow">WORSHIP AND STUDY</p>
+          <p class="eyebrow">STAY CONNECTED</p>
+
+          <h2>Church Events Calendar</h2>
+
+          <p>
+            Explore our monthly schedule of worship services,
+            Bible studies, and congregational activities.
+          </p>
+        </div>
+
+        <div class="custom-calendar">
+
+          <div class="custom-calendar-header">
+
+            <button
+              type="button"
+              class="calendar-nav-button"
+              id="previous-month"
+              aria-label="Previous month"
+            >
+              &#10094;
+            </button>
+
+            <div class="calendar-month-heading">
+              <p>MONTHLY SCHEDULE</p>
+              <h3 id="calendar-month-title"></h3>
+            </div>
+
+            <button
+              type="button"
+              class="calendar-nav-button"
+              id="next-month"
+              aria-label="Next month"
+            >
+              &#10095;
+            </button>
+
+          </div>
+
+          <div
+            id="calendar-days"
+            class="calendar-days"
+            aria-live="polite"
+          ></div>
+
+          <div class="custom-calendar-footer">
+
+            <p>All scheduled times are Eastern Time.</p>
+
+            <button
+              type="button"
+              id="current-month-button"
+              class="calendar-today-button"
+            >
+              Return to Current Month
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- REGULAR GATHERINGS -->
+    <section class="gatherings-section">
+
+      <div class="content-container">
+
+        <div class="section-heading">
+          <p class="eyebrow">JOIN US REGULARLY</p>
+
           <h2>Our Regular Gatherings</h2>
 
           <p>
-            In addition to special events and activities,
-            we invite you to join us for our regularly
-            scheduled worship services and Bible studies.
+            We invite you to study God's Word and worship with us.
           </p>
         </div>
 
         <div class="gatherings-grid">
 
           <article class="gathering-card">
-            <div class="gathering-day">SUNDAY</div>
-            <h3>Bible Study</h3>
+
+            <span class="gathering-day">SUNDAY</span>
+
+            <h3>Sunday Bible Study</h3>
+
             <p class="gathering-time">9:30 AM</p>
+
             <p>
-              Join us as we study God's Word together,
-              including classes for new converts and
-              foundational Bible instruction.
+              Join us as we study the Bible together.
             </p>
+
           </article>
 
           <article class="gathering-card">
-            <div class="gathering-day">SUNDAY</div>
+
+            <span class="gathering-day">SUNDAY</span>
+
             <h3>Morning Worship</h3>
+
             <p class="gathering-time">10:30 AM</p>
+
             <p>
-              Assemble with us for worship as we sing,
-              pray, study the Scriptures, partake of
-              the Lord's Supper, and give.
+              Gather with us to worship God.
             </p>
+
           </article>
 
           <article class="gathering-card">
-            <div class="gathering-day">WEDNESDAY</div>
-            <h3>Bible Study</h3>
+
+            <span class="gathering-day">WEDNESDAY</span>
+
+            <h3>Wednesday Bible Study</h3>
+
             <p class="gathering-time">7:00 PM</p>
+
             <p>
-              Continue growing in your knowledge of
-              the Scriptures through our Wednesday
-              evening Bible study via Zoom.
+              Our Wednesday evening Bible study meets through Zoom.
             </p>
+
           </article>
 
           <article class="gathering-card">
-            <div class="gathering-day">SATURDAY</div>
-            <h3>Bible Study</h3>
+
+            <span class="gathering-day">SATURDAY</span>
+
+            <h3>Saturday Bible Study</h3>
+
             <p class="gathering-time">10:00 AM</p>
+
             <p>
-              Bible study is held on the
-              second and fourth Saturdays of the month.
-              There is no fourth-Saturday study in
-              November or December.
+              Held on the second and fourth Saturdays of each month.
+              There is no fourth-Saturday study in November or December.
             </p>
+
           </article>
 
         </div>
 
       </div>
-    </section>
 
+    </section>
 
     <!-- SCRIPTURE -->
     <section class="scripture-section">
+
       <div class="content-container">
 
         <div class="scripture-box">
-          <p class="eyebrow">GROWING TOGETHER IN CHRIST</p>
+
+          <p class="eyebrow">ENCOURAGING ONE ANOTHER</p>
 
           <blockquote>
-            "And let us consider one another to provoke
-            unto love and to good works: Not forsaking
-            the assembling of ourselves together,
-            as the manner of some is; but exhorting
-            one another: and so much the more,
-            as ye see the day approaching."
+            “And let us consider one another to provoke unto love
+            and to good works: Not forsaking the assembling of
+            ourselves together, as the manner of some is; but
+            exhorting one another: and so much the more, as ye
+            see the day approaching.”
           </blockquote>
 
           <p class="scripture-reference">
             Hebrews 10:24–25 (KJV)
           </p>
+
         </div>
 
       </div>
-    </section>
 
+    </section>
 
     <!-- INVITATION -->
     <section class="invitation-section">
-      <div class="content-container">
 
-        <div class="invitation-content">
-          <p class="eyebrow">YOU ARE WELCOME HERE</p>
+      <div class="content-container invitation-content">
 
-          <h2>We Would Love to See You!</h2>
+        <p class="eyebrow">YOU ARE WELCOME HERE</p>
 
-          <p>
-            Whether you are visiting for the first time
-            or looking for opportunities to study the
-            Bible and grow in faith, we warmly invite
-            you to join us.
-          </p>
+        <h2>We Would Love to See You!</h2>
 
-          <div class="invitation-actions">
-            <a href="./ContactPage.html" class="primary-button">
-              Contact Us
-            </a>
+        <p>
+          Whether you are visiting for the first time or looking
+          for a place to study God's Word, we invite you to join us.
+        </p>
 
-            <a href="./worship.html" class="secondary-button">
-              Learn About Our Worship
-            </a>
-          </div>
+        <div class="invitation-actions">
+
+          <a href="./ContactPage.html" class="primary-button">
+            Contact Us
+          </a>
+
+          <a href="./worship.html" class="secondary-button">
+            Learn About Our Worship
+          </a>
+
         </div>
 
       </div>
+
     </section>
 
   </main>
-
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -292,6 +298,7 @@
     <div class="footer-container">
 
       <div class="footer-column footer-about">
+
         <h3>Oxon Hill Church of Christ</h3>
 
         <p>
@@ -299,453 +306,493 @@
           studying His Word, and sharing the gospel
           of Jesus Christ.
         </p>
+
       </div>
 
       <div class="footer-column">
+
         <h3>Quick Links</h3>
 
         <a href="./Index2.html">Home</a>
         <a href="./beliefs.html">What We Believe</a>
         <a href="./worship.html">Worship</a>
         <a href="./videos.html">Videos</a>
-        <a href="./events.html">Events/Activities</a>
+        <a href="./events.html">Events and Activities</a>
         <a href="./giving.html">Giving</a>
-        <a href="./ContactPage.html">Contact Us</a>
+
       </div>
 
       <div class="footer-column">
+
         <h3>Visit Us</h3>
 
         <p>
-          4201 Brinkley Road<br>
+          4201 Brinkley Road
+          <br>
           Temple Hills, MD 20748
         </p>
 
-        <p>
-          <a href="tel:+13018945412">
-            (301) 894-5412
-          </a>
-        </p>
+        <a href="tel:+13018945412">
+          (301) 894-5412
+        </a>
 
-        <p>
-          <a href="mailto:1oxonhillcoc@gmail.com">
-            1oxonhillcoc@gmail.com
-          </a>
-        </p>
+        <a href="mailto:1oxonhillcoc@gmail.com">
+          1oxonhillcoc@gmail.com
+        </a>
+
       </div>
 
       <div class="footer-column">
+
         <h3>Connect With Us</h3>
 
-        <a href="https://www.facebook.com/p/Oxon-Hill-Church-of-Christ-100064627841522/"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Facebook
         </a>
 
-        <a href="https://www.youtube.com/channel/UCO5NVNcjxsgcHHzc_xCSlww"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           YouTube
         </a>
+
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>
-        &copy; <span id="current-year"></span>
-        Oxon Hill Church of Christ.
-        All rights reserved.
-      </p>
+      &copy; <span id="current-year"></span>
+      Oxon Hill Church of Christ. All rights reserved.
     </div>
 
   </footer>
 
-
+  <!-- JAVASCRIPT -->
   <script>
-    // MOBILE NAVIGATION
+
+    /* =========================================
+       MOBILE NAVIGATION
+    ========================================= */
+
     const menuToggle = document.querySelector(".menu-toggle");
-    const mainNav = document.querySelector(".main-nav");
+    const mainNav = document.getElementById("main-navigation");
 
     menuToggle.addEventListener("click", () => {
+
       const isOpen = mainNav.classList.toggle("open");
 
       menuToggle.setAttribute(
         "aria-expanded",
         String(isOpen)
       );
+
     });
 
-    mainNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
+    /* COPYRIGHT YEAR */
 
-    // AUTOMATIC FOOTER YEAR
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
 
-    // GOOGLE CALENDAR CONFIGURATION
-    // Account used to manage calendar:
-    // oxonhillsocial@gmail.com
-    //
-    // Replace the placeholder below with the real
-    // calendar ID from Google Calendar settings.
+    /* =========================================
+       CUSTOM EVENTS CALENDAR
+    ========================================= */
 
-    const CALENDAR_ID = "PASTE_GOOGLE_CALENDAR_ID_HERE";
+    const specialEvents = {
 
-    const calendarFrame =
-      document.getElementById("church-calendar");
+      "2026-11-07": [
+        {
+          title: "Pilates Class",
+          time: ""
+        }
+      ]
 
-    const calendarPlaceholder =
-      document.getElementById("calendar-placeholder");
+    };
 
-    if (
-      CALENDAR_ID &&
-      CALENDAR_ID !== "PASTE_GOOGLE_CALENDAR_ID_HERE"
-    ) {
-      const params = new URLSearchParams({
-        src: CALENDAR_ID,
-        ctz: "America/New_York",
-        mode: "MONTH",
-        showTitle: "0",
-        showNav: "1",
-        showDate: "1",
-        showPrint: "0",
-        showTabs: "0",
-        showCalendars: "0",
-        showTz: "0",
-        wkst: "1",
-        bgcolor: "#ffffff",
-        color: "#153b72"
-      });
 
-      calendarFrame.src =
-        "https://calendar.google.com/calendar/embed?" +
-        params.toString();
+    const calendarDays =
+      document.getElementById("calendar-days");
 
-      calendarFrame.style.display = "block";
-      calendarPlaceholder.style.display = "none";
+    const calendarMonthTitle =
+      document.getElementById("calendar-month-title");
+
+
+    const weekdayNames = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+
+
+    /* GET CURRENT EASTERN DATE */
+
+    function getEasternToday() {
+
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+      }).formatToParts(new Date());
+
+      const value = (type) =>
+        Number(
+          parts.find(part => part.type === type).value
+        );
+
+      return {
+        year: value("year"),
+        month: value("month") - 1,
+        day: value("day")
+      };
+
     }
 
-  </script>
-
-  
-/* =========================================
-   CUSTOM EVENTS CALENDAR
-========================================= */
-
-const calendarDays = document.getElementById("calendar-days");
-const calendarMonthTitle = document.getElementById(
-  "calendar-month-title"
-);
-
-const previousMonthButton = document.getElementById(
-  "previous-month"
-);
-
-const nextMonthButton = document.getElementById(
-  "next-month"
-);
-
-const currentMonthButton = document.getElementById(
-  "current-month-button"
-);
-
-const weekdayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-
-// Use Eastern Time for determining the current month.
-function getEasternToday() {
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/New_York",
-    year: "numeric",
-    month: "numeric",
-    day: "numeric"
-  }).formatToParts(new Date());
-
-  const getPart = (type) =>
-    Number(parts.find((part) => part.type === type).value);
-
-  return {
-    year: getPart("year"),
-    month: getPart("month") - 1,
-    day: getPart("day")
-  };
-}
-
-const initialToday = getEasternToday();
-
-let displayedYear = initialToday.year;
-let displayedMonth = initialToday.month;
-
-/* =========================================
-   SPECIAL EVENTS
-   These are one-time events, not recurring.
-========================================= */
-
-const specialEvents = {
-  "2026-11-07": [
-    {
-      title: "Pilates Class",
-      time: ""
-    }
-  ]
-};
-
-/* =========================================
-   RECURRING ACTIVITIES
-========================================= */
-
-function getRecurringEvents(year, month, day) {
-
-  const date = new Date(year, month, day);
-  const weekday = date.getDay();
-
-  const events = [];
-
-  // SUNDAY
-  if (weekday === 0) {
-    events.push({
-      title: "Bible Study",
-      time: "9:30 AM"
-    });
-
-    events.push({
-      title: "Morning Worship",
-      time: "10:30 AM"
-    });
-  }
-
-  // WEDNESDAY
-  if (weekday === 3) {
-    events.push({
-      title: "Bible Study (Zoom)",
-      time: "7:00 PM"
-    });
-  }
 
-  // SATURDAY
-  if (weekday === 6) {
+    const initialToday = getEasternToday();
 
-    const saturdayNumber = Math.ceil(day / 7);
+    let displayedYear = initialToday.year;
+    let displayedMonth = initialToday.month;
 
-    const isSecondOrFourthSaturday =
-      saturdayNumber === 2 || saturdayNumber === 4;
 
-    // No fourth-Saturday study in November or December.
-    const fourthSaturdayException =
-      saturdayNumber === 4 &&
-      (month === 10 || month === 11);
+    /* =========================================
+       RECURRING EVENTS
+    ========================================= */
 
-    if (
-      isSecondOrFourthSaturday &&
-      !fourthSaturdayException
-    ) {
-      events.push({
-        title: "Saturday Bible Study",
-        time: "10:00 AM"
-      });
-    }
-  }
+    function getRecurringEvents(year, month, day) {
 
-  return events;
-}
+      const weekday =
+        new Date(year, month, day).getDay();
 
-/* =========================================
-   FORMAT DATE
-========================================= */
+      const events = [];
 
-function formatDateKey(year, month, day) {
 
-  const formattedMonth = String(month + 1).padStart(2, "0");
-  const formattedDay = String(day).padStart(2, "0");
+      /* SUNDAY */
 
-  return `${year}-${formattedMonth}-${formattedDay}`;
-}
+      if (weekday === 0) {
 
-/* =========================================
-   RENDER CALENDAR
-========================================= */
+        events.push({
+          title: "Bible Study",
+          time: "9:30 AM"
+        });
 
-function renderCalendar() {
+        events.push({
+          title: "Morning Worship",
+          time: "10:30 AM"
+        });
 
-  calendarDays.innerHTML = "";
+      }
 
-  const monthDate = new Date(
-    displayedYear,
-    displayedMonth,
-    1
-  );
 
-  const monthName = monthDate.toLocaleString("en-US", {
-    month: "long",
-    year: "numeric"
-  });
+      /* WEDNESDAY */
 
-  calendarMonthTitle.textContent = monthName;
+      if (weekday === 3) {
 
-  const numberOfDays = new Date(
-    displayedYear,
-    displayedMonth + 1,
-    0
-  ).getDate();
+        events.push({
+          title: "Bible Study (Zoom)",
+          time: "7:00 PM"
+        });
 
-  const today = getEasternToday();
+      }
 
-  for (let day = 1; day <= numberOfDays; day++) {
 
-    const currentDate = new Date(
-      displayedYear,
-      displayedMonth,
-      day
-    );
+      /* SATURDAY */
 
-    const weekday = weekdayNames[currentDate.getDay()];
+      if (weekday === 6) {
 
-    const dateKey = formatDateKey(
-      displayedYear,
-      displayedMonth,
-      day
-    );
+        const saturdayNumber =
+          Math.ceil(day / 7);
 
-    const recurring = getRecurringEvents(
-      displayedYear,
-      displayedMonth,
-      day
-    );
+        const isSecondOrFourth =
+          saturdayNumber === 2 ||
+          saturdayNumber === 4;
 
-    const special = specialEvents[dateKey] || [];
+        const fourthSaturdayException =
+          saturdayNumber === 4 &&
+          (month === 10 || month === 11);
 
-    const allEvents = [...recurring, ...special];
 
-    const dayRow = document.createElement("div");
-    dayRow.className = "calendar-day";
+        if (
+          isSecondOrFourth &&
+          !fourthSaturdayException
+        ) {
 
-    const isToday =
-      displayedYear === today.year &&
-      displayedMonth === today.month &&
-      day === today.day;
+          events.push({
+            title: "Saturday Bible Study",
+            time: "10:00 AM"
+          });
 
-    if (isToday) {
-      dayRow.classList.add("is-today");
-    }
-
-    const dateColumn = document.createElement("div");
-    dateColumn.className = "calendar-date";
-
-    const dateNumber = document.createElement("span");
-    dateNumber.className = "calendar-date-number";
-    dateNumber.textContent = day;
-
-    const weekdayLabel = document.createElement("span");
-    weekdayLabel.className = "calendar-weekday";
-    weekdayLabel.textContent = weekday;
-
-    dateColumn.appendChild(dateNumber);
-    dateColumn.appendChild(weekdayLabel);
-
-    if (isToday) {
-      const todayLabel = document.createElement("span");
-      todayLabel.className = "calendar-today-label";
-      todayLabel.textContent = "Today";
-      dateColumn.appendChild(todayLabel);
-    }
-
-    const eventsColumn = document.createElement("div");
-    eventsColumn.className = "calendar-events";
-
-    if (allEvents.length === 0) {
-
-      const emptyLabel = document.createElement("span");
-      emptyLabel.className = "calendar-no-event";
-      emptyLabel.textContent = "—";
-
-      eventsColumn.appendChild(emptyLabel);
-
-    } else {
-
-      allEvents.forEach((event) => {
-
-        const eventElement = document.createElement("div");
-        eventElement.className = "calendar-event";
-
-        const title = document.createElement("span");
-        title.textContent = event.title;
-
-        eventElement.appendChild(title);
-
-        if (event.time) {
-          const time = document.createElement("span");
-          time.className = "calendar-event-time";
-          time.textContent = event.time;
-
-          eventElement.appendChild(time);
         }
 
-        eventsColumn.appendChild(eventElement);
+      }
 
-      });
+      return events;
+
     }
 
-    dayRow.appendChild(dateColumn);
-    dayRow.appendChild(eventsColumn);
 
-    calendarDays.appendChild(dayRow);
-  }
-}
+    /* FORMAT DATE */
 
-/* =========================================
-   MONTH NAVIGATION
-========================================= */
+    function formatDateKey(year, month, day) {
 
-previousMonthButton.addEventListener("click", () => {
+      const formattedMonth =
+        String(month + 1).padStart(2, "0");
 
-  displayedMonth--;
+      const formattedDay =
+        String(day).padStart(2, "0");
 
-  if (displayedMonth < 0) {
-    displayedMonth = 11;
-    displayedYear--;
-  }
+      return `${year}-${formattedMonth}-${formattedDay}`;
 
-  renderCalendar();
-});
+    }
 
-nextMonthButton.addEventListener("click", () => {
 
-  displayedMonth++;
+    /* =========================================
+       RENDER CALENDAR
+    ========================================= */
 
-  if (displayedMonth > 11) {
-    displayedMonth = 0;
-    displayedYear++;
-  }
+    function renderCalendar() {
 
-  renderCalendar();
-});
+      calendarDays.replaceChildren();
 
-currentMonthButton.addEventListener("click", () => {
+      const monthName =
+        new Date(displayedYear, displayedMonth, 1)
+          .toLocaleString("en-US", {
+            month: "long",
+            year: "numeric"
+          });
 
-  const today = getEasternToday();
+      calendarMonthTitle.textContent = monthName;
 
-  displayedYear = today.year;
-  displayedMonth = today.month;
 
-  renderCalendar();
-});
+      const numberOfDays =
+        new Date(
+          displayedYear,
+          displayedMonth + 1,
+          0
+        ).getDate();
 
-// INITIALIZE
-renderCalendar();
+
+      const today = getEasternToday();
+
+
+      for (
+        let day = 1;
+        day <= numberOfDays;
+        day++
+      ) {
+
+        const currentDate =
+          new Date(displayedYear, displayedMonth, day);
+
+        const weekday =
+          weekdayNames[currentDate.getDay()];
+
+
+        const dateKey = formatDateKey(
+          displayedYear,
+          displayedMonth,
+          day
+        );
+
+
+        const recurring = getRecurringEvents(
+          displayedYear,
+          displayedMonth,
+          day
+        );
+
+        const special =
+          specialEvents[dateKey] || [];
+
+        const allEvents = [
+          ...recurring,
+          ...special
+        ];
+
+
+        const isToday =
+          displayedYear === today.year &&
+          displayedMonth === today.month &&
+          day === today.day;
+
+
+        /* CREATE DAY ROW */
+
+        const dayRow = document.createElement("div");
+
+        dayRow.className = "calendar-day";
+
+        if (isToday) {
+          dayRow.classList.add("is-today");
+        }
+
+
+        /* CREATE DATE COLUMN */
+
+        const dateColumn =
+          document.createElement("div");
+
+        dateColumn.className = "calendar-date";
+
+
+        const dateNumber =
+          document.createElement("span");
+
+        dateNumber.className = "calendar-date-number";
+        dateNumber.textContent = day;
+
+
+        const weekdayLabel =
+          document.createElement("span");
+
+        weekdayLabel.className = "calendar-weekday";
+        weekdayLabel.textContent = weekday;
+
+
+        dateColumn.appendChild(dateNumber);
+        dateColumn.appendChild(weekdayLabel);
+
+
+        if (isToday) {
+
+          const todayLabel =
+            document.createElement("span");
+
+          todayLabel.className = "calendar-today-label";
+          todayLabel.textContent = "Today";
+
+          dateColumn.appendChild(todayLabel);
+
+        }
+
+
+        /* CREATE EVENTS COLUMN */
+
+        const eventsColumn =
+          document.createElement("div");
+
+        eventsColumn.className = "calendar-events";
+
+
+        if (allEvents.length === 0) {
+
+          const emptyLabel =
+            document.createElement("span");
+
+          emptyLabel.className = "calendar-no-event";
+          emptyLabel.textContent = "—";
+
+          eventsColumn.appendChild(emptyLabel);
+
+        } else {
+
+          allEvents.forEach((event) => {
+
+            const eventElement =
+              document.createElement("div");
+
+            eventElement.className = "calendar-event";
+
+
+            const title =
+              document.createElement("span");
+
+            title.textContent = event.title;
+
+            eventElement.appendChild(title);
+
+
+            if (event.time) {
+
+              const time =
+                document.createElement("span");
+
+              time.className = "calendar-event-time";
+              time.textContent = event.time;
+
+              eventElement.appendChild(time);
+
+            }
+
+            eventsColumn.appendChild(eventElement);
+
+          });
+
+        }
+
+
+        dayRow.appendChild(dateColumn);
+        dayRow.appendChild(eventsColumn);
+
+        calendarDays.appendChild(dayRow);
+
+      }
+
+    }
+
+
+    /* =========================================
+       CALENDAR NAVIGATION
+    ========================================= */
+
+    document.getElementById("previous-month")
+      .addEventListener("click", () => {
+
+        displayedMonth--;
+
+        if (displayedMonth < 0) {
+          displayedMonth = 11;
+          displayedYear--;
+        }
+
+        renderCalendar();
+
+      });
+
+
+    document.getElementById("next-month")
+      .addEventListener("click", () => {
+
+        displayedMonth++;
+
+        if (displayedMonth > 11) {
+          displayedMonth = 0;
+          displayedYear++;
+        }
+
+        renderCalendar();
+
+      });
+
+
+    document.getElementById("current-month-button")
+      .addEventListener("click", () => {
+
+        const today = getEasternToday();
+
+        displayedYear = today.year;
+        displayedMonth = today.month;
+
+        renderCalendar();
+
+      });
+
+
+    /* INITIALIZE CALENDAR */
+
+    renderCalendar();
+
+  </script>
 
 </body>
 </html>
