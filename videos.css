@@ -190,13 +190,18 @@ button:focus-visible {
    HERO BANNER
 ====================================== */
 
+
+/* ======================================
+   HERO BANNER
+====================================== */
+
 .page-hero {
   background-image:
     linear-gradient(
       rgba(11, 40, 80, 0.72),
       rgba(11, 40, 80, 0.82)
     ),
-    url("./videos.jpeg");
+    url("./videos1.jpeg");
 
   background-size: 100% 100%, 100% auto;
   background-position: center;
@@ -211,6 +216,7 @@ button:focus-visible {
 
   padding: 72px 0 76px;
 }
+
 
 
 
