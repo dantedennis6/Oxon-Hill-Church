@@ -379,9 +379,10 @@ h1, h2, h3, h4 {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #ffad78;
+  color: var(--orange);
   margin-bottom: 8px;
 }
+
 
 .calendar-month-heading h3 {
   font-family: "Montserrat", sans-serif;
@@ -724,9 +725,11 @@ h1, h2, h3, h4 {
   margin: auto;
 }
 
+
 .invitation-section .eyebrow {
-  color: #ffad78;
+  color: var(--orange);
 }
+
 
 .invitation-section h2 {
   font-size: clamp(28px, 3.5vw, 39px);
