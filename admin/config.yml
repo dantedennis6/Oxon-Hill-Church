@@ -1,0 +1,43 @@
+
+backend:
+  name: turbo-github
+  turbo_site_id: REPLACE_WITH_ANGELAS_SITE_ID
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "calendar"
+    label: "Church Calendar"
+    files:
+      - name: "events"
+        label: "Manage Events"
+        file: "events.json"
+        format: "json"
+        fields:
+          - label: "Special Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.date}}"
+            fields:
+              - label: "Event Name"
+                name: "title"
+                widget: "string"
+
+              - label: "Date"
+                name: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                format: "YYYY-MM-DD"
+
+              - label: "Time"
+                name: "time"
+                widget: "string"
+                required: false
+
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: false
