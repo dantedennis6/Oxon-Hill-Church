@@ -452,6 +452,7 @@ h1, h2, h3, h4 {
   min-height: 75px;
   border-bottom: 1px solid var(--border);
   transition: background 0.2s ease;
+   flex-shrink: 0;
 }
 
 .calendar-day:nth-child(even) {
