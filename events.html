@@ -615,16 +615,56 @@
        SPECIAL EVENTS
     ====================================== */
 
-    const specialEvents = {
+let specialEvents = {};
 
-      "2026-11-07": [
-        {
-          title: "Pilates Class",
-          time: ""
-        }
-      ]
+async function loadSpecialEvents() {
 
-    };
+  try {
+
+    const response = await fetch(
+      "./events.json",
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Unable to load events");
+    }
+
+    const data = await response.json();
+
+    specialEvents = {};
+
+    for (const event of data.events || []) {
+
+      if (!event.date || !event.title) {
+        continue;
+      }
+
+      if (!specialEvents[event.date]) {
+        specialEvents[event.date] = [];
+      }
+
+      specialEvents[event.date].push({
+        title: event.title,
+        time: event.time || "",
+        description: event.description || ""
+      });
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Calendar events could not be loaded:",
+      error
+    );
+
+  }
+
+  renderCalendar();
+
+}
+
 
 
 
