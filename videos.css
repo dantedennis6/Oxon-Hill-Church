@@ -185,6 +185,7 @@ button:focus-visible {
 }
 
 
+
 /* ======================================
    HERO BANNER
 ====================================== */
@@ -197,9 +198,10 @@ button:focus-visible {
     ),
     url("./videos.jpeg");
 
-  background-size: cover;
+  background-size: 100% 100%, 100% auto;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: var(--navy-dark);
 
   color: var(--white);
   text-align: center;
@@ -209,6 +211,7 @@ button:focus-visible {
 
   padding: 72px 0 76px;
 }
+
 
 
 .eyebrow {
