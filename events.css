@@ -406,10 +406,44 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
+
 .calendar-days {
   display: flex;
   flex-direction: column;
+
+  /* Display seven calendar rows at a time */
+  height: 525px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--orange) var(--off-white);
 }
+
+/* Chrome, Edge, and Safari */
+
+.calendar-days::-webkit-scrollbar {
+  width: 9px;
+}
+
+.calendar-days::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+.calendar-days::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 10px;
+}
+
+.calendar-days::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-orange);
+}
+
 
 .calendar-day {
   display: grid;
