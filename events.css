@@ -580,9 +580,16 @@ h1, h2, h3, h4 {
   line-height: 1.8;
 }
 
+
 .footer-about p {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 17px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.1px;
 }
+
 
 .footer-column a {
   transition: color 0.2s ease;
