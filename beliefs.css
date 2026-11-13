@@ -613,10 +613,11 @@ button:focus-visible {
 .translation-note {
   max-width: 900px;
   margin: 20px auto 0;
-  color: #58687c;
+  color: var(--orange);
   font-size: .88rem;
   text-align: center;
 }
+
 
 /* ======================================
    CLOSING SECTION
