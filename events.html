@@ -590,7 +590,6 @@
     const mainNav =
       document.getElementById("main-navigation");
 
-
     menuToggle.addEventListener("click", () => {
 
       const isOpen =
@@ -610,62 +609,58 @@
       new Date().getFullYear();
 
 
-
     /* =====================================
        SPECIAL EVENTS
+       LOADED FROM events.json
     ====================================== */
 
-let specialEvents = {};
+    let specialEvents = {};
 
-async function loadSpecialEvents() {
+    async function loadSpecialEvents() {
 
-  try {
+      try {
 
-    const response = await fetch(
-      "./events.json",
-      { cache: "no-store" }
-    );
+        const response = await fetch(
+          "./events.json",
+          { cache: "no-store" }
+        );
 
-    if (!response.ok) {
-      throw new Error("Unable to load events");
-    }
+        if (!response.ok) {
+          throw new Error("Unable to load events");
+        }
 
-    const data = await response.json();
+        const data = await response.json();
 
-    specialEvents = {};
+        specialEvents = {};
 
-    for (const event of data.events || []) {
+        for (const event of data.events || []) {
 
-      if (!event.date || !event.title) {
-        continue;
+          if (!event.date || !event.title) {
+            continue;
+          }
+
+          if (!specialEvents[event.date]) {
+            specialEvents[event.date] = [];
+          }
+
+          specialEvents[event.date].push({
+            title: event.title,
+            time: event.time || "",
+            description: event.description || ""
+          });
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Calendar events could not be loaded:",
+          error
+        );
+
       }
 
-      if (!specialEvents[event.date]) {
-        specialEvents[event.date] = [];
-      }
-
-      specialEvents[event.date].push({
-        title: event.title,
-        time: event.time || "",
-        description: event.description || ""
-      });
-
     }
-
-  } catch (error) {
-
-    console.error(
-      "Calendar events could not be loaded:",
-      error
-    );
-
-  }
-
-loadSpecialEvents();
-
-}
-
-
 
 
     /* =====================================
@@ -679,6 +674,10 @@ loadSpecialEvents();
       document.getElementById("calendar-month-title");
 
 
+    /* =====================================
+       WEEKDAY NAMES
+    ====================================== */
+
     const weekdayNames = [
       "Sunday",
       "Monday",
@@ -688,7 +687,6 @@ loadSpecialEvents();
       "Friday",
       "Saturday"
     ];
-
 
 
     /* =====================================
@@ -701,15 +699,11 @@ loadSpecialEvents();
         new Intl.DateTimeFormat("en-US", {
 
           timeZone: "America/New_York",
-
           year: "numeric",
-
           month: "numeric",
-
           day: "numeric"
 
         }).formatToParts(new Date());
-
 
       const value = (type) =>
         Number(
@@ -718,123 +712,210 @@ loadSpecialEvents();
           ).value
         );
 
-
       return {
-
         year: value("year"),
-
         month: value("month") - 1,
-
         day: value("day")
-
       };
 
     }
 
 
-
     const initialToday = getEasternToday();
 
     let displayedYear = initialToday.year;
-
     let displayedMonth = initialToday.month;
 
 
-
     /* =====================================
-       RECURRING EVENTS
+       ANNUAL HOLIDAYS
+       NO AUTOMATIC WEEKLY EVENTS
     ====================================== */
 
     function getRecurringEvents(year, month, day) {
 
-      const weekday =
-        new Date(year, month, day).getDay();
+      const holidays = [];
 
-
-      const events = [];
-
-
-      /* SUNDAY */
-
-      if (weekday === 0) {
-
-        events.push({
-
-          title: "Bible Study",
-
-          time: "9:30 AM"
-
+      function addHoliday(title) {
+        holidays.push({
+          title: title,
+          time: ""
         });
+      }
+
+      /* FIXED-DATE HOLIDAYS */
+
+      const fixedHolidays = {
+        "01-01": "New Year's Day",
+        "06-19": "Juneteenth",
+        "07-04": "Independence Day",
+        "11-11": "Veterans Day",
+        "12-24": "Christmas Eve",
+        "12-25": "Christmas Day",
+        "12-31": "New Year's Eve"
+      };
+
+      const dateKey =
+        String(month + 1).padStart(2, "0") +
+        "-" +
+        String(day).padStart(2, "0");
+
+      if (fixedHolidays[dateKey]) {
+        addHoliday(fixedHolidays[dateKey]);
+      }
 
 
-        events.push({
+      /* FLOATING HOLIDAY HELPERS */
 
-          title: "Morning Worship",
+      function nthWeekday(
+        targetMonth,
+        weekday,
+        occurrence
+      ) {
 
-          time: "10:30 AM"
+        const firstDay =
+          new Date(year, targetMonth, 1).getDay();
 
-        });
+        return 1 +
+          ((weekday - firstDay + 7) % 7) +
+          (occurrence - 1) * 7;
+
+      }
+
+      function lastWeekday(targetMonth, weekday) {
+
+        const lastDay =
+          new Date(year, targetMonth + 1, 0);
+
+        return lastDay.getDate() -
+          ((lastDay.getDay() - weekday + 7) % 7);
 
       }
 
 
+      /* MARTIN LUTHER KING JR. DAY */
 
-      /* WEDNESDAY */
-
-      if (weekday === 3) {
-
-        events.push({
-
-          title: "Bible Study (Zoom)",
-
-          time: "7:00 PM"
-
-        });
-
+      if (
+        month === 0 &&
+        day === nthWeekday(0, 1, 3)
+      ) {
+        addHoliday("Martin Luther King Jr. Day");
       }
 
 
+      /* PRESIDENTS' DAY */
 
-      /* SATURDAY */
-
-      if (weekday === 6) {
-
-        const saturdayNumber =
-          Math.ceil(day / 7);
-
-
-        const isSecondOrFourth =
-          saturdayNumber === 2 ||
-          saturdayNumber === 4;
-
-
-        const fourthSaturdayException =
-          saturdayNumber === 4 &&
-          (month === 10 || month === 11);
-
-
-        if (
-          isSecondOrFourth &&
-          !fourthSaturdayException
-        ) {
-
-          events.push({
-
-            title: "Saturday Bible Study",
-
-            time: "10:00 AM"
-
-          });
-
-        }
-
+      if (
+        month === 1 &&
+        day === nthWeekday(1, 1, 3)
+      ) {
+        addHoliday("Presidents' Day");
       }
 
 
-      return events;
+      /* MEMORIAL DAY */
+
+      if (
+        month === 4 &&
+        day === lastWeekday(4, 1)
+      ) {
+        addHoliday("Memorial Day");
+      }
+
+
+      /* LABOR DAY */
+
+      if (
+        month === 8 &&
+        day === nthWeekday(8, 1, 1)
+      ) {
+        addHoliday("Labor Day");
+      }
+
+
+      /* COLUMBUS DAY */
+
+      if (
+        month === 9 &&
+        day === nthWeekday(9, 1, 2)
+      ) {
+        addHoliday("Columbus Day");
+      }
+
+
+      /* THANKSGIVING */
+
+      if (
+        month === 10 &&
+        day === nthWeekday(10, 4, 4)
+      ) {
+        addHoliday("Thanksgiving Day");
+      }
+
+
+      /* EASTER DATE CALCULATION */
+
+      function getEasterDate(year) {
+
+        const a = year % 19;
+        const b = Math.floor(year / 100);
+        const c = year % 100;
+        const d = Math.floor(b / 4);
+        const e = b % 4;
+        const f = Math.floor((b + 8) / 25);
+        const g = Math.floor((b - f + 1) / 3);
+
+        const h =
+          (19 * a + b - d - g + 15) % 30;
+
+        const i = Math.floor(c / 4);
+        const k = c % 4;
+
+        const l =
+          (32 + 2 * e + 2 * i - h - k + 7) % 7;
+
+        const m =
+          Math.floor((a + 11 * h + 22 * l) / 451);
+
+        const easterMonth =
+          Math.floor((h + l - 7 * m + 114) / 31);
+
+        const easterDay =
+          ((h + l - 7 * m + 114) % 31) + 1;
+
+        return new Date(
+          year,
+          easterMonth - 1,
+          easterDay
+        );
+
+      }
+
+      const easter = getEasterDate(year);
+
+      const goodFriday = new Date(
+        year,
+        easter.getMonth(),
+        easter.getDate() - 2
+      );
+
+      if (
+        month === easter.getMonth() &&
+        day === easter.getDate()
+      ) {
+        addHoliday("Easter Sunday");
+      }
+
+      if (
+        month === goodFriday.getMonth() &&
+        day === goodFriday.getDate()
+      ) {
+        addHoliday("Good Friday");
+      }
+
+      return holidays;
 
     }
-
 
 
     /* =====================================
@@ -846,15 +927,12 @@ loadSpecialEvents();
       const formattedMonth =
         String(month + 1).padStart(2, "0");
 
-
       const formattedDay =
         String(day).padStart(2, "0");
-
 
       return `${year}-${formattedMonth}-${formattedDay}`;
 
     }
-
 
 
     /* =====================================
@@ -865,11 +943,9 @@ loadSpecialEvents();
 
       calendarDays.replaceChildren();
 
-
       /* RESET SCROLL TO TOP */
 
       calendarDays.scrollTop = 0;
-
 
 
       /* MONTH TITLE */
@@ -880,16 +956,11 @@ loadSpecialEvents();
           displayedMonth,
           1
         ).toLocaleString("en-US", {
-
           month: "long",
-
           year: "numeric"
-
         });
 
-
       calendarMonthTitle.textContent = monthName;
-
 
 
       /* DAYS IN MONTH */
@@ -902,9 +973,7 @@ loadSpecialEvents();
         ).getDate();
 
 
-
       const today = getEasternToday();
-
 
 
       /* GENERATE EVERY DAY */
@@ -922,11 +991,8 @@ loadSpecialEvents();
             day
           );
 
-
         const weekday =
           weekdayNames[currentDate.getDay()];
-
-
 
         const dateKey = formatDateKey(
           displayedYear,
@@ -934,24 +1000,19 @@ loadSpecialEvents();
           day
         );
 
-
-
         const recurring = getRecurringEvents(
           displayedYear,
           displayedMonth,
           day
         );
 
-
         const special =
           specialEvents[dateKey] || [];
-
 
         const allEvents = [
           ...recurring,
           ...special
         ];
-
 
 
         /* CHECK IF TODAY */
@@ -962,22 +1023,16 @@ loadSpecialEvents();
           day === today.day;
 
 
-
         /* CREATE DAY ROW */
 
         const dayRow =
           document.createElement("div");
 
-
         dayRow.className = "calendar-day";
 
-
         if (isToday) {
-
           dayRow.classList.add("is-today");
-
         }
-
 
 
         /* DATE COLUMN */
@@ -985,39 +1040,29 @@ loadSpecialEvents();
         const dateColumn =
           document.createElement("div");
 
-
         dateColumn.className = "calendar-date";
-
 
 
         const dateNumber =
           document.createElement("span");
 
-
         dateNumber.className =
           "calendar-date-number";
 
-
         dateNumber.textContent = day;
-
 
 
         const weekdayLabel =
           document.createElement("span");
 
-
         weekdayLabel.className =
           "calendar-weekday";
-
 
         weekdayLabel.textContent = weekday;
 
 
-
         dateColumn.appendChild(dateNumber);
-
         dateColumn.appendChild(weekdayLabel);
-
 
 
         /* TODAY LABEL */
@@ -1027,18 +1072,14 @@ loadSpecialEvents();
           const todayLabel =
             document.createElement("span");
 
-
           todayLabel.className =
             "calendar-today-label";
 
-
           todayLabel.textContent = "Today";
-
 
           dateColumn.appendChild(todayLabel);
 
         }
-
 
 
         /* EVENTS COLUMN */
@@ -1046,10 +1087,8 @@ loadSpecialEvents();
         const eventsColumn =
           document.createElement("div");
 
-
         eventsColumn.className =
           "calendar-events";
-
 
 
         if (allEvents.length === 0) {
@@ -1057,13 +1096,10 @@ loadSpecialEvents();
           const emptyLabel =
             document.createElement("span");
 
-
           emptyLabel.className =
             "calendar-no-event";
 
-
           emptyLabel.textContent = "—";
-
 
           eventsColumn.appendChild(emptyLabel);
 
@@ -1074,21 +1110,16 @@ loadSpecialEvents();
             const eventElement =
               document.createElement("div");
 
-
             eventElement.className =
               "calendar-event";
-
 
 
             const title =
               document.createElement("span");
 
-
             title.textContent = event.title;
 
-
             eventElement.appendChild(title);
-
 
 
             if (event.time) {
@@ -1096,19 +1127,14 @@ loadSpecialEvents();
               const time =
                 document.createElement("span");
 
-
               time.className =
                 "calendar-event-time";
 
-
               time.textContent = event.time;
-
 
               eventElement.appendChild(time);
 
             }
-
-
 
             eventsColumn.appendChild(eventElement);
 
@@ -1117,18 +1143,14 @@ loadSpecialEvents();
         }
 
 
-
         dayRow.appendChild(dateColumn);
-
         dayRow.appendChild(eventsColumn);
-
 
         calendarDays.appendChild(dayRow);
 
       }
 
     }
-
 
 
     /* =====================================
@@ -1140,20 +1162,14 @@ loadSpecialEvents();
 
         displayedMonth--;
 
-
         if (displayedMonth < 0) {
-
           displayedMonth = 11;
-
           displayedYear--;
-
         }
-
 
         renderCalendar();
 
       });
-
 
 
     /* =====================================
@@ -1165,20 +1181,14 @@ loadSpecialEvents();
 
         displayedMonth++;
 
-
         if (displayedMonth > 11) {
-
           displayedMonth = 0;
-
           displayedYear++;
-
         }
-
 
         renderCalendar();
 
       });
-
 
 
     /* =====================================
@@ -1190,21 +1200,23 @@ loadSpecialEvents();
 
         const today = getEasternToday();
 
-
         displayedYear = today.year;
-
         displayedMonth = today.month;
-
 
         renderCalendar();
 
       });
 
 
-
-    /* INITIALIZE */
+    /* =====================================
+       INITIALIZE CALENDAR
+    ====================================== */
 
     renderCalendar();
+
+    loadSpecialEvents().then(() => {
+      renderCalendar();
+    });
 
   </script>
 
