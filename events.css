@@ -93,7 +93,6 @@ h1, h2, h3, h4 {
   line-height: 1.1;
 }
 
-
 .logo-subtitle {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -102,7 +101,6 @@ h1, h2, h3, h4 {
   margin-top: 5px;
   color: var(--navy);
 }
-
 
 .main-nav {
   display: flex;
@@ -298,9 +296,7 @@ h1, h2, h3, h4 {
   line-height: 1.35;
   margin-bottom: 23px;
   color: var(--white);
-
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
-
   animation: heroFadeIn 1.5s ease-out both;
 }
 
@@ -433,21 +429,14 @@ h1, h2, h3, h4 {
 .calendar-days {
   display: flex;
   flex-direction: column;
-
-  /* Seven rows at 75px each */
   height: 525px;
-
   overflow-y: auto;
   overflow-x: hidden;
-
   scroll-behavior: smooth;
   overscroll-behavior: contain;
-
   scrollbar-width: thin;
   scrollbar-color: var(--orange) var(--off-white);
 }
-
-/* CHROME, EDGE, SAFARI */
 
 .calendar-days::-webkit-scrollbar {
   width: 9px;
@@ -474,14 +463,9 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: 185px minmax(0, 1fr);
   align-items: center;
-
   min-height: 75px;
-
-  /* Prevent rows from shrinking */
   flex-shrink: 0;
-
   border-bottom: 1px solid var(--border);
-
   transition: background 0.2s ease;
 }
 
@@ -492,8 +476,6 @@ h1, h2, h3, h4 {
 .calendar-day:hover {
   background: var(--light-blue);
 }
-
-/* DATE COLUMN */
 
 .calendar-date {
   padding: 18px 22px;
@@ -518,8 +500,6 @@ h1, h2, h3, h4 {
   font-weight: 700;
   color: var(--text);
 }
-
-/* EVENT COLUMN */
 
 .calendar-events {
   padding: 16px 25px;
@@ -609,68 +589,193 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   REGULAR GATHERINGS
+   CONGREGATIONAL EVENTS & HIGHLIGHTS
 ========================================= */
 
-.gatherings-section {
-  padding: 90px 0 100px;
+.highlights-section {
+  padding: 95px 0 105px;
   background: var(--white);
 }
 
-.gatherings-grid {
+.highlights-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
 }
 
-.gathering-card {
-  padding: 30px 24px;
+/* EVENT CARD */
+
+.highlight-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-top: 4px solid var(--orange);
-  border-radius: 11px;
-  box-shadow: 0 5px 20px rgba(11, 40, 80, 0.04);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 7px 25px rgba(11, 40, 80, 0.07);
   transition: transform 0.3s ease,
               box-shadow 0.3s ease,
               border-color 0.3s ease;
 }
 
-.gathering-card:hover {
+.highlight-card:hover {
   transform: translateY(-7px);
-  box-shadow: 0 15px 35px rgba(11, 40, 80, 0.12);
-  border-color: var(--orange);
+  box-shadow: 0 20px 45px rgba(11, 40, 80, 0.14);
+  border-color: rgba(243, 107, 28, 0.45);
 }
 
-.gathering-day {
-  display: inline-block;
+/* PHOTO AREA */
+
+.highlight-image {
+  position: relative;
+  width: 100%;
+  height: 265px;
+  overflow: hidden;
   background: var(--light-blue);
+}
+
+.highlight-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.highlight-card:hover .highlight-image img {
+  transform: scale(1.05);
+}
+
+/* TEMPORARY PHOTO PLACEHOLDER */
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 25px;
+  text-align: center;
+  background:
+    linear-gradient(
+      135deg,
+      #edf3fa 0%,
+      #dce8f5 100%
+    );
   color: var(--navy);
-  padding: 5px 12px;
-  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.placeholder-icon {
+  font-size: 35px;
+  line-height: 1;
+  margin-bottom: 7px;
+}
+
+.photo-placeholder small {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* EVENT STATUS BADGES */
+
+.highlight-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  display: inline-block;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.past-badge {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.upcoming-badge {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* CARD CONTENT */
+
+.highlight-content {
+  padding: 30px 30px 34px;
+}
+
+.highlight-category {
+  color: var(--orange);
   font-family: "Montserrat", sans-serif;
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 19px;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+  margin-bottom: 13px;
 }
 
-.gathering-card h3 {
+.highlight-content h3 {
   color: var(--dark-navy);
-  font-size: 19px;
-  margin-bottom: 10px;
-}
-
-.gathering-time {
-  color: var(--orange);
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 800;
   margin-bottom: 15px;
 }
 
-.gathering-card > p:last-child {
-  font-size: 14px;
+.highlight-description {
   color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* UPCOMING EVENT DETAILS */
+
+.highlight-event-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.highlight-date,
+.highlight-time {
+  display: inline-block;
+  background: var(--light-blue);
+  color: var(--navy);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* EVENT CONTACT LINK */
+
+.highlight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  color: var(--orange);
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  transition: color 0.25s ease,
+              gap 0.25s ease;
+}
+
+.highlight-link:hover {
+  color: var(--dark-orange);
+  gap: 14px;
 }
 
 /* =========================================
@@ -861,10 +966,6 @@ h1, h2, h3, h4 {
     gap: 16px;
   }
 
-  .gatherings-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .footer-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -886,11 +987,10 @@ h1, h2, h3, h4 {
     font-size: 21px;
   }
 
-.logo-subtitle {
-  font-size: 11px;
-  letter-spacing: 1px;
-}
-
+  .logo-subtitle {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
 
   .menu-toggle {
     display: block;
@@ -932,7 +1032,7 @@ h1, h2, h3, h4 {
   }
 
   .calendar-section,
-  .gatherings-section {
+  .highlights-section {
     padding: 65px 0;
   }
 
@@ -994,8 +1094,34 @@ h1, h2, h3, h4 {
     padding: 18px;
   }
 
-  .gatherings-grid {
+  /* HIGHLIGHT CARDS */
+
+  .highlights-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .highlight-image {
+    height: 225px;
+  }
+
+  .highlight-content {
+    padding: 25px 22px 29px;
+  }
+
+  .highlight-content h3 {
+    font-size: 21px;
+  }
+
+  .highlight-description {
+    font-size: 14px;
+  }
+
+  .highlight-badge {
+    top: 13px;
+    left: 13px;
+    padding: 8px 11px;
+    font-size: 9px;
   }
 
   .scripture-section {
