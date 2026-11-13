@@ -5,7 +5,7 @@ backend:
   branch: main
 
 media_folder: "images/uploads"
-public_folder: "/images/uploads"
+public_folder: "/Oxon-Hill-Church/images/uploads"
 
 collections:
   # EXISTING CHURCH CALENDAR
