@@ -1,0 +1,45 @@
+
+{
+  "events": [
+    {
+      "title": "New Year's Eve Watch Night Service",
+      "date": "2026-12-31",
+      "time": "Time to Be Announced",
+      "description": "Join us for a special New Year's Eve gathering as we reflect on the past year and look ahead to the new year.",
+      "image": "",
+      "image_alt": "",
+      "category": "Special Congregational Event",
+      "status": "upcoming"
+    },
+    {
+      "title": "Gospel Meeting",
+      "date": "",
+      "time": "",
+      "description": "A special time devoted to the preaching and study of God's Word, encouraging spiritual growth and strengthening our faith.",
+      "image": "",
+      "image_alt": "",
+      "category": "Gospel & Teaching",
+      "status": "past"
+    },
+    {
+      "title": "Men's Retreat",
+      "date": "",
+      "time": "",
+      "description": "An opportunity for men to come together for fellowship, encouragement, meaningful discussion, and spiritual growth.",
+      "image": "",
+      "image_alt": "",
+      "category": "Brotherhood & Encouragement",
+      "status": "past"
+    },
+    {
+      "title": "Fellowship Gatherings",
+      "date": "",
+      "time": "",
+      "description": "Special occasions to spend time together, build relationships, encourage one another, and enjoy Christian fellowship.",
+      "image": "",
+      "image_alt": "",
+      "category": "Fellowship & Community",
+      "status": "past"
+    }
+  ]
+}
