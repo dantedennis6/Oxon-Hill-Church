@@ -1,15 +1,22 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore special programs, gospel meetings, fellowship gatherings, and upcoming events at Oxon Hill Church of Christ.">
+
+  <meta name="description"
+        content="Explore special programs, gospel meetings, fellowship gatherings, and upcoming events at Oxon Hill Church of Christ.">
+
   <title>Events and Activities | Oxon Hill Church of Christ</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
   <link rel="stylesheet" href="./events.css">
 </head>
 
@@ -19,27 +26,40 @@
   <header class="site-header">
     <div class="header-container">
 
-      <a class="site-logo" href="./Index2.html" aria-label="Oxon Hill Church of Christ home">
+      <a class="site-logo" href="./Index2.html"
+         aria-label="Oxon Hill Church of Christ home">
         <span class="logo-name">Oxon Hill</span>
         <span class="logo-subtitle">CHURCH OF CHRIST</span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false">
+      <button class="menu-toggle"
+              type="button"
+              aria-label="Toggle navigation"
+              aria-controls="main-navigation"
+              aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+      <nav class="main-nav"
+           id="main-navigation"
+           aria-label="Main navigation">
+
         <a href="./Index2.html">Home</a>
         <a href="./beliefs.html">What We Believe</a>
         <a href="./worship.html">Worship</a>
         <a href="./videos.html">Videos</a>
-        <a href="./events.html" class="active" aria-current="page">Events/Activities</a>
+        <a href="./events.html"
+           class="active"
+           aria-current="page">Events/Activities</a>
         <a href="./giving.html">Giving</a>
+
       </nav>
 
-      <a href="./ContactPage.html" class="contact-button">Contact Us</a>
+      <a href="./ContactPage.html"
+         class="contact-button">Contact Us</a>
+
     </div>
   </header>
 
@@ -47,6 +67,7 @@
 
     <!-- HERO -->
     <section class="page-hero">
+
       <div class="hero-slideshow" aria-hidden="true">
         <div class="hero-slide hero-slide-1"></div>
         <div class="hero-slide hero-slide-2"></div>
@@ -54,8 +75,11 @@
       </div>
 
       <div class="hero-container">
+
         <p class="eyebrow">FELLOWSHIP AND COMMUNITY</p>
+
         <h1>Events and Activities</h1>
+
         <div class="hero-accent"></div>
 
         <p class="hero-description">
@@ -64,8 +88,10 @@
           congregational gatherings, and other activities.
           We look forward to seeing you!
         </p>
+
       </div>
     </section>
+
 
     <!-- CHURCH CALENDAR -->
     <section class="calendar-section">
@@ -74,6 +100,7 @@
         <div class="section-heading">
           <p class="eyebrow">STAY CONNECTED</p>
           <h2>Church Events Calendar</h2>
+
           <p>
             Explore our monthly calendar for holidays,
             upcoming programs, and special congregational activities.
@@ -84,19 +111,25 @@
 
           <div class="custom-calendar-header">
 
-            <!-- LEFT ARROW: SVG INSTEAD OF CHARACTER CODE -->
+            <!-- PREVIOUS MONTH -->
             <button
               type="button"
               class="calendar-nav-button"
               id="previous-month"
-              aria-label="Previous month"
-            >
-              <svg viewBox="0 0 24 24" width="24" height="24"
-                   fill="none" stroke="currentColor"
-                   stroke-width="2.5" stroke-linecap="round"
-                   stroke-linejoin="round" aria-hidden="true">
+              aria-label="Previous month">
+
+              <svg viewBox="0 0 24 24"
+                   width="24"
+                   height="24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2.5"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
+                   aria-hidden="true">
                 <path d="m15 18-6-6 6-6"/>
               </svg>
+
             </button>
 
             <div class="calendar-month-heading">
@@ -104,19 +137,25 @@
               <h3 id="calendar-month-title"></h3>
             </div>
 
-            <!-- RIGHT ARROW: SVG INSTEAD OF CHARACTER CODE -->
+            <!-- NEXT MONTH -->
             <button
               type="button"
               class="calendar-nav-button"
               id="next-month"
-              aria-label="Next month"
-            >
-              <svg viewBox="0 0 24 24" width="24" height="24"
-                   fill="none" stroke="currentColor"
-                   stroke-width="2.5" stroke-linecap="round"
-                   stroke-linejoin="round" aria-hidden="true">
+              aria-label="Next month">
+
+              <svg viewBox="0 0 24 24"
+                   width="24"
+                   height="24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2.5"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
+                   aria-hidden="true">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
+
             </button>
 
           </div>
@@ -126,10 +165,11 @@
             class="calendar-days"
             aria-live="polite"
             aria-label="Monthly events calendar"
-            tabindex="0"
-          ></div>
+            tabindex="0">
+          </div>
 
           <div class="custom-calendar-footer">
+
             <p>
               All scheduled times are Eastern Time.
               Scroll down to view additional dates.
@@ -138,241 +178,84 @@
             <button
               type="button"
               id="current-month-button"
-              class="calendar-today-button"
-            >
+              class="calendar-today-button">
               Return to Current Month
             </button>
+
           </div>
 
         </div>
       </div>
     </section>
 
+
     <!-- UPCOMING EVENTS -->
-    <section class="highlights-section upcoming-section" id="upcoming-events">
+    <section class="highlights-section upcoming-section"
+             id="upcoming-events">
+
       <div class="content-container">
 
         <div class="section-heading">
+
           <p class="eyebrow">WHAT'S AHEAD</p>
+
           <h2>Upcoming Events</h2>
+
           <p>
             Discover special programs and opportunities
             to gather with us in the months ahead.
           </p>
-        </div>
-
-        <div class="highlights-grid upcoming-grid">
-
-          <!-- WATCH NIGHT SERVICE -->
-          <article class="highlight-card">
-            <div class="highlight-image">
-
-              <!--
-                TO ADD A PHOTO LATER:
-                Replace the photo-placeholder div below with:
-
-                <img src="./WatchNight.jpg"
-                     alt="New Year's Eve Watch Night Service"
-                     loading="lazy">
-              -->
-
-              <div class="photo-placeholder">
-                <svg class="placeholder-icon" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor"
-                     stroke-width="1.6" stroke-linecap="round"
-                     stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 4H9l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-2-3Z"/>
-                  <circle cx="12" cy="13" r="3.5"/>
-                </svg>
-
-                <span>Watch Night Service Photo</span>
-                <small>Photo Coming Soon</small>
-              </div>
-
-              <span class="highlight-badge upcoming-badge">
-                UPCOMING EVENT
-              </span>
-            </div>
-
-            <div class="highlight-content">
-              <p class="highlight-category">
-                SPECIAL CONGREGATIONAL EVENT
-              </p>
-
-              <h3>New Year's Eve Watch Night Service</h3>
-
-              <p class="highlight-description">
-                Join us for a special New Year's Eve gathering
-                as we reflect on the past year and look ahead
-                to the new year.
-              </p>
-
-              <div class="highlight-event-details">
-                <span class="highlight-date">December 31</span>
-                <span class="highlight-time">Time to Be Announced</span>
-              </div>
-
-              <a href="./ContactPage.html" class="highlight-link">
-                Contact Us for Details
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
 
         </div>
+
+        <!-- CARDS AUTOMATICALLY LOADED FROM JSON -->
+        <div class="highlights-grid upcoming-grid"
+             id="upcoming-events-grid">
+        </div>
+
       </div>
     </section>
 
+
     <!-- PAST EVENTS -->
-    <section class="highlights-section past-section" id="past-events">
+    <section class="highlights-section past-section"
+             id="past-events">
+
       <div class="content-container">
 
         <div class="section-heading">
-          <p class="eyebrow">MOMENTS FROM OUR CONGREGATION</p>
+
+          <p class="eyebrow">
+            MOMENTS FROM OUR CONGREGATION
+          </p>
+
           <h2>Past Events &amp; Highlights</h2>
+
           <p>
             Look back on special gatherings, gospel teaching,
             and opportunities for fellowship.
           </p>
-        </div>
-
-        <div class="highlights-grid">
-
-          <!-- GOSPEL MEETING -->
-          <article class="highlight-card">
-            <div class="highlight-image">
-
-              <!--
-                REPLACE PLACEHOLDER WITH:
-                <img src="./GospelMeeting.jpg"
-                     alt="Oxon Hill Church of Christ Gospel Meeting"
-                     loading="lazy">
-              -->
-
-              <div class="photo-placeholder">
-                <svg class="placeholder-icon" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor"
-                     stroke-width="1.6" stroke-linecap="round"
-                     stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 4H9l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-2-3Z"/>
-                  <circle cx="12" cy="13" r="3.5"/>
-                </svg>
-
-                <span>Gospel Meeting Photo</span>
-                <small>Photo Coming Soon</small>
-              </div>
-
-              <span class="highlight-badge past-badge">PAST EVENT</span>
-            </div>
-
-            <div class="highlight-content">
-              <p class="highlight-category">GOSPEL &amp; TEACHING</p>
-              <h3>Gospel Meeting</h3>
-
-              <p class="highlight-description">
-                A special time devoted to the preaching and
-                study of God's Word, encouraging spiritual
-                growth and strengthening our faith.
-              </p>
-            </div>
-          </article>
-
-          <!-- MEN'S RETREAT -->
-          <article class="highlight-card">
-            <div class="highlight-image">
-
-              <!--
-                REPLACE PLACEHOLDER WITH:
-                <img src="./MensRetreat.jpg"
-                     alt="Men's Retreat at Oxon Hill Church of Christ"
-                     loading="lazy">
-              -->
-
-              <div class="photo-placeholder">
-                <svg class="placeholder-icon" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor"
-                     stroke-width="1.6" stroke-linecap="round"
-                     stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 4H9l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-2-3Z"/>
-                  <circle cx="12" cy="13" r="3.5"/>
-                </svg>
-
-                <span>Men's Retreat Photo</span>
-                <small>Photo Coming Soon</small>
-              </div>
-
-              <span class="highlight-badge past-badge">PAST EVENT</span>
-            </div>
-
-            <div class="highlight-content">
-              <p class="highlight-category">
-                BROTHERHOOD &amp; ENCOURAGEMENT
-              </p>
-
-              <h3>Men's Retreat</h3>
-
-              <p class="highlight-description">
-                An opportunity for men to come together
-                for fellowship, encouragement, meaningful
-                discussion, and spiritual growth.
-              </p>
-            </div>
-          </article>
-
-          <!-- FELLOWSHIP GATHERINGS -->
-          <article class="highlight-card">
-            <div class="highlight-image">
-
-              <!--
-                REPLACE PLACEHOLDER WITH:
-                <img src="./FellowshipGathering.jpg"
-                     alt="Congregational fellowship gathering"
-                     loading="lazy">
-              -->
-
-              <div class="photo-placeholder">
-                <svg class="placeholder-icon" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor"
-                     stroke-width="1.6" stroke-linecap="round"
-                     stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 4H9l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-2-3Z"/>
-                  <circle cx="12" cy="13" r="3.5"/>
-                </svg>
-
-                <span>Fellowship Photo</span>
-                <small>Photo Coming Soon</small>
-              </div>
-
-              <span class="highlight-badge past-badge">
-                EVENT HIGHLIGHT
-              </span>
-            </div>
-
-            <div class="highlight-content">
-              <p class="highlight-category">
-                FELLOWSHIP &amp; COMMUNITY
-              </p>
-
-              <h3>Fellowship Gatherings</h3>
-
-              <p class="highlight-description">
-                Special occasions to spend time together,
-                build relationships, encourage one another,
-                and enjoy Christian fellowship.
-              </p>
-            </div>
-          </article>
 
         </div>
+
+        <!-- CARDS AUTOMATICALLY LOADED FROM JSON -->
+        <div class="highlights-grid"
+             id="past-events-grid">
+        </div>
+
       </div>
     </section>
+
 
     <!-- SCRIPTURE -->
     <section class="scripture-section">
       <div class="content-container">
+
         <div class="scripture-box">
 
-          <p class="eyebrow">ENCOURAGING ONE ANOTHER</p>
+          <p class="eyebrow">
+            ENCOURAGING ONE ANOTHER
+          </p>
 
           <blockquote>
             “And let us consider one another to provoke
@@ -386,15 +269,18 @@
           <p class="scripture-reference">
             Hebrews 10:24–25 (KJV)
           </p>
+
         </div>
       </div>
     </section>
+
 
     <!-- INVITATION -->
     <section class="invitation-section">
       <div class="content-container invitation-content">
 
         <p class="eyebrow">YOU ARE WELCOME HERE</p>
+
         <h2>We Would Love to See You!</h2>
 
         <p>
@@ -404,47 +290,61 @@
         </p>
 
         <div class="invitation-actions">
-          <a href="./ContactPage.html" class="primary-button">
+
+          <a href="./ContactPage.html"
+             class="primary-button">
             Contact Us
           </a>
 
-          <a href="./worship.html" class="secondary-button">
+          <a href="./worship.html"
+             class="secondary-button">
             Learn About Our Worship
           </a>
+
         </div>
+
       </div>
     </section>
 
   </main>
 
+
   <!-- FOOTER -->
   <footer class="site-footer">
+
     <div class="footer-container">
 
       <div class="footer-column footer-about">
+
         <h3>Oxon Hill Church of Christ</h3>
+
         <p>
           A congregation committed to worshiping God,
           studying His Word, and sharing the gospel
           of Jesus Christ.
         </p>
+
       </div>
 
       <div class="footer-column">
+
         <h3>Quick Links</h3>
+
         <a href="./Index2.html">Home</a>
         <a href="./beliefs.html">What We Believe</a>
         <a href="./worship.html">Worship</a>
         <a href="./videos.html">Videos</a>
         <a href="./events.html">Events and Activities</a>
         <a href="./giving.html">Giving</a>
+
       </div>
 
       <div class="footer-column">
+
         <h3>Visit Us</h3>
 
         <p>
-          4201 Brinkley Road<br>
+          4201 Brinkley Road
           Temple Hills, MD 20748
         </p>
 
@@ -455,21 +355,26 @@
         <a href="mailto:1oxonhillcoc@gmail.com">
           1oxonhillcoc@gmail.com
         </a>
+
       </div>
 
       <div class="footer-column">
+
         <h3>Connect With Us</h3>
 
-        <!-- Replace with the congregation's actual social links -->
+        <!-- Replace with actual congregation social links -->
         <a href="https://www.facebook.com/"
-           target="_blank" rel="noopener noreferrer">
+           target="_blank"
+           rel="noopener noreferrer">
           Facebook
         </a>
 
         <a href="https://www.youtube.com/"
-           target="_blank" rel="noopener noreferrer">
+           target="_blank"
+           rel="noopener noreferrer">
           YouTube
         </a>
+
       </div>
 
     </div>
@@ -478,9 +383,11 @@
       &copy; <span id="current-year"></span>
       Oxon Hill Church of Christ. All rights reserved.
     </div>
+
   </footer>
 
-  <!-- JAVASCRIPT -->
+
+  <!-- EXISTING CALENDAR JAVASCRIPT -->
   <script>
 
     /* MOBILE NAVIGATION */
@@ -497,7 +404,7 @@
       new Date().getFullYear();
 
 
-    /* LOAD EVENTS FROM events.json */
+    /* LOAD CALENDAR EVENTS FROM events.json */
 
     let specialEvents = {};
 
@@ -546,8 +453,13 @@
       document.getElementById("calendar-month-title");
 
     const weekdayNames = [
-      "Sunday", "Monday", "Tuesday", "Wednesday",
-      "Thursday", "Friday", "Saturday"
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
     ];
 
 
@@ -752,6 +664,7 @@
           displayedMonth === today.month &&
           day === today.day;
 
+
         /* DAY ROW */
 
         const dayRow = document.createElement("div");
@@ -760,6 +673,7 @@
         if (isToday) {
           dayRow.classList.add("is-today");
         }
+
 
         /* DATE COLUMN */
 
@@ -783,6 +697,7 @@
           todayLabel.textContent = "Today";
           dateColumn.appendChild(todayLabel);
         }
+
 
         /* EVENTS COLUMN */
 
@@ -859,7 +774,7 @@
       });
 
 
-    /* INITIALIZE */
+    /* INITIALIZE CALENDAR */
 
     renderCalendar();
 
@@ -868,6 +783,10 @@
     });
 
   </script>
+
+
+  <!-- FEATURED EVENTS: LOAD FROM JSON -->
+  <script src="./featured-events.js" defer></script>
 
 </body>
 </html>
