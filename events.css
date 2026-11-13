@@ -286,11 +286,31 @@ h1, h2, h3, h4 {
   line-height: 1.5;
 }
 
+/* MATCHES BELIEFS PAGE TITLE */
+
 .page-hero h1 {
-  font-size: clamp(36px, 5vw, 58px);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2.1rem, 4.5vw, 3.6rem);
   font-weight: 800;
+  line-height: 1.35;
   margin-bottom: 23px;
-  animation: fadeInUp 0.9s ease both;
+  color: var(--white);
+
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+
+  animation: heroFadeIn 1.5s ease-out both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-accent {
@@ -306,18 +326,6 @@ h1, h2, h3, h4 {
   max-width: 720px;
   margin: auto;
   color: #e4ecf6;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* =========================================
@@ -382,7 +390,6 @@ h1, h2, h3, h4 {
   color: var(--orange);
   margin-bottom: 8px;
 }
-
 
 .calendar-month-heading h3 {
   font-family: "Montserrat", sans-serif;
@@ -725,11 +732,9 @@ h1, h2, h3, h4 {
   margin: auto;
 }
 
-
 .invitation-section .eyebrow {
   color: var(--orange);
 }
-
 
 .invitation-section h2 {
   font-size: clamp(28px, 3.5vw, 39px);
