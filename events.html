@@ -743,6 +743,7 @@
         });
       }
 
+
       /* FIXED-DATE HOLIDAYS */
 
       const fixedHolidays = {
@@ -893,24 +894,11 @@
 
       const easter = getEasterDate(year);
 
-      const goodFriday = new Date(
-        year,
-        easter.getMonth(),
-        easter.getDate() - 2
-      );
-
       if (
         month === easter.getMonth() &&
         day === easter.getDate()
       ) {
-        addHoliday("Easter Sunday");
-      }
-
-      if (
-        month === goodFriday.getMonth() &&
-        day === goodFriday.getDate()
-      ) {
-        addHoliday("Good Friday");
+        addHoliday("Easter");
       }
 
       return holidays;
