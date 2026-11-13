@@ -93,13 +93,16 @@ h1, h2, h3, h4 {
   line-height: 1.1;
 }
 
+
 .logo-subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   margin-top: 5px;
+  color: var(--navy);
 }
+
 
 .main-nav {
   display: flex;
@@ -883,10 +886,11 @@ h1, h2, h3, h4 {
     font-size: 21px;
   }
 
-  .logo-subtitle {
-    font-size: 8px;
-    letter-spacing: 1.8px;
-  }
+.logo-subtitle {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
 
   .menu-toggle {
     display: block;
