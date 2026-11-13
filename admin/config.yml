@@ -8,6 +8,7 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  # EXISTING CHURCH CALENDAR
   - name: "calendar"
     label: "Church Calendar"
     files:
@@ -41,3 +42,64 @@ collections:
                 name: "description"
                 widget: "text"
                 required: false
+
+  # NEW EDITABLE EVENT CARDS
+  - name: "featured"
+    label: "Featured Event Cards"
+    files:
+      - name: "featured_events"
+        label: "Manage Upcoming and Past Events"
+        file: "featured-events.json"
+        format: "json"
+        fields:
+          - label: "Featured Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Event Name"
+                name: "title"
+                widget: "string"
+
+              - label: "Event Date"
+                name: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                format: "YYYY-MM-DD"
+                required: false
+
+              - label: "Event Time"
+                name: "time"
+                widget: "string"
+                required: false
+
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: false
+
+              - label: "Category"
+                name: "category"
+                widget: "string"
+                required: false
+
+              - label: "Event Photograph"
+                name: "image"
+                widget: "image"
+                required: false
+
+              - label: "Photo Description"
+                name: "image_alt"
+                widget: "string"
+                required: false
+
+              - label: "Event Status (If No Date)"
+                name: "status"
+                widget: "select"
+                options:
+                  - label: "Upcoming Event"
+                    value: "upcoming"
+                  - label: "Past Event"
+                    value: "past"
+                default: "past"
