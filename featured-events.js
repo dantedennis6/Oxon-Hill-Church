@@ -1,208 +1,470 @@
 
-/* Featured cards are managed via featured-events.json / Decap CMS. */
+/*
+=========================================
+OXON HILL CHURCH OF CHRIST
+FEATURED EVENTS MANAGEMENT
+
+Loads upcoming and past event cards
+from featured-events.json.
+
+Event information can be managed
+through Decap CMS.
+=========================================
+*/
+
 (function () {
-  const upcomingContainer = document.getElementById('upcoming-events-grid');
-  const pastContainer = document.getElementById('past-events-grid');
-  if (!upcomingContainer || !pastContainer) return;
+  "use strict";
 
-  const cameraSVG = '<svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4H9l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-2-3Z"/><circle cx="12" cy="13" r="3.5"/></svg>';
+  /* EVENT CONTAINERS */
 
-  const easternDateKey = () => {
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
+  const upcomingContainer =
+    document.getElementById("upcoming-events-grid");
+
+  const pastContainer =
+    document.getElementById("past-events-grid");
+
+  if (!upcomingContainer || !pastContainer) {
+    console.error("Featured event containers were not found.");
+    return;
+  }
+
+
+  /* CAMERA PLACEHOLDER */
+
+  const cameraSVG = `
+    <svg
+      class="placeholder-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true">
+
+      <path d="M14 4H9l-2 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-2-3Z"/>
+
+      <circle cx="12" cy="13" r="3.5"/>
+    </svg>
+  `;
+
+
+  /* GET CURRENT EASTERN DATE */
+
+  function getEasternDateKey() {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
     }).formatToParts(new Date());
 
-    const get = type => parts.find(p => p.type === type).value;
-    return `${get('year')}-${get('month')}-${get('day')}`;
-  };
+    const getPart = type =>
+      parts.find(part => part.type === type).value;
 
-  const addText = (parent, tag, className, value) => {
-    const el = document.createElement(tag);
-    if (className) el.className = className;
-    el.textContent = value;
-    parent.appendChild(el);
-    return el;
-  };
+    return (
+      getPart("year") + "-" +
+      getPart("month") + "-" +
+      getPart("day")
+    );
+  }
 
-  const formatDate = value => {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return '';
 
-    const [y, m, d] = value.split('-').map(Number);
-    const date = new Date(y, m - 1, d);
+  /* VALIDATE EVENT DATE */
+
+  function isValidDate(value) {
+    if (
+      typeof value !== "string" ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(value)
+    ) {
+      return false;
+    }
+
+    const [year, month, day] =
+      value.split("-").map(Number);
+
+    const date = new Date(year, month - 1, day);
+
+    return (
+      date.getFullYear() === year &&
+      date.getMonth() === month - 1 &&
+      date.getDate() === day
+    );
+  }
+
+
+  /* FORMAT DATE FOR DISPLAY */
+
+  function formatEventDate(value) {
+    if (!isValidDate(value)) {
+      return "";
+    }
+
+    const [year, month, day] =
+      value.split("-").map(Number);
+
+    const date = new Date(year, month - 1, day);
+
+    return date.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+
+
+  /* CREATE TEXT ELEMENT */
+
+  function addText(parent, tag, className, value) {
+    const element = document.createElement(tag);
+
+    if (className) {
+      element.className = className;
+    }
+
+    element.textContent = value;
+    parent.appendChild(element);
+
+    return element;
+  }
+
+
+  /* CREATE PHOTO PLACEHOLDER */
+
+  function createPhotoPlaceholder(title) {
+    const placeholder = document.createElement("div");
+    placeholder.className = "photo-placeholder";
+
+    placeholder.innerHTML = cameraSVG;
+
+    addText(
+      placeholder,
+      "span",
+      "",
+      title || "Congregational Event"
+    );
+
+    addText(
+      placeholder,
+      "small",
+      "",
+      "Photo Coming Soon"
+    );
+
+    return placeholder;
+  }
+
+
+  /* DETERMINE EVENT STATUS */
+
+  function getEventStatus(event, today) {
+    if (isValidDate(event.date)) {
+      return event.date >= today
+        ? "upcoming"
+        : "past";
+    }
+
+    return event.status === "upcoming"
+      ? "upcoming"
+      : "past";
+  }
+
+
+  /* CREATE EVENT CARD */
+
+  function createEventCard(event, status) {
+    const card = document.createElement("article");
+    card.className = "highlight-card";
+
+
+    /* EVENT IMAGE */
+
+    const media = document.createElement("div");
+    media.className = "highlight-image";
 
     if (
-      date.getFullYear() !== y ||
-      date.getMonth() !== m - 1 ||
-      date.getDate() !== d
-    ) return '';
+      typeof event.image === "string" &&
+      event.image.trim() !== ""
+    ) {
+      const image = document.createElement("img");
 
-    return date.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    });
-  };
+      image.src = event.image;
+      image.alt =
+        event.image_alt ||
+        event.title ||
+        "Congregational Event";
 
-  function renderCard(event, status) {
-    const card = document.createElement('article');
-    card.className = 'highlight-card';
+      image.loading = "lazy";
 
-    const media = document.createElement('div');
-    media.className = 'highlight-image';
+      image.onerror = function () {
+        image.remove();
 
-    if (event.image && typeof event.image === 'string') {
-      const img = document.createElement('img');
-      img.src = event.image;
-      img.alt = event.image_alt || event.title || 'Congregational event';
-      img.loading = 'lazy';
-
-      img.onerror = () => {
-        img.remove();
-
-        const placeholder = document.createElement('div');
-        placeholder.className = 'photo-placeholder';
-        placeholder.innerHTML = cameraSVG;
-
-        addText(placeholder, 'span', '', event.title || 'Event photo');
-        addText(placeholder, 'small', '', 'Photo Coming Soon');
-        media.prepend(placeholder);
+        media.prepend(
+          createPhotoPlaceholder(event.title)
+        );
       };
 
-      media.appendChild(img);
-    } else {
-      const placeholder = document.createElement('div');
-      placeholder.className = 'photo-placeholder';
-      placeholder.innerHTML = cameraSVG;
+      media.appendChild(image);
 
-      addText(placeholder, 'span', '', event.title || 'Event photo');
-      addText(placeholder, 'small', '', 'Photo Coming Soon');
-      media.appendChild(placeholder);
+    } else {
+      media.appendChild(
+        createPhotoPlaceholder(event.title)
+      );
     }
+
+
+    /* UPCOMING OR PAST BADGE */
 
     addText(
       media,
-      'span',
-      `highlight-badge ${status === 'upcoming' ? 'upcoming-badge' : 'past-badge'}`,
-      status === 'upcoming' ? 'UPCOMING EVENT' : 'PAST EVENT'
+      "span",
+      status === "upcoming"
+        ? "highlight-badge upcoming-badge"
+        : "highlight-badge past-badge",
+      status === "upcoming"
+        ? "UPCOMING EVENT"
+        : "PAST EVENT"
     );
 
     card.appendChild(media);
 
-    const content = document.createElement('div');
-    content.className = 'highlight-content';
+
+    /* EVENT INFORMATION */
+
+    const content = document.createElement("div");
+    content.className = "highlight-content";
+
+
+    /* CATEGORY */
 
     if (event.category) {
-      addText(content, 'p', 'highlight-category', event.category.toUpperCase());
+      addText(
+        content,
+        "p",
+        "highlight-category",
+        event.category.toUpperCase()
+      );
     }
 
-    addText(content, 'h3', '', event.title || 'Untitled Event');
+
+    /* EVENT TITLE */
+
+    addText(
+      content,
+      "h3",
+      "",
+      event.title || "Untitled Event"
+    );
+
+
+    /* DESCRIPTION */
 
     if (event.description) {
-      addText(content, 'p', 'highlight-description', event.description);
+      addText(
+        content,
+        "p",
+        "highlight-description",
+        event.description
+      );
     }
 
-    if (event.date || event.time) {
-      const details = document.createElement('div');
-      details.className = 'highlight-event-details';
 
-      const formatted = formatDate(event.date);
+    /* DATE AND TIME */
 
-      if (formatted) {
-        addText(details, 'span', 'highlight-date', formatted);
+    const formattedDate =
+      formatEventDate(event.date);
+
+    if (formattedDate || event.time) {
+      const details = document.createElement("div");
+      details.className = "highlight-event-details";
+
+      if (formattedDate) {
+        addText(
+          details,
+          "span",
+          "highlight-date",
+          formattedDate
+        );
       }
 
       if (event.time) {
-        addText(details, 'span', 'highlight-time', event.time);
+        addText(
+          details,
+          "span",
+          "highlight-time",
+          event.time
+        );
       }
 
       content.appendChild(details);
     }
 
+
+    /* CONTACT LINK FOR UPCOMING EVENTS */
+
+    if (status === "upcoming") {
+      const contactLink = document.createElement("a");
+
+      contactLink.href = "./ContactPage.html";
+      contactLink.className = "highlight-link";
+      contactLink.textContent = "Contact Us for Details";
+
+      content.appendChild(contactLink);
+    }
+
     card.appendChild(content);
+
     return card;
   }
 
+
+  /* LOAD EVENTS FROM JSON */
+
   async function loadFeaturedEvents() {
     try {
-      const response = await fetch('./featured-events.json', {
-        cache: 'no-store'
-      });
+      const response = await fetch(
+        "./featured-events.json",
+        { cache: "no-store" }
+      );
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+        throw new Error(
+          "Failed to load featured events: " +
+          response.status
+        );
       }
 
       const data = await response.json();
-      const events = Array.isArray(data.events) ? data.events : [];
-      const today = easternDateKey();
 
-      const upcoming = [];
-      const past = [];
+      const events = Array.isArray(data.events)
+        ? data.events
+        : [];
+
+      const today = getEasternDateKey();
+
+      const upcomingEvents = [];
+      const pastEvents = [];
+
+
+      /* ORGANIZE EVENTS */
 
       events.forEach(event => {
-        if (!event || !event.title) return;
+        if (
+          !event ||
+          typeof event.title !== "string" ||
+          event.title.trim() === ""
+        ) {
+          return;
+        }
 
-        const status =
-          event.date && /^\d{4}-\d{2}-\d{2}$/.test(event.date)
-            ? (event.date >= today ? 'upcoming' : 'past')
-            : (event.status === 'upcoming' ? 'upcoming' : 'past');
+        const status = getEventStatus(event, today);
 
-        (status === 'upcoming' ? upcoming : past).push(event);
+        if (status === "upcoming") {
+          upcomingEvents.push(event);
+        } else {
+          pastEvents.push(event);
+        }
       });
 
-      upcoming.sort((a, b) =>
-        (a.date || '9999').localeCompare(b.date || '9999')
-      );
 
-      past.sort((a, b) =>
-        (b.date || '').localeCompare(a.date || '')
-      );
+      /* SORT UPCOMING EVENTS */
+
+      upcomingEvents.sort((a, b) => {
+        const dateA = isValidDate(a.date)
+          ? a.date
+          : "9999-12-31";
+
+        const dateB = isValidDate(b.date)
+          ? b.date
+          : "9999-12-31";
+
+        return dateA.localeCompare(dateB);
+      });
+
+
+      /* SORT PAST EVENTS */
+
+      pastEvents.sort((a, b) => {
+        const dateA = isValidDate(a.date)
+          ? a.date
+          : "";
+
+        const dateB = isValidDate(b.date)
+          ? b.date
+          : "";
+
+        return dateB.localeCompare(dateA);
+      });
+
+
+      /* CLEAR EXISTING CARDS */
 
       upcomingContainer.replaceChildren();
       pastContainer.replaceChildren();
 
-      for (const event of upcoming) {
-        upcomingContainer.appendChild(renderCard(event, 'upcoming'));
-      }
 
-      for (const event of past) {
-        pastContainer.appendChild(renderCard(event, 'past'));
-      }
+      /* DISPLAY UPCOMING EVENTS */
 
-      if (!upcoming.length) {
+      upcomingEvents.forEach(event => {
+        upcomingContainer.appendChild(
+          createEventCard(event, "upcoming")
+        );
+      });
+
+
+      /* DISPLAY PAST EVENTS */
+
+      pastEvents.forEach(event => {
+        pastContainer.appendChild(
+          createEventCard(event, "past")
+        );
+      });
+
+
+      /* EMPTY UPCOMING EVENTS */
+
+      if (upcomingEvents.length === 0) {
         addText(
           upcomingContainer,
-          'p',
-          'empty-events-message',
-          'Please check back for upcoming events.'
+          "p",
+          "empty-events-message",
+          "Please check back for upcoming events."
         );
       }
 
-      if (!past.length) {
+
+      /* EMPTY PAST EVENTS */
+
+      if (pastEvents.length === 0) {
         addText(
           pastContainer,
-          'p',
-          'empty-events-message',
-          'Past event highlights will appear here.'
+          "p",
+          "empty-events-message",
+          "Past event highlights will appear here."
         );
       }
+
     } catch (error) {
-      console.error('Featured events could not be loaded:', error);
+      console.error(
+        "Error loading featured events:",
+        error
+      );
 
       upcomingContainer.replaceChildren();
       pastContainer.replaceChildren();
 
       addText(
         upcomingContainer,
-        'p',
-        'empty-events-message',
-        'Featured events are temporarily unavailable.'
+        "p",
+        "empty-events-message",
+        "Featured events are temporarily unavailable."
       );
     }
   }
 
+
+  /* INITIALIZE FEATURED EVENTS */
+
   loadFeaturedEvents();
+
 })();
