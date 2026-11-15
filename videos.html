@@ -203,7 +203,7 @@
 
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor"
-                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 .5 17.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
             </svg>
 
           </a>
@@ -265,11 +265,6 @@
                 <span>Bible Study via Zoom</span>
                 <strong>9:30 AM</strong>
               </div>
-
-              <a href="./ContactPage.html"
-                 class="contact-button zoom-contact-button">
-                Request Zoom Information
-              </a>
 
               <div class="schedule-item">
                 <span>Worship</span>
@@ -378,19 +373,18 @@
         </h2>
 
         <p>
-          Whether you join us online or visit
-          us in person, we invite you to worship
-          God and study His Word with us.
+          Whether you join us online or visit us in person,
+          we invite you to worship God and study His Word with us.
         </p>
 
         <p class="invitation-address">
-          4201 Brinkley Road,
+          4201 Brinkley Road<br>
           Temple Hills, Maryland 20748
         </p>
 
         <div class="invitation-actions">
 
-          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=4201+Brinkley+Road,+Temple+Hills,+MD+20748"
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=4201+Brinkley+Road,+Temple+Hills,+Maryland+20748"
              class="directions-button"
              target="_blank"
              rel="noopener noreferrer">
@@ -515,10 +509,7 @@
       });
     });
 
-    // ====================================
     // VIDEO SPOTLIGHT
-    // ====================================
-
     const spotlightTarget =
       document.getElementById("spotlight-target");
 
@@ -533,8 +524,6 @@
       const viewportMiddle =
         window.innerHeight / 2;
 
-      // Activate when the center of the
-      // viewport reaches the video area.
       const active =
         rect.top <= viewportMiddle &&
         rect.bottom >= viewportMiddle;
@@ -546,7 +535,6 @@
         active
       );
 
-      // Position the clear oval over the video.
       if (active) {
         const centerX =
           rect.left + rect.width / 2;
@@ -594,25 +582,15 @@
 
     updateVideoSpotlight();
 
-    // ====================================
     // SUNDAY YOUTUBE VIDEO CONFIGURATION
-    // ====================================
-
     /*
-      Enter the YouTube video ID below
-      to embed a specific Sunday broadcast.
+      Enter a YouTube video ID to embed a specific
+      Sunday broadcast.
 
-      Example:
-      https://www.youtube.com/watch?v=abcdefghijk
+      Leave empty to show the Watch on YouTube button.
 
-      Video ID:
-      abcdefghijk
-
-      Leave empty to display the
-      Watch on YouTube button.
-
-      Automatic detection of newly created
-      livestreams requires additional setup.
+      Automatically detecting new livestreams
+      requires additional setup.
     */
 
     const VIDEO_ID = "";
