@@ -76,14 +76,23 @@ button:focus-visible {
   gap: 22px;
 }
 
+/* ======================================
+   STANDARDIZED CHURCH LOGO
+====================================== */
+
 .site-logo {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  justify-content: center;
+  gap: 0;
   color: var(--navy);
 }
 
 .logo-name {
+  display: block;
+  margin: 0;
+  padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 25px;
   font-weight: 800;
@@ -91,14 +100,20 @@ button:focus-visible {
 }
 
 .logo-subtitle {
+  display: block;
+  margin: 5px 0 0;
+  padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
-  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 17px;
+  color: var(--navy);
 }
 
-/* NAVIGATION */
+/* ======================================
+   NAVIGATION
+====================================== */
 
 .main-nav {
   display: flex;
@@ -141,7 +156,9 @@ button:focus-visible {
   color: var(--orange);
 }
 
-/* CONTACT BUTTON */
+/* ======================================
+   CONTACT BUTTON
+====================================== */
 
 .contact-button {
   display: inline-block;
@@ -169,7 +186,9 @@ button:focus-visible {
   box-shadow: 0 8px 20px rgba(243, 107, 28, .22);
 }
 
-/* MOBILE MENU */
+/* ======================================
+   MOBILE MENU
+====================================== */
 
 .menu-toggle {
   display: none;
@@ -221,7 +240,7 @@ button:focus-visible {
   color: var(--orange);
 }
 
-/* HERO TITLE: TWO LINES */
+/* HERO TITLE */
 
 .page-hero h1 {
   margin: 0 auto 20px;
@@ -289,7 +308,6 @@ button:focus-visible {
 
 /* ======================================
    EXPANDABLE WORSHIP CARDS
-   MATCHES BELIEFS PAGE
 ====================================== */
 
 .card-list {
@@ -299,23 +317,19 @@ button:focus-visible {
   gap: 18px;
 }
 
-.worship-card,
-.faq-card {
+.worship-card {
+  position: relative;
   background: var(--white);
   border: 2px solid #cad7e5;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(21,59,114,.04);
+  will-change: height;
 
   transition:
     border-color .3s ease,
     box-shadow .3s ease,
     transform .3s ease;
-}
-
-.worship-card {
-  position: relative;
-  box-shadow: 0 2px 8px rgba(21,59,114,.04);
-  will-change: height;
 }
 
 /* ORANGE HOVER EFFECT */
@@ -355,8 +369,7 @@ button:focus-visible {
   list-style: none;
 }
 
-.worship-card summary::-webkit-details-marker,
-.faq-card summary::-webkit-details-marker {
+.worship-card summary::-webkit-details-marker {
   display: none;
 }
 
@@ -402,7 +415,6 @@ button:focus-visible {
 
 /* ======================================
    READ / UNREAD INDICATORS
-   NO PILL SHAPE OR BACKGROUND
 ====================================== */
 
 .reading-status {
@@ -479,8 +491,7 @@ button:focus-visible {
   transition: transform .45s ease;
 }
 
-.worship-card[open] .toggle::after,
-.faq-card[open] .toggle::after {
+.worship-card[open] .toggle::after {
   transform: translate(-50%, -50%) rotate(0);
 }
 
@@ -518,7 +529,7 @@ button:focus-visible {
   line-height: 1.75;
 }
 
-/* UPDATED: KJV TRANSLATION NOTE IN MAIN ORANGE */
+/* KJV TRANSLATION NOTE */
 
 .translation-note {
   max-width: 900px;
@@ -660,66 +671,19 @@ button:focus-visible {
   line-height: 1.45;
 }
 
-/* MAIN ORANGE: SATURDAY EXCEPTION */
+/* SATURDAY EXCEPTION */
 
 .schedule-line .schedule-exception {
   color: var(--orange);
   font-style: italic;
 }
 
-/* MAIN ORANGE: WEDNESDAY ZOOM NOTE */
+/* WEDNESDAY ZOOM NOTE */
 
 .schedule-note {
   margin: 15px 0 0;
   color: var(--orange);
   font-size: .9rem;
-  font-style: italic;
-}
-
-/* ======================================
-   FREQUENTLY ASKED QUESTIONS
-====================================== */
-
-.faq-section {
-  padding-top: 70px;
-  padding-bottom: 75px;
-}
-
-.faq-list {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  gap: 12px;
-}
-
-.faq-card:hover,
-.faq-card[open] {
-  border-color: var(--orange);
-  box-shadow: 0 7px 20px rgba(21,59,114,.09);
-}
-
-.faq-card summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 20px 24px;
-  cursor: pointer;
-  list-style: none;
-  color: var(--navy);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-weight: 700;
-}
-
-.faq-answer {
-  padding: 15px 24px 22px;
-  border-top: 1px solid var(--border);
-  background: var(--soft);
-}
-
-.faq-answer p {
-  margin: 0;
-  color: #66768a;
   font-style: italic;
 }
 
@@ -756,7 +720,7 @@ button:focus-visible {
   margin-top: 25px;
 }
 
-/* GET DIRECTIONS BUTTON - UNCHANGED */
+/* GET DIRECTIONS BUTTON */
 
 .primary-button {
   display: inline-block;
@@ -778,8 +742,7 @@ button:focus-visible {
   border-color: var(--orange);
 }
 
-/* UPDATED: BOTTOM CONTACT US BUTTON
-   MATCHES TOP RIGHT CONTACT BUTTON */
+/* BOTTOM CONTACT US BUTTON */
 
 .secondary-button {
   display: inline-block;
@@ -965,8 +928,7 @@ button:focus-visible {
     font-size: clamp(1.6rem, 6vw, 2.05rem);
   }
 
-  .worship-section,
-  .faq-section {
+  .worship-section {
     padding-top: 45px;
     padding-bottom: 55px;
   }
@@ -1015,10 +977,6 @@ button:focus-visible {
 
   .schedule-grid {
     grid-template-columns: 1fr;
-  }
-
-  .faq-card summary {
-    padding: 17px 15px;
   }
 
   .invitation-section {
@@ -1079,7 +1037,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   MOBILE HEADER
+   MOBILE HEADER - STANDARDIZED LOGO
 ====================================== */
 
 @media (max-width: 700px) {
@@ -1095,8 +1053,8 @@ button:focus-visible {
   }
 
   .site-header .logo-subtitle {
-    font-size: 8px;
-    letter-spacing: 1.8px;
+    font-size: 11px;
+    letter-spacing: 1px;
   }
 
   .site-header .menu-toggle {
@@ -1156,7 +1114,6 @@ button:focus-visible {
   .nav-link,
   .contact-button,
   .worship-card,
-  .faq-card,
   .toggle::after,
   .reading-status,
   .worship-spotlight-overlay,
