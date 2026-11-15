@@ -459,6 +459,8 @@ button:focus-visible {
   width: 84px;
   height: 84px;
   margin: 0 auto 20px;
+   border: none;
+   cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -541,6 +543,8 @@ button:focus-visible {
 
 .live-video-frame {
   display: none;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
