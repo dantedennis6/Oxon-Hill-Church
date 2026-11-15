@@ -76,16 +76,23 @@ button:focus-visible {
   gap: 22px;
 }
 
-/* CHURCH NAME */
+/* ======================================
+   CHURCH NAME - STANDARDIZED LOGO
+====================================== */
 
 .site-logo {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  justify-content: center;
+  gap: 0;
   color: var(--navy);
 }
 
 .logo-name {
+  display: block;
+  margin: 0;
+  padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 25px;
   font-weight: 800;
@@ -93,11 +100,15 @@ button:focus-visible {
 }
 
 .logo-subtitle {
+  display: block;
+  margin: 5px 0 0;
+  padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
-  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 17px;
+  color: var(--navy);
 }
 
 /* NAVIGATION */
@@ -618,7 +629,6 @@ button:focus-visible {
   text-align: center;
 }
 
-
 /* ======================================
    CLOSING SECTION
 ====================================== */
@@ -797,7 +807,6 @@ button:focus-visible {
 ====================================== */
 
 @media (max-width: 900px) {
-
   .footer-container {
     gap: 25px;
   }
@@ -846,8 +855,6 @@ button:focus-visible {
   .step-heading {
     font-size: .98rem;
   }
-
-  /* SMALL READING INDICATOR ON MOBILE */
 
   .reading-status {
     gap: 4px;
@@ -927,7 +934,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   MOBILE HEADER
+   MOBILE HEADER - STANDARDIZED LOGO
 ====================================== */
 
 @media (max-width: 700px) {
@@ -943,8 +950,8 @@ button:focus-visible {
   }
 
   .site-header .logo-subtitle {
-    font-size: 8px;
-    letter-spacing: 1.8px;
+    font-size: 11px;
+    letter-spacing: 1px;
   }
 
   .site-header .menu-toggle {
@@ -1023,23 +1030,11 @@ button:focus-visible {
    SCROLL UNRAVEL EFFECT
 ====================================== */
 
-/*
-  JavaScript animates each card's height.
-
-  No wiggle animation is present.
-*/
-
 .step-card {
   will-change: height;
 }
 
-/*
-  Scripture content gently appears
-  as the card unfolds.
-*/
-
 @keyframes scriptureUnravel {
-
   from {
     opacity: 0;
     transform: translateY(-12px);
@@ -1052,8 +1047,7 @@ button:focus-visible {
 }
 
 .step-card[open] .step-content {
-  animation:
-    scriptureUnravel 0.65s ease-out both;
+  animation: scriptureUnravel 0.65s ease-out both;
 }
 
 /* ======================================
@@ -1104,7 +1098,6 @@ button:focus-visible {
 ====================================== */
 
 .beliefs-intro p {
-    text-align: justify;
-    text-justify: inter-word;
+  text-align: justify;
+  text-justify: inter-word;
 }
-
