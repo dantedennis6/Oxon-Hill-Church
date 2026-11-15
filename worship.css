@@ -231,18 +231,24 @@ button:focus-visible {
 }
 
 /* ======================================
-   HERO TITLE WITH FADE-IN ANIMATION
+   HERO TITLE
+   FADE-IN ANIMATION AND TEXT SHADOW
 ====================================== */
 
 .page-hero h1 {
   margin: 0 auto 20px;
   max-width: 900px;
 
+  color: var(--white);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(2.1rem, 4.5vw, 3.5rem);
   line-height: 1.22;
   font-weight: 800;
 
+  /* Shadow matching the Videos page */
+  text-shadow: 0 3px 12px rgba(0,0,0,.75);
+
+  /* Fade-in animation */
   animation: heroFadeIn 1.5s ease-out both;
 }
 
