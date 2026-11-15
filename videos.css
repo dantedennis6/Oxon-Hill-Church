@@ -169,7 +169,7 @@ button:focus-visible {
     linear-gradient(rgba(11,40,80,.72),rgba(11,40,80,.82)),
     url("./videos1.jpeg");
   background-size: 100% 100%, 100% auto;
-  background-position: center, center 70%;
+  background-position: center, center 45%;
   background-repeat: no-repeat;
   background-color: var(--navy-dark);
   min-height: 520px;
