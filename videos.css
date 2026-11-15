@@ -753,26 +753,6 @@ button:focus-visible {
     0 15px 30px rgba(21,59,114,.13);
 }
 
-.previous-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: var(--navy);
-  color: var(--white);
-  border-radius: 50%;
-}
-
-.previous-icon svg {
-  width: 37px;
-  height: 37px;
-  margin-left: 4px;
-}
-
 .previous-card h3 {
   margin: 0 0 12px;
   color: var(--navy);
