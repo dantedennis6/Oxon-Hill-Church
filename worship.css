@@ -209,22 +209,30 @@ button:focus-visible {
   padding: 72px 0 76px;
 }
 
-/* ORANGE SECTION LABELS */
+/* ======================================
+   ORANGE SECTION LABELS
+   GATHER WITH US / OUR WORSHIP / JOIN US
+====================================== */
 
 .eyebrow {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--orange);
 
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: .83rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: .14em;
+  letter-spacing: .12em;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 
 .page-hero .eyebrow {
   color: var(--orange);
 }
+
+/* ======================================
+   HERO TITLE WITH FADE-IN ANIMATION
+====================================== */
 
 .page-hero h1 {
   margin: 0 auto 20px;
@@ -235,7 +243,6 @@ button:focus-visible {
   line-height: 1.22;
   font-weight: 800;
 
-  /* Fade-in animation */
   animation: heroFadeIn 1.5s ease-out both;
 }
 
@@ -1100,6 +1107,10 @@ button:focus-visible {
 
   html {
     scroll-behavior: auto;
+  }
+
+  .page-hero h1 {
+    animation: none;
   }
 
   .worship-card[open] .card-content {
