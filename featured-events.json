@@ -1,11 +1,3 @@
 {
-  "events": [
-    {
-      "status": "upcoming",
-      "title": "New Year's Eve Watch Night Service",
-      "date": "2026-12-31",
-      "time": "10:30 PM",
-      "description": "Zoom login"
-    }
-  ]
+  "events": []
 }
