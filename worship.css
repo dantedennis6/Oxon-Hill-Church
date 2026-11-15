@@ -209,9 +209,11 @@ button:focus-visible {
   padding: 72px 0 76px;
 }
 
+/* ORANGE SECTION LABELS */
+
 .eyebrow {
   margin: 0 0 10px;
-  color: var(--orange-dark);
+  color: var(--orange);
 
   font-family: "Montserrat", Arial, sans-serif;
   font-size: .83rem;
@@ -221,7 +223,7 @@ button:focus-visible {
 }
 
 .page-hero .eyebrow {
-  color: #ffb88c;
+  color: var(--orange);
 }
 
 .page-hero h1 {
@@ -502,12 +504,14 @@ button:focus-visible {
   margin: 0;
 }
 
+/* ORANGE KJV SCRIPTURE NOTICE */
+
 .translation-note {
   max-width: 940px;
   margin: 20px auto 0;
   text-align: center;
 
-  color: #58687c;
+  color: var(--orange);
   font-size: .88rem;
 }
 
@@ -691,36 +695,54 @@ button:focus-visible {
   margin-top: 25px;
 }
 
+/* ======================================
+   BOTTOM INVITATION BUTTONS
+====================================== */
+
 .primary-button,
 .secondary-button {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 13px 22px;
 
-  border: 3px solid var(--navy);
-  border-radius: 8px;
+  border: none;
+  border-radius: 7px;
 
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
   font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
 
   transition:
+    background .25s ease,
     transform .25s ease,
-    border-color .25s ease,
-    background .25s ease;
+    box-shadow .25s ease;
 }
+
+/* GET DIRECTIONS - NAVY */
 
 .primary-button {
   background: var(--navy);
   color: var(--white);
 }
 
-.secondary-button {
-  background: var(--white);
-  color: var(--navy);
+.primary-button:hover {
+  background: var(--navy-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(21,59,114,.22);
 }
 
-.primary-button:hover,
+/* CONTACT US - ORANGE */
+
+.secondary-button {
+  background: var(--orange);
+  color: var(--white);
+}
+
 .secondary-button:hover {
+  background: var(--orange-dark);
   transform: translateY(-3px);
-  border-color: var(--orange);
+  box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
 /* ======================================
