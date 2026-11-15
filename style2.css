@@ -76,8 +76,10 @@ button:focus-visible {
   gap: 22px;
 }
 
+
 /* ======================================
    CHURCH NAME - TOP LEFT
+   MATCHES EVENTS PAGE
 ====================================== */
 
 .site-logo {
@@ -88,19 +90,21 @@ button:focus-visible {
 }
 
 .logo-name {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 1.1;
 }
 
 .logo-subtitle {
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   margin-top: 5px;
+  color: var(--navy);
 }
+
 
 /* ======================================
    NAVIGATION
@@ -1090,14 +1094,15 @@ button:focus-visible {
     gap: 10px;
   }
 
-  .site-header .logo-name {
-    font-size: 21px;
-  }
+.site-header .logo-name {
+  font-size: 21px;
+}
 
-  .site-header .logo-subtitle {
-    font-size: 8px;
-    letter-spacing: 1.8px;
-  }
+.site-header .logo-subtitle {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
 
   .site-header .menu-toggle {
     display: block;
