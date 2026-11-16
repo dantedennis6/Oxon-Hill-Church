@@ -10,9 +10,12 @@
   --navy-dark: #0b2850;
   --white: #ffffff;
   --black: #000000;
+
+  /* SAME ORANGE AS OTHER WEBSITE PAGES */
   --orange: #f36b1c;
   --orange-dark: #b7470b;
   --orange-light: #fff5ee;
+
   --text: #253449;
   --muted: #52647b;
   --border: #d8e1ec;
@@ -190,7 +193,9 @@ button:focus-visible {
   box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
-/* MOBILE MENU */
+/* ======================================
+   MOBILE MENU
+====================================== */
 
 .menu-toggle {
   display: none;
@@ -310,7 +315,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   SHARED SECTION EYEBROWS
+   SHARED ORANGE SECTION LABELS
 ====================================== */
 
 .section-eyebrow {
@@ -521,7 +526,7 @@ button:focus-visible {
   width: 4px;
   background: var(--orange);
 
-  opacity: .85;
+  opacity: 1;
 }
 
 .day-card:hover {
@@ -586,14 +591,14 @@ button:focus-visible {
 }
 
 .day-card-content .schedule-exception {
-  color: var(--orange-dark);
+  color: var(--orange);
   font-style: italic;
 }
 
 .day-card-content .schedule-note {
   display: block;
 
-  color: var(--orange-dark);
+  color: var(--orange);
 
   font-size: .9rem;
   font-style: italic;
@@ -663,13 +668,15 @@ button:focus-visible {
   pointer-events: none;
 }
 
+/* SAME ORANGE AS OTHER PAGES */
+
 .livestream-eyebrow {
   position: relative;
 
   display: block;
   margin-bottom: 17px;
 
-  color: #ffab77;
+  color: var(--orange);
 
   font-family: "Montserrat", Arial, sans-serif;
   font-size: .82rem;
@@ -806,7 +813,9 @@ button:focus-visible {
   line-height: 1.8;
 }
 
-/* MAP */
+/* ======================================
+   MAP
+====================================== */
 
 .map-container {
   width: 100%;
@@ -829,7 +838,9 @@ button:focus-visible {
   border: 0;
 }
 
-/* DIRECTIONS BUTTON */
+/* ======================================
+   DIRECTIONS BUTTON
+====================================== */
 
 .directions-container {
   display: flex;
@@ -885,7 +896,7 @@ button:focus-visible {
     #fff1e6
   );
 
-  border: 1px solid #f2d5c1;
+  border: 1px solid rgba(243,107,28,.3);
   border-radius: 15px;
 
   box-shadow:
@@ -926,7 +937,7 @@ button:focus-visible {
   display: block;
   margin-bottom: 10px;
 
-  color: var(--orange-dark);
+  color: var(--orange);
 
   font-family: "Montserrat", Arial, sans-serif;
   font-size: .82rem;
@@ -1311,7 +1322,7 @@ button:focus-visible {
   }
 
   .day-card {
-    padding: 20px 20px;
+    padding: 20px;
   }
 
   .day-card h3 {
