@@ -56,7 +56,6 @@ h1, h2, h3, h4 {
   margin: 0 auto;
 }
 
-
 /* HEADER */
 
 .site-header {
@@ -76,27 +75,39 @@ h1, h2, h3, h4 {
   gap: 22px;
 }
 
+/* FIXED LOGO ALIGNMENT */
+
 .site-logo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 190px;
+  flex: 0 0 190px;
   color: var(--navy);
-  flex-shrink: 0;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .logo-name {
+  display: block;
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .logo-subtitle {
+  display: block;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 1.5px;
+  line-height: 1.2;
   margin-top: 5px;
   color: var(--navy);
+  white-space: nowrap;
 }
 
 .main-nav {
@@ -107,6 +118,7 @@ h1, h2, h3, h4 {
 }
 
 .main-nav a {
+  display: inline-block;
   color: var(--dark-navy);
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
@@ -164,7 +176,6 @@ h1, h2, h3, h4 {
   margin: 5px 0;
   border-radius: 3px;
 }
-
 
 /* HERO */
 
@@ -297,7 +308,6 @@ h1, h2, h3, h4 {
   color: #e4ecf6;
 }
 
-
 /* SECTION HEADINGS */
 
 .section-heading {
@@ -316,7 +326,6 @@ h1, h2, h3, h4 {
   font-size: 16px;
   color: var(--muted);
 }
-
 
 /* CALENDAR */
 
@@ -390,7 +399,6 @@ h1, h2, h3, h4 {
   background: var(--orange);
   transform: translateY(-2px);
 }
-
 
 /* SCROLLABLE CALENDAR */
 
@@ -549,7 +557,6 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-
 /* UPCOMING AND PAST EVENTS */
 
 .highlights-section {
@@ -580,7 +587,6 @@ h1, h2, h3, h4 {
   width: min(100%, 560px);
   justify-self: center;
 }
-
 
 /* EVENT CARDS */
 
@@ -623,7 +629,6 @@ h1, h2, h3, h4 {
   transform: scale(1.05);
 }
 
-
 /* PHOTO PLACEHOLDERS */
 
 .photo-placeholder {
@@ -662,7 +667,6 @@ h1, h2, h3, h4 {
   color: var(--muted);
 }
 
-
 /* EVENT BADGES */
 
 .highlight-badge {
@@ -689,7 +693,6 @@ h1, h2, h3, h4 {
   background: var(--orange);
   color: var(--white);
 }
-
 
 /* EVENT CARD CONTENT */
 
@@ -758,7 +761,6 @@ h1, h2, h3, h4 {
   gap: 14px;
 }
 
-
 /* SCRIPTURE */
 
 .scripture-section {
@@ -800,7 +802,6 @@ h1, h2, h3, h4 {
   font-weight: 800;
 }
 
-
 /* INVITATION */
 
 .invitation-section {
@@ -815,7 +816,7 @@ h1, h2, h3, h4 {
 }
 
 .invitation-content {
-  max-width: 790px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -831,8 +832,18 @@ h1, h2, h3, h4 {
 .invitation-content > p:not(.eyebrow) {
   color: #e4ecf6;
   font-size: 17px;
-  margin-bottom: 35px;
+  margin: 0 auto 35px;
+  max-width: 980px;
 }
+
+/* Keep short trailing words with the sentence
+   while allowing normal wrapping on smaller screens. */
+
+.invitation-description {
+  text-wrap: balance;
+}
+
+/* BUTTONS */
 
 .invitation-actions {
   display: flex;
@@ -860,7 +871,6 @@ h1, h2, h3, h4 {
   color: var(--navy);
   transform: translateY(-3px);
 }
-
 
 /* FOOTER */
 
@@ -925,7 +935,6 @@ h1, h2, h3, h4 {
   font-size: 13px;
 }
 
-
 /* TABLET */
 
 @media (max-width: 1100px) {
@@ -949,7 +958,6 @@ h1, h2, h3, h4 {
   }
 }
 
-
 /* MOBILE */
 
 @media (max-width: 700px) {
@@ -958,6 +966,11 @@ h1, h2, h3, h4 {
     width: 92%;
     min-height: 75px;
     gap: 10px;
+  }
+
+  .site-logo {
+    width: 165px;
+    flex: 0 0 165px;
   }
 
   .logo-name {
@@ -1118,6 +1131,14 @@ h1, h2, h3, h4 {
     padding: 70px 0;
   }
 
+  .invitation-content {
+    max-width: 100%;
+  }
+
+  .invitation-description {
+    text-wrap: pretty;
+  }
+
   .invitation-actions {
     flex-direction: column;
     align-items: stretch;
@@ -1131,6 +1152,33 @@ h1, h2, h3, h4 {
   }
 }
 
+/* EXTRA SMALL SCREENS */
+
+@media (max-width: 380px) {
+
+  .site-logo {
+    width: 145px;
+    flex: 0 0 145px;
+  }
+
+  .logo-name {
+    font-size: 19px;
+  }
+
+  .logo-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.7px;
+  }
+
+  .header-container {
+    gap: 6px;
+  }
+
+  .contact-button {
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+}
 
 /* REDUCED MOTION */
 
