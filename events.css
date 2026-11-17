@@ -56,7 +56,9 @@ h1, h2, h3, h4 {
   margin: 0 auto;
 }
 
-/* HEADER */
+/* =========================================
+   HEADER
+========================================= */
 
 .site-header {
   background: var(--white);
@@ -177,7 +179,10 @@ h1, h2, h3, h4 {
   border-radius: 3px;
 }
 
-/* HERO */
+/* =========================================
+   HERO BANNER
+   ORANGE TOP AND BOTTOM OUTLINE ADDED
+========================================= */
 
 .page-hero {
   position: relative;
@@ -191,7 +196,13 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* ORANGE OUTLINE TO MATCH OTHER PAGES */
+  border-top: 3px solid var(--orange);
+  border-bottom: 3px solid var(--orange);
 }
+
+/* HERO BACKGROUND SLIDESHOW */
 
 .hero-slideshow {
   position: absolute;
@@ -245,12 +256,28 @@ h1, h2, h3, h4 {
 }
 
 @keyframes heroSlideshow {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  33.33% { opacity: 1; }
-  38.33% { opacity: 0; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  33.33% {
+    opacity: 1;
+  }
+
+  38.33% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
+
+/* HERO CONTENT */
 
 .hero-container {
   position: relative;
@@ -269,6 +296,8 @@ h1, h2, h3, h4 {
   color: var(--orange);
   margin-bottom: 16px;
 }
+
+/* HERO TITLE FADE-IN */
 
 .page-hero h1 {
   font-family: "Montserrat", Arial, sans-serif;
@@ -308,7 +337,9 @@ h1, h2, h3, h4 {
   color: #e4ecf6;
 }
 
-/* SECTION HEADINGS */
+/* =========================================
+   SECTION HEADINGS
+========================================= */
 
 .section-heading {
   text-align: center;
@@ -327,7 +358,9 @@ h1, h2, h3, h4 {
   color: var(--muted);
 }
 
-/* CALENDAR */
+/* =========================================
+   CALENDAR
+========================================= */
 
 .calendar-section {
   padding: 85px 0 95px;
@@ -557,7 +590,9 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-/* UPCOMING AND PAST EVENTS */
+/* =========================================
+   UPCOMING AND PAST EVENTS
+========================================= */
 
 .highlights-section {
   padding: 95px 0 105px;
@@ -761,7 +796,9 @@ h1, h2, h3, h4 {
   gap: 14px;
 }
 
-/* SCRIPTURE */
+/* =========================================
+   SCRIPTURE
+========================================= */
 
 .scripture-section {
   padding: 75px 0;
@@ -802,7 +839,9 @@ h1, h2, h3, h4 {
   font-weight: 800;
 }
 
-/* INVITATION */
+/* =========================================
+   INVITATION
+========================================= */
 
 .invitation-section {
   background: linear-gradient(
@@ -872,7 +911,9 @@ h1, h2, h3, h4 {
   transform: translateY(-3px);
 }
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
 
 .site-footer {
   background: #081e3b;
@@ -935,7 +976,9 @@ h1, h2, h3, h4 {
   font-size: 13px;
 }
 
-/* TABLET */
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 1100px) {
 
@@ -958,7 +1001,9 @@ h1, h2, h3, h4 {
   }
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 700px) {
 
@@ -1152,7 +1197,9 @@ h1, h2, h3, h4 {
   }
 }
 
-/* EXTRA SMALL SCREENS */
+/* =========================================
+   EXTRA SMALL SCREENS
+========================================= */
 
 @media (max-width: 380px) {
 
@@ -1180,7 +1227,9 @@ h1, h2, h3, h4 {
   }
 }
 
-/* REDUCED MOTION */
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
