@@ -92,7 +92,6 @@
       </div>
     </section>
 
-
     <!-- CHURCH CALENDAR -->
     <section class="calendar-section">
       <div class="content-container">
@@ -111,7 +110,6 @@
 
           <div class="custom-calendar-header">
 
-            <!-- PREVIOUS MONTH -->
             <button
               type="button"
               class="calendar-nav-button"
@@ -137,7 +135,6 @@
               <h3 id="calendar-month-title"></h3>
             </div>
 
-            <!-- NEXT MONTH -->
             <button
               type="button"
               class="calendar-nav-button"
@@ -188,7 +185,6 @@
       </div>
     </section>
 
-
     <!-- UPCOMING EVENTS -->
     <section class="highlights-section upcoming-section"
              id="upcoming-events">
@@ -215,7 +211,6 @@
 
       </div>
     </section>
-
 
     <!-- PAST EVENTS -->
     <section class="highlights-section past-section"
@@ -246,7 +241,6 @@
       </div>
     </section>
 
-
     <!-- SCRIPTURE -->
     <section class="scripture-section">
       <div class="content-container">
@@ -274,7 +268,6 @@
       </div>
     </section>
 
-
     <!-- INVITATION -->
     <section class="invitation-section">
       <div class="content-container invitation-content">
@@ -283,7 +276,7 @@
 
         <h2>We Would Love to See You!</h2>
 
-        <p>
+        <p class="invitation-description">
           Whether you are visiting for the first time
           or looking for a place to study God's Word,
           we invite you to join us.
@@ -307,7 +300,6 @@
     </section>
 
   </main>
-
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -344,8 +336,8 @@
         <h3>Visit Us</h3>
 
         <p>
-          4201 Brinkley Road
-          Temple Hills, MD 20748
+          4201 Brinkley Road<br>
+          Temple Hills, Maryland 20748
         </p>
 
         <a href="tel:+13018945412">
@@ -362,7 +354,6 @@
 
         <h3>Connect With Us</h3>
 
-        <!-- Replace with actual congregation social links -->
         <a href="https://www.facebook.com/"
            target="_blank"
            rel="noopener noreferrer">
@@ -386,8 +377,7 @@
 
   </footer>
 
-
-  <!-- EXISTING CALENDAR JAVASCRIPT -->
+  <!-- CALENDAR JAVASCRIPT -->
   <script>
 
     /* MOBILE NAVIGATION */
@@ -398,6 +388,13 @@
     menuToggle.addEventListener("click", () => {
       const isOpen = mainNav.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
     });
 
     document.getElementById("current-year").textContent =
@@ -783,7 +780,6 @@
     });
 
   </script>
-
 
   <!-- FEATURED EVENTS: LOAD FROM JSON -->
   <script src="./featured-events.js" defer></script>
