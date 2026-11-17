@@ -692,14 +692,14 @@ button:focus-visible {
   line-height: 1.45;
 }
 
-/* UPDATED: BRIGHT ORANGE SATURDAY NOTICE */
+/* BRIGHT ORANGE SATURDAY NOTICE */
 
 .schedule-line .schedule-exception {
   color: var(--orange);
   font-style: italic;
 }
 
-/* UPDATED: BRIGHT ORANGE ZOOM NOTICE */
+/* BRIGHT ORANGE ZOOM NOTICE */
 
 .schedule-note {
   margin: 15px 0 0;
@@ -860,6 +860,10 @@ button:focus-visible {
   font-weight: 700;
 }
 
+/* ======================================
+   CORRECTED FOLLOW US ICONS
+====================================== */
+
 .footer-social-links {
   display: flex;
   justify-content: flex-end;
@@ -869,14 +873,21 @@ button:focus-visible {
 
 .footer-social-icon {
   display: inline-flex;
-  justify-content: center;
+  flex: 0 0 60px;
   align-items: center;
+  justify-content: center;
 
   width: 60px;
   height: 60px;
+  padding: 0;
 
-  color: var(--white);
+  color: #ffffff;
+  border: none;
   border-radius: 10px;
+
+  line-height: 0;
+  vertical-align: middle;
+  overflow: hidden;
 
   transition:
     transform .25s ease,
@@ -884,22 +895,39 @@ button:focus-visible {
 }
 
 .footer-social-icon svg {
+  display: block;
+  flex: 0 0 auto;
+
   width: 34px;
   height: 34px;
+
+  fill: currentColor;
+  color: #ffffff;
+}
+
+.footer-social-icon svg path {
+  fill: currentColor;
 }
 
 .footer-facebook {
-  background: #1877f2;
+  background-color: #1877f2;
 }
 
 .footer-youtube {
-  background: #ff0033;
+  background-color: #ff0033;
 }
 
 .footer-social-icon:hover {
   transform: translateY(-4px) scale(1.04);
   box-shadow: 0 7px 16px rgba(0,0,0,.22);
 }
+
+.footer-social-icon:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* FOOTER COPYRIGHT */
 
 .footer-bottom {
   max-width: 1150px;
