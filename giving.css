@@ -321,10 +321,13 @@ h1, h2, h3 {
   color: var(--muted);
 }
 
+/* JUSTIFIED GIVING PARAGRAPHS */
+
 .giving-content {
   max-width: 850px;
   margin: 0 auto 50px;
-  text-align: center;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .giving-content p {
@@ -714,8 +717,11 @@ h1, h2, h3 {
     padding: 65px 0;
   }
 
+  /* KEEP PARAGRAPHS JUSTIFIED ON MOBILE */
+
   .giving-content {
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
   }
 
   .giving-principles {
