@@ -68,15 +68,18 @@ button:focus-visible {
   gap: 22px;
 }
 
-/* CHURCH LOGO */
+/* CHURCH LOGO - MATCH OTHER PAGES */
 
 .site-logo {
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
+  align-items: flex-start;
   justify-content: center;
+  width: 190px;
+  flex: 0 0 190px;
   gap: 0;
   color: var(--navy);
+  white-space: nowrap;
 }
 
 .logo-name {
@@ -87,6 +90,7 @@ button:focus-visible {
   font-size: 25px;
   font-weight: 800;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .logo-subtitle {
@@ -94,10 +98,12 @@ button:focus-visible {
   margin: 5px 0 0;
   padding: 0;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
-  line-height: 17px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+  color: var(--navy);
+  white-space: nowrap;
 }
 
 /* NAVIGATION */
@@ -203,7 +209,9 @@ button:focus-visible {
   border-radius: 3px;
 }
 
-/* CONTACT BANNER */
+/* ======================================
+   CONTACT BANNER
+====================================== */
 
 .contact-hero {
   background: var(--navy);
@@ -214,11 +222,29 @@ button:focus-visible {
   border-bottom: 3px solid var(--orange);
 }
 
+/* CONTACT US TITLE FADE-IN */
+
 .contact-hero h1 {
   margin: 0 0 12px;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
+  line-height: 1.3;
+  color: var(--white);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  animation: contactHeroFadeIn 1.5s ease-out both;
+}
+
+@keyframes contactHeroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact-hero p {
@@ -323,7 +349,9 @@ button:focus-visible {
   box-shadow: 0 7px 16px rgba(21,59,114,.2);
 }
 
-/* FOOTER */
+/* ======================================
+   FOOTER
+====================================== */
 
 .site-footer {
   width: 100%;
@@ -430,6 +458,8 @@ button:focus-visible {
   box-shadow: 0 7px 16px rgba(0,0,0,.22);
 }
 
+/* FOOTER COPYRIGHT */
+
 .footer-bottom {
   max-width: 1150px;
   margin: 40px auto 0;
@@ -477,13 +507,18 @@ button:focus-visible {
     gap: 10px;
   }
 
+  .site-header .site-logo {
+    width: 165px;
+    flex: 0 0 165px;
+  }
+
   .site-header .logo-name {
     font-size: 21px;
   }
 
   .site-header .logo-subtitle {
-    font-size: 8px;
-    letter-spacing: 1.8px;
+    font-size: 11px;
+    letter-spacing: 1px;
   }
 
   .site-header .menu-toggle {
@@ -582,12 +617,48 @@ button:focus-visible {
   }
 }
 
-/* REDUCED MOTION */
+/* ======================================
+   EXTRA SMALL SCREENS
+====================================== */
+
+@media (max-width: 380px) {
+
+  .site-header .site-logo {
+    width: 145px;
+    flex: 0 0 145px;
+  }
+
+  .site-header .logo-name {
+    font-size: 19px;
+  }
+
+  .site-header .logo-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.7px;
+  }
+
+  .site-header .header-container {
+    gap: 6px;
+  }
+
+  .site-header .contact-button {
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
   html {
     scroll-behavior: auto;
+  }
+
+  .contact-hero h1 {
+    animation: none;
   }
 
   .nav-link,
