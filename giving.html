@@ -32,7 +32,7 @@
 
 <body>
 
-  <!-- OVAL SPOTLIGHT OVERLAY -->
+  <!-- DYNAMIC OVAL SPOTLIGHT -->
 
   <div class="giving-spotlight-overlay"
        aria-hidden="true"></div>
@@ -57,8 +57,6 @@
 
       </a>
 
-      <!-- MOBILE MENU -->
-
       <button class="menu-toggle"
               type="button"
               aria-label="Toggle navigation"
@@ -70,8 +68,6 @@
         <span></span>
 
       </button>
-
-      <!-- NAVIGATION -->
 
       <nav class="main-nav"
            id="main-navigation"
@@ -116,7 +112,7 @@
 
   <main>
 
-    <!-- HERO BANNER -->
+    <!-- HERO -->
 
     <section class="page-hero">
 
@@ -169,7 +165,7 @@
 
     </section>
 
-    <!-- PURPOSE OF GIVING -->
+    <!-- BIBLICAL PRINCIPLE -->
 
     <section class="giving-section"
              id="biblical-principle">
@@ -219,11 +215,13 @@
 
         </div>
 
-        <!-- GIVING PRINCIPLES -->
+        <!-- THREE GIVING CARDS -->
 
-        <div class="giving-principles">
+        <div class="giving-principles"
+             id="giving-principles">
 
-          <article class="principle-card">
+          <article class="principle-card"
+                   data-spotlight-card="1">
 
             <div class="principle-number">
               01
@@ -239,7 +237,8 @@
 
           </article>
 
-          <article class="principle-card">
+          <article class="principle-card"
+                   data-spotlight-card="2">
 
             <div class="principle-number">
               02
@@ -255,7 +254,8 @@
 
           </article>
 
-          <article class="principle-card">
+          <article class="principle-card"
+                   data-spotlight-card="3">
 
             <div class="principle-number">
               03
@@ -277,7 +277,7 @@
 
     </section>
 
-    <!-- ZELLE GIVING -->
+    <!-- ELECTRONIC GIVING -->
 
     <section class="online-giving-section"
              id="online-giving">
@@ -337,8 +337,6 @@
             institution.
           </p>
 
-          <!-- ZELLE RECIPIENT INFORMATION -->
-
           <div class="zelle-details">
 
             <p class="zelle-label">
@@ -366,8 +364,6 @@
             </p>
 
           </div>
-
-          <!-- ZELLE POP-UP BUTTON -->
 
           <button type="button"
                   class="zelle-button"
@@ -445,6 +441,8 @@
             <p class="check-recipient">
               Oxon Hill Church of Christ
             </p>
+
+            <!-- PLACEHOLDER: CONFIRM MAILING ADDRESS -->
 
             <address>
               4201 Brinkley Road<br>
@@ -604,9 +602,7 @@
 
   </footer>
 
-  <!-- =====================================
-       ZELLE INSTRUCTIONS POP-UP
-  ====================================== -->
+  <!-- ZELLE POP-UP -->
 
   <div class="zelle-modal-overlay"
        id="zelle-modal"
@@ -619,8 +615,6 @@
 
     <div class="zelle-modal-box">
 
-      <!-- CLOSE BUTTON -->
-
       <button type="button"
               class="zelle-modal-close"
               id="close-zelle-modal"
@@ -629,8 +623,6 @@
         &times;
 
       </button>
-
-      <!-- MODAL HEADER -->
 
       <p class="eyebrow">
         ELECTRONIC GIVING
@@ -647,8 +639,6 @@
         the following recipient information.
       </p>
 
-      <!-- RECIPIENT DETAILS -->
-
       <div class="zelle-modal-recipient">
 
         <p class="zelle-modal-recipient-name">
@@ -658,8 +648,6 @@
         <p class="zelle-modal-phone">
           (227) 722-5915
         </p>
-
-        <!-- COPY BUTTON -->
 
         <button type="button"
                 class="zelle-copy-button"
@@ -698,8 +686,6 @@
 
       </div>
 
-      <!-- PAYMENT INSTRUCTIONS -->
-
       <div class="zelle-modal-steps">
 
         <p>
@@ -731,8 +717,6 @@
         before sending funds. Zelle payments
         may not be reversible.
       </p>
-
-      <!-- BOTTOM CLOSE BUTTON -->
 
       <button type="button"
               class="zelle-modal-done"
@@ -795,7 +779,7 @@
       .textContent = new Date().getFullYear();
 
     /* =====================================
-       BIBLICAL PRINCIPLE SPOTLIGHT
+       DYNAMIC CARD SPOTLIGHT
     ===================================== */
 
     const givingSection =
@@ -803,6 +787,217 @@
 
     const spotlightOverlay =
       document.querySelector(".giving-spotlight-overlay");
+
+    const principlesContainer =
+      document.querySelector(".giving-principles");
+
+    const principleCards =
+      Array.from(
+        document.querySelectorAll(".principle-card")
+      );
+
+    const reducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+    const desktopPointer =
+      window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+      );
+
+    let spotlightCard = null;
+
+    let spotlightFrame = null;
+
+    /* SPOTLIGHT POSITION */
+
+    let spotlightX = window.innerWidth / 2;
+    let spotlightY = window.innerHeight / 2;
+
+    let targetX = spotlightX;
+    let targetY = spotlightY;
+
+    /* SMOOTH MOVEMENT */
+
+    function animateSpotlight() {
+
+      const ease = reducedMotion.matches
+        ? 1
+        : 0.11;
+
+      spotlightX +=
+        (targetX - spotlightX) * ease;
+
+      spotlightY +=
+        (targetY - spotlightY) * ease;
+
+      spotlightOverlay.style.setProperty(
+        "--spotlight-x",
+        spotlightX + "px"
+      );
+
+      spotlightOverlay.style.setProperty(
+        "--spotlight-y",
+        spotlightY + "px"
+      );
+
+      if (
+        Math.abs(targetX - spotlightX) > 0.5 ||
+        Math.abs(targetY - spotlightY) > 0.5
+      ) {
+
+        spotlightFrame =
+          requestAnimationFrame(animateSpotlight);
+
+      } else {
+
+        spotlightX = targetX;
+        spotlightY = targetY;
+
+        spotlightFrame = null;
+
+      }
+
+    }
+
+    function moveSpotlight(x, y) {
+
+      targetX = x;
+      targetY = y;
+
+      if (spotlightFrame === null) {
+
+        spotlightFrame =
+          requestAnimationFrame(animateSpotlight);
+
+      }
+
+    }
+
+    /* FIND CENTER OF A CARD */
+
+    function getCardCenter(card) {
+
+      const rect =
+        card.getBoundingClientRect();
+
+      return {
+
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+
+      };
+
+    }
+
+    /* CHOOSE A CARD */
+
+    function activateCard(card) {
+
+      spotlightCard = card;
+
+      principleCards.forEach(item => {
+
+        item.classList.toggle(
+          "spotlight-selected",
+          item === card
+        );
+
+      });
+
+      const center =
+        getCardCenter(card);
+
+      moveSpotlight(
+        center.x,
+        center.y
+      );
+
+    }
+
+    /* RESTORE ORIGINAL SPOTLIGHT */
+
+    function resetCardSpotlight() {
+
+      spotlightCard = null;
+
+      principleCards.forEach(item => {
+
+        item.classList.remove(
+          "spotlight-selected"
+        );
+
+      });
+
+      moveSpotlight(
+        window.innerWidth / 2,
+        window.innerHeight / 2
+      );
+
+    }
+
+    /* DETECT IF CARD AREA IS VISIBLE */
+
+    function cardsInSpotlightArea() {
+
+      const rect =
+        principlesContainer.getBoundingClientRect();
+
+      const viewportHeight =
+        window.innerHeight;
+
+      return (
+        rect.top < viewportHeight * 0.82 &&
+        rect.bottom > viewportHeight * 0.18
+      );
+
+    }
+
+    /* MOBILE: SELECT CARD CLOSEST TO CENTER */
+
+    function selectVisibleCard() {
+
+      if (!principleCards.length) {
+        return;
+      }
+
+      const viewportCenter =
+        window.innerHeight / 2;
+
+      let closestCard = null;
+
+      let closestDistance = Infinity;
+
+      principleCards.forEach(card => {
+
+        const rect =
+          card.getBoundingClientRect();
+
+        const cardCenter =
+          rect.top + rect.height / 2;
+
+        const distance =
+          Math.abs(cardCenter - viewportCenter);
+
+        if (distance < closestDistance) {
+
+          closestDistance = distance;
+          closestCard = card;
+
+        }
+
+      });
+
+      if (closestCard) {
+
+        activateCard(closestCard);
+
+      }
+
+    }
+
+    /* MAIN SPOTLIGHT UPDATE */
 
     function updateGivingSpotlight() {
 
@@ -813,24 +1008,102 @@
       const rect =
         givingSection.getBoundingClientRect();
 
-      const middle =
+      const viewportMiddle =
         window.innerHeight / 2;
 
-      const active =
-        rect.top <= middle &&
-        rect.bottom >= middle;
+      const sectionActive =
+        rect.top <= viewportMiddle &&
+        rect.bottom >= viewportMiddle;
 
       spotlightOverlay.classList.toggle(
         "active",
-        active
+        sectionActive
       );
 
       givingSection.classList.toggle(
         "spotlight-active",
-        active
+        sectionActive
       );
 
+      if (!sectionActive) {
+
+        resetCardSpotlight();
+        return;
+
+      }
+
+      if (!cardsInSpotlightArea()) {
+
+        resetCardSpotlight();
+        return;
+
+      }
+
+      /* MOBILE / TOUCH DEVICES */
+
+      if (!desktopPointer.matches) {
+
+        selectVisibleCard();
+        return;
+
+      }
+
+      /* DESKTOP: KEEP HOVERED CARD CENTERED */
+
+      if (spotlightCard) {
+
+        const center =
+          getCardCenter(spotlightCard);
+
+        moveSpotlight(
+          center.x,
+          center.y
+        );
+
+      } else {
+
+        moveSpotlight(
+          window.innerWidth / 2,
+          window.innerHeight / 2
+        );
+
+      }
+
     }
+
+    /* HOVER OVER EACH CARD */
+
+    principleCards.forEach(card => {
+
+      card.addEventListener(
+        "mouseenter",
+        () => {
+
+          if (!desktopPointer.matches) {
+            return;
+          }
+
+          activateCard(card);
+
+        }
+      );
+
+      card.addEventListener(
+        "mouseleave",
+        () => {
+
+          if (!desktopPointer.matches) {
+            return;
+          }
+
+          resetCardSpotlight();
+
+        }
+      );
+
+    });
+
+    /* SCROLL AND RESIZE */
 
     window.addEventListener(
       "scroll",
@@ -843,10 +1116,15 @@
       updateGivingSpotlight
     );
 
+    desktopPointer.addEventListener(
+      "change",
+      updateGivingSpotlight
+    );
+
     updateGivingSpotlight();
 
     /* =====================================
-       ZELLE POP-UP MODAL
+       ZELLE POP-UP
     ===================================== */
 
     const zelleModal =
@@ -916,8 +1194,10 @@
         "modal-open"
       );
 
-      if (previousFocus &&
-          typeof previousFocus.focus === "function") {
+      if (
+        previousFocus &&
+        typeof previousFocus.focus === "function"
+      ) {
 
         previousFocus.focus();
 
@@ -925,7 +1205,9 @@
 
       zelleCloseTimer = setTimeout(() => {
 
-        if (!zelleModal.classList.contains("active")) {
+        if (
+          !zelleModal.classList.contains("active")
+        ) {
 
           zelleModal.hidden = true;
 
@@ -955,75 +1237,83 @@
       closeZelleModal
     );
 
-    /* CLOSE BY CLICKING OUTSIDE THE BOX */
+    /* CLOSE BY CLICKING OUTSIDE */
 
-    zelleModal.addEventListener("click", event => {
+    zelleModal.addEventListener(
+      "click",
+      event => {
 
-      if (event.target === zelleModal) {
+        if (event.target === zelleModal) {
 
-        closeZelleModal();
+          closeZelleModal();
 
-      }
-
-    });
-
-    /* ESCAPE KEY AND KEYBOARD FOCUS */
-
-    document.addEventListener("keydown", event => {
-
-      if (!zelleModal.classList.contains("active")) {
-        return;
-      }
-
-      if (event.key === "Escape") {
-
-        closeZelleModal();
-
-        return;
+        }
 
       }
+    );
 
-      if (event.key === "Tab") {
+    /* ESCAPE AND FOCUS TRAP */
 
-        const focusable =
-          Array.from(
-            zelleModal.querySelectorAll(
-              "button:not([disabled]), a[href]"
-            )
-          );
+    document.addEventListener(
+      "keydown",
+      event => {
 
-        if (!focusable.length) {
+        if (
+          !zelleModal.classList.contains("active")
+        ) {
           return;
         }
 
-        const first = focusable[0];
+        if (event.key === "Escape") {
 
-        const last = focusable[focusable.length - 1];
+          closeZelleModal();
+          return;
 
-        if (event.shiftKey &&
-            document.activeElement === first) {
+        }
 
-          event.preventDefault();
+        if (event.key === "Tab") {
 
-          last.focus();
+          const focusable =
+            Array.from(
+              zelleModal.querySelectorAll(
+                "button:not([disabled]), a[href]"
+              )
+            );
 
-        } else if (
-          !event.shiftKey &&
-          document.activeElement === last
-        ) {
+          if (!focusable.length) {
+            return;
+          }
 
-          event.preventDefault();
+          const first = focusable[0];
 
-          first.focus();
+          const last =
+            focusable[focusable.length - 1];
+
+          if (
+            event.shiftKey &&
+            document.activeElement === first
+          ) {
+
+            event.preventDefault();
+            last.focus();
+
+          } else if (
+            !event.shiftKey &&
+            document.activeElement === last
+          ) {
+
+            event.preventDefault();
+            first.focus();
+
+          }
 
         }
 
       }
-
-    });
+    );
 
     /* =====================================
-       COPY ZELLE PHONE NUMBER
+       COPY PHONE NUMBER
     ===================================== */
 
     copyZelleButton.addEventListener(
@@ -1043,8 +1333,6 @@
 
           } else {
 
-            /* FALLBACK FOR LOCAL FILE TESTING */
-
             const temporaryInput =
               document.createElement("textarea");
 
@@ -1054,7 +1342,8 @@
             temporaryInput.style.position =
               "fixed";
 
-            temporaryInput.style.opacity = "0";
+            temporaryInput.style.opacity =
+              "0";
 
             document.body.appendChild(
               temporaryInput
@@ -1070,7 +1359,11 @@
             );
 
             if (!copied) {
-              throw new Error("Copy failed");
+
+              throw new Error(
+                "Copy failed"
+              );
+
             }
 
           }
