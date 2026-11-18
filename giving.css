@@ -1333,3 +1333,67 @@ a:focus-visible {
   }
 
 }
+
+
+/* =========================================
+   FOOTER SOCIAL ICONS
+   MATCH EVENTS AND ACTIVITIES PAGE
+========================================= */
+
+.site-footer .footer-social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.site-footer .footer-social-links .footer-social-icon,
+.site-footer .footer-social-links .facebook-icon,
+.site-footer .footer-social-links .youtube-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+
+  padding: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  color: #ffffff;
+  box-shadow: none;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.site-footer .footer-social-icon svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+}
+
+.site-footer .footer-social-icon:hover {
+  background: #f36b1c;
+  border-color: #f36b1c;
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(243, 107, 28, 0.25);
+}
+
+.site-footer .footer-social-icon:focus-visible {
+  outline: 3px solid #f36b1c;
+  outline-offset: 4px;
+}
+
