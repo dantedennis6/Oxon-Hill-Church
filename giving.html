@@ -358,34 +358,32 @@
             </p>
 
             <p class="zelle-instructions">
-              When sending a contribution,
-              enter the phone number above
-              into your bank's Zelle service.
-              Verify that the recipient is
-              Oxon Hill Church of Christ
-              before completing your transfer.
+              Use the phone number above
+              when sending a contribution
+              through your bank's Zelle
+              service. Always verify the
+              recipient before sending.
             </p>
 
           </div>
 
-          <!-- ZELLE BUTTON -->
+          <!-- ZELLE POP-UP BUTTON -->
 
-          <a href="https://www.zellepay.com/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="zelle-button">
+          <button type="button"
+                  class="zelle-button"
+                  id="open-zelle-modal"
+                  aria-haspopup="dialog"
+                  aria-controls="zelle-modal">
 
             Give Through Zelle
 
-          </a>
+          </button>
 
           <p class="zelle-notice">
-            This button opens the Zelle
-            website. To send a contribution,
-            use your bank's Zelle service
-            and verify the congregation's
-            registered recipient information
-            before sending funds.
+            Click the button above to view
+            instructions for sending a
+            contribution through your
+            banking app.
           </p>
 
         </div>
@@ -606,11 +604,155 @@
 
   </footer>
 
+  <!-- =====================================
+       ZELLE INSTRUCTIONS POP-UP
+  ====================================== -->
+
+  <div class="zelle-modal-overlay"
+       id="zelle-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="zelle-modal-title"
+       aria-describedby="zelle-modal-description"
+       aria-hidden="true"
+       hidden>
+
+    <div class="zelle-modal-box">
+
+      <!-- CLOSE BUTTON -->
+
+      <button type="button"
+              class="zelle-modal-close"
+              id="close-zelle-modal"
+              aria-label="Close Zelle instructions">
+
+        &times;
+
+      </button>
+
+      <!-- MODAL HEADER -->
+
+      <p class="eyebrow">
+        ELECTRONIC GIVING
+      </p>
+
+      <h2 id="zelle-modal-title">
+        Giving Through Zelle
+      </h2>
+
+      <p class="zelle-modal-description"
+         id="zelle-modal-description">
+        To make a contribution, open Zelle
+        through your banking app and enter
+        the following recipient information.
+      </p>
+
+      <!-- RECIPIENT DETAILS -->
+
+      <div class="zelle-modal-recipient">
+
+        <p class="zelle-modal-recipient-name">
+          Oxon Hill Church of Christ
+        </p>
+
+        <p class="zelle-modal-phone">
+          (227) 722-5915
+        </p>
+
+        <!-- COPY BUTTON -->
+
+        <button type="button"
+                class="zelle-copy-button"
+                id="copy-zelle-phone">
+
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.8"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+
+            <rect x="8"
+                  y="8"
+                  width="12"
+                  height="12"
+                  rx="2">
+            </rect>
+
+            <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2">
+            </path>
+
+          </svg>
+
+          <span id="copy-button-text">
+            Copy Phone Number
+          </span>
+
+        </button>
+
+        <p class="copy-feedback"
+           id="copy-feedback"
+           role="status"
+           aria-live="polite"></p>
+
+      </div>
+
+      <!-- PAYMENT INSTRUCTIONS -->
+
+      <div class="zelle-modal-steps">
+
+        <p>
+          <strong>1.</strong>
+          Open your banking app and select Zelle.
+        </p>
+
+        <p>
+          <strong>2.</strong>
+          Enter the congregation's phone number.
+        </p>
+
+        <p>
+          <strong>3.</strong>
+          Verify that the recipient is
+          Oxon Hill Church of Christ.
+        </p>
+
+        <p>
+          <strong>4.</strong>
+          Enter your contribution amount
+          and complete the transfer.
+        </p>
+
+      </div>
+
+      <p class="zelle-modal-warning">
+        Please verify the recipient's identity
+        before sending funds. Zelle payments
+        may not be reversible.
+      </p>
+
+      <!-- BOTTOM CLOSE BUTTON -->
+
+      <button type="button"
+              class="zelle-modal-done"
+              id="zelle-modal-done">
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
   <!-- JAVASCRIPT -->
 
   <script>
 
-    /* MOBILE NAVIGATION */
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
 
     const menuToggle =
       document.querySelector(".menu-toggle");
@@ -645,7 +787,9 @@
 
     });
 
-    /* COPYRIGHT YEAR */
+    /* =====================================
+       COPYRIGHT YEAR
+    ===================================== */
 
     document.getElementById("current-year")
       .textContent = new Date().getFullYear();
@@ -700,6 +844,256 @@
     );
 
     updateGivingSpotlight();
+
+    /* =====================================
+       ZELLE POP-UP MODAL
+    ===================================== */
+
+    const zelleModal =
+      document.getElementById("zelle-modal");
+
+    const openZelleButton =
+      document.getElementById("open-zelle-modal");
+
+    const closeZelleButton =
+      document.getElementById("close-zelle-modal");
+
+    const zelleDoneButton =
+      document.getElementById("zelle-modal-done");
+
+    const copyZelleButton =
+      document.getElementById("copy-zelle-phone");
+
+    const copyButtonText =
+      document.getElementById("copy-button-text");
+
+    const copyFeedback =
+      document.getElementById("copy-feedback");
+
+    const zellePhoneNumber = "2277225915";
+
+    let previousFocus = null;
+
+    let zelleCloseTimer = null;
+
+    function openZelleModal() {
+
+      clearTimeout(zelleCloseTimer);
+
+      previousFocus = document.activeElement;
+
+      zelleModal.hidden = false;
+
+      zelleModal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+      copyButtonText.textContent =
+        "Copy Phone Number";
+
+      copyFeedback.textContent = "";
+
+      requestAnimationFrame(() => {
+
+        zelleModal.classList.add("active");
+
+        closeZelleButton.focus();
+
+      });
+
+    }
+
+    function closeZelleModal() {
+
+      zelleModal.classList.remove("active");
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+      if (previousFocus &&
+          typeof previousFocus.focus === "function") {
+
+        previousFocus.focus();
+
+      }
+
+      zelleCloseTimer = setTimeout(() => {
+
+        if (!zelleModal.classList.contains("active")) {
+
+          zelleModal.hidden = true;
+
+          zelleModal.setAttribute(
+            "aria-hidden",
+            "true"
+          );
+
+        }
+
+      }, 300);
+
+    }
+
+    openZelleButton.addEventListener(
+      "click",
+      openZelleModal
+    );
+
+    closeZelleButton.addEventListener(
+      "click",
+      closeZelleModal
+    );
+
+    zelleDoneButton.addEventListener(
+      "click",
+      closeZelleModal
+    );
+
+    /* CLOSE BY CLICKING OUTSIDE THE BOX */
+
+    zelleModal.addEventListener("click", event => {
+
+      if (event.target === zelleModal) {
+
+        closeZelleModal();
+
+      }
+
+    });
+
+    /* ESCAPE KEY AND KEYBOARD FOCUS */
+
+    document.addEventListener("keydown", event => {
+
+      if (!zelleModal.classList.contains("active")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+
+        closeZelleModal();
+
+        return;
+
+      }
+
+      if (event.key === "Tab") {
+
+        const focusable =
+          Array.from(
+            zelleModal.querySelectorAll(
+              "button:not([disabled]), a[href]"
+            )
+          );
+
+        if (!focusable.length) {
+          return;
+        }
+
+        const first = focusable[0];
+
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey &&
+            document.activeElement === first) {
+
+          event.preventDefault();
+
+          last.focus();
+
+        } else if (
+          !event.shiftKey &&
+          document.activeElement === last
+        ) {
+
+          event.preventDefault();
+
+          first.focus();
+
+        }
+
+      }
+
+    });
+
+    /* =====================================
+       COPY ZELLE PHONE NUMBER
+    ===================================== */
+
+    copyZelleButton.addEventListener(
+      "click",
+      async () => {
+
+        try {
+
+          if (
+            navigator.clipboard &&
+            window.isSecureContext
+          ) {
+
+            await navigator.clipboard.writeText(
+              zellePhoneNumber
+            );
+
+          } else {
+
+            /* FALLBACK FOR LOCAL FILE TESTING */
+
+            const temporaryInput =
+              document.createElement("textarea");
+
+            temporaryInput.value =
+              zellePhoneNumber;
+
+            temporaryInput.style.position =
+              "fixed";
+
+            temporaryInput.style.opacity = "0";
+
+            document.body.appendChild(
+              temporaryInput
+            );
+
+            temporaryInput.select();
+
+            const copied =
+              document.execCommand("copy");
+
+            document.body.removeChild(
+              temporaryInput
+            );
+
+            if (!copied) {
+              throw new Error("Copy failed");
+            }
+
+          }
+
+          copyButtonText.textContent =
+            "Copied!";
+
+          copyFeedback.textContent =
+            "Phone number copied successfully.";
+
+        } catch (error) {
+
+          copyButtonText.textContent =
+            "Copy Phone Number";
+
+          copyFeedback.textContent =
+            "Unable to copy automatically. " +
+            "Please enter 2277225915 manually.";
+
+        }
+
+      }
+    );
 
   </script>
 
