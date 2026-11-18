@@ -18,8 +18,6 @@
   --shadow: 0 12px 35px rgba(11, 40, 80, 0.09);
 }
 
-/* GENERAL */
-
 * {
   margin: 0;
   padding: 0;
@@ -76,8 +74,6 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   gap: 22px;
 }
-
-/* FIXED LOGO ALIGNMENT */
 
 .site-logo {
   display: flex;
@@ -199,8 +195,6 @@ h1, h2, h3, h4 {
   border-bottom: 3px solid var(--orange);
 }
 
-/* HERO BACKGROUND SLIDESHOW */
-
 .hero-slideshow {
   position: absolute;
   inset: 0;
@@ -225,7 +219,6 @@ h1, h2, h3, h4 {
       rgba(11, 40, 80, 0.82)
     ),
     url("./Event1.jpeg");
-
   animation-delay: 0s;
 }
 
@@ -236,7 +229,6 @@ h1, h2, h3, h4 {
       rgba(11, 40, 80, 0.82)
     ),
     url("./Event2.jpeg");
-
   animation-delay: 6s;
 }
 
@@ -247,34 +239,17 @@ h1, h2, h3, h4 {
       rgba(11, 40, 80, 0.82)
     ),
     url("./Event3.jpeg");
-
   background-position: center 25%;
   animation-delay: 12s;
 }
 
 @keyframes heroSlideshow {
-  0% {
-    opacity: 0;
-  }
-
-  5% {
-    opacity: 1;
-  }
-
-  33.33% {
-    opacity: 1;
-  }
-
-  38.33% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  33.33% { opacity: 1; }
+  38.33% { opacity: 0; }
+  100% { opacity: 0; }
 }
-
-/* HERO CONTENT */
 
 .hero-container {
   position: relative;
@@ -310,7 +285,6 @@ h1, h2, h3, h4 {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -412,9 +386,7 @@ h1, h2, h3, h4 {
   background: transparent;
   color: var(--white);
   cursor: pointer;
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .calendar-nav-button svg {
@@ -428,23 +400,13 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-/* =========================================
-   SCROLLABLE CALENDAR
-========================================= */
-
 .calendar-days {
   display: flex;
   flex-direction: column;
   height: 525px;
   overflow-y: auto;
   overflow-x: hidden;
-
-  /*
-    Important: use automatic internal scrolling
-    so the current date appears immediately.
-  */
   scroll-behavior: auto;
-
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--orange) var(--off-white);
@@ -540,9 +502,7 @@ h1, h2, h3, h4 {
   font-size: 14px;
 }
 
-/* =========================================
-   TODAY'S DATE HIGHLIGHT
-========================================= */
+/* TODAY HIGHLIGHT */
 
 .calendar-day.is-today {
   background: #fff1e5;
@@ -601,9 +561,7 @@ h1, h2, h3, h4 {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .calendar-today-button:hover {
@@ -644,8 +602,6 @@ h1, h2, h3, h4 {
   justify-self: center;
 }
 
-/* EVENT CARDS */
-
 .highlight-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -685,8 +641,6 @@ h1, h2, h3, h4 {
   transform: scale(1.05);
 }
 
-/* PHOTO PLACEHOLDERS */
-
 .photo-placeholder {
   width: 100%;
   height: 100%;
@@ -697,11 +651,7 @@ h1, h2, h3, h4 {
   gap: 9px;
   padding: 25px;
   text-align: center;
-  background: linear-gradient(
-    135deg,
-    #edf3fa 0%,
-    #dce8f5 100%
-  );
+  background: linear-gradient(135deg, #edf3fa, #dce8f5);
   color: var(--navy);
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
@@ -722,8 +672,6 @@ h1, h2, h3, h4 {
   font-weight: 600;
   color: var(--muted);
 }
-
-/* EVENT BADGES */
 
 .highlight-badge {
   position: absolute;
@@ -749,8 +697,6 @@ h1, h2, h3, h4 {
   background: var(--orange);
   color: var(--white);
 }
-
-/* EVENT CARD CONTENT */
 
 .highlight-content {
   padding: 30px 30px 34px;
@@ -807,9 +753,7 @@ h1, h2, h3, h4 {
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 800;
-  transition:
-    color 0.25s ease,
-    gap 0.25s ease;
+  transition: color 0.25s ease, gap 0.25s ease;
 }
 
 .highlight-link:hover {
@@ -835,9 +779,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--orange);
   border-radius: 13px;
   box-shadow: var(--shadow);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .scripture-box:hover {
@@ -865,11 +807,7 @@ h1, h2, h3, h4 {
 ========================================= */
 
 .invitation-section {
-  background: linear-gradient(
-    135deg,
-    var(--navy),
-    var(--dark-navy)
-  );
+  background: linear-gradient(135deg, var(--navy), var(--dark-navy));
   color: var(--white);
   padding: 90px 0;
   text-align: center;
@@ -915,10 +853,7 @@ h1, h2, h3, h4 {
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 700;
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 .secondary-button:hover {
@@ -928,7 +863,7 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   FOOTER
+   STANDARD WEBSITE FOOTER
 ========================================= */
 
 .site-footer {
@@ -984,8 +919,59 @@ h1, h2, h3, h4 {
   color: var(--orange);
 }
 
+/* =========================================
+   FACEBOOK AND YOUTUBE ICONS
+========================================= */
+
+.footer-social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  color: var(--white) !important;
+
+  transition:
+    background .3s ease,
+    border-color .3s ease,
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.footer-social-icon svg {
+  width: 23px;
+  height: 23px;
+  display: block;
+  fill: currentColor;
+}
+
+.footer-social-icon:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(243,107,28,.25);
+}
+
+.footer-social-icon:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255,255,255,.12);
   text-align: center;
   padding: 20px;
   color: #aabbd2;
@@ -1210,6 +1196,20 @@ h1, h2, h3, h4 {
   .footer-container {
     grid-template-columns: 1fr;
     gap: 35px;
+  }
+
+  .footer-social-links {
+    gap: 16px;
+  }
+
+  .footer-social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-social-icon svg {
+    width: 24px;
+    height: 24px;
   }
 }
 
