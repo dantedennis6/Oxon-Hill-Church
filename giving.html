@@ -15,7 +15,7 @@
 
 <body>
 
-  <!-- DYNAMIC OVAL SPOTLIGHT -->
+  <!-- STATIONARY OVAL SPOTLIGHT -->
   <div class="giving-spotlight-overlay" aria-hidden="true"></div>
 
   <!-- HEADER -->
@@ -335,7 +335,7 @@
                  fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg"
                  aria-hidden="true">
-              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0 .5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
             </svg>
           </a>
 
@@ -451,118 +451,25 @@
         const isOpen = mainNav.classList.toggle("open");
         menuToggle.setAttribute("aria-expanded", String(isOpen));
       });
+
+      mainNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
     }
 
     /* =====================================
-       DYNAMIC GIVING SPOTLIGHT
+       STATIONARY GIVING SPOTLIGHT
+       SAME BEHAVIOR ON ALL DEVICES
     ===================================== */
 
-    const givingSection = document.querySelector(".giving-section");
-    const spotlightOverlay = document.querySelector(".giving-spotlight-overlay");
-    const principlesContainer = document.querySelector(".giving-principles");
-    const principleCards = Array.from(document.querySelectorAll(".principle-card"));
+    const givingSection =
+      document.querySelector(".giving-section");
 
-    const desktopPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    let spotlightCard = null;
-    let spotlightFrame = null;
-
-    let spotlightX = window.innerWidth / 2;
-    let spotlightY = window.innerHeight / 2;
-    let targetX = spotlightX;
-    let targetY = spotlightY;
-
-    function animateSpotlight() {
-      const ease = reducedMotion.matches ? 1 : 0.11;
-
-      spotlightX += (targetX - spotlightX) * ease;
-      spotlightY += (targetY - spotlightY) * ease;
-
-      spotlightOverlay.style.setProperty("--spotlight-x", spotlightX + "px");
-      spotlightOverlay.style.setProperty("--spotlight-y", spotlightY + "px");
-
-      if (
-        Math.abs(targetX - spotlightX) > 0.5 ||
-        Math.abs(targetY - spotlightY) > 0.5
-      ) {
-        spotlightFrame = requestAnimationFrame(animateSpotlight);
-      } else {
-        spotlightX = targetX;
-        spotlightY = targetY;
-        spotlightFrame = null;
-      }
-    }
-
-    function moveSpotlight(x, y) {
-      targetX = x;
-      targetY = y;
-
-      if (spotlightFrame === null) {
-        spotlightFrame = requestAnimationFrame(animateSpotlight);
-      }
-    }
-
-    function getCardCenter(card) {
-      const rect = card.getBoundingClientRect();
-
-      return {
-        x: rect.left + rect.width / 2,
-        y: rect.top + rect.height / 2
-      };
-    }
-
-    function activateCard(card) {
-      spotlightCard = card;
-
-      principleCards.forEach(item => {
-        item.classList.toggle("spotlight-selected", item === card);
-      });
-
-      const center = getCardCenter(card);
-      moveSpotlight(center.x, center.y);
-    }
-
-    function resetCardSpotlight() {
-      spotlightCard = null;
-
-      principleCards.forEach(item => {
-        item.classList.remove("spotlight-selected");
-      });
-
-      moveSpotlight(window.innerWidth / 2, window.innerHeight / 2);
-    }
-
-    function cardsInSpotlightArea() {
-      const rect = principlesContainer.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      return (
-        rect.top < viewportHeight * 0.82 &&
-        rect.bottom > viewportHeight * 0.18
-      );
-    }
-
-    function selectVisibleCard() {
-      if (!principleCards.length) return;
-
-      const viewportCenter = window.innerHeight / 2;
-      let closestCard = null;
-      let closestDistance = Infinity;
-
-      principleCards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(cardCenter - viewportCenter);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestCard = card;
-        }
-      });
-
-      if (closestCard) activateCard(closestCard);
-    }
+    const spotlightOverlay =
+      document.querySelector(".giving-spotlight-overlay");
 
     function updateGivingSpotlight() {
       if (!givingSection || !spotlightOverlay) return;
@@ -574,42 +481,27 @@
         rect.top <= viewportMiddle &&
         rect.bottom >= viewportMiddle;
 
-      spotlightOverlay.classList.toggle("active", sectionActive);
-      givingSection.classList.toggle("spotlight-active", sectionActive);
+      spotlightOverlay.classList.toggle(
+        "active",
+        sectionActive
+      );
 
-      if (!sectionActive || !cardsInSpotlightArea()) {
-        resetCardSpotlight();
-        return;
-      }
-
-      if (!desktopPointer.matches) {
-        selectVisibleCard();
-        return;
-      }
-
-      if (spotlightCard) {
-        const center = getCardCenter(spotlightCard);
-        moveSpotlight(center.x, center.y);
-      } else {
-        moveSpotlight(window.innerWidth / 2, window.innerHeight / 2);
-      }
+      givingSection.classList.toggle(
+        "spotlight-active",
+        sectionActive
+      );
     }
 
-    principleCards.forEach(card => {
-      card.addEventListener("mouseenter", () => {
-        if (!desktopPointer.matches) return;
-        activateCard(card);
-      });
+    window.addEventListener(
+      "scroll",
+      updateGivingSpotlight,
+      { passive: true }
+    );
 
-      card.addEventListener("mouseleave", () => {
-        if (!desktopPointer.matches) return;
-        resetCardSpotlight();
-      });
-    });
-
-    window.addEventListener("scroll", updateGivingSpotlight, { passive: true });
-    window.addEventListener("resize", updateGivingSpotlight);
-    desktopPointer.addEventListener("change", updateGivingSpotlight);
+    window.addEventListener(
+      "resize",
+      updateGivingSpotlight
+    );
 
     updateGivingSpotlight();
 
