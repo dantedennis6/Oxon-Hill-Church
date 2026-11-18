@@ -157,6 +157,7 @@
 
           </div>
 
+          <!-- SCROLLABLE CALENDAR -->
           <div
             id="calendar-days"
             class="calendar-days"
@@ -169,14 +170,14 @@
 
             <p>
               All scheduled times are Eastern Time.
-              Scroll down to view additional dates.
+              The calendar automatically displays today's date.
             </p>
 
             <button
               type="button"
               id="current-month-button"
               class="calendar-today-button">
-              Return to Current Month
+              Return to Today
             </button>
 
           </div>
@@ -380,10 +381,15 @@
   <!-- CALENDAR JAVASCRIPT -->
   <script>
 
-    /* MOBILE NAVIGATION */
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const mainNav = document.getElementById("main-navigation");
+    const menuToggle =
+      document.querySelector(".menu-toggle");
+
+    const mainNav =
+      document.getElementById("main-navigation");
 
     menuToggle.addEventListener("click", () => {
       const isOpen = mainNav.classList.toggle("open");
@@ -401,7 +407,9 @@
       new Date().getFullYear();
 
 
-    /* LOAD CALENDAR EVENTS FROM events.json */
+    /* =====================================
+       LOAD CALENDAR EVENTS FROM events.json
+    ===================================== */
 
     let specialEvents = {};
 
@@ -441,7 +449,9 @@
     }
 
 
-    /* CALENDAR SETUP */
+    /* =====================================
+       CALENDAR SETUP
+    ===================================== */
 
     const calendarDays =
       document.getElementById("calendar-days");
@@ -460,7 +470,9 @@
     ];
 
 
-    /* EASTERN TIME */
+    /* =====================================
+       EASTERN TIME
+    ===================================== */
 
     function getEasternToday() {
       const parts = new Intl.DateTimeFormat("en-US", {
@@ -486,7 +498,9 @@
     let displayedMonth = initialToday.month;
 
 
-    /* ANNUAL HOLIDAYS */
+    /* =====================================
+       ANNUAL HOLIDAYS
+    ===================================== */
 
     function getRecurringEvents(year, month, day) {
       const holidays = [];
@@ -604,7 +618,9 @@
     }
 
 
-    /* DATE KEY */
+    /* =====================================
+       DATE KEY
+    ===================================== */
 
     function formatDateKey(year, month, day) {
       return (
@@ -615,10 +631,81 @@
     }
 
 
-    /* RENDER CALENDAR */
+    /* =====================================
+       AUTOMATICALLY POSITION CALENDAR
+       ON TODAY'S DATE
+    ===================================== */
 
-    function renderCalendar() {
+    function scrollCalendarToToday() {
+
+      const todayRow =
+        calendarDays.querySelector(".is-today");
+
+      if (!todayRow) {
+        return;
+      }
+
+      /*
+        Calculate the row's position within
+        the calendar's own scroll container.
+
+        This changes only the calendar's
+        internal scroll position, not the
+        visitor's position on the webpage.
+      */
+
+      const calendarHeight =
+        calendarDays.clientHeight;
+
+      const rowHeight =
+        todayRow.offsetHeight;
+
+      const rowPosition =
+        todayRow.offsetTop -
+        calendarDays.offsetTop;
+
+      const targetScroll =
+        rowPosition -
+        (calendarHeight / 2) +
+        (rowHeight / 2);
+
+      /*
+        Keep the target within the
+        calendar's scrollable boundaries.
+      */
+
+      const maximumScroll =
+        calendarDays.scrollHeight -
+        calendarHeight;
+
+      const finalScroll =
+        Math.max(
+          0,
+          Math.min(targetScroll, maximumScroll)
+        );
+
+      /*
+        Use instant positioning so visitors
+        see today immediately without waiting
+        for a long scrolling animation.
+      */
+
+      calendarDays.scrollTo({
+        top: finalScroll,
+        behavior: "instant"
+      });
+
+    }
+
+
+    /* =====================================
+       RENDER CALENDAR
+    ===================================== */
+
+    function renderCalendar(scrollToToday = false) {
+
       calendarDays.replaceChildren();
+
       calendarDays.scrollTop = 0;
 
       calendarMonthTitle.textContent =
@@ -635,6 +722,7 @@
       const today = getEasternToday();
 
       for (let day = 1; day <= numberOfDays; day++) {
+
         const currentDate =
           new Date(displayedYear, displayedMonth, day);
 
@@ -664,80 +752,150 @@
 
         /* DAY ROW */
 
-        const dayRow = document.createElement("div");
+        const dayRow =
+          document.createElement("div");
+
         dayRow.className = "calendar-day";
 
         if (isToday) {
           dayRow.classList.add("is-today");
+          dayRow.setAttribute(
+            "aria-current",
+            "date"
+          );
         }
 
 
         /* DATE COLUMN */
 
-        const dateColumn = document.createElement("div");
+        const dateColumn =
+          document.createElement("div");
+
         dateColumn.className = "calendar-date";
 
-        const dateNumber = document.createElement("span");
-        dateNumber.className = "calendar-date-number";
+        const dateNumber =
+          document.createElement("span");
+
+        dateNumber.className =
+          "calendar-date-number";
+
         dateNumber.textContent = day;
 
-        const weekdayLabel = document.createElement("span");
-        weekdayLabel.className = "calendar-weekday";
+        const weekdayLabel =
+          document.createElement("span");
+
+        weekdayLabel.className =
+          "calendar-weekday";
+
         weekdayLabel.textContent = weekday;
 
         dateColumn.appendChild(dateNumber);
         dateColumn.appendChild(weekdayLabel);
 
         if (isToday) {
-          const todayLabel = document.createElement("span");
-          todayLabel.className = "calendar-today-label";
+
+          const todayLabel =
+            document.createElement("span");
+
+          todayLabel.className =
+            "calendar-today-label";
+
           todayLabel.textContent = "Today";
+
           dateColumn.appendChild(todayLabel);
+
         }
 
 
         /* EVENTS COLUMN */
 
-        const eventsColumn = document.createElement("div");
-        eventsColumn.className = "calendar-events";
+        const eventsColumn =
+          document.createElement("div");
+
+        eventsColumn.className =
+          "calendar-events";
 
         if (allEvents.length === 0) {
-          const emptyLabel = document.createElement("span");
-          emptyLabel.className = "calendar-no-event";
+
+          const emptyLabel =
+            document.createElement("span");
+
+          emptyLabel.className =
+            "calendar-no-event";
+
           emptyLabel.textContent = "—";
+
           eventsColumn.appendChild(emptyLabel);
 
         } else {
-          allEvents.forEach(event => {
-            const eventElement = document.createElement("div");
-            eventElement.className = "calendar-event";
 
-            const title = document.createElement("span");
+          allEvents.forEach(event => {
+
+            const eventElement =
+              document.createElement("div");
+
+            eventElement.className =
+              "calendar-event";
+
+            const title =
+              document.createElement("span");
+
             title.textContent = event.title;
+
             eventElement.appendChild(title);
 
             if (event.time) {
-              const time = document.createElement("span");
-              time.className = "calendar-event-time";
+
+              const time =
+                document.createElement("span");
+
+              time.className =
+                "calendar-event-time";
+
               time.textContent = event.time;
+
               eventElement.appendChild(time);
+
             }
 
-            eventsColumn.appendChild(eventElement);
+            eventsColumn.appendChild(
+              eventElement
+            );
+
           });
+
         }
 
         dayRow.appendChild(dateColumn);
         dayRow.appendChild(eventsColumn);
+
         calendarDays.appendChild(dayRow);
+
       }
+
+      /*
+        If we're displaying the current month,
+        move the calendar directly to today.
+      */
+
+      if (scrollToToday) {
+
+        requestAnimationFrame(() => {
+          scrollCalendarToToday();
+        });
+
+      }
+
     }
 
 
-    /* CALENDAR NAVIGATION */
+    /* =====================================
+       CALENDAR NAVIGATION
+    ===================================== */
 
     document.getElementById("previous-month")
       .addEventListener("click", () => {
+
         displayedMonth--;
 
         if (displayedMonth < 0) {
@@ -745,11 +903,13 @@
           displayedYear--;
         }
 
-        renderCalendar();
+        renderCalendar(false);
+
       });
 
     document.getElementById("next-month")
       .addEventListener("click", () => {
+
         displayedMonth++;
 
         if (displayedMonth > 11) {
@@ -757,26 +917,49 @@
           displayedYear++;
         }
 
-        renderCalendar();
+        renderCalendar(false);
+
       });
+
+
+    /* =====================================
+       RETURN TO TODAY
+    ===================================== */
 
     document.getElementById("current-month-button")
       .addEventListener("click", () => {
+
         const today = getEasternToday();
 
         displayedYear = today.year;
         displayedMonth = today.month;
 
-        renderCalendar();
+        renderCalendar(true);
+
       });
 
 
-    /* INITIALIZE CALENDAR */
+    /* =====================================
+       INITIALIZE CALENDAR
+    ===================================== */
 
-    renderCalendar();
+    /*
+      When visitors first open the page,
+      the calendar automatically displays
+      the current Eastern month and year,
+      with today's date centered in the
+      calendar's visible area.
+    */
+
+    renderCalendar(true);
+
+    /*
+      Once events.json finishes loading,
+      render again and reposition to today.
+    */
 
     loadSpecialEvents().then(() => {
-      renderCalendar();
+      renderCalendar(true);
     });
 
   </script>
