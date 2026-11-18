@@ -76,7 +76,9 @@ button:focus-visible {
   gap: 22px;
 }
 
-/* CHURCH LOGO */
+/* ======================================
+   CHURCH NAME - STANDARDIZED LOGO
+====================================== */
 
 .site-logo {
   display: flex;
@@ -213,7 +215,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   PAGE HERO - ENLARGED BACKGROUND
+   PAGE HERO - SCALED DOWN IMAGE
 ====================================== */
 
 .page-hero {
@@ -235,9 +237,24 @@ button:focus-visible {
     ),
     url("./Beliefs1.jpeg");
 
-  background-position: center 45%;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
+  /*
+    First value controls the gradient.
+    Second value controls the photograph.
+
+    Image reduced from 85% to 75%.
+  */
+
+  background-size:
+    100% 100%,
+    75% auto;
+
+  background-position:
+    center center,
+    center center;
+
+  background-repeat:
+    no-repeat,
+    no-repeat;
 
   color: var(--white);
   border-top: 3px solid var(--orange);
@@ -507,6 +524,17 @@ button:focus-visible {
    READING STATUS INDICATORS
 ====================================== */
 
+/*
+  Red dot + Unread:
+  Card has not been opened.
+
+  Green dot + Read:
+  Card has been opened at least once.
+
+  Closing a card preserves Read status.
+  Refreshing resets every card to Unread.
+*/
+
 .reading-status {
   display: inline-flex;
   align-items: center;
@@ -754,20 +782,25 @@ button:focus-visible {
   gap: 15px;
 }
 
-/* CORRECTED FOOTER SOCIAL ICONS */
+/* ======================================
+   CORRECTED FOOTER SOCIAL ICONS
+====================================== */
 
 .footer-social-icon {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   flex-shrink: 0;
 
   width: 60px;
   height: 60px;
+
   padding: 12px;
 
   color: var(--white);
   border-radius: 10px;
+
   overflow: visible;
 
   transition:
@@ -777,10 +810,13 @@ button:focus-visible {
 
 .footer-social-icon svg {
   display: block;
+
   width: 34px;
   height: 34px;
+
   max-width: 100%;
   max-height: 100%;
+
   flex-shrink: 0;
   overflow: visible;
 }
@@ -944,7 +980,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   MOBILE HEADER
+   MOBILE HEADER - STANDARDIZED LOGO
 ====================================== */
 
 @media (max-width: 700px) {
@@ -999,12 +1035,18 @@ button:focus-visible {
     font-size: 11px;
   }
 
-  /* RESPONSIVE HERO IMAGE */
+  /* MOBILE HERO IMAGE */
 
   .page-hero {
     min-height: 400px;
-    background-size: cover;
-    background-position: center center;
+
+    background-size:
+      100% 100%,
+      100% auto;
+
+    background-position:
+      center center,
+      center center;
   }
 
   .hero-inner {
