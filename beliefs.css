@@ -215,7 +215,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   PAGE HERO - FULL WIDTH BACKGROUND
+   PAGE HERO - IMAGE MOVED UP 24PX
 ====================================== */
 
 .page-hero {
@@ -237,20 +237,20 @@ button:focus-visible {
     ),
     url("./Beliefs1.jpeg");
 
-  /*
-    The image fills the entire hero banner
-    from the left edge to the right edge.
-
-    The image keeps its original proportions.
-  */
-
+  /* Both layers fill the hero banner */
   background-size:
     cover,
     cover;
 
+  /*
+    Gradient stays centered.
+
+    Image shifts upward by approximately
+    one-quarter inch (24px).
+  */
   background-position:
     center center,
-    center center;
+    center calc(50% - 24px);
 
   background-repeat:
     no-repeat,
@@ -524,17 +524,6 @@ button:focus-visible {
    READING STATUS INDICATORS
 ====================================== */
 
-/*
-  Red dot + Unread:
-  Card has not been opened.
-
-  Green dot + Read:
-  Card has been opened at least once.
-
-  Closing a card preserves Read status.
-  Refreshing resets every card to Unread.
-*/
-
 .reading-status {
   display: inline-flex;
   align-items: center;
@@ -790,17 +779,14 @@ button:focus-visible {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   flex-shrink: 0;
 
   width: 60px;
   height: 60px;
-
   padding: 12px;
 
   color: var(--white);
   border-radius: 10px;
-
   overflow: visible;
 
   transition:
@@ -810,13 +796,10 @@ button:focus-visible {
 
 .footer-social-icon svg {
   display: block;
-
   width: 34px;
   height: 34px;
-
   max-width: 100%;
   max-height: 100%;
-
   flex-shrink: 0;
   overflow: visible;
 }
@@ -1035,7 +1018,7 @@ button:focus-visible {
     font-size: 11px;
   }
 
-  /* MOBILE HERO IMAGE */
+  /* MOBILE HERO - IMAGE MOVED UP */
 
   .page-hero {
     min-height: 400px;
@@ -1046,7 +1029,7 @@ button:focus-visible {
 
     background-position:
       center center,
-      center center;
+      center calc(50% - 24px);
   }
 
   .hero-inner {
