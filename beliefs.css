@@ -215,7 +215,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   PAGE HERO - SCALED DOWN IMAGE
+   PAGE HERO - FULL WIDTH BACKGROUND
 ====================================== */
 
 .page-hero {
@@ -238,15 +238,15 @@ button:focus-visible {
     url("./Beliefs1.jpeg");
 
   /*
-    First value controls the gradient.
-    Second value controls the photograph.
+    The image fills the entire hero banner
+    from the left edge to the right edge.
 
-    Image reduced from 85% to 75%.
+    The image keeps its original proportions.
   */
 
   background-size:
-    100% 100%,
-    75% auto;
+    cover,
+    cover;
 
   background-position:
     center center,
@@ -1041,8 +1041,8 @@ button:focus-visible {
     min-height: 400px;
 
     background-size:
-      100% 100%,
-      100% auto;
+      cover,
+      cover;
 
     background-position:
       center center,
