@@ -594,7 +594,7 @@
 
         <div class="footer-social-links">
 
-          <!-- FACEBOOK - CORRECTED ICON -->
+          <!-- FACEBOOK -->
           <a
             href="https://www.facebook.com/p/Oxon-Hill-Church-of-Christ-100064627841522/"
             class="footer-social-icon footer-facebook"
@@ -616,7 +616,7 @@
 
           </a>
 
-          <!-- YOUTUBE - CORRECTED ICON -->
+          <!-- YOUTUBE -->
           <a
             href="https://www.youtube.com/channel/UCO5NVNcjxsgcHHzc_xCSlww"
             class="footer-social-icon footer-youtube"
@@ -692,13 +692,6 @@
     const reducedMotion =
       window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    /*
-      OVAL SPOTLIGHT
-
-      Activates when the center of the viewport
-      is inside the salvation section.
-    */
-
     function updateSalvationSpotlight() {
       const rect = salvationSection.getBoundingClientRect();
       const middle = window.innerHeight / 2;
@@ -721,18 +714,6 @@
 
     updateSalvationSpotlight();
 
-    /*
-      READING STATUS
-
-      Each card starts as Unread.
-
-      Opening a card changes its status to Read.
-
-      Closing the card does not change the status.
-
-      Refreshing the page resets all six cards.
-    */
-
     function markCardAsRead(card) {
       const status = card.querySelector(".reading-status");
       const statusText = card.querySelector(".status-text");
@@ -747,23 +728,12 @@
       statusText.textContent = "Read";
     }
 
-    /*
-      SMOOTH EXPANSION AND COLLAPSE
-
-      Cards unfold over 750 milliseconds.
-
-      Reduced-motion preferences are respected.
-
-      No wiggle animation is used.
-    */
-
     salvationCards.forEach(function (card) {
       const summary = card.querySelector("summary");
 
       let currentAnimation = null;
       let isAnimating = false;
 
-      // Reset status on each page load.
       card.open = false;
 
       const status = card.querySelector(".reading-status");
@@ -840,14 +810,6 @@
           }
         };
       }
-
-      /*
-        Clicking or keyboard-activating a card
-        changes its status to Read when opened.
-
-        Once marked Read, it stays Read until
-        the page is refreshed.
-      */
 
       summary.addEventListener("click", function (event) {
         event.preventDefault();
