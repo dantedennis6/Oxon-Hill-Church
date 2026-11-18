@@ -18,7 +18,9 @@
   --shadow: 0 12px 35px rgba(11,40,80,.09);
 }
 
-/* GENERAL */
+/* =========================================
+   GENERAL
+========================================= */
 
 * {
   margin: 0;
@@ -37,6 +39,10 @@ body {
   line-height: 1.7;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -46,7 +52,9 @@ button {
   font: inherit;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Montserrat", sans-serif;
   line-height: 1.3;
 }
@@ -140,7 +148,9 @@ h1, h2, h3 {
   color: var(--orange);
 }
 
-/* BUTTONS */
+/* =========================================
+   BUTTONS
+========================================= */
 
 .contact-button,
 .zelle-button {
@@ -148,12 +158,14 @@ h1, h2, h3 {
   background: var(--orange);
   color: var(--white);
   padding: 13px 22px;
+  border: none;
   border-radius: 7px;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 700;
   text-align: center;
   white-space: nowrap;
+  cursor: pointer;
   transition:
     background .25s ease,
     transform .25s ease,
@@ -611,6 +623,277 @@ h1, h2, h3 {
 }
 
 /* =========================================
+   ZELLE POP-UP MODAL
+========================================= */
+
+/* BACKGROUND OVERLAY */
+
+.zelle-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(5, 17, 38, .72);
+
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+
+.zelle-modal-overlay[hidden] {
+  display: none;
+}
+
+.zelle-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MODAL BOX */
+
+.zelle-modal-box {
+  position: relative;
+
+  width: 100%;
+  max-width: 510px;
+  max-height: min(90vh, 760px);
+  max-height: min(90dvh, 760px);
+
+  overflow-y: auto;
+
+  padding: 35px 35px 30px;
+
+  background: var(--white);
+
+  border-radius: 15px;
+  border-top: 5px solid var(--orange);
+
+  box-shadow:
+    0 20px 65px rgba(0,0,0,.30);
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(18px) scale(.97);
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+.zelle-modal-overlay.active .zelle-modal-box {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* CLOSE X */
+
+.zelle-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #edf3fa;
+  color: var(--navy);
+
+  font-size: 26px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.zelle-modal-close:hover {
+  background: #dce7f4;
+  transform: rotate(90deg);
+}
+
+/* MODAL HEADING */
+
+.zelle-modal-box .eyebrow {
+  font-size: 11px;
+  margin-bottom: 9px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.zelle-modal-box h2 {
+  font-size: clamp(23px, 4vw, 28px);
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 13px;
+}
+
+.zelle-modal-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* RECIPIENT INFORMATION */
+
+.zelle-modal-recipient {
+  background: var(--light-blue);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 23px;
+}
+
+.zelle-modal-recipient-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.zelle-modal-phone {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(22px, 4vw, 27px);
+  font-weight: 800;
+  color: var(--dark-navy);
+  letter-spacing: .4px;
+  margin-bottom: 15px;
+}
+
+/* COPY BUTTON */
+
+.zelle-copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: var(--white);
+  color: var(--navy);
+
+  border: 1px solid var(--navy);
+  border-radius: 7px;
+
+  padding: 10px 16px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.zelle-copy-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.zelle-copy-button:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.copy-feedback {
+  min-height: 18px;
+  margin-top: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #176b36;
+}
+
+/* STEP-BY-STEP INSTRUCTIONS */
+
+.zelle-modal-steps {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.zelle-modal-steps p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 9px;
+}
+
+.zelle-modal-steps strong {
+  color: var(--orange);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+/* WARNING */
+
+.zelle-modal-warning {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  background: var(--off-white);
+  border-left: 3px solid var(--orange);
+  padding: 12px 14px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* BOTTOM CLOSE BUTTON */
+
+.zelle-modal-done {
+  display: block;
+  width: 100%;
+
+  padding: 12px 20px;
+
+  background: var(--orange);
+  color: var(--white);
+
+  border: none;
+  border-radius: 7px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    transform .25s ease;
+}
+
+.zelle-modal-done:hover {
+  background: var(--dark-orange);
+  transform: translateY(-2px);
+}
+
+/* =========================================
    CLOSING SECTION
 ========================================= */
 
@@ -884,6 +1167,39 @@ h1, h2, h3 {
     font-size: 17px;
   }
 
+  /* ZELLE POP-UP */
+
+  .zelle-modal-overlay {
+    padding: 15px;
+  }
+
+  .zelle-modal-box {
+    max-width: 100%;
+    padding: 30px 22px 25px;
+    max-height: 90vh;
+    max-height: 90dvh;
+  }
+
+  .zelle-modal-box h2 {
+    font-size: 23px;
+  }
+
+  .zelle-modal-description {
+    font-size: 13px;
+  }
+
+  .zelle-modal-recipient {
+    padding: 17px 12px;
+  }
+
+  .zelle-modal-phone {
+    font-size: 23px;
+  }
+
+  .zelle-modal-steps p {
+    font-size: 12px;
+  }
+
   /* CLOSING */
 
   .closing-section {
@@ -926,6 +1242,16 @@ h1, h2, h3 {
     padding: 9px 10px;
     font-size: 10px;
   }
+}
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+========================================= */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
 }
 
 /* =========================================
