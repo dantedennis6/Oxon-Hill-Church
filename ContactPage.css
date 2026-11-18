@@ -16,7 +16,9 @@
   --light-bg: #f5f8fc;
 }
 
-/* GLOBAL */
+/* ======================================
+   GLOBAL
+====================================== */
 
 * {
   box-sizing: border-box;
@@ -106,7 +108,9 @@ button:focus-visible {
   white-space: nowrap;
 }
 
-/* NAVIGATION */
+/* ======================================
+   NAVIGATION
+====================================== */
 
 .main-nav {
   display: flex;
@@ -161,7 +165,9 @@ button:focus-visible {
   box-shadow: none;
 }
 
-/* CONTACT BUTTON */
+/* ======================================
+   CONTACT BUTTON
+====================================== */
 
 .contact-button {
   display: inline-block;
@@ -190,7 +196,9 @@ button:focus-visible {
   box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
-/* MOBILE MENU BUTTON */
+/* ======================================
+   MOBILE MENU BUTTON
+====================================== */
 
 .menu-toggle {
   display: none;
@@ -324,7 +332,9 @@ button:focus-visible {
   text-decoration: underline;
 }
 
-/* DIRECTIONS BUTTON */
+/* ======================================
+   DIRECTIONS BUTTON
+====================================== */
 
 .directions-button {
   display: block;
@@ -349,133 +359,130 @@ button:focus-visible {
   box-shadow: 0 7px 16px rgba(21,59,114,.2);
 }
 
-/* ======================================
-   FOOTER
-====================================== */
+/* =========================================
+   STANDARD WEBSITE FOOTER
+   MATCHES EVENTS AND HOME PAGES
+========================================= */
 
 .site-footer {
-  width: 100%;
-  background: var(--navy);
+  background: #081e3b;
   color: var(--white);
-  padding: 55px 25px 20px;
+  padding-top: 65px;
 }
 
 .footer-container {
-  max-width: 1150px;
-  margin: 0 auto;
+  width: min(1150px, 92%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  gap: 35px;
+  padding-bottom: 55px;
+}
+
+.footer-column {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 11px;
+  min-width: 0;
 }
 
-.footer-left {
-  flex: 1;
-}
-
-.footer-church-name {
-  margin: 0 0 22px;
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
   color: var(--white);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+}
+
+.footer-column p,
+.footer-column a {
+  color: #c6d4e7;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.footer-about p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.8;
+  letter-spacing: 0.1px;
 }
 
-.footer-church-name strong {
-  font-weight: 800;
+.footer-column a {
+  transition: color 0.2s ease;
+  overflow-wrap: anywhere;
 }
 
-.footer-contact p {
-  margin: 0 0 12px;
-  color: var(--white);
-}
-
-.footer-contact-label {
-  display: inline-block;
-  min-width: 75px;
-  font-weight: 700;
-}
-
-.footer-contact a {
-  color: var(--white);
-}
-
-.footer-contact a:hover {
+.footer-column a:hover {
   color: var(--orange);
-  text-decoration: underline;
 }
 
-.footer-right {
-  min-width: 200px;
-  text-align: right;
-}
-
-.footer-right h3 {
-  margin: 0 0 20px;
-  color: var(--white);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
+/* =========================================
+   FACEBOOK AND YOUTUBE ICONS
+========================================= */
 
 .footer-social-links {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
+  margin-top: 6px;
 }
 
 .footer-social-icon {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
-  color: var(--white);
-  border-radius: 10px;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  color: var(--white) !important;
 
   transition:
-    transform .25s ease,
-    box-shadow .25s ease;
+    background .3s ease,
+    border-color .3s ease,
+    transform .3s ease,
+    box-shadow .3s ease;
 }
 
 .footer-social-icon svg {
-  width: 34px;
-  height: 34px;
-}
-
-.footer-facebook {
-  background: #1877f2;
-}
-
-.footer-youtube {
-  background: #ff0033;
+  width: 23px;
+  height: 23px;
+  display: block;
+  fill: currentColor;
 }
 
 .footer-social-icon:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 7px 16px rgba(0,0,0,.22);
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(243,107,28,.25);
 }
 
-/* FOOTER COPYRIGHT */
+.footer-social-icon:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   FOOTER COPYRIGHT
+========================================= */
 
 .footer-bottom {
-  max-width: 1150px;
-  margin: 40px auto 0;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,.3);
+  border-top: 1px solid rgba(255,255,255,.12);
   text-align: center;
-}
-
-.footer-bottom p {
-  margin: 0;
-  color: rgba(255,255,255,.85);
-  font-size: .9rem;
+  padding: 20px;
+  color: #aabbd2;
+  font-size: 13px;
 }
 
 /* ======================================
-   TABLET HEADER
+   TABLET HEADER AND FOOTER
 ====================================== */
 
 @media (max-width: 1100px) {
@@ -493,10 +500,14 @@ button:focus-visible {
     flex-wrap: wrap;
     gap: 16px;
   }
+
+  .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* ======================================
-   MOBILE HEADER
+   MOBILE HEADER AND FOOTER
 ====================================== */
 
 @media (max-width: 700px) {
@@ -555,6 +566,21 @@ button:focus-visible {
     padding: 10px 13px;
     font-size: 11px;
   }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-social-icon svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* ======================================
@@ -586,34 +612,16 @@ button:focus-visible {
   }
 
   .site-footer {
-    padding: 40px 20px 20px;
+    padding-top: 45px;
   }
 
   .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 35px;
-  }
-
-  .footer-church-name {
-    font-size: 1.5rem;
-  }
-
-  .footer-contact p {
-    overflow-wrap: anywhere;
-  }
-
-  .footer-right {
-    min-width: 0;
-    text-align: left;
-  }
-
-  .footer-social-links {
-    justify-content: flex-start;
+    width: 90%;
+    padding-bottom: 40px;
   }
 
   .footer-bottom {
-    margin-top: 35px;
+    padding: 20px 15px;
   }
 }
 
@@ -664,7 +672,8 @@ button:focus-visible {
   .nav-link,
   .contact-button,
   .directions-button,
-  .footer-social-icon {
+  .footer-social-icon,
+  .footer-column a {
     transition: none;
   }
 
