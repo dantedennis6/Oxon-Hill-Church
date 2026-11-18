@@ -785,163 +785,164 @@ button:focus-visible {
   box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
-/* ======================================
-   FOOTER
-====================================== */
+/* =========================================
+   STANDARD WEBSITE FOOTER
+   MATCHES EVENTS AND ACTIVITIES PAGE
+========================================= */
 
 .site-footer {
   width: 100%;
-  background: var(--navy);
+  background: #081e3b;
   color: var(--white);
-  padding: 55px 25px 20px;
+  padding: 65px 0 0;
 }
 
 .footer-container {
+  width: min(1150px, 92%);
   max-width: 1150px;
-  margin: 0 auto;
+  margin: auto;
 
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  align-items: start;
+  gap: 35px;
+
+  padding-bottom: 55px;
+}
+
+.footer-column {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 11px;
+  min-width: 0;
 }
 
-.footer-left {
-  flex: 1;
-}
-
-.footer-church-name {
-  margin: 0 0 22px;
-  color: var(--white);
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-  font-weight: 400;
-  line-height: 1.4;
-}
-
-.footer-church-name strong {
-  font-weight: 800;
-}
-
-.footer-contact p {
+.footer-column h3 {
   margin: 0 0 12px;
   color: var(--white);
-  font-size: 1rem;
-}
-
-.footer-contact-label {
-  display: inline-block;
-  min-width: 75px;
-  font-weight: 700;
-}
-
-.footer-contact a {
-  color: var(--white);
-  transition: color .25s ease;
-}
-
-.footer-contact a:hover {
-  color: var(--orange);
-  text-decoration: underline;
-}
-
-.footer-right {
-  min-width: 200px;
-  text-align: right;
-}
-
-.footer-right h3 {
-  margin: 0 0 20px;
-  color: var(--white);
 
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 16px;
   font-weight: 700;
+  line-height: 1.5;
 }
 
-/* ======================================
-   CORRECTED FOLLOW US ICONS
-====================================== */
+.footer-column p,
+.footer-column a {
+  margin: 0;
+  color: #c6d4e7;
+  font-size: 14px;
+  line-height: 1.8;
+}
 
-.footer-social-links {
+.footer-about p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.1px;
+}
+
+.footer-column a {
+  transition: color 0.2s ease;
+  overflow-wrap: anywhere;
+}
+
+.footer-column a:hover {
+  color: var(--orange);
+}
+
+/* =========================================
+   FACEBOOK AND YOUTUBE ICONS
+   SMALL CIRCULAR DESIGN
+========================================= */
+
+.site-footer .footer-social-links {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
   align-items: center;
-  gap: 15px;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-top: 6px;
 }
 
-.footer-social-icon {
+.site-footer .footer-social-links .footer-social-icon,
+.site-footer .footer-social-links .facebook-icon,
+.site-footer .footer-social-links .youtube-icon {
   display: inline-flex;
-  flex: 0 0 60px;
+  flex: 0 0 44px;
   align-items: center;
   justify-content: center;
 
-  width: 60px;
-  height: 60px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+
   padding: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 
   color: #ffffff;
-  border: none;
-  border-radius: 10px;
-
+  box-shadow: none;
   line-height: 0;
-  vertical-align: middle;
   overflow: hidden;
 
   transition:
-    transform .25s ease,
-    box-shadow .25s ease;
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.footer-social-icon svg {
+.site-footer .footer-social-icon svg {
   display: block;
   flex: 0 0 auto;
 
-  width: 34px;
-  height: 34px;
+  width: 21px;
+  height: 21px;
 
   fill: currentColor;
   color: #ffffff;
 }
 
-.footer-social-icon svg path {
+.site-footer .footer-social-icon svg path {
   fill: currentColor;
 }
 
-.footer-facebook {
-  background-color: #1877f2;
+.site-footer .footer-social-links .footer-social-icon:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #ffffff;
+
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(243,107,28,.25);
 }
 
-.footer-youtube {
-  background-color: #ff0033;
-}
-
-.footer-social-icon:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 7px 16px rgba(0,0,0,.22);
-}
-
-.footer-social-icon:focus-visible {
+.site-footer .footer-social-icon:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;
 }
 
-/* FOOTER COPYRIGHT */
+/* =========================================
+   FOOTER COPYRIGHT
+========================================= */
 
 .footer-bottom {
-  max-width: 1150px;
-  margin: 40px auto 0;
-  padding-top: 20px;
-
-  border-top: 1px solid rgba(255,255,255,.3);
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,.12);
   text-align: center;
-}
 
-.footer-bottom p {
+  padding: 20px;
   margin: 0;
-  color: rgba(255,255,255,.85);
-  font-size: .9rem;
+
+  color: #aabbd2;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* ======================================
@@ -962,6 +963,10 @@ button:focus-visible {
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1044,6 +1049,17 @@ button:focus-visible {
     padding: 10px 13px;
     font-size: 11px;
   }
+
+  /* FOOTER MOBILE LAYOUT */
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .site-footer .footer-social-links {
+    justify-content: flex-start;
+  }
 }
 
 /* ======================================
@@ -1121,35 +1137,38 @@ button:focus-visible {
     padding: 50px 0 58px;
   }
 
+  /* FOOTER */
+
   .site-footer {
-    padding: 40px 20px 20px;
+    padding: 45px 0 0;
   }
 
   .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
+    width: 90%;
+    grid-template-columns: 1fr;
     gap: 35px;
+    padding-bottom: 40px;
   }
 
-  .footer-church-name {
-    font-size: 1.5rem;
+  .footer-column h3 {
+    margin-bottom: 8px;
   }
 
-  .footer-contact p {
+  .footer-column p,
+  .footer-column a {
     overflow-wrap: anywhere;
   }
 
-  .footer-right {
-    min-width: 0;
-    text-align: left;
+  .footer-about p {
+    font-size: 16px;
   }
 
-  .footer-social-links {
+  .site-footer .footer-social-links {
     justify-content: flex-start;
   }
 
   .footer-bottom {
-    margin-top: 35px;
+    padding: 20px 15px;
   }
 }
 
@@ -1213,7 +1232,7 @@ button:focus-visible {
   .primary-button,
   .secondary-button,
   .footer-social-icon,
-  .footer-contact a {
+  .footer-column a {
     transition: none;
   }
 
