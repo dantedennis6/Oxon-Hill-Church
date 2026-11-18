@@ -948,7 +948,7 @@ h3 {
 }
 
 /* =========================================
-   STANDARD FOUR-COLUMN FOOTER
+   FOUR-COLUMN FOOTER
 ========================================= */
 
 .site-footer {
@@ -1009,7 +1009,8 @@ h3 {
 }
 
 /* =========================================
-   FACEBOOK AND YOUTUBE ICONS
+   SOCIAL MEDIA ICONS
+   EXACTLY MATCHING VIDEOS.CSS
 ========================================= */
 
 .footer-connect {
@@ -1018,35 +1019,30 @@ h3 {
 
 .footer-social-links {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 14px;
+  align-items: center;
+  gap: 15px;
 }
 
 .footer-social-icon {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
-  width: 55px;
-  height: 55px;
-  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
 
   color: var(--white);
   border-radius: 10px;
 
   transition:
     transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
+    box-shadow .25s ease;
 }
 
 .footer-social-icon svg {
-  display: block;
-  width: 31px;
-  height: 31px;
+  width: 34px;
+  height: 34px;
 }
 
 .footer-facebook {
@@ -1058,17 +1054,13 @@ h3 {
 }
 
 .footer-social-icon:hover {
-  color: var(--white);
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 22px rgba(0,0,0,.3);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 7px 16px rgba(0,0,0,.22);
 }
 
-.footer-social-icon:focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 4px;
-}
-
-/* FOOTER COPYRIGHT */
+/* =========================================
+   FOOTER COPYRIGHT
+========================================= */
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.12);
@@ -1197,8 +1189,6 @@ h3 {
     padding: 30px 25px;
   }
 
-  /* TIGHTER SPOTLIGHT FOR STACKED CARDS */
-
   .giving-spotlight-overlay {
     background: radial-gradient(
       ellipse 82% 32%
@@ -1269,8 +1259,6 @@ h3 {
   .closing-section {
     padding: 65px 0;
   }
-
-  /* STACK FOOTER COLUMNS ON MOBILE */
 
   .site-footer {
     padding-top: 45px;
