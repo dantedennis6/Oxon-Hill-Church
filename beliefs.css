@@ -215,15 +215,25 @@ button:focus-visible {
 }
 
 /* ======================================
-   PAGE HERO
+   PAGE HERO - BELIEFS1.JPEG BACKGROUND
 ====================================== */
 
 .page-hero {
-  background: linear-gradient(
-    125deg,
-    var(--navy-dark),
-    var(--navy)
-  );
+  position: relative;
+
+  background-color: var(--navy-dark);
+
+  background-image:
+    linear-gradient(
+      125deg,
+      rgba(7, 25, 53, 0.80),
+      rgba(14, 48, 91, 0.66)
+    ),
+    url("./Beliefs1.jpeg");
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   color: var(--white);
   border-top: 3px solid var(--orange);
@@ -232,6 +242,9 @@ button:focus-visible {
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
+
   max-width: 900px;
   margin: auto;
   padding: 72px 25px 76px;
