@@ -181,7 +181,6 @@ h1, h2, h3, h4 {
 
 /* =========================================
    HERO BANNER
-   ORANGE TOP AND BOTTOM OUTLINE ADDED
 ========================================= */
 
 .page-hero {
@@ -196,8 +195,6 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* ORANGE OUTLINE TO MATCH OTHER PAGES */
   border-top: 3px solid var(--orange);
   border-bottom: 3px solid var(--orange);
 }
@@ -296,8 +293,6 @@ h1, h2, h3, h4 {
   color: var(--orange);
   margin-bottom: 16px;
 }
-
-/* HERO TITLE FADE-IN */
 
 .page-hero h1 {
   font-family: "Montserrat", Arial, sans-serif;
@@ -433,7 +428,9 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-/* SCROLLABLE CALENDAR */
+/* =========================================
+   SCROLLABLE CALENDAR
+========================================= */
 
 .calendar-days {
   display: flex;
@@ -441,7 +438,13 @@ h1, h2, h3, h4 {
   height: 525px;
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+
+  /*
+    Important: use automatic internal scrolling
+    so the current date appears immediately.
+  */
+  scroll-behavior: auto;
+
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--orange) var(--off-white);
@@ -537,20 +540,38 @@ h1, h2, h3, h4 {
   font-size: 14px;
 }
 
+/* =========================================
+   TODAY'S DATE HIGHLIGHT
+========================================= */
+
 .calendar-day.is-today {
-  background: #fff6ef;
+  background: #fff1e5;
+  border-left: 5px solid var(--orange);
+  box-shadow: inset 0 0 0 1px rgba(243, 107, 28, 0.13);
+}
+
+.calendar-day.is-today:hover {
+  background: #ffead8;
 }
 
 .calendar-day.is-today .calendar-date-number {
   color: var(--orange);
 }
 
+.calendar-day.is-today .calendar-weekday {
+  color: var(--dark-navy);
+  font-weight: 800;
+}
+
 .calendar-today-label {
-  display: block;
+  display: inline-block;
   font-family: "Montserrat", sans-serif;
   font-size: 9px;
   font-weight: 800;
-  color: var(--orange);
+  color: var(--white);
+  background: var(--orange);
+  padding: 3px 7px;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -875,14 +896,9 @@ h1, h2, h3, h4 {
   max-width: 980px;
 }
 
-/* Keep short trailing words with the sentence
-   while allowing normal wrapping on smaller screens. */
-
 .invitation-description {
   text-wrap: balance;
 }
-
-/* BUTTONS */
 
 .invitation-actions {
   display: flex;
