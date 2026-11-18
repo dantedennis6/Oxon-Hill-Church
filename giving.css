@@ -418,20 +418,16 @@ h3 {
 }
 
 /* =========================================
-   DYNAMIC OVAL SPOTLIGHT
+   STATIONARY OVAL SPOTLIGHT
+   DESKTOP, TABLET, AND MOBILE
 ========================================= */
 
 .giving-spotlight-overlay {
-  --spotlight-x: 50vw;
-  --spotlight-y: 50vh;
-
   position: fixed;
   inset: 0;
 
   background: radial-gradient(
-    ellipse 65% 58%
-    at var(--spotlight-x) var(--spotlight-y),
-
+    ellipse 65% 58% at 50% 50%,
     rgba(5,15,35,0) 0%,
     rgba(5,15,35,.05) 30%,
     rgba(5,15,35,.35) 60%,
@@ -451,6 +447,34 @@ h3 {
 .giving-spotlight-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+/* TABLET SPOTLIGHT */
+
+@media (max-width: 900px) {
+  .giving-spotlight-overlay {
+    background: radial-gradient(
+      ellipse 75% 48% at 50% 50%,
+      rgba(5,15,35,0) 0%,
+      rgba(5,15,35,.05) 30%,
+      rgba(5,15,35,.35) 60%,
+      rgba(5,15,35,.78) 100%
+    );
+  }
+}
+
+/* MOBILE SPOTLIGHT */
+
+@media (max-width: 700px) {
+  .giving-spotlight-overlay {
+    background: radial-gradient(
+      ellipse 82% 38% at 50% 50%,
+      rgba(5,15,35,0) 0%,
+      rgba(5,15,35,.05) 30%,
+      rgba(5,15,35,.35) 60%,
+      rgba(5,15,35,.78) 100%
+    );
+  }
 }
 
 /* =========================================
@@ -1183,18 +1207,6 @@ h3 {
     padding: 30px 25px;
   }
 
-  .giving-spotlight-overlay {
-    background: radial-gradient(
-      ellipse 82% 32%
-      at var(--spotlight-x) var(--spotlight-y),
-
-      rgba(5,15,35,0) 0%,
-      rgba(5,15,35,.05) 25%,
-      rgba(5,15,35,.35) 60%,
-      rgba(5,15,35,.78) 100%
-    );
-  }
-
   .zelle-card,
   .check-card {
     padding: 35px 23px;
@@ -1269,16 +1281,6 @@ h3 {
     gap: 16px;
   }
 
-  .footer-social-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .footer-social-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
 }
 
 /* =========================================
@@ -1334,7 +1336,6 @@ a:focus-visible {
 
 }
 
-
 /* =========================================
    FOOTER SOCIAL ICONS
    MATCH EVENTS AND ACTIVITIES PAGE
@@ -1364,17 +1365,17 @@ a:focus-visible {
   padding: 0;
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.22);
 
   color: #ffffff;
   box-shadow: none;
 
   transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    background .3s ease,
+    border-color .3s ease,
+    transform .3s ease,
+    box-shadow .3s ease;
 }
 
 .site-footer .footer-social-icon svg {
@@ -1389,11 +1390,10 @@ a:focus-visible {
   border-color: #f36b1c;
   color: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(243, 107, 28, 0.25);
+  box-shadow: 0 8px 20px rgba(243,107,28,.25);
 }
 
 .site-footer .footer-social-icon:focus-visible {
   outline: 3px solid #f36b1c;
   outline-offset: 4px;
 }
-
