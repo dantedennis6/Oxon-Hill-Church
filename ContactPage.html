@@ -51,33 +51,27 @@
            id="main-navigation"
            aria-label="Main navigation">
 
-        <a href="./Index2.html"
-           class="nav-link">
+        <a href="./Index2.html" class="nav-link">
           Home
         </a>
 
-        <a href="./beliefs.html"
-           class="nav-link">
+        <a href="./beliefs.html" class="nav-link">
           What We Believe
         </a>
 
-        <a href="./worship.html"
-           class="nav-link">
+        <a href="./worship.html" class="nav-link">
           Worship
         </a>
 
-        <a href="./videos.html"
-           class="nav-link">
+        <a href="./videos.html" class="nav-link">
           Videos
         </a>
 
-        <a href="./events.html"
-           class="nav-link">
+        <a href="./events.html" class="nav-link">
           Events/Activities
         </a>
 
-        <a href="./giving.html"
-           class="nav-link">
+        <a href="./giving.html" class="nav-link">
           Giving
         </a>
 
@@ -108,16 +102,21 @@
   <main>
 
     <!-- ======================================
-         PAGE BANNER
+         CONTACT HERO BANNER
+         BACKGROUND: CONTACTUS1.PNG
     ====================================== -->
 
     <section class="contact-hero">
 
-      <h1>Contact Us</h1>
+      <div class="contact-hero-content">
 
-      <p>
-        We would love to hear from you.
-      </p>
+        <h1>Contact Us</h1>
+
+        <p>
+          We would love to hear from you.
+        </p>
+
+      </div>
 
     </section>
 
@@ -160,7 +159,7 @@
             <h3>Phone Number</h3>
 
             <p>
-              <a href="tel:3018945412">
+              <a href="tel:+13018945412">
                 (301) 894-5412
               </a>
             </p>
@@ -216,7 +215,7 @@
 
   <!-- =====================================
        STANDARD WEBSITE FOOTER
-       SAME DESIGN AS EVENTS AND HOME
+       MATCHES EVENTS AND ACTIVITIES
   ===================================== -->
 
   <footer class="site-footer">
@@ -244,15 +243,10 @@
         <h3>Quick Links</h3>
 
         <a href="./Index2.html">Home</a>
-
         <a href="./beliefs.html">What We Believe</a>
-
         <a href="./worship.html">Worship</a>
-
         <a href="./videos.html">Videos</a>
-
         <a href="./events.html">Events and Activities</a>
-
         <a href="./giving.html">Giving</a>
 
       </div>
@@ -366,32 +360,36 @@
     const mainNav =
       document.querySelector(".main-nav");
 
-    menuToggle.addEventListener("click", function () {
+    if (menuToggle && mainNav) {
 
-      const isOpen =
-        mainNav.classList.toggle("open");
+      menuToggle.addEventListener("click", function () {
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-    });
-
-    mainNav.querySelectorAll("a").forEach(function (link) {
-
-      link.addEventListener("click", function () {
-
-        mainNav.classList.remove("open");
+        const isOpen =
+          mainNav.classList.toggle("open");
 
         menuToggle.setAttribute(
           "aria-expanded",
-          "false"
+          String(isOpen)
         );
 
       });
 
-    });
+      mainNav.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          mainNav.classList.remove("open");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+    }
 
     // Automatically update copyright year.
 
