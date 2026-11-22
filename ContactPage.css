@@ -70,7 +70,7 @@ button:focus-visible {
   gap: 22px;
 }
 
-/* CHURCH LOGO - MATCH OTHER PAGES */
+/* CHURCH LOGO */
 
 .site-logo {
   display: flex;
@@ -218,28 +218,58 @@ button:focus-visible {
 }
 
 /* ======================================
-   CONTACT BANNER
+   CONTACT HERO BANNER
+   BACKGROUND IMAGE: ContactUs1.PNG
 ====================================== */
 
 .contact-hero {
-  background: var(--navy);
+  position: relative;
+
+  background-color: var(--navy-dark);
+
+  background-image:
+    linear-gradient(
+      rgba(5, 20, 43, 0.68),
+      rgba(5, 20, 43, 0.76)
+    ),
+    url("./ContactUs1.PNG");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
   color: var(--white);
   text-align: center;
-  padding: 75px 20px;
+
+  min-height: 430px;
+  padding: 95px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-top: 3px solid var(--orange);
   border-bottom: 3px solid var(--orange);
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 /* CONTACT US TITLE FADE-IN */
 
 .contact-hero h1 {
-  margin: 0 0 12px;
+  margin: 0 0 18px;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.3;
   color: var(--white);
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 3px 12px rgba(0,0,0,.35);
   animation: contactHeroFadeIn 1.5s ease-out both;
 }
 
@@ -256,8 +286,11 @@ button:focus-visible {
 }
 
 .contact-hero p {
-  margin: 0;
-  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #e4ecf6;
 }
 
 /* ======================================
@@ -365,17 +398,22 @@ button:focus-visible {
 ========================================= */
 
 .site-footer {
+  width: 100%;
   background: #081e3b;
   color: var(--white);
-  padding-top: 65px;
+  padding: 65px 0 0;
 }
 
 .footer-container {
   width: min(1150px, 92%);
+  max-width: 1150px;
   margin: auto;
+
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  align-items: start;
   gap: 35px;
+
   padding-bottom: 55px;
 }
 
@@ -388,13 +426,17 @@ button:focus-visible {
 }
 
 .footer-column h3 {
-  font-size: 16px;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
   color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .footer-column p,
 .footer-column a {
+  margin: 0;
   color: #c6d4e7;
   font-size: 14px;
   line-height: 1.8;
@@ -410,7 +452,7 @@ button:focus-visible {
 }
 
 .footer-column a {
-  transition: color 0.2s ease;
+  transition: color .2s ease;
   overflow-wrap: anywhere;
 }
 
@@ -420,27 +462,41 @@ button:focus-visible {
 
 /* =========================================
    FACEBOOK AND YOUTUBE ICONS
+   STANDARD 44PX SIZE
 ========================================= */
 
-.footer-social-links {
+.site-footer .footer-social-links {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 14px;
   margin-top: 6px;
 }
 
-.footer-social-icon {
+.site-footer .footer-social-links .footer-social-icon,
+.site-footer .footer-social-links .facebook-icon,
+.site-footer .footer-social-links .youtube-icon {
   display: inline-flex;
+  flex: 0 0 44px;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+
+  padding: 0;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.22);
+
   background: rgba(255,255,255,.08);
-  color: var(--white) !important;
+  border: 1px solid rgba(255,255,255,.22);
+
+  color: #ffffff;
+  box-shadow: none;
+  line-height: 0;
+  overflow: hidden;
 
   transition:
     background .3s ease,
@@ -449,22 +505,28 @@ button:focus-visible {
     box-shadow .3s ease;
 }
 
-.footer-social-icon svg {
-  width: 23px;
-  height: 23px;
+.site-footer .footer-social-icon svg {
   display: block;
+  flex: 0 0 auto;
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+  color: #ffffff;
+}
+
+.site-footer .footer-social-icon svg path {
   fill: currentColor;
 }
 
-.footer-social-icon:hover {
+.site-footer .footer-social-links .footer-social-icon:hover {
   background: var(--orange);
   border-color: var(--orange);
-  color: var(--white) !important;
+  color: #ffffff;
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(243,107,28,.25);
 }
 
-.footer-social-icon:focus-visible {
+.site-footer .footer-social-icon:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;
 }
@@ -474,11 +536,14 @@ button:focus-visible {
 ========================================= */
 
 .footer-bottom {
+  width: 100%;
   border-top: 1px solid rgba(255,255,255,.12);
   text-align: center;
   padding: 20px;
+  margin: 0;
   color: #aabbd2;
   font-size: 13px;
+  line-height: 1.6;
 }
 
 /* ======================================
@@ -567,19 +632,15 @@ button:focus-visible {
     font-size: 11px;
   }
 
+  .contact-hero {
+    min-height: 360px;
+    padding: 75px 18px;
+    background-position: center center;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-
-  .footer-social-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .footer-social-icon svg {
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -590,7 +651,8 @@ button:focus-visible {
 @media (max-width: 600px) {
 
   .contact-hero {
-    padding: 50px 15px;
+    min-height: 340px;
+    padding: 65px 15px;
   }
 
   .contact-hero h1 {
@@ -612,7 +674,7 @@ button:focus-visible {
   }
 
   .site-footer {
-    padding-top: 45px;
+    padding: 45px 0 0;
   }
 
   .footer-container {
@@ -642,7 +704,7 @@ button:focus-visible {
 
   .site-header .logo-subtitle {
     font-size: 10px;
-    letter-spacing: 0.7px;
+    letter-spacing: .7px;
   }
 
   .site-header .header-container {
