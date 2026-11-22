@@ -196,22 +196,32 @@ h3 {
 
 /* =========================================
    HERO
+   GIVING1.JPEG BACKGROUND
 ========================================= */
 
 .page-hero {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    var(--navy),
-    var(--dark-navy)
-  );
+
+  background-image:
+    linear-gradient(
+      rgba(5, 20, 43, 0.68),
+      rgba(5, 20, 43, 0.76)
+    ),
+    url("./Giving1.jpeg");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
   color: var(--white);
   text-align: center;
   min-height: 430px;
   padding: 95px 20px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-top: 3px solid var(--orange);
   border-bottom: 3px solid var(--orange);
 }
@@ -1174,6 +1184,7 @@ h3 {
   .page-hero {
     min-height: 360px;
     padding: 75px 18px;
+    background-position: center center;
   }
 
   .hero-description {
