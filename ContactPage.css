@@ -2,7 +2,6 @@
 /* ======================================
    OXON HILL CHURCH OF CHRIST
    CONTACT PAGE
-   FONTS: MONTSERRAT + LATO
 ====================================== */
 
 :root {
@@ -47,7 +46,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   HEADER - STANDARDIZED DESIGN
+   HEADER
 ====================================== */
 
 .site-header {
@@ -64,22 +63,27 @@ button:focus-visible {
   max-width: 1320px;
   min-height: 94px;
   margin: auto;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
 }
 
-/* CHURCH LOGO */
+/* ======================================
+   LOGO
+====================================== */
 
 .site-logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
   width: 190px;
   flex: 0 0 190px;
   gap: 0;
+
   color: var(--navy);
   white-space: nowrap;
 }
@@ -88,24 +92,24 @@ button:focus-visible {
   display: block;
   margin: 0;
   padding: 0;
+
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 1.1;
-  white-space: nowrap;
 }
 
 .logo-subtitle {
   display: block;
   margin: 5px 0 0;
   padding: 0;
+
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 1.5px;
   line-height: 1.2;
   color: var(--navy);
-  white-space: nowrap;
 }
 
 /* ======================================
@@ -117,6 +121,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
+
   gap: 20px;
   padding: 0;
   margin: 0;
@@ -124,19 +129,20 @@ button:focus-visible {
 
 .main-nav .nav-link {
   display: inline-block;
-  min-height: 0;
   padding: 0;
+
   background: transparent;
   color: var(--navy-dark);
+
   border: none;
-  border-radius: 0;
   box-shadow: none;
+
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 12px;
   font-weight: 700;
+
   white-space: nowrap;
   text-align: center;
-  cursor: pointer;
 
   transition:
     color .25s ease,
@@ -144,25 +150,13 @@ button:focus-visible {
 }
 
 .main-nav .nav-link:hover {
-  background: transparent;
   color: var(--orange);
-  border: none;
-  box-shadow: none;
   transform: translateY(-2px);
 }
 
 .main-nav .nav-link.active,
 .main-nav .nav-link[aria-current="page"] {
-  background: transparent;
   color: var(--orange);
-  border: none;
-  box-shadow: none;
-}
-
-.main-nav .nav-link.active:hover,
-.main-nav .nav-link[aria-current="page"]:hover {
-  transform: translateY(-2px);
-  box-shadow: none;
 }
 
 /* ======================================
@@ -172,14 +166,19 @@ button:focus-visible {
 .contact-button {
   display: inline-block;
   flex-shrink: 0;
+
   padding: 13px 22px;
+
   background: var(--orange);
   color: var(--white);
+
   border: none;
   border-radius: 7px;
+
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
+
   text-align: center;
   white-space: nowrap;
 
@@ -191,7 +190,6 @@ button:focus-visible {
 
 .contact-button:hover {
   background: var(--orange-dark);
-  border: none;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
@@ -202,24 +200,32 @@ button:focus-visible {
 
 .menu-toggle {
   display: none;
+
   background: none;
   border: none;
+
   cursor: pointer;
   padding: 10px;
 }
 
 .menu-toggle span {
   display: block;
+
   width: 25px;
   height: 3px;
+
   background: var(--navy);
+
   margin: 5px 0;
   border-radius: 3px;
 }
 
 /* ======================================
    CONTACT HERO BANNER
-   REGULAR SIZE
+
+   NO DARK OVERLAY
+   NO TRANSPARENCY
+   NO HTML TEXT
 
    IMAGE: ContactUs1.jpeg
 ====================================== */
@@ -227,87 +233,36 @@ button:focus-visible {
 .contact-hero {
   position: relative;
 
+  width: 100%;
+  height: 430px;
+  min-height: 430px;
+
   background-color: var(--navy-dark);
 
   background-image:
-    linear-gradient(
-      rgba(5, 20, 43, 0.68),
-      rgba(5, 20, 43, 0.76)
-    ),
     url("./ContactUs1.jpeg");
 
-  background-size: cover;
+  /*
+     STRETCH IMAGE TO FIT THE
+     ENTIRE HERO BANNER
+
+     NO CROPPING
+  */
+
+  background-size: 100% 100%;
+
   background-position: center center;
+
   background-repeat: no-repeat;
-
-  color: var(--white);
-  text-align: center;
-
-  min-height: 430px;
-  padding: 95px 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   border-top: 3px solid var(--orange);
   border-bottom: 3px solid var(--orange);
-}
 
-.contact-hero-content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
+  overflow: hidden;
 }
 
 /* ======================================
-   CONTACT HERO TITLE
-====================================== */
-
-.contact-hero h1 {
-  margin: 0 0 18px;
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(2.5rem, 5vw, 3.8rem);
-  font-weight: 800;
-  line-height: 1.3;
-
-  color: var(--white);
-
-  text-shadow:
-    0 3px 12px rgba(0,0,0,.35);
-
-  animation: contactHeroFadeIn 1.5s ease-out both;
-}
-
-@keyframes contactHeroFadeIn {
-
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-.contact-hero p {
-  max-width: 700px;
-  margin: 0 auto;
-
-  font-size: 17px;
-  line-height: 1.7;
-
-  color: #e4ecf6;
-}
-
-/* ======================================
-   CENTERED CONTACT SECTION
+   CONTACT SECTION
 ====================================== */
 
 .contact-section {
@@ -322,25 +277,34 @@ button:focus-visible {
   align-items: flex-start;
 }
 
-/* CONTACT INFORMATION */
+/* ======================================
+   CONTACT INFORMATION CARD
+====================================== */
 
 .contact-information {
   width: 100%;
   max-width: 650px;
   margin: 0 auto;
+
   padding: 35px 28px;
+
   background: var(--light-bg);
+
   border: 2px solid var(--navy);
   border-radius: 10px;
+
   box-shadow: inset 0 5px 0 var(--orange);
 }
 
-.contact-information h2 {
+.contact-information h1 {
   margin: 0 0 15px;
+
   color: var(--navy);
+
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.7rem;
   font-weight: 800;
+
   text-align: center;
 }
 
@@ -349,6 +313,10 @@ button:focus-visible {
   text-align: center;
 }
 
+/* ======================================
+   CONTACT DETAILS
+====================================== */
+
 .info-item {
   padding: 20px 0;
   border-top: 1px solid var(--border);
@@ -356,7 +324,9 @@ button:focus-visible {
 
 .info-item h3 {
   margin: 0 0 8px;
+
   color: var(--navy);
+
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
@@ -384,6 +354,7 @@ button:focus-visible {
 
 .directions-button {
   display: block;
+
   margin-top: 25px;
   padding: 13px 20px;
 
@@ -405,38 +376,50 @@ button:focus-visible {
 .directions-button:hover {
   border-color: var(--orange);
   transform: translateY(-3px);
-  box-shadow: 0 7px 16px rgba(21,59,114,.2);
+
+  box-shadow:
+    0 7px 16px rgba(21,59,114,.2);
 }
 
-/* =========================================
-   STANDARD WEBSITE FOOTER
-   MATCHES EVENTS AND HOME PAGES
-========================================= */
+/* ======================================
+   FOOTER
+====================================== */
 
 .site-footer {
   width: 100%;
+
   background: #081e3b;
   color: var(--white);
+
   padding: 65px 0 0;
 }
 
 .footer-container {
   width: min(1150px, 92%);
   max-width: 1150px;
+
   margin: auto;
 
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+
+  grid-template-columns:
+    1.5fr 1fr 1.2fr 1fr;
+
   align-items: start;
   gap: 35px;
 
   padding-bottom: 55px;
 }
 
+/* ======================================
+   FOOTER COLUMNS
+====================================== */
+
 .footer-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   gap: 11px;
   min-width: 0;
 }
@@ -455,16 +438,20 @@ button:focus-visible {
 .footer-column p,
 .footer-column a {
   margin: 0;
+
   color: #c6d4e7;
+
   font-size: 14px;
   line-height: 1.8;
 }
 
 .footer-about p {
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: 17px;
   font-style: italic;
   font-weight: 400;
+
   line-height: 1.8;
   letter-spacing: 0.1px;
 }
@@ -478,14 +465,14 @@ button:focus-visible {
   color: var(--orange);
 }
 
-/* =========================================
-   FACEBOOK AND YOUTUBE ICONS
-   STANDARD 44PX SIZE
-========================================= */
+/* ======================================
+   SOCIAL MEDIA ICONS
+====================================== */
 
 .site-footer .footer-social-links {
   display: flex;
   flex-direction: row;
+
   align-items: center;
   justify-content: flex-start;
 
@@ -496,8 +483,8 @@ button:focus-visible {
 .site-footer .footer-social-links .footer-social-icon,
 .site-footer .footer-social-links .facebook-icon,
 .site-footer .footer-social-links .youtube-icon {
-
   display: inline-flex;
+
   flex: 0 0 44px;
 
   align-items: center;
@@ -505,17 +492,19 @@ button:focus-visible {
 
   width: 44px;
   height: 44px;
+
   min-width: 44px;
   min-height: 44px;
 
   padding: 0;
+
   border-radius: 50%;
 
   background: rgba(255,255,255,.08);
+
   border: 1px solid rgba(255,255,255,.22);
 
   color: #ffffff;
-  box-shadow: none;
 
   line-height: 0;
   overflow: hidden;
@@ -529,6 +518,7 @@ button:focus-visible {
 
 .site-footer .footer-social-icon svg {
   display: block;
+
   flex: 0 0 auto;
 
   width: 21px;
@@ -544,7 +534,9 @@ button:focus-visible {
 
 .site-footer .footer-social-links .footer-social-icon:hover {
   background: var(--orange);
+
   border-color: var(--orange);
+
   color: #ffffff;
 
   transform: translateY(-4px);
@@ -553,14 +545,9 @@ button:focus-visible {
     0 8px 20px rgba(243,107,28,.25);
 }
 
-.site-footer .footer-social-icon:focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 4px;
-}
-
-/* =========================================
+/* ======================================
    FOOTER COPYRIGHT
-========================================= */
+====================================== */
 
 .footer-bottom {
   width: 100%;
@@ -569,6 +556,7 @@ button:focus-visible {
     1px solid rgba(255,255,255,.12);
 
   text-align: center;
+
   padding: 20px;
   margin: 0;
 
@@ -579,7 +567,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   TABLET HEADER AND FOOTER
+   TABLET
 ====================================== */
 
 @media (max-width: 1100px) {
@@ -593,8 +581,10 @@ button:focus-visible {
   .site-header .main-nav {
     order: 3;
     width: 100%;
+
     justify-content: center;
     flex-wrap: wrap;
+
     gap: 16px;
   }
 
@@ -606,22 +596,23 @@ button:focus-visible {
 }
 
 /* ======================================
-   TABLET HERO BANNER
+   TABLET HERO
 ====================================== */
 
 @media (max-width: 900px) {
 
   .contact-hero {
+    height: 400px;
     min-height: 400px;
-    padding: 75px 20px;
-    background-size: cover;
+
+    background-size: 100% 100%;
     background-position: center center;
   }
 
 }
 
 /* ======================================
-   MOBILE HEADER AND FOOTER
+   MOBILE HEADER
 ====================================== */
 
 @media (max-width: 700px) {
@@ -648,12 +639,14 @@ button:focus-visible {
 
   .site-header .menu-toggle {
     display: block;
+
     margin-left: auto;
     order: 1;
   }
 
   .site-header .main-nav {
     display: none;
+
     order: 3;
     width: 100%;
 
@@ -664,8 +657,7 @@ button:focus-visible {
     gap: 0;
     padding: 12px 0;
 
-    border-top:
-      1px solid var(--border);
+    border-top: 1px solid var(--border);
   }
 
   .site-header .main-nav.open {
@@ -674,22 +666,25 @@ button:focus-visible {
 
   .site-header .main-nav .nav-link {
     display: block;
+
     padding: 13px 10px;
+
     font-size: 13px;
     text-align: left;
   }
 
   .site-header .contact-button {
     order: 2;
+
     padding: 10px 13px;
     font-size: 11px;
   }
 
   .contact-hero {
+    height: 360px;
     min-height: 360px;
-    padding: 75px 18px;
-    background-size: cover;
-    background-position: center center;
+
+    background-size: 100% 100%;
   }
 
   .footer-container {
@@ -700,22 +695,14 @@ button:focus-visible {
 }
 
 /* ======================================
-   MOBILE PAGE CONTENT
+   SMALL MOBILE
 ====================================== */
 
 @media (max-width: 600px) {
 
   .contact-hero {
+    height: 340px;
     min-height: 340px;
-    padding: 65px 15px;
-  }
-
-  .contact-hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .contact-hero p {
-    font-size: 1rem;
   }
 
   .contact-section {
@@ -744,7 +731,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   EXTRA SMALL SCREENS
+   EXTRA SMALL MOBILE
 ====================================== */
 
 @media (max-width: 380px) {
@@ -782,10 +769,6 @@ button:focus-visible {
 
   html {
     scroll-behavior: auto;
-  }
-
-  .contact-hero h1 {
-    animation: none;
   }
 
   .nav-link,
