@@ -1,3 +1,9 @@
 {
-  "events": []
+  "events": [
+    {
+      "status": "past",
+      "title": "Men's Retreat",
+      "date": "2026-10-30"
+    }
+  ]
 }
