@@ -219,9 +219,9 @@ button:focus-visible {
 
 /* ======================================
    CONTACT HERO BANNER
-   REGULAR SIZE RESTORED
+   REGULAR SIZE
 
-   IMAGE: ContactUs1.PNG
+   IMAGE: ContactUs1.jpeg
 ====================================== */
 
 .contact-hero {
@@ -234,7 +234,7 @@ button:focus-visible {
       rgba(5, 20, 43, 0.68),
       rgba(5, 20, 43, 0.76)
     ),
-    url("./ContactUs1.PNG");
+    url("./ContactUs1.jpeg");
 
   background-size: cover;
   background-position: center center;
