@@ -222,10 +222,8 @@ button:focus-visible {
 
    IMAGE: ContactUs1.PNG
 
-   IMAGE IS SCALED TO FIT
-   WITHOUT CROPPING
-
-   DESKTOP, TABLET, AND MOBILE
+   ORIGINAL COVER DESIGN RESTORED
+   WITH A TALLER HERO BANNER
 ====================================== */
 
 .contact-hero {
@@ -235,33 +233,22 @@ button:focus-visible {
 
   background-image:
     linear-gradient(
-      rgba(5, 20, 43, 0.28),
-      rgba(5, 20, 43, 0.38)
+      rgba(5, 20, 43, 0.68),
+      rgba(5, 20, 43, 0.76)
     ),
     url("./ContactUs1.PNG");
 
-  /*
-     "contain" keeps the entire image visible.
-     The image is not cropped.
-  */
-
-  background-size:
-    100% 100%,
-    contain;
-
-  background-position:
-    center center,
-    center center;
-
-  background-repeat:
-    no-repeat,
-    no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 
   color: var(--white);
   text-align: center;
 
-  min-height: 480px;
-  padding: 95px 20px;
+  /* INCREASED HERO BANNER HEIGHT */
+  min-height: 650px;
+
+  padding: 110px 20px;
 
   display: flex;
   align-items: center;
@@ -294,7 +281,7 @@ button:focus-visible {
   color: var(--white);
 
   text-shadow:
-    0 3px 12px rgba(0,0,0,.65);
+    0 3px 12px rgba(0,0,0,.35);
 
   animation: contactHeroFadeIn 1.5s ease-out both;
 }
@@ -320,10 +307,7 @@ button:focus-visible {
   font-size: 17px;
   line-height: 1.7;
 
-  color: #ffffff;
-
-  text-shadow:
-    0 2px 8px rgba(0,0,0,.75);
+  color: #e4ecf6;
 }
 
 /* ======================================
@@ -626,22 +610,17 @@ button:focus-visible {
 }
 
 /* ======================================
-   TABLET HERO IMAGE
+   TABLET HERO BANNER
 ====================================== */
 
 @media (max-width: 900px) {
 
   .contact-hero {
-    min-height: 400px;
-    padding: 75px 20px;
+    min-height: 550px;
+    padding: 90px 20px;
 
-    background-size:
-      100% 100%,
-      contain;
-
-    background-position:
-      center center,
-      center center;
+    background-size: cover;
+    background-position: center center;
   }
 
 }
@@ -712,16 +691,11 @@ button:focus-visible {
   }
 
   .contact-hero {
-    min-height: 340px;
-    padding: 65px 18px;
+    min-height: 450px;
+    padding: 75px 18px;
 
-    background-size:
-      100% 100%,
-      contain;
-
-    background-position:
-      center center,
-      center center;
+    background-size: cover;
+    background-position: center center;
   }
 
   .footer-container {
@@ -738,8 +712,8 @@ button:focus-visible {
 @media (max-width: 600px) {
 
   .contact-hero {
-    min-height: 320px;
-    padding: 55px 15px;
+    min-height: 450px;
+    padding: 75px 15px;
   }
 
   .contact-hero h1 {
