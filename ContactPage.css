@@ -378,191 +378,6 @@ button:focus-visible {
 }
 
 /* ======================================
-   FOOTER
-====================================== */
-
-.site-footer {
-  width: 100%;
-
-  background: #081e3b;
-  color: var(--white);
-
-  padding: 65px 0 0;
-}
-
-.footer-container {
-  width: min(1150px, 92%);
-  max-width: 1150px;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    1.5fr 1fr 1.2fr 1fr;
-
-  align-items: start;
-  gap: 35px;
-
-  padding-bottom: 55px;
-}
-
-/* ======================================
-   FOOTER COLUMNS
-====================================== */
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  gap: 11px;
-  min-width: 0;
-}
-
-.footer-column h3 {
-  margin: 0 0 12px;
-
-  color: var(--white);
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.footer-column p,
-.footer-column a {
-  margin: 0;
-
-  color: #c6d4e7;
-
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.footer-about p {
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 17px;
-  font-style: italic;
-  font-weight: 400;
-
-  line-height: 1.8;
-  letter-spacing: 0.1px;
-}
-
-.footer-column a {
-  transition: color .2s ease;
-  overflow-wrap: anywhere;
-}
-
-.footer-column a:hover {
-  color: var(--orange);
-}
-
-/* ======================================
-   SOCIAL MEDIA ICONS
-====================================== */
-
-.site-footer .footer-social-links {
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-  justify-content: flex-start;
-
-  gap: 14px;
-  margin-top: 6px;
-}
-
-.site-footer .footer-social-links .footer-social-icon,
-.site-footer .footer-social-links .facebook-icon,
-.site-footer .footer-social-links .youtube-icon {
-  display: inline-flex;
-
-  flex: 0 0 44px;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 44px;
-  height: 44px;
-
-  min-width: 44px;
-  min-height: 44px;
-
-  padding: 0;
-
-  border-radius: 50%;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.22);
-
-  color: #ffffff;
-
-  line-height: 0;
-  overflow: hidden;
-
-  transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.site-footer .footer-social-icon svg {
-  display: block;
-
-  flex: 0 0 auto;
-
-  width: 21px;
-  height: 21px;
-
-  fill: currentColor;
-  color: #ffffff;
-}
-
-.site-footer .footer-social-icon svg path {
-  fill: currentColor;
-}
-
-.site-footer .footer-social-links .footer-social-icon:hover {
-  background: var(--orange);
-
-  border-color: var(--orange);
-
-  color: #ffffff;
-
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 8px 20px rgba(243,107,28,.25);
-}
-
-/* ======================================
-   FOOTER COPYRIGHT
-====================================== */
-
-.footer-bottom {
-  width: 100%;
-
-  border-top:
-    1px solid rgba(255,255,255,.12);
-
-  text-align: center;
-
-  padding: 20px;
-  margin: 0;
-
-  color: #aabbd2;
-
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-/* ======================================
    TABLET
 ====================================== */
 
@@ -582,11 +397,6 @@ button:focus-visible {
     flex-wrap: wrap;
 
     gap: 16px;
-  }
-
-  .footer-container {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
   }
 
 }
@@ -683,11 +493,6 @@ button:focus-visible {
     background-size: 100% 100%;
   }
 
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
 }
 
 /* ======================================
@@ -709,19 +514,6 @@ button:focus-visible {
   .contact-information {
     width: 100%;
     padding: 25px 20px;
-  }
-
-  .site-footer {
-    padding: 45px 0 0;
-  }
-
-  .footer-container {
-    width: 90%;
-    padding-bottom: 40px;
-  }
-
-  .footer-bottom {
-    padding: 20px 15px;
   }
 
 }
