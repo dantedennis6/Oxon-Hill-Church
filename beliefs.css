@@ -83,10 +83,15 @@ button:focus-visible {
 .site-logo {
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
+  align-items: flex-start;
   justify-content: center;
+
+  width: 190px;
+  flex: 0 0 190px;
   gap: 0;
+
   color: var(--navy);
+  white-space: nowrap;
 }
 
 .logo-name {
@@ -789,6 +794,11 @@ button:focus-visible {
     width: 92%;
     min-height: 75px;
     gap: 10px;
+  }
+
+  .site-header .site-logo {
+    width: 165px;
+    flex: 0 0 165px;
   }
 
   .site-header .logo-name {
