@@ -244,3 +244,44 @@
     transform: none;
   }
 }
+
+
+/* ======================================
+   FOOTER ALIGNMENT STANDARDIZATION
+====================================== */
+
+.site-footer .footer-column {
+  gap: 11px;
+}
+
+.site-footer .footer-column h3 {
+  margin: 0 0 12px;
+  line-height: 24px;
+}
+
+.site-footer .footer-column > a {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25.2px;
+}
+
+.site-footer .footer-column > p {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25.2px;
+}
+
+.site-footer .footer-about > p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 30.6px;
+}
+
