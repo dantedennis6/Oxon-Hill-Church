@@ -982,124 +982,6 @@ h3 {
 }
 
 /* =========================================
-   STANDARD WEBSITE FOOTER
-   MATCHING EVENTS AND ACTIVITIES
-========================================= */
-
-.site-footer {
-  background: #081e3b;
-  color: var(--white);
-  padding-top: 65px;
-}
-
-.footer-container {
-  width: min(1150px, 92%);
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
-  gap: 35px;
-  padding-bottom: 55px;
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 11px;
-  min-width: 0;
-}
-
-.footer-column h3 {
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: var(--white);
-}
-
-.footer-column p,
-.footer-column a {
-  color: #c6d4e7;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.footer-about p {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.8;
-  letter-spacing: 0.1px;
-}
-
-.footer-column a {
-  transition: color 0.2s ease;
-  overflow-wrap: anywhere;
-}
-
-.footer-column a:hover {
-  color: var(--orange);
-}
-
-/* =========================================
-   FACEBOOK AND YOUTUBE ICONS
-========================================= */
-
-.footer-social-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-  margin-top: 6px;
-}
-
-.footer-social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.22);
-  background: rgba(255,255,255,.08);
-  color: var(--white) !important;
-
-  transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.footer-social-icon svg {
-  width: 23px;
-  height: 23px;
-  display: block;
-  fill: currentColor;
-}
-
-.footer-social-icon:hover {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: var(--white) !important;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(243,107,28,.25);
-}
-
-.footer-social-icon:focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 4px;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.12);
-  text-align: center;
-  padding: 20px;
-  color: #aabbd2;
-  font-size: 13px;
-}
-
-/* =========================================
    TABLET
 ========================================= */
 
@@ -1117,10 +999,6 @@ h3 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
-  }
-
-  .footer-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
 }
@@ -1277,21 +1155,6 @@ h3 {
     padding: 65px 0;
   }
 
-  .site-footer {
-    padding-top: 45px;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding-bottom: 40px;
-  }
-
-  .footer-social-links {
-    justify-content: flex-start;
-    gap: 16px;
-  }
-
 }
 
 /* =========================================
@@ -1345,66 +1208,4 @@ a:focus-visible {
     scroll-behavior: auto !important;
   }
 
-}
-
-/* =========================================
-   FOOTER SOCIAL ICONS
-   MATCH EVENTS AND ACTIVITIES PAGE
-========================================= */
-
-.site-footer .footer-social-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 14px;
-  margin-top: 6px;
-}
-
-.site-footer .footer-social-links .footer-social-icon,
-.site-footer .footer-social-links .facebook-icon,
-.site-footer .footer-social-links .youtube-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
-
-  padding: 0;
-  border-radius: 50%;
-
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.22);
-
-  color: #ffffff;
-  box-shadow: none;
-
-  transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.site-footer .footer-social-icon svg {
-  display: block;
-  width: 21px;
-  height: 21px;
-  fill: currentColor;
-}
-
-.site-footer .footer-social-icon:hover {
-  background: #f36b1c;
-  border-color: #f36b1c;
-  color: #ffffff;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(243,107,28,.25);
-}
-
-.site-footer .footer-social-icon:focus-visible {
-  outline: 3px solid #f36b1c;
-  outline-offset: 4px;
 }
