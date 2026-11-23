@@ -202,10 +202,15 @@ button:focus-visible {
 }
 
 /* ======================================
-   HERO BANNER
+   HERO BANNER - FULL IMAGE COVERAGE
 ====================================== */
 
 .page-hero {
+  position: relative;
+  width: 100%;
+
+  background-color: var(--navy-dark);
+
   background-image:
     linear-gradient(
       rgba(11,40,80,.72),
@@ -213,10 +218,17 @@ button:focus-visible {
     ),
     url("./videos1.png");
 
-  background-size: 100% 100%, 100% auto;
-  background-position: center, center 40%;
-  background-repeat: no-repeat;
-  background-color: var(--navy-dark);
+  background-size:
+    100% 100%,
+    cover;
+
+  background-position:
+    center center,
+    center center;
+
+  background-repeat:
+    no-repeat,
+    no-repeat;
 
   min-height: 520px;
 
@@ -1146,8 +1158,14 @@ button:focus-visible {
     min-height: 380px;
     padding: 52px 0 58px;
 
-    background-size: 100% 100%, cover;
-    background-position: center, center 60%;
+    background-size:
+      100% 100%,
+      cover;
+
+    background-position:
+      center center,
+      center center;
+
     background-repeat: no-repeat;
   }
 
