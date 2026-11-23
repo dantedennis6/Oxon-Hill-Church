@@ -5,7 +5,7 @@ backend:
   branch: main
 
 media_folder: "images/uploads"
-public_folder: "/Oxon-Hill-Church/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   # EXISTING CHURCH CALENDAR
@@ -43,7 +43,7 @@ collections:
                 widget: "text"
                 required: false
 
-  # NEW EDITABLE EVENT CARDS
+  # EDITABLE EVENT CARDS
   - name: "featured"
     label: "Featured Event Cards"
     files:
