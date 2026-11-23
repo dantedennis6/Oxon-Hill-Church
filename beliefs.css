@@ -215,7 +215,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   PAGE HERO - IMAGE MOVED UP 24PX
+   PAGE HERO - FULL IMAGE COVERAGE
 ====================================== */
 
 .page-hero {
@@ -237,13 +237,15 @@ button:focus-visible {
     ),
     url("./Beliefs1.jpeg");
 
+  /* Fill the entire banner, edge to edge */
   background-size:
-    cover,
-    cover;
+    100% 100%,
+    100% 100%;
 
+  /* Center both background layers */
   background-position:
     center center,
-    center calc(50% - 24px);
+    center center;
 
   background-repeat:
     no-repeat,
@@ -253,6 +255,8 @@ button:focus-visible {
   border-top: 3px solid var(--orange);
   border-bottom: 3px solid var(--orange);
   text-align: center;
+
+  overflow: hidden;
 }
 
 .hero-inner {
@@ -1041,18 +1045,18 @@ button:focus-visible {
     font-size: 11px;
   }
 
-  /* MOBILE HERO - IMAGE MOVED UP */
+  /* MOBILE HERO - FULL IMAGE COVERAGE */
 
   .page-hero {
     min-height: 400px;
 
     background-size:
-      cover,
-      cover;
+      100% 100%,
+      100% 100%;
 
     background-position:
       center center,
-      center calc(50% - 24px);
+      center center;
   }
 
   .hero-inner {
