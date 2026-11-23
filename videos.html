@@ -150,19 +150,6 @@
 
             <div class="video-placeholder-content">
 
-              <button
-                class="video-play-icon"
-                id="video-play-button"
-                type="button"
-                aria-label="Check and play Sunday worship livestream">
-
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor"
-                        d="M8 5v14l11-7z"/>
-                </svg>
-
-              </button>
-
               <h3>Sunday Worship Livestream</h3>
 
               <p>
@@ -183,15 +170,6 @@
 
             </div>
           </div>
-
-          <iframe
-            id="live-video-frame"
-            class="live-video-frame"
-            title="Oxon Hill Church of Christ Sunday Worship"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
 
         </div>
       </div>
@@ -410,11 +388,7 @@
 
   </main>
 
-  <!-- =====================================
-       STANDARD WEBSITE FOOTER
-       REUSE ON ALL PAGES
-  ===================================== -->
-
+  <!-- STANDARD WEBSITE FOOTER -->
   <footer class="site-footer">
 
     <div class="footer-container">
@@ -601,103 +575,6 @@
 
     window.addEventListener("resize", updateVideoSpotlight);
     updateVideoSpotlight();
-
-    // AUTOMATIC YOUTUBE LIVESTREAM
-    const videoFrame =
-      document.getElementById("live-video-frame");
-
-    const videoPlaceholder =
-      document.getElementById("video-placeholder");
-
-    const playButton =
-      document.getElementById("video-play-button");
-
-    const streamMessage =
-      document.getElementById("stream-message");
-
-    const youtubeLiveURL =
-      "https://www.youtube.com/@oxonhill-r8r/live";
-
-    let currentLiveVideoId = null;
-
-    async function checkLivestream() {
-      try {
-        const response = await fetch("./live-video.json", {
-          cache: "no-store"
-        });
-
-        if (!response.ok) {
-          throw new Error(
-            "Livestream status unavailable: " + response.status
-          );
-        }
-
-        const data = await response.json();
-
-        currentLiveVideoId =
-          data.live === true &&
-          typeof data.videoId === "string" &&
-          /^[A-Za-z0-9_-]{11}$/.test(data.videoId)
-            ? data.videoId
-            : null;
-
-        playButton.setAttribute(
-          "aria-label",
-          currentLiveVideoId
-            ? "Play Sunday worship livestream"
-            : "Open Sunday worship on YouTube"
-        );
-
-        return currentLiveVideoId;
-
-      } catch (error) {
-        console.error("Unable to check livestream:", error);
-        currentLiveVideoId = null;
-        return null;
-      }
-    }
-
-    playButton.addEventListener("click", async () => {
-      const fallbackTab = window.open("about:blank", "_blank");
-
-      playButton.disabled = true;
-      streamMessage.textContent =
-        "Checking the current livestream...";
-
-      const videoId = await checkLivestream();
-
-      playButton.disabled = false;
-
-      if (videoId) {
-        if (fallbackTab) {
-          fallbackTab.close();
-        }
-
-        videoFrame.src =
-          "https://www.youtube.com/embed/" +
-          encodeURIComponent(videoId) +
-          "?autoplay=1&playsinline=1&rel=0";
-
-        videoPlaceholder.style.display = "none";
-        videoFrame.style.display = "block";
-
-        streamMessage.textContent =
-          "If the embedded player is unavailable, use the church's YouTube channel to watch live.";
-
-      } else {
-        streamMessage.textContent =
-          "No active broadcast was detected. Check YouTube for the latest stream.";
-
-        if (fallbackTab) {
-          fallbackTab.opener = null;
-          fallbackTab.location.replace(youtubeLiveURL);
-        } else {
-          window.location.href = youtubeLiveURL;
-        }
-      }
-    });
-
-    checkLivestream();
 
   </script>
 
