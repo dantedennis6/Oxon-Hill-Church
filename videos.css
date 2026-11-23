@@ -2,6 +2,8 @@
 /* ======================================
    OXON HILL CHURCH OF CHRIST
    VIDEOS AND LIVE WORSHIP
+
+   FOOTER STYLES ARE IN footer.css
 ====================================== */
 
 :root {
@@ -15,7 +17,9 @@
   --soft: #f5f8fc;
 }
 
-/* GLOBAL */
+/* ======================================
+   GLOBAL
+====================================== */
 
 * {
   box-sizing: border-box;
@@ -114,7 +118,9 @@ button:focus-visible {
   white-space: nowrap;
 }
 
-/* NAVIGATION */
+/* ======================================
+   NAVIGATION
+====================================== */
 
 .main-nav {
   display: flex;
@@ -152,7 +158,9 @@ button:focus-visible {
   color: var(--orange);
 }
 
-/* CONTACT BUTTON */
+/* ======================================
+   CONTACT BUTTON
+====================================== */
 
 .contact-button {
   display: inline-block;
@@ -182,7 +190,9 @@ button:focus-visible {
   box-shadow: 0 8px 20px rgba(243,107,28,.22);
 }
 
-/* MOBILE MENU */
+/* ======================================
+   MOBILE MENU
+====================================== */
 
 .menu-toggle {
   display: none;
@@ -575,7 +585,7 @@ button:focus-visible {
 }
 
 /* ======================================
-   SOCIAL ICONS
+   SOCIAL ICONS - VIDEO CONTENT ONLY
 ====================================== */
 
 .video-social-section {
@@ -890,151 +900,16 @@ button:focus-visible {
 }
 
 /* ======================================
-   STANDARD WEBSITE FOOTER
+   FOOTER
+
+   All footer styles are managed by
+   footer.css, which loads after this file.
+
+   Do not add duplicate footer rules here.
 ====================================== */
 
-.site-footer {
-  width: 100%;
-  background: #081e3b;
-  color: var(--white);
-  padding: 65px 0 0;
-}
-
-.footer-container {
-  width: min(1150px, 92%);
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
-  gap: 35px;
-
-  padding-bottom: 55px;
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 11px;
-  min-width: 0;
-}
-
-.footer-column h3 {
-  margin: 0 0 12px;
-  color: var(--white);
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.footer-column p,
-.footer-column a {
-  color: #c6d4e7;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.footer-column p {
-  margin: 0;
-}
-
-.footer-about p {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.8;
-  letter-spacing: .1px;
-}
-
-.footer-column > a {
-  transition: color .2s ease;
-  overflow-wrap: anywhere;
-}
-
-.footer-column > a:hover {
-  color: var(--orange);
-}
-
 /* ======================================
-   FACEBOOK AND YOUTUBE FOOTER ICONS
-====================================== */
-
-.footer-social-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 14px;
-  margin-top: 6px;
-}
-
-.footer-social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.22);
-  background: rgba(255,255,255,.08);
-  color: var(--white) !important;
-
-  transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.footer-social-icon svg {
-  display: block;
-  width: 23px;
-  height: 23px;
-  fill: currentColor;
-}
-
-.footer-social-icon:hover {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: var(--white) !important;
-
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(243,107,28,.25);
-}
-
-.footer-social-icon:focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 4px;
-}
-
-/* ======================================
-   FOOTER COPYRIGHT
-====================================== */
-
-.footer-bottom {
-  width: 100%;
-  margin: 0;
-  padding: 20px;
-
-  border-top: 1px solid rgba(255,255,255,.12);
-  text-align: center;
-
-  color: #aabbd2;
-  font-size: 13px;
-}
-
-.footer-bottom p {
-  margin: 0;
-}
-
-/* ======================================
-   TABLET HEADER AND FOOTER
+   TABLET HEADER
 ====================================== */
 
 @media (max-width: 1100px) {
@@ -1051,10 +926,6 @@ button:focus-visible {
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
-  }
-
-  .footer-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1121,25 +992,6 @@ button:focus-visible {
     order: 2;
     padding: 10px 13px;
     font-size: 11px;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .footer-social-links {
-    gap: 16px;
-  }
-
-  .footer-social-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .footer-social-icon svg {
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -1279,20 +1131,6 @@ button:focus-visible {
     max-width: 100%;
     text-wrap: pretty;
   }
-
-  .site-footer {
-    padding-top: 45px;
-  }
-
-  .footer-container {
-    gap: 35px;
-    padding-bottom: 40px;
-  }
-
-  .footer-column p,
-  .footer-column a {
-    overflow-wrap: anywhere;
-  }
 }
 
 /* ======================================
@@ -1351,9 +1189,7 @@ button:focus-visible {
   .schedule-card,
   .previous-card,
   .previous-button,
-  .directions-button,
-  .footer-social-icon,
-  .footer-column > a {
+  .directions-button {
     transition: none;
   }
 
@@ -1365,8 +1201,7 @@ button:focus-visible {
   .schedule-card:hover,
   .previous-card:hover,
   .previous-button:hover,
-  .directions-button:hover,
-  .footer-social-icon:hover {
+  .directions-button:hover {
     transform: none;
   }
 }
