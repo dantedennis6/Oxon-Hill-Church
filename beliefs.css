@@ -216,7 +216,6 @@ button:focus-visible {
 
 /* ======================================
    PAGE HERO - IMAGE MOVED UP 24PX
-   IMAGE: Beliefs1.png
 ====================================== */
 
 .page-hero {
@@ -236,7 +235,7 @@ button:focus-visible {
       rgba(7, 25, 53, 0.50),
       rgba(14, 48, 91, 0.40)
     ),
-    url("./Beliefs1.png");
+    url("./Beliefs1.jpeg");
 
   background-size:
     cover,
