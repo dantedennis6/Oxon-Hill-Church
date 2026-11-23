@@ -227,7 +227,7 @@ button:focus-visible {
    NO TRANSPARENCY
    NO HTML TEXT
 
-   IMAGE: ContactUs1.jpeg
+   IMAGE: ContactUs1.png
 ====================================== */
 
 .contact-hero {
@@ -239,20 +239,16 @@ button:focus-visible {
 
   background-color: var(--navy-dark);
 
-  background-image:
-    url("./ContactUs1.jpeg");
+  background-image: url("./ContactUs1.png");
 
   /*
-     STRETCH IMAGE TO FIT THE
-     ENTIRE HERO BANNER
-
-     NO CROPPING
+     FIT THE ENTIRE IMAGE
+     INSIDE THE HERO BANNER
+     WITHOUT CROPPING
   */
 
   background-size: 100% 100%;
-
   background-position: center center;
-
   background-repeat: no-repeat;
 
   border-top: 3px solid var(--orange);
