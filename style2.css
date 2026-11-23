@@ -976,20 +976,26 @@ button:focus-visible {
 
 /* =========================================
    STANDARD WEBSITE FOOTER
+   EXACT STYLING FROM BELIEFS.CSS
 ========================================= */
 
 .site-footer {
+  width: 100%;
   background: #081e3b;
   color: var(--white);
-  padding-top: 65px;
+  padding: 65px 0 0;
 }
 
 .footer-container {
   width: min(1150px, 92%);
+  max-width: 1150px;
   margin: auto;
+
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  align-items: start;
   gap: 35px;
+
   padding-bottom: 55px;
 }
 
@@ -998,16 +1004,22 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   gap: 11px;
+  min-width: 0;
 }
 
 .footer-column h3 {
-  font-size: 16px;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
   color: var(--white);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .footer-column p,
 .footer-column a {
+  margin: 0;
   color: #c6d4e7;
   font-size: 14px;
   line-height: 1.8;
@@ -1033,61 +1045,95 @@ button:focus-visible {
 
 /* =========================================
    FACEBOOK AND YOUTUBE ICONS
+   SMALL CIRCULAR DESIGN
+   EXACTLY AS BELIEFS.CSS
 ========================================= */
 
-.footer-social-links {
+.site-footer .footer-social-links {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 14px;
   margin-top: 6px;
 }
 
-.footer-social-icon {
+.site-footer .footer-social-links .footer-social-icon,
+.site-footer .footer-social-links .facebook-icon,
+.site-footer .footer-social-links .youtube-icon {
   display: inline-flex;
+  flex: 0 0 44px;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+
+  padding: 0;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.22);
-  background: rgba(255,255,255,.08);
-  color: var(--white) !important;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  color: #ffffff;
+  box-shadow: none;
+  line-height: 0;
+  overflow: hidden;
 
   transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.footer-social-icon svg {
-  width: 23px;
-  height: 23px;
+.site-footer .footer-social-icon svg {
   display: block;
+  flex: 0 0 auto;
+
+  width: 21px;
+  height: 21px;
+
+  fill: currentColor;
+  color: #ffffff;
+}
+
+.site-footer .footer-social-icon svg path {
   fill: currentColor;
 }
 
-.footer-social-icon:hover {
+.site-footer .footer-social-links .footer-social-icon:hover {
   background: var(--orange);
   border-color: var(--orange);
-  color: var(--white) !important;
+  color: #ffffff;
+
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(243,107,28,.25);
 }
 
-.footer-social-icon:focus-visible {
+.site-footer .footer-social-icon:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;
 }
 
+/* =========================================
+   FOOTER COPYRIGHT
+   EXACTLY AS BELIEFS.CSS
+========================================= */
+
 .footer-bottom {
+  width: 100%;
   border-top: 1px solid rgba(255,255,255,.12);
   text-align: center;
+
   padding: 20px;
+  margin: 0;
+
   color: #aabbd2;
   font-size: 13px;
+  line-height: 1.6;
 }
 
 /* ======================================
@@ -1111,7 +1157,7 @@ button:focus-visible {
     gap: 16px;
   }
 
-  /* STANDARD FOOTER TABLET LAYOUT */
+  /* FOOTER TABLET LAYOUT */
 
   .footer-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1158,6 +1204,12 @@ button:focus-visible {
 
   .livestream-panel {
     padding: 35px 18px;
+  }
+
+  /* FOOTER TABLET SPACING */
+
+  .footer-container {
+    gap: 25px;
   }
 }
 
@@ -1219,21 +1271,10 @@ button:focus-visible {
     font-size: 11px;
   }
 
-  /* STANDARD FOOTER MOBILE LAYOUT */
+  /* FOOTER MOBILE LAYOUT */
 
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .footer-social-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .footer-social-icon svg {
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -1389,15 +1430,37 @@ button:focus-visible {
     font-size: 1.2rem;
   }
 
-  /* STANDARD FOOTER */
+  /* ======================================
+     FOOTER MOBILE
+     EXACTLY AS BELIEFS.CSS
+  ====================================== */
 
   .site-footer {
-    padding-top: 45px;
+    padding: 45px 0 0;
   }
 
   .footer-container {
     width: 90%;
+    grid-template-columns: 1fr;
+    gap: 35px;
     padding-bottom: 40px;
+  }
+
+  .footer-column h3 {
+    margin-bottom: 8px;
+  }
+
+  .footer-column p,
+  .footer-column a {
+    overflow-wrap: anywhere;
+  }
+
+  .footer-about p {
+    font-size: 16px;
+  }
+
+  .site-footer .footer-social-links {
+    justify-content: flex-start;
   }
 
   .footer-bottom {
