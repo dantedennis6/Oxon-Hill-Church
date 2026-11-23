@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./worship.css">
+  <link rel="stylesheet" href="./footer.css">
 </head>
 
 <body>
@@ -431,31 +432,21 @@
 
   </main>
 
-  <!-- =====================================
-       STANDARD WEBSITE FOOTER
-       MATCHES EVENTS AND ACTIVITIES
-  ===================================== -->
-
+  <!-- STANDARD SHARED WEBSITE FOOTER -->
   <footer class="site-footer">
 
     <div class="footer-container">
 
-      <!-- CHURCH DESCRIPTION -->
       <div class="footer-column footer-about">
-
         <h3>Oxon Hill Church of Christ</h3>
-
         <p>
           A congregation committed to worshiping God,
           studying His Word, and sharing the gospel
           of Jesus Christ.
         </p>
-
       </div>
 
-      <!-- QUICK LINKS -->
       <div class="footer-column">
-
         <h3>Quick Links</h3>
 
         <a href="./Index2.html">Home</a>
@@ -464,12 +455,9 @@
         <a href="./videos.html">Videos</a>
         <a href="./events.html">Events and Activities</a>
         <a href="./giving.html">Giving</a>
-
       </div>
 
-      <!-- VISIT US -->
       <div class="footer-column">
-
         <h3>Visit Us</h3>
 
         <p>
@@ -477,24 +465,15 @@
           Temple Hills, Maryland 20748
         </p>
 
-        <a href="tel:+13018945412">
-          (301) 894-5412
-        </a>
-
-        <a href="mailto:1oxonhillcoc@gmail.com">
-          1oxonhillcoc@gmail.com
-        </a>
-
+        <a href="tel:+13018945412">(301) 894-5412</a>
+        <a href="mailto:1oxonhillcoc@gmail.com">1oxonhillcoc@gmail.com</a>
       </div>
 
-      <!-- SOCIAL MEDIA -->
       <div class="footer-column">
-
         <h3>Connect With Us</h3>
 
         <div class="footer-social-links">
 
-          <!-- FACEBOOK ICON -->
           <a
             href="https://www.facebook.com/p/Oxon-Hill-Church-of-Christ-100064627841522/"
             class="footer-social-icon facebook-icon"
@@ -507,14 +486,10 @@
                  fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg"
                  aria-hidden="true">
-
               <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/>
-
             </svg>
-
           </a>
 
-          <!-- YOUTUBE ICON -->
           <a
             href="https://www.youtube.com/channel/UCO5NVNcjxsgcHHzc_xCSlww"
             class="footer-social-icon youtube-icon"
@@ -527,25 +502,19 @@
                  fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg"
                  aria-hidden="true">
-
               <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
-
             </svg>
-
           </a>
 
         </div>
-
       </div>
 
     </div>
 
     <div class="footer-bottom">
-
       &copy; <span id="current-year"></span>
       Oxon Hill Church of Christ.
       All rights reserved.
-
     </div>
 
   </footer>
@@ -554,12 +523,10 @@
   <script>
 
     // COPYRIGHT YEAR
-
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
     // MOBILE NAVIGATION
-
     const menuToggle = document.querySelector(".menu-toggle");
     const mainNav = document.querySelector(".main-nav");
 
@@ -576,7 +543,6 @@
     });
 
     // OVAL SPOTLIGHT EFFECT
-
     const worshipSection = document.querySelector(".worship-section");
     const spotlightOverlay = document.querySelector(".worship-spotlight-overlay");
 
@@ -596,7 +562,6 @@
     updateWorshipSpotlight();
 
     // READING STATUS AND SMOOTH CARD EXPANSION
-
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const worshipCards = document.querySelectorAll(".worship-card");
 
