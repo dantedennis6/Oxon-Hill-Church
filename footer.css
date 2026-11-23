@@ -245,7 +245,6 @@
   }
 }
 
-
 /* ======================================
    FOOTER ALIGNMENT STANDARDIZATION
 ====================================== */
@@ -284,13 +283,3 @@
   font-style: italic;
   line-height: 30.6px;
 }
-
-/* ======================================
-   SHARED FOOTER ALIGNMENT
-====================================== */
-
-/* Align Worship link with phone number */
-.site-footer .footer-column:nth-child(2) a:nth-of-type(3) {
-  transform: translateY(-11px);
-}
-
